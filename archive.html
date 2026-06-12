@@ -210,8 +210,8 @@
     if (b.t === 'h') return `<div class="blk-h">${esc(b.x)}</div>`;
     if (b.t === 'n') return `<div class="blk-n"><strong style="color:var(--color-accent,#8B4513)">〖译注〗</strong>${esc(b.x)}</div>`;
     if (b.t === 'li') return `<div class="blk-li">${esc(b.x)}</div>`;
-    if (b.t === 'tb') return `<table class="blk-tb">${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>`;
-    return `<div class="blk-p">${esc(b.x)}</div>`;
+    if (b.t === 'tb') return `<table class="blk-tb">${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c).replace(/\n/g, '<br>')}</td>`).join('')}</tr>`).join('')}</table>`;
+    return `<div class="blk-p">${esc(b.x).replace(/\n/g, '<br>')}</div>`;
   }
 
   /* ---- tabs ---- */
