@@ -790,3 +790,14 @@ a.card:hover .card-arrow {
     font-size: 12pt;
   }
 }
+
+/* ---- research figures ---- */
+.fig { margin: 1.3rem 0; }
+.fig img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--color-border-light, #E5D5C0); display: block; }
+.fig figcaption { font-size: 0.82rem; color: var(--color-text-muted, #8a7a68); margin-top: 0.45rem; line-height: 1.5; }
+.fig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.3rem 0; }
+.fig-grid .fig { margin: 0; }
+.fig-grid .fig img { aspect-ratio: 4/3; object-fit: cover; }
+@media (max-width: 720px) { .fig-grid { grid-template-columns: 1fr; } }
+.fig-right { float: right; width: 220px; margin: 0.2rem 0 0.8rem 1.4rem; }
+@media (max-width: 600px) { .fig-right { float: none; width: 100%; margin: 1rem 0; } }
