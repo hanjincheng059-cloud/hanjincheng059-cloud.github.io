@@ -87,7 +87,8 @@
         <p class="muted">
           Translated from Riksarkivet, Ostindiska kompaniet, Försäljningsböcker (SE/RA/420132/31/2, microfilm R0002253–R0002259)
           and the Warwick digital series, 1733–1759. Translation completed June 2026. Data: CC BY 4.0 —
-          <a href="digital.html#datasets">downloads &amp; citation</a>.
+          <a href="digital.html#datasets">downloads &amp; citation</a> ·
+          <a href="assets/files/SOIC_翻译稿_整理版.docx" download>⬇ Word edition 整理版全文下载</a>.
         </p>
 
         <div class="tabs">
@@ -207,7 +208,7 @@
 
   function renderBlock(b) {
     if (b.t === 'h') return `<div class="blk-h">${esc(b.x)}</div>`;
-    if (b.t === 'n') return `<div class="blk-n">${esc(b.x)}</div>`;
+    if (b.t === 'n') return `<div class="blk-n"><strong style="color:var(--color-accent,#8B4513)">〖译注〗</strong>${esc(b.x)}</div>`;
     if (b.t === 'li') return `<div class="blk-li">${esc(b.x)}</div>`;
     if (b.t === 'tb') return `<table class="blk-tb">${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>`;
     return `<div class="blk-p">${esc(b.x)}</div>`;
