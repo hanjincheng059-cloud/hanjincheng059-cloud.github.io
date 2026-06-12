@@ -1,0 +1,4 @@
+record_id,company,ship,year,origin_port,destination_port,commodity,quantity,unit,unit_price,currency,archive_source,is_example,notes
+EX-001,SOIC,(ship name),(year),Canton,Gothenburg,China Root (Smilax glabra),(qty),piculs,(price),silver taels,"GUB / Riksarkivet shelfmark here",TRUE,Template row — replace with your transcription
+EX-002,EIC,(ship name),(year),Canton,London,China Root (Radix Chinae),(qty),lbs,(price),pounds sterling,"BL IOR/... shelfmark here",TRUE,Template row — replace with your transcription
+EX-003,US-press,(vessel name),(year),Canton,(US port),China Root,(qty),(unit),(price),USD,"Newspaper title + date + page",TRUE,Template row for American shipping news layer (1784-1842)

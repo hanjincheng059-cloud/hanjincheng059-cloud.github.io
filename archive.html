@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SOIC Sales Catalogues 1733–1759: full Chinese translation of 21 volumes (2,003 pages) from the Riksarkivet, with a searchable database of 6,500+ auction records. By Jincheng Han.">
+  <title>SOIC Archive Reader — Jincheng Han</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    .reader-layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.6rem; margin-top: 1.4rem; }
+    @media (max-width: 860px) { .reader-layout { grid-template-columns: 1fr; } }
+    .vol-list { background: var(--color-card); border: 1px solid var(--color-border-light); border-radius: 8px; padding: 0.8rem; max-height: 72vh; overflow-y: auto; }
+    .vol-list button { display: block; width: 100%; text-align: left; background: none; border: none; padding: 0.42rem 0.6rem; border-radius: 5px; cursor: pointer; font-family: var(--font-body, serif); font-size: 0.92rem; color: var(--color-text); }
+    .vol-list button:hover { background: rgba(139,69,19,0.08); }
+    .vol-list button.active { background: rgba(139,69,19,0.14); color: var(--color-accent); font-weight: 600; }
+    .vol-list .pgcount { font-size: 0.78rem; color: var(--color-text-muted); }
+    .reader-pane { background: var(--color-card); border: 1px solid var(--color-border-light); border-radius: 8px; padding: 1.4rem 1.8rem; min-height: 50vh; }
+    .pagebar { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--color-border-light); }
+    .pagebar button { background: none; border: 1px solid var(--color-border); border-radius: 6px; padding: 0.3rem 0.8rem; cursor: pointer; font-size: 0.9rem; color: var(--color-text); }
+    .pagebar button:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .pagebar input { width: 4.5rem; padding: 0.28rem 0.5rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 0.9rem; }
+    .pagebar .pginfo { font-family: var(--font-label); font-size: 0.88rem; color: var(--color-text-muted); }
+    .blk-h { font-size: 1.08rem; font-weight: 700; color: var(--color-primary); margin: 1.1rem 0 0.4rem; }
+    .blk-p { margin: 0.55rem 0; line-height: 1.75; }
+    .blk-li { margin: 0.25rem 0 0.25rem 1.4rem; list-style: disc; display: list-item; line-height: 1.7; }
+    .blk-n { margin: 0.7rem 0; padding: 0.6rem 0.9rem; border-left: 3px solid var(--color-accent); background: rgba(139,69,19,0.05); font-size: 0.9rem; color: var(--color-text-muted); border-radius: 0 6px 6px 0; }
+    .blk-tb { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.8rem 0; }
+    .blk-tb td, .blk-tb th { border: 1px solid var(--color-border-light); padding: 0.35rem 0.55rem; vertical-align: top; }
+    .blk-tb tr:first-child td { background: rgba(139,69,19,0.07); font-weight: 600; }
+    .tabs { display: flex; gap: 0.6rem; margin-top: 1.2rem; flex-wrap: wrap; }
+    .tabs button { background: none; border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 1.2rem; cursor: pointer; font-family: var(--font-label); font-size: 0.92rem; color: var(--color-text); }
+    .tabs button.active { background: var(--color-accent, #8B4513); border-color: var(--color-accent, #8B4513); color: #fff; }
+    .searchbar { display: flex; gap: 0.6rem; margin: 1.2rem 0 0.8rem; flex-wrap: wrap; }
+    .searchbar input, .searchbar select { padding: 0.45rem 0.8rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 0.95rem; flex: 1; min-width: 180px; }
+    .searchbar select { flex: 0 1 auto; }
+    .hit { padding: 0.7rem 0.9rem; border: 1px solid var(--color-border-light); border-radius: 6px; margin: 0.5rem 0; cursor: pointer; }
+    .hit:hover { border-color: var(--color-accent); }
+    .hit .loc { font-family: var(--font-label); font-size: 0.8rem; color: var(--color-accent); }
+    .hit mark { background: rgba(139,69,19,0.22); color: inherit; padding: 0 2px; border-radius: 2px; }
+    .db-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.6rem; }
+    .db-table th, .db-table td { border: 1px solid var(--color-border-light); padding: 0.35rem 0.55rem; text-align: left; }
+    .db-table th { background: var(--color-card); font-family: var(--font-label); color: var(--color-primary); cursor: pointer; user-select: none; }
+    .muted { color: var(--color-text-muted); font-size: 0.88rem; }
+    .stat-strip { display: flex; gap: 1.6rem; flex-wrap: wrap; margin: 0.8rem 0; }
+    .stat-strip div { font-family: var(--font-label); }
+    .stat-strip b { font-size: 1.3rem; color: var(--color-accent); display: block; }
+    #loading { padding: 2rem; text-align: center; color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Jincheng Han</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="digital.html" class="active">Digital</a></li>
+        <li><a href="news.html">News &amp; Notes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-lang"><a href="zh.html">中文</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>SOIC Sales Catalogues, 1733–1759 <span style="font-size:1.1rem;font-weight:400">瑞典东印度公司销售账簿 · 中文翻译稿</span></h1>
+      <p class="page-desc">Full Chinese translation of the Riksarkivet Försäljningsböcker — 21 volumes, 2,003 pages, with a searchable auction database</p>
+    </div>
+  </header>
+
+  <main class="page" style="padding-top:0">
+    <div class="container">
+
+      <section class="section">
+        <div class="stat-strip">
+          <div><b>21</b>volumes 卷</div>
+          <div><b>2,003</b>pages 页</div>
+          <div><b>645</b>tables 表格</div>
+          <div><b id="statRecords">6,500+</b>auction records 拍卖记录</div>
+        </div>
+        <p class="muted">
+          Translated from Riksarkivet, Ostindiska kompaniet, Försäljningsböcker (SE/RA/420132/31/2, microfilm R0002253–R0002259)
+          and the Warwick digital series, 1733–1759. Translation completed June 2026. Data: CC BY 4.0 —
+          <a href="digital.html#datasets">downloads &amp; citation</a>.
+        </p>
+
+        <div class="tabs">
+          <button id="tabRead" class="active" onclick="showTab('read')">📖 Read 全文阅读</button>
+          <button id="tabSearch" onclick="showTab('search')">🔍 Search 全文检索</button>
+          <button id="tabData" onclick="showTab('data')">📊 Auction Database 拍卖数据</button>
+        </div>
+      </section>
+
+      <!-- READER -->
+      <section class="section" id="paneRead">
+        <div class="reader-layout">
+          <aside class="vol-list" id="volList"></aside>
+          <div class="reader-pane">
+            <div class="pagebar">
+              <button onclick="gotoPage(pageIdx-1)">← Prev</button>
+              <span class="pginfo" id="pgInfo"></span>
+              <button onclick="gotoPage(pageIdx+1)">Next →</button>
+              <span class="pginfo">Jump to page 跳页:</span>
+              <input type="number" id="pgJump" min="1" onchange="jumpToLabel(this.value)">
+            </div>
+            <div id="pageBody"><div id="loading">Loading… 若长时间无内容，请通过本地服务器或 GitHub Pages 访问（file:// 无法加载数据）。</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEARCH -->
+      <section class="section" id="paneSearch" style="display:none">
+        <div class="searchbar">
+          <input id="ftQuery" placeholder="Search full text… 检索全文（如：Radix Chinæ / 茯苓 / Campbell / 武夷茶）" onkeydown="if(event.key==='Enter')runSearch()">
+          <button class="pagebar-btn" style="padding:0.45rem 1.4rem;border:1px solid var(--color-border);border-radius:6px;background:var(--color-accent,#8B4513);color:#fff;cursor:pointer" onclick="runSearch()">Search</button>
+        </div>
+        <p class="muted" id="ftStatus">Searches all 21 volumes (loads ~3 MB on first use). 首次检索需加载全部分卷数据。</p>
+        <div id="ftResults"></div>
+      </section>
+
+      <!-- DATABASE -->
+      <section class="section" id="paneData" style="display:none">
+        <div class="searchbar">
+          <input id="dbQuery" placeholder="Filter by item / buyer / lot… 按品名、买家、批号筛选（如：茶杯 / Sahlgren / 瓷）" oninput="renderDb()">
+          <select id="dbVol" onchange="renderDb()"><option value="">All volumes 全部卷</option></select>
+        </div>
+        <p class="muted" id="dbStatus"></p>
+        <div style="overflow-x:auto"><table class="db-table" id="dbTable">
+          <thead><tr>
+            <th onclick="sortDb(0)">Volume 卷</th><th onclick="sortDb(1)">Page 页</th><th onclick="sortDb(3)">Lot 批号</th>
+            <th onclick="sortDb(4)">Qty 数量</th><th onclick="sortDb(5)">Item 品名</th><th onclick="sortDb(6)">Buyer 买家</th><th onclick="sortDb(7)">Price 价格</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <div class="pagebar" style="margin-top:0.8rem;border:none">
+          <button onclick="dbPage--;renderDb(true)">← Prev</button>
+          <span class="pginfo" id="dbPgInfo"></span>
+          <button onclick="dbPage++;renderDb(true)">Next →</button>
+        </div>
+        <p class="muted">Full CSV: <a href="data/soic_auction_records_1733_1759.csv" download>soic_auction_records_1733_1759.csv</a> ·
+          <a href="data/soic_archive_tables_full.csv" download>soic_archive_tables_full.csv</a> (every table row, uncurated)</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jincheng Han</p>
+      <p>Built with care — a scholar's corner on the web.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+  <script>
+  const BASE = 'data/archive/';
+  let INDEX = null, volCache = {}, curVol = 1, pageIdx = 0;
+  let dbRows = null, dbFiltered = [], dbPage = 0, dbSort = [0, 1];
+  const PER = 100;
+
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  fetch(BASE + 'index.json').then(r => r.json()).then(ix => {
+    INDEX = ix;
+    const vl = document.getElementById('volList');
+    vl.innerHTML = ix.volumes.map(v =>
+      `<button id="volBtn${v.id}" onclick="loadVol(${v.id})">${esc(v.title)}<br><span class="pgcount">${v.pages} pages</span></button>`).join('');
+    const sel = document.getElementById('dbVol');
+    ix.volumes.forEach(v => { const o = document.createElement('option'); o.value = v.title; o.textContent = v.title; sel.appendChild(o); });
+    loadVol(1);
+  }).catch(() => {});
+
+  function fetchVol(id) {
+    if (volCache[id]) return Promise.resolve(volCache[id]);
+    const meta = INDEX.volumes.find(v => v.id === id);
+    return fetch(BASE + meta.file).then(r => r.json()).then(v => (volCache[id] = v));
+  }
+
+  function loadVol(id, page = 0) {
+    curVol = id;
+    document.querySelectorAll('.vol-list button').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById('volBtn' + id); if (btn) btn.classList.add('active');
+    fetchVol(id).then(() => gotoPage(page));
+  }
+
+  function gotoPage(i) {
+    const v = volCache[curVol]; if (!v) return;
+    pageIdx = Math.max(0, Math.min(i, v.pages.length - 1));
+    const pg = v.pages[pageIdx];
+    document.getElementById('pgInfo').textContent = `${v.title} — 第 ${pg.n} 页 (${pageIdx + 1}/${v.pages.length})`;
+    document.getElementById('pageBody').innerHTML = pg.blocks.map(renderBlock).join('') || '<p class="muted">（本页无文字内容）</p>';
+    window.scrollTo({ top: document.getElementById('paneRead').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function jumpToLabel(n) {
+    const v = volCache[curVol]; if (!v) return;
+    const i = v.pages.findIndex(p => p.n == n);
+    if (i >= 0) gotoPage(i);
+  }
+
+  function renderBlock(b) {
+    if (b.t === 'h') return `<div class="blk-h">${esc(b.x)}</div>`;
+    if (b.t === 'n') return `<div class="blk-n">${esc(b.x)}</div>`;
+    if (b.t === 'li') return `<div class="blk-li">${esc(b.x)}</div>`;
+    if (b.t === 'tb') return `<table class="blk-tb">${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>`;
+    return `<div class="blk-p">${esc(b.x)}</div>`;
+  }
+
+  /* ---- tabs ---- */
+  function showTab(t) {
+    ['Read', 'Search', 'Data'].forEach(x => {
+      document.getElementById('pane' + x).style.display = (x.toLowerCase() === t) ? '' : 'none';
+      document.getElementById('tab' + x).classList.toggle('active', x.toLowerCase() === t);
+    });
+    if (t === 'data' && !dbRows) loadDb();
+  }
+
+  /* ---- full-text search ---- */
+  function runSearch() {
+    const q = document.getElementById('ftQuery').value.trim();
+    if (!q || !INDEX) return;
+    const st = document.getElementById('ftStatus');
+    st.textContent = 'Loading volumes… 加载分卷数据…';
+    Promise.all(INDEX.volumes.map(v => fetchVol(v.id))).then(() => {
+      const ql = q.toLowerCase(); const hits = [];
+      for (const meta of INDEX.volumes) {
+        const v = volCache[meta.id];
+        for (let pi = 0; pi < v.pages.length; pi++) {
+          for (const b of v.pages[pi].blocks) {
+            const text = b.t === 'tb' ? b.rows.flat().join(' | ') : b.x;
+            const lo = text.toLowerCase(); const k = lo.indexOf(ql);
+            if (k >= 0) {
+              const s = Math.max(0, k - 60);
+              const snip = (s > 0 ? '…' : '') + text.slice(s, k + ql.length + 90) + '…';
+              hits.push({ vid: meta.id, vt: v.title, pi, pn: v.pages[pi].n, snip });
+              if (hits.length >= 300) break;
+            }
+          }
+          if (hits.length >= 300) break;
+        }
+      }
+      st.textContent = `${hits.length}${hits.length >= 300 ? '+' : ''} results 条结果 — “${q}”`;
+      const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      document.getElementById('ftResults').innerHTML = hits.map(h =>
+        `<div class="hit" onclick="showTab('read');loadVol(${h.vid},${h.pi})">
+          <span class="loc">${esc(h.vt)} · 第 ${h.pn} 页</span><br>${esc(h.snip).replace(re, m => '<mark>' + m + '</mark>')}</div>`).join('')
+        || '<p class="muted">No results. 未找到结果。</p>';
+    });
+  }
+
+  /* ---- auction database ---- */
+  function parseCSV(text) {
+    const rows = []; let row = [], cur = '', inQ = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (inQ) {
+        if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false; }
+        else cur += ch;
+      } else if (ch === '"') inQ = true;
+      else if (ch === ',') { row.push(cur); cur = ''; }
+      else if (ch === '\n') { row.push(cur.replace(/\r$/, '')); rows.push(row); row = []; cur = ''; }
+      else cur += ch;
+    }
+    if (cur !== '' || row.length) { row.push(cur.replace(/\r$/, '')); rows.push(row); }
+    return rows;
+  }
+
+  function loadDb() {
+    document.getElementById('dbStatus').textContent = 'Loading… 加载中…';
+    fetch('data/soic_auction_records_1733_1759.csv').then(r => r.text()).then(t => {
+      const rows = parseCSV(t.replace(/^﻿/, ''));
+      dbRows = rows.slice(1).filter(r => r.length >= 8);
+      document.getElementById('statRecords').textContent = dbRows.length.toLocaleString();
+      renderDb();
+    });
+  }
+
+  function renderDb(keepPage) {
+    if (!dbRows) return;
+    if (!keepPage) dbPage = 0;
+    const q = document.getElementById('dbQuery').value.trim().toLowerCase();
+    const vol = document.getElementById('dbVol').value;
+    dbFiltered = dbRows.filter(r =>
+      (!vol || r[0] === vol) &&
+      (!q || r.some(c => c.toLowerCase().includes(q))));
+    const [ci, dir] = dbSort;
+    dbFiltered.sort((a, b) => {
+      const x = a[ci], y = b[ci];
+      const nx = parseFloat(x), ny = parseFloat(y);
+      const c = (!isNaN(nx) && !isNaN(ny)) ? nx - ny : x.localeCompare(y, 'zh');
+      return c * dir;
+    });
+    const maxPg = Math.max(0, Math.ceil(dbFiltered.length / PER) - 1);
+    dbPage = Math.max(0, Math.min(dbPage, maxPg));
+    const slice = dbFiltered.slice(dbPage * PER, (dbPage + 1) * PER);
+    document.querySelector('#dbTable tbody').innerHTML = slice.map(r =>
+      `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td><td>${esc(r[5])}</td><td>${esc(r[6])}</td><td>${esc(r[7])}</td></tr>`).join('');
+    document.getElementById('dbStatus').textContent = `${dbFiltered.length.toLocaleString()} records 条记录`;
+    document.getElementById('dbPgInfo').textContent = `${dbPage + 1} / ${maxPg + 1}`;
+  }
+
+  function sortDb(ci) {
+    dbSort = (dbSort[0] === ci) ? [ci, -dbSort[1]] : [ci, 1];
+    renderDb(true);
+  }
+  </script>
+</body>
+</html>

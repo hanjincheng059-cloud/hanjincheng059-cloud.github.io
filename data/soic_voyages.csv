@@ -1,0 +1,4 @@
+voyage_id,ship,departure_year,return_year,destination,route,supercargo_or_note,outcome,source
+SOIC-1732-01,Friedericus Rex Sueciae,1732,1733,Canton,Gothenburg-Cadiz-Canton,Colin Campbell (first expedition),Returned to Gothenburg,"Hallberg & Koninckx eds., A Passage to China (1996)"
+SOIC-1743-01,Götheborg,1743,1745,Canton,Gothenburg-Cadiz-Canton,Third voyage of the ship,"Sank at New Älvsborg, Gothenburg harbour, 12 Sep 1745; cargo partly salvaged","Wästfelt, Porslinet från Götheborg; Frängsmyr, Ostindiska kompaniet (1976)"
+SOIC-1806-01,(last Canton departure),1806,,Canton,Gothenburg-Canton,Final SOIC departure from Canton,Company closed Canton factory in 1813,"Frängsmyr (1976); Koninckx (1980)"

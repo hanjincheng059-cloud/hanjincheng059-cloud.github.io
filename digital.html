@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital project by Jincheng Han — mapping Swedish East India Company voyages and the global circulation of China Root (Smilax glabra), 1732–1813.">
+  <title>Digital Projects — Jincheng Han</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    /* page-specific, consistent with site palette */
+    #routeMap { height: 420px; border: 1px solid var(--color-border); border-radius: 8px; z-index: 1; }
+    .viz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.2rem; }
+    @media (max-width: 720px) { .viz-grid { grid-template-columns: 1fr; } }
+    .viz-card { background: var(--color-card); border: 1px solid var(--color-border-light); border-radius: 8px; padding: 1.2rem 1.4rem; }
+    .viz-card h3 { font-size: 1.15rem; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.8rem 0 0.4rem; }
+    .data-table th, .data-table td { border: 1px solid var(--color-border-light); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    .data-table th { background: var(--color-card); font-family: var(--font-label); color: var(--color-primary); }
+    .badge { display: inline-block; font-family: var(--font-label); font-size: 0.78rem; padding: 0.1rem 0.55rem; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text-muted); margin-left: 0.5rem; vertical-align: middle; }
+    .footnote { font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+    .dl-links a { margin-right: 1.2rem; }
+    .timeline { list-style: none; margin: 1rem 0; padding-left: 0; }
+    .timeline li { padding: 0.35rem 0 0.35rem 1.1rem; border-left: 2px solid var(--color-border); margin-left: 0.4rem; }
+    .timeline .yr { font-family: var(--font-label); color: var(--color-accent); font-weight: 600; margin-right: 0.6rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Jincheng Han</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="digital.html" class="active">Digital</a></li>
+        <li><a href="news.html">News &amp; Notes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-lang"><a href="zh.html">中文</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Digital Projects</h1>
+      <p class="page-desc">Computational approaches to the history of the Canton trade</p>
+    </div>
+  </header>
+
+  <main class="page" style="padding-top:0">
+    <div class="container">
+
+      <section class="section">
+        <div class="project-block">
+          <h2>Tracing the China Trade: SOIC Voyages and the Global Journey of China Root, 1732–1813</h2>
+          <p class="section-label">Phase 1 — Infrastructure &amp; Seed Data <span class="badge">in progress</span></p>
+          <p>
+            This project builds a structured, open dataset from the trade manifests of the Swedish East India Company (SOIC)
+            and the English East India Company (EIC), together with shipping news in early American newspapers (1784–1842).
+            It forms the computational layer of my research on the global circulation of <em>China Root</em>
+            (<em>tufuling</em>, <em>Smilax glabra</em>) — asking not only <em>how much</em> of the root crossed the oceans,
+            but how commercial print (cargo lists, price currents, shipping columns) shaped European and American
+            imaginations of Chinese commodities. Computation here extends, rather than replaces, close archival reading.
+          </p>
+          <p>
+            <span class="entry-tag">Digital Humanities</span>
+            <span class="entry-tag">Trade Manifests</span>
+            <span class="entry-tag">SOIC &middot; EIC</span>
+            <span class="entry-tag">Mapping &amp; Network Analysis</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="project-block">
+          <h2>The Gothenburg–Cadiz–Canton Circuit</h2>
+          <p>
+            SOIC vessels carried Swedish iron, copper and timber to Cadiz, exchanged them for Spanish-American silver,
+            and sailed on to Canton, where silver bought tea, porcelain, silk — and medicinal goods such as China Root.
+            Between 1731 and 1813 the company mounted 132 expeditions, 129 of them to Canton.
+          </p>
+          <div id="routeMap"></div>
+          <p class="footnote">
+            Route reconstruction after Frängsmyr (1976), Koninckx (1980), and Han, “Qing-Dynasty Sweden and Xiangshan Culture” (forthcoming).
+            Waypoints are schematic, not navigational tracks.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="project-block">
+          <h2>The Trade at a Glance</h2>
+          <div class="viz-grid">
+            <div class="viz-card">
+              <h3>Expeditions per charter (oktroj)</h3>
+              <canvas id="charterChart" height="220"></canvas>
+            </div>
+            <div class="viz-card">
+              <h3>Destinations, 1731–1813</h3>
+              <canvas id="destChart" height="220"></canvas>
+            </div>
+          </div>
+          <p class="footnote">
+            Totals (132 expeditions; 129 to Canton, 3 to India) after Frängsmyr (1976) and Koninckx (1980).
+            Per-charter breakdown pending final verification against Koninckx’s appendix.
+          </p>
+
+          <h3 style="margin-top:1.6rem">Key dates</h3>
+          <ul class="timeline">
+            <li><span class="yr">1731</span> Fredrik I grants the SOIC its first 15-year charter</li>
+            <li><span class="yr">1732</span> <em>Friedericus Rex Sueciae</em> departs Gothenburg; Colin Campbell establishes the Swedish factory at Canton</li>
+            <li><span class="yr">1745</span> The <em>Götheborg</em> sinks at the entrance to Gothenburg harbour, returning from Canton</li>
+            <li><span class="yr">1757</span> The Qing court restricts European trade to Canton (the “Canton System”)</li>
+            <li><span class="yr">1784</span> The <em>Empress of China</em> opens direct American trade with Canton — the start of the U.S. shipping-news layer of this dataset</li>
+            <li><span class="yr">1806</span> Last SOIC departure from Canton</li>
+            <li><span class="yr">1813</span> SOIC closes its Canton factory</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="project-block">
+          <h2>Datasets</h2>
+          <p>
+            Two relational tables anchor the project. <strong>Voyages</strong> records SOIC expeditions
+            (ship, years, route, outcome, source); <strong>Cargo</strong> records commodity-level entries for China Root
+            transcribed from company manifests and newspaper shipping columns, each row tied to an archival shelfmark.
+            The seed sample below will grow as transcription proceeds.
+          </p>
+          <table class="data-table" id="voyageTable">
+            <thead>
+              <tr><th>Voyage</th><th>Ship</th><th>Years</th><th>Destination</th><th>Note</th><th>Outcome</th><th>Source</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p class="dl-links">
+            <a href="data/soic_voyages.csv" download>⬇ soic_voyages.csv</a>
+            <a href="data/china_root_cargo.csv" download>⬇ china_root_cargo.csv (schema)</a>
+          </p>
+          <p class="footnote">Data released under CC BY 4.0. Cite as: Han, Jincheng, “Tracing the China Trade” (digital project, 2026).</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="project-block">
+          <h2 id="datasets">SOIC Sales Catalogues, 1733–1759 (Försäljningsböcker)</h2>
+          <p class="section-label">Full translation completed June 2026 <span class="badge">21 volumes · 2,003 pages</span></p>
+          <p>
+            A transcription-and-translation project based on the Riksarkivet microfilms
+            (Ostindiska kompaniet, Försäljningsböcker, SE/RA/420132/31/2, rolls R0002253–R0002259) and the
+            Warwick digital series, recording the Gothenburg auctions of SOIC return cargoes: the printed
+            <em>Verkauffungs-Conditiones</em> (auction conditions in German) and manuscript sales ledgers
+            listing every lot, buyer and hammer price. The complete Chinese translation —
+            <strong>21 volumes, 2,003 pages (1733–1759)</strong> — is now readable and searchable online,
+            alongside a structured database of <strong>6,500+ auction records</strong>
+            (lot, commodity, buyer, price) extracted from 645 ledger tables.
+          </p>
+          <p>
+            <a href="archive.html" style="display:inline-block;font-family:var(--font-label);padding:0.55rem 1.4rem;border:1.5px solid var(--color-accent,#8B4513);border-radius:8px;font-weight:600">
+              📖 Open the Archive Reader — 全文阅读 · 检索 · 拍卖数据库 →
+            </a>
+          </p>
+          <p>
+            Highlights so far: the 1733 maiden-voyage catalogue of the <em>Friedericus Rex Sueciæ</em> already lists
+            <strong>“Eine Parthey Radix Chinæ”</strong> — China Root at the very first SOIC auction; the December 1742
+            joint sale (Riddarehuset &amp; Stockholm from Canton, Friedericus Rex Sueciæ from Bengal) records
+            721,694 catties of Bohea tea, 200,043 catties of tutenag, 2,197 catties of rhubarb, turmeric from both
+            Canton and Bengal, and 2,652 maunds of saltpetre; the 1745 tea ledgers name the buyers —
+            Sahlgren, Campbell, Ross, Arfwidsson — lot by lot.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Roll</th><th>Year</th><th>Ship(s)</th><th>Pages</th><th>Contents</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>R0002253</td><td>1733</td><td>Friedericus Rex Sueciæ (1st voyage)</td><td>145</td><td>Auction conditions + full sales ledger</td></tr>
+              <tr><td>R0002254</td><td>1736</td><td>Friedericus Rex Sueciæ</td><td>136</td><td>Sales book</td></tr>
+              <tr><td>R0002255</td><td>1742</td><td>Götheborg (1st voyage)</td><td>75</td><td>Sales book</td></tr>
+              <tr><td>R0002256</td><td>1742</td><td>Riddarehuset &amp; Stockholm + FRS (Bengal)</td><td>131</td><td>Joint auction, Canton + Bengal cargo</td></tr>
+              <tr><td>R0002257</td><td>1743</td><td>FRS Bengal goods</td><td>45</td><td>Bengali textiles ledger</td></tr>
+              <tr><td>R0002258</td><td>1743</td><td>Calmare</td><td>70</td><td>Sales book</td></tr>
+              <tr><td>R0002259</td><td>1745–46</td><td>Calmare &amp; Friedericus Rex Sueciæ</td><td>236</td><td>Tea ledgers with buyers and prices</td></tr>
+            </tbody>
+          </table>
+          <p class="dl-links">
+            <a href="data/soic_sales_catalogues_overview.csv" download>⬇ soic_sales_catalogues_overview.csv</a>
+            <a href="data/soic_cargo_1733_friedericus_rex.csv" download>⬇ soic_cargo_1733_friedericus_rex.csv</a>
+            <a href="data/soic_cargo_1742_riddarehuset_stockholm.csv" download>⬇ soic_cargo_1742_riddarehuset_stockholm.csv</a>
+            <a href="data/soic_buyers_sample_1745.csv" download>⬇ soic_buyers_sample_1745.csv</a>
+            <a href="data/soic_gotheborg_1742_ledger.csv" download>⬇ soic_gotheborg_1742_ledger.csv (825 lots, Götheborg auction 1742)</a>
+            <a href="data/soic_auction_records_1733_1759.csv" download>⬇ soic_auction_records_1733_1759.csv (6,500+ curated auction records, all volumes)</a>
+            <a href="data/soic_archive_tables_full.csv" download>⬇ soic_archive_tables_full.csv (all 9,000+ table rows, uncurated)</a>
+          </p>
+          <p class="footnote">
+            The full translated text is also published volume-by-volume as JSON
+            (<code>data/archive/vol01–vol21.json</code> + <code>index.json</code>) for computational reuse —
+            see the <a href="https://github.com/hanjincheng059-cloud/hanjincheng059-cloud.github.io/tree/main/data">GitHub repository</a>.
+          </p>
+          <p class="footnote">
+            Compare the same series online: <a href="https://cdm21047.contentdm.oclc.org/digital/collection/swedish" target="_blank" rel="noopener">Sales catalogues of the Swedish East India Company 1733–1759</a> (Warwick Digital Collections).
+            Transcription in progress; buyer names marked (?) await verification.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="project-block">
+          <h2>Method &amp; Pipeline</h2>
+          <p>
+            <strong>1 · Sources.</strong> SOIC archives (Gothenburg University Library; Riksarkivet), EIC records (British Library, IOR),
+            and digitized American newspapers, 1784–1842.<br>
+            <strong>2 · Transcription.</strong> Manuscript manifests are transcribed with handwritten-text-recognition tools
+            (Transkribus) and corrected by hand; printed shipping columns via OCR.<br>
+            <strong>3 · Structuring.</strong> Entries are normalized into the relational schema above with Python (pandas);
+            units (piculs, lbs) and currencies (taels, riksdaler, sterling, dollars) are reconciled in dedicated lookup tables.<br>
+            <strong>4 · Analysis &amp; visualization.</strong> Time-series of China Root shipments, route mapping (Leaflet),
+            and merchant–ship–port network analysis, read against close analysis of the documents themselves.
+          </p>
+          <p>
+            <em>Limitations.</em> Manifests record what companies declared, not all that moved; smuggling, private trade and
+            spoilage leave gaps that quantification alone cannot close. The dataset is therefore published with its sources
+            exposed, row by row, so that every number can be walked back to a document.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jincheng Han</p>
+      <p>Built with care — a scholar's corner on the web.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+    /* ---- data (mirrors data/*.csv; update both together) ---- */
+    const VOYAGES = [
+      { id:"SOIC-1732-01", ship:"Friedericus Rex Sueciae", years:"1732–33", dest:"Canton",
+        note:"Colin Campbell, first expedition", outcome:"Returned to Gothenburg",
+        src:"Hallberg & Koninckx, A Passage to China (1996)" },
+      { id:"SOIC-1743-01", ship:"Götheborg", years:"1743–45", dest:"Canton",
+        note:"Third voyage of the ship", outcome:"Sank at Gothenburg harbour, 12 Sep 1745",
+        src:"Wästfelt; Frängsmyr (1976)" },
+      { id:"SOIC-1806-01", ship:"—", years:"1806", dest:"Canton",
+        note:"Final SOIC departure from Canton", outcome:"Factory closed 1813",
+        src:"Frängsmyr (1976); Koninckx (1980)" }
+    ];
+    const CHARTERS = {
+      labels: ["1st 1731–46","2nd 1746–66","3rd 1766–86","4th 1786–1806","5th 1806–21"],
+      counts: [25, 36, 39, 29, 3]   // verify vs. Koninckx appendix (see data/README.md)
+    };
+    const ROUTE = [
+      { name:"Gothenburg", ll:[57.71, 11.97], txt:"SOIC headquarters; outbound cargo: iron, copper, timber" },
+      { name:"Cadiz", ll:[36.53, -6.29], txt:"Exchange of Swedish goods for Spanish-American silver" },
+      { name:"Cape of Good Hope", ll:[-34.36, 18.47], txt:"No Swedish colonies: provisioning depended on others' ports" },
+      { name:"Sunda Strait", ll:[-5.90, 105.90], txt:"Passage to the South China Sea" },
+      { name:"Macau", ll:[22.19, 113.54], txt:"Pilot taken aboard; off-season residence for supercargoes" },
+      { name:"Whampoa / Canton", ll:[23.09, 113.42], txt:"Anchorage and factory: tea, porcelain, silk — and China Root" }
+    ];
+
+    /* ---- map ---- */
+    const map = L.map('routeMap', { scrollWheelZoom:false }).setView([15, 55], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { attribution:'&copy; OpenStreetMap contributors', maxZoom: 10 }).addTo(map);
+    const line = ROUTE.map(p => p.ll);
+    L.polyline(line, { color:'#8B4513', weight:2.5, opacity:0.8, dashArray:'6 6' }).addTo(map);
+    ROUTE.forEach(p => L.circleMarker(p.ll, { radius:6, color:'#5B3A29', fillColor:'#8B4513', fillOpacity:0.9 })
+      .addTo(map).bindPopup(`<strong>${p.name}</strong><br>${p.txt}`));
+
+    /* ---- charts ---- */
+    const ink = '#3D3226', brown = '#8B4513', green = '#4A5D3A', border = '#E5D5C0';
+    Chart.defaults.font.family = "'Crimson Pro', serif";
+    Chart.defaults.color = ink;
+    new Chart(document.getElementById('charterChart'), {
+      type: 'bar',
+      data: { labels: CHARTERS.labels,
+        datasets: [{ label:'Expeditions', data: CHARTERS.counts, backgroundColor:'rgba(139,69,19,0.75)', borderColor:brown, borderWidth:1 }] },
+      options: { plugins:{ legend:{ display:false } },
+        scales:{ y:{ beginAtZero:true, grid:{ color:border } }, x:{ grid:{ display:false } } } }
+    });
+    new Chart(document.getElementById('destChart'), {
+      type: 'doughnut',
+      data: { labels:['Canton (129)','India (3)'],
+        datasets: [{ data:[129,3], backgroundColor:['rgba(139,69,19,0.78)','rgba(74,93,58,0.7)'], borderColor:'#FFFBF5', borderWidth:2 }] },
+      options: { plugins:{ legend:{ position:'bottom' } }, cutout:'55%' }
+    });
+
+    /* ---- voyage table ---- */
+    document.querySelector('#voyageTable tbody').innerHTML = VOYAGES.map(v =>
+      `<tr><td>${v.id}</td><td>${v.ship}</td><td>${v.years}</td><td>${v.dest}</td><td>${v.note}</td><td>${v.outcome}</td><td>${v.src}</td></tr>`).join('');
+  </script>
+</body>
+</html>
