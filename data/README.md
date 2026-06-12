@@ -4,7 +4,7 @@
 
 Source: Riksarkivet, Ostindiska kompaniet, Försäljningsböcker
 (SE/RA/420132/31/2, microfilm R0002253–R0002259) + Warwick digital series.
-Chinese translation completed June 2026. **21 volumes, 2,003 pages, 645 tables.**
+Chinese translation completed June 2026. **21 volumes, 2,003 pages, 1,469 tables.**
 
 ### archive/（全文 JSON，逐卷）
 - `archive/index.json` — volume list with page/block counts（卷目录）
@@ -14,14 +14,14 @@ Chinese translation completed June 2026. **21 volumes, 2,003 pages, 645 tables.*
 - Rendered at `archive.html`（在线阅读、检索、数据库界面）。
 
 ### soic_auction_records_1733_1759.csv（拍卖记录，已清洗）
-6,500+ rows extracted from the ledger tables: `volume, page, table_id,
+19,000+ rows extracted from the ledger tables: `volume, page, table_id,
 lot_no, qty_or_unit, item, buyer, price`. Column mapping was inferred from
 table headers; ~1% of rows from headerless tables may have shifted columns —
 cross-check against `soic_archive_tables_full.csv` before quantitative use.
 买家名、价格以原表为准，存疑行请回查原表 CSV 与 archive.html 对应页。
 
 ### soic_archive_tables_full.csv（全部表格原始行，未清洗）
-All 9,000+ table rows as they appear in the translation, with volume/page/table
+All 25,000+ table rows as they appear in the translation, with volume/page/table
 coordinates (`c1–c8` raw columns). The authoritative dump; the curated CSV
 above is derived from it.
 
