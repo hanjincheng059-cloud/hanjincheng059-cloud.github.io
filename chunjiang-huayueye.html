@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>春江花月夜 · 擬張若虛體（客洛城訪學擬作）</title>
+<meta name="description" content="擬唐·張若虛《春江花月夜》體，客洛杉磯（UCLA）訪學數月而作。七言三十六句，九段遞韻，附箋註與註釋。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23262e; --soft:#5b6270; --accent:#38516b; --gold:#b08d57;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#f2eedf;border:1px solid rgba(242,238,223,.42);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(13,19,48,.32);backdrop-filter:blur(5px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(13,19,48,.5);}
+  /* header */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(165deg,#0d1330 0%,#1b2342 45%,#2c3552 100%);
+        background:linear-gradient(165deg,#0d1330 0%,#1b2342 48%,#2c3552 100%);color:#f2eedf;padding:64px 24px 52px;text-align:center;}
+  .moon{position:absolute;top:34px;right:42px;width:74px;height:74px;border-radius:50%;
+        background:radial-gradient(circle at 38% 36%,#fffdf3,#f3e9c8 60%,#e6d6a8);
+        box-shadow:0 0 36px 10px rgba(247,238,200,.45),0 0 80px 30px rgba(120,140,190,.25);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.3rem,8vw,3.5rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#cdd4e6;letter-spacing:.12em;margin:.2em 0;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#aab4cf;letter-spacing:.1em;margin:.15em 0 0;}
+  /* layout */
+  main{max-width:760px;margin:0 auto;padding:18px 22px 70px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.5em;margin:34px 0 8px;font-size:1.05rem;}
+  section{margin:30px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p{font-family:var(--kai);font-size:1.06rem;text-align:justify;text-indent:2em;color:#33363f;margin:0;}
+  /* poem */
+  .poem{margin:8px 0 6px;}
+  .stanza{margin:26px 0;text-align:center;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.22rem,5.2vw,1.62rem);letter-spacing:.07em;
+              color:var(--ink);margin:.32em 0;line-height:1.85;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  /* 箋註 cards */
+  .intro{color:var(--soft);font-size:.96rem;margin:-4px 0 16px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,50,70,.05);}
+  .card .src{font-family:var(--kai);color:var(--soft);font-size:1.02rem;}
+  .card .mine{font-family:var(--kai);color:var(--ink);font-size:1.14rem;margin:7px 0;}
+  .card .why{color:#404652;font-size:.96rem;line-height:1.8;}
+  .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  .card .why .tag{background:var(--gold);}
+  .photo-note{font-size:.9rem;color:var(--soft);font-style:italic;line-height:1.85;margin-top:14px;
+              background:#f0ece0;border-radius:8px;padding:12px 16px;}
+  /* 註釋 */
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  /* 跋 */
+  .postscript p{font-family:var(--kai);font-size:1.04rem;text-align:justify;text-indent:2em;color:#33363f;margin:0 0 14px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:760px;margin:0 auto;}
+  @media (max-width:520px){
+    .hero{padding:58px 18px 40px;} .moon{width:54px;height:54px;top:22px;right:24px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:12px 16px 54px;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="index.html">返回主頁</a>
+  <header class="hero">
+    <div class="moon" aria-hidden="true"></div>
+    <h1>春江花月夜</h1>
+    <div class="sub">擬唐 · 張若虛體</div>
+    <div class="sub2">客洛城（洛杉磯）訪學數月而作</div>
+  </header>
+  <main>
+    <div class="ornament">❀ ☾ ❀</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>丙午之春，余客美國加利福尼亞大學洛杉磯分校訪學，居洛城數月。其地瀕太平洋，長春無冬，紫楹滿街，月色如銀。每當夜闌人靜，獨立窗前，見海上明月，輒念神州故園——始知此月，即故鄉之月也。因擬唐張若虛《春江花月夜》之體，七言三十六句，九段遞韻，移其江海於太瀛之東，綴以校園紫楹、羈旅鄉思，成此一篇，聊寄客懷。</p>
+    </section>
+
+    <section class="poem">
+      <div class="stanza">
+        <p class="line">春城潮滿海初平，海上冰輪逐浪生。</p>
+        <p class="line">灩灩金波連萬里，天涯何處不澄明。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">華光宛轉繞芳甸，月照紫楹花似霰。</p>
+        <p class="line">流霜不覺度迴廊，滿地瓊英人未見。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">海天一色淨無塵，皎皎孤輪掛海濱。</p>
+        <p class="line">異國何人初見月？清輝何歲始臨人？</p>
+      </div>
+      <div class="stanza">
+        <p class="line">人生代代無窮已，海月年年長此似。</p>
+        <p class="line">不知此月待何人，但見滄波流不止。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">白雲一片去悠悠，隔海西望起鄉愁。</p>
+        <p class="line">何處天涯孤館客？誰家今夜倚危樓？</p>
+      </div>
+      <div class="stanza">
+        <p class="line">可憐窗上月徘徊，應照天涯獨望臺。</p>
+        <p class="line">簾卷不收清影去，燈前拂去又還來。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">此時相望不相聞，願逐流光照故人。</p>
+        <p class="line">鴻雁難飛逾大海，魚龍不寄一行文。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">昨夜幽庭夢落花，可憐春半未還家。</p>
+        <p class="line">韶光逐水行將盡，海月低城又半斜。</p>
+      </div>
+      <div class="stanza">
+        <p class="line">斜月沉沉藏海霧，神州此去無窮路。</p>
+        <p class="line">不知乘月幾人歸，落月搖情滿庭樹。</p>
+      </div>
+      <p class="colophon">丙午孟夏，客於洛城西郭，擬張若虛體。</p>
+    </section>
+
+    <section class="jianzhu">
+      <h2>箋註 · 出處與作意</h2>
+      <p class="intro">每段對讀：「出處」為張若虛原句，下方為本篇對應之句，「作意」略述為什麼這麼寫。</p>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>春江潮水連海平，海上明月共潮生</div>
+        <div class="mine">春城潮滿海初平，海上冰輪逐浪生</div>
+        <div class="why"><span class="tag">作意</span>易「春江」為加州長春之海，月生潮上；反用「何處無月明」，言異鄉之月同皎。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>江流宛轉繞芳甸，月照花林皆似霰</div>
+        <div class="mine">華光宛轉繞芳甸，月照紫楹花似霰</div>
+        <div class="why"><span class="tag">作意</span>「花林」具化為校園藍花楹，落英如雪滿地（參校園草木之景）。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>江畔何人初見月？江月何年初照人</div>
+        <div class="mine">異國何人初見月？清輝何歲始臨人</div>
+        <div class="why"><span class="tag">作意</span>幾近逐句承原作，「江畔」改「異國」——身在海外問月，倍添漂泊。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>人生代代無窮已，江月年年望相似</div>
+        <div class="mine">人生代代無窮已，海月年年長此似</div>
+        <div class="why"><span class="tag">作意</span>首句原樣保留以存其哲理；「滄波」寫西部大湖長河，人代謝而水月長在。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>白雲一片去悠悠，青楓浦上不勝愁</div>
+        <div class="mine">白雲一片去悠悠，隔海西望起鄉愁</div>
+        <div class="why"><span class="tag">作意</span>由「白雲」轉入鄉思；祖國在太平洋之西，故「西望」，「孤館客」即訪學之身。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>可憐樓上月徘徊，應照離人妝鏡臺</div>
+        <div class="mine">可憐窗上月徘徊，應照天涯獨望臺</div>
+        <div class="why"><span class="tag">作意</span>原寫思婦妝臺，移為遊子燈前書案——客中夜深，獨對月光。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>此時相望不相聞，願逐月華流照君</div>
+        <div class="mine">此時相望不相聞，願逐流光照故人</div>
+        <div class="why"><span class="tag">作意</span>雁書魚素皆古喻；隔太平洋之遠而音書難寄，寫離家萬里之實感。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>可憐春半不還家 / 江潭落月復西斜</div>
+        <div class="mine">可憐春半未還家 / 海月低城又半斜</div>
+        <div class="why"><span class="tag">作意</span>幾同原句，寫訪學將滿、歸期漸近，洛城夜歸所見之落月。</div>
+      </div>
+      <div class="card">
+        <div class="src"><span class="tag">出處</span>斜月沉沉藏海霧 / 落月搖情滿江樹</div>
+        <div class="mine">斜月沉沉藏海霧 / 落月搖情滿庭樹</div>
+        <div class="why"><span class="tag">作意</span>首句原樣；「碣石瀟湘」之遠改為「神州此去」，「江樹」改「庭樹」收束。</div>
+      </div>
+      <p class="photo-note">作意所及之實景，可參此行旅照：暮色湖海見 IMG_0779、IMG_0952、IMG_0956、IMG_0978；月出夜行見 IMG_0960；雪山落照見 IMG_0764；校園草木見 IMG_0163；訪學講席見 IMG_1065。</p>
+    </section>
+
+    <section class="notes">
+      <h2>註釋 · 詞語</h2>
+      <div class="note"><span class="term">洛城</span><span class="gloss">美國洛杉磯（Los Angeles）。古以「洛城」稱洛陽，李白《春夜洛城聞笛》「此夜曲中聞折柳，何人不起故園情」即詠其春夜鄉思；今藉以指洛杉磯，一名雙關，故園之念隱然在焉。</span></div>
+      <div class="note"><span class="term">太瀛 · 滄海 · 大海</span><span class="gloss">皆指太平洋。訪學之地瀕海，祖國在海之西，故曰「隔海西望」「神州此去」。</span></div>
+      <div class="note"><span class="term">冰輪 · 孤輪 · 海月</span><span class="gloss">皆謂月。通篇唯月不易——洛城之月，即故鄉之月，張九齡「海上生明月，天涯共此時」之意也。</span></div>
+      <div class="note"><span class="term">紫楹</span><span class="gloss">藍花楹（Jacaranda）。洛城街衢與校園多植之，每歲四五月間紫花滿樹，落英鋪地，燦若飛霰，故有「花似霰」「滿地瓊英」之句。</span></div>
+      <div class="note"><span class="term">芳甸 · 迴廊 · 危樓 · 燈前</span><span class="gloss">寫校園（UCLA）與客館夜讀之境：草坪林木、羅馬式連拱長廊（如羅伊斯禮堂 Royce Hall）、高樓燈窗，皆訪學羈旅所親歷。</span></div>
+      <div class="note"><span class="term">鴻雁 · 魚龍</span><span class="gloss">古以雁足傳書、魚傳尺素喻寄音信；今隔太平洋之遠，雁不能逾、魚不能寄，言鄉書難達、相思無憑。</span></div>
+      <div class="note"><span class="term">神州</span><span class="gloss">謂中國，故國家園。</span></div>
+    </section>
+
+    <section class="postscript">
+      <h2>跋</h2>
+      <p>張若虛《春江花月夜》，聞一多譽為「詩中的詩，頂峰上的頂峰」，又有「孤篇橫絕，竟為大家」之稱。其以春、江、花、月、夜五字，寫盡宇宙之無窮、人生之有限、遊子思婦之深情。</p>
+      <p>今擬其體而易其境：春則加州之長春，江則太平洋之萬頃，花則紫楹之如雪，夜則洛城之燈月；獨「月」一也——海上明月，天涯共之。九段遞韻，一仍其舊；末二段徑用原作「花·家·斜」「霧·路·樹」之韻，以志淵源，亦以見「人生代代無窮已，江月年年望相似」之旨：地雖易而月不改，身雖客而情自深。</p>
+    </section>
+  </main>
+  <footer>
+    擬唐 · 張若虛《春江花月夜》體　|　客洛城（洛杉磯）訪學擬作
+  </footer>
+</body>
+</html>
