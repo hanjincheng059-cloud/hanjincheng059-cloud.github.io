@@ -59,6 +59,15 @@
   .card .why .tag{background:var(--gold);}
   .photo-note{font-size:.9rem;color:var(--soft);font-style:italic;line-height:1.85;margin-top:14px;
               background:#f0ece0;border-radius:8px;padding:12px 16px;}
+  /* 行旅影像 */
+  .travel-gallery .intro{margin-bottom:18px;}
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .gallery-grid figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+                       overflow:hidden;box-shadow:0 1px 4px rgba(40,50,70,.06);}
+  .gallery-grid figure.featured{grid-column:1 / -1;}
+  .gallery-grid img{display:block;width:100%;height:auto;background:#e7e0cf;}
+  .gallery-grid figcaption{font-family:var(--kai);font-size:.9rem;color:var(--soft);line-height:1.65;
+                           padding:8px 11px 10px;text-align:center;}
   /* 註釋 */
   .note{margin:12px 0;font-size:1rem;}
   .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
@@ -70,6 +79,8 @@
   @media (max-width:520px){
     .hero{padding:58px 18px 40px;} .moon{width:54px;height:54px;top:22px;right:24px;}
     .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-grid figure.featured{grid-column:auto;}
     main{padding:12px 16px 54px;}
   }
 </style>
@@ -130,6 +141,49 @@
       <p class="colophon">丙午孟夏，客於洛城西郭，擬張若虛體。</p>
     </section>
 
+    <section class="travel-gallery">
+      <h2>行旅影像 · 月夜與山水</h2>
+      <p class="intro">選自美國、加州與黃石之旅。月色、湖光、雪峰與校園草木，皆為此篇客中詩意所由生。</p>
+      <div class="gallery-grid">
+        <figure class="featured">
+          <img src="assets/images/travel/moonlit-lake.jpg" width="1800" height="1350" alt="夜湖上方的明月與水面月影" loading="lazy">
+          <figcaption>海月照湖，清輝連水</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/moon-reflection.jpg" width="1800" height="1350" alt="夜晚湖面上的月光倒影" loading="lazy">
+          <figcaption>月影入波</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/night-lake-moon.jpg" width="1800" height="1350" alt="深藍夜色中的湖泊與孤月" loading="lazy">
+          <figcaption>夜湖孤月</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/moon-star-cloud-trail.jpg" width="1350" height="1800" alt="藍夜中月亮、星點與雲痕" loading="lazy">
+          <figcaption>月、星與雲痕</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/blue-hour-moon.jpg" width="1350" height="1800" alt="藍調夜空下的月亮與山影" loading="lazy">
+          <figcaption>藍夜未央</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/sunset-lake-mountains.jpg" width="1350" height="1800" alt="暮色中雪山、湖面與樹影" loading="lazy">
+          <figcaption>暮色湖山</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/twilight-snow-peak.jpg" width="1800" height="1350" alt="落照中的雪峰與湖面" loading="lazy">
+          <figcaption>雪峰落照</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/golden-snow-mountains.jpg" width="1800" height="1350" alt="金色天光下的雪山與湖水" loading="lazy">
+          <figcaption>金暉照雪</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/travel/ucla-campus-courtyard.jpg" width="1800" height="1350" alt="UCLA 校園庭院與樹影" loading="lazy">
+          <figcaption>芳甸迴廊</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="jianzhu">
       <h2>箋註 · 出處與作意</h2>
       <p class="intro">每段對讀：「出處」為張若虛原句，下方為本篇對應之句，「作意」略述為什麼這麼寫。</p>
@@ -178,7 +232,7 @@
         <div class="mine">斜月沉沉藏海霧 / 落月搖情滿庭樹</div>
         <div class="why"><span class="tag">作意</span>首句原樣；「碣石瀟湘」之遠改為「神州此去」，「江樹」改「庭樹」收束。</div>
       </div>
-      <p class="photo-note">作意所及之實景，可參此行旅照：暮色湖海見 IMG_0779、IMG_0952、IMG_0956、IMG_0978；月出夜行見 IMG_0960；雪山落照見 IMG_0764；校園草木見 IMG_0163；訪學講席見 IMG_1065。</p>
+      <p class="photo-note">作意所及之實景，可參上方行旅影像：月夜湖光取 IMG_0950、IMG_0951、IMG_0953、IMG_0960、IMG_0961；暮色湖山取 IMG_0779、IMG_0776、IMG_0764；校園草木取 IMG_0163。</p>
     </section>
 
     <section class="notes">
