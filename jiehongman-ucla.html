@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解紅慢 · 客加州大學洛杉磯分校訪學感懷</title>
+<meta name="description" content="原創《解紅慢》一闋，依《鳴鶴餘音》無名氏體，雙調一百六十字，記作者在加州大學洛杉磯分校（UCLA）訪學治學之感。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#22252d; --soft:#5a6270; --accent:#315a73; --gold:#b58b4a;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#fff7e8;border:1px solid rgba(255,247,232,.55);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(25,40,55,.45);backdrop-filter:blur(6px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(25,40,55,.65);}
+  .hero{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;
+        padding:76px 24px 58px;color:#fff7e8;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:url("assets/images/travel/ucla-campus-courtyard.jpg") center/cover no-repeat;
+        transform:scale(1.01);}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.58),rgba(11,22,34,.34) 52%,rgba(11,22,34,.68));}
+  .hero-inner{position:relative;z-index:1;max-width:760px;text-shadow:0 2px 18px rgba(0,0,0,.4);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.4rem,8vw,3.7rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(1rem,3.4vw,1.16rem);letter-spacing:.14em;margin:.2em 0;color:#f4ead3;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.92rem,3.2vw,1.04rem);letter-spacing:.1em;margin:.2em 0 0;color:#d9e5eb;}
+  main{max-width:780px;margin:0 auto;padding:22px 22px 72px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.48em;margin:34px 0 8px;font-size:1.02rem;}
+  section{margin:32px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p,.postscript p{font-family:var(--kai);font-size:1.05rem;text-align:justify;text-indent:2em;color:#333842;margin:0 0 14px;}
+  .poem{margin:8px 0 6px;}
+  .stanza{margin:30px 0;text-align:center;}
+  .stanza .seg{font-family:var(--kai);color:var(--gold);font-size:.82rem;letter-spacing:.3em;margin-bottom:6px;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.14rem,4.8vw,1.46rem);letter-spacing:.06em;
+              color:var(--ink);margin:.28em 0;line-height:1.95;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,50,70,.05);}
+  .card .mine{font-family:var(--kai);color:var(--ink);font-size:1.09rem;margin:0 0 7px;line-height:1.8;}
+  .card .why{color:#404652;font-size:.96rem;line-height:1.8;}
+  .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  .card .why .tag{background:var(--gold);}
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  figure{margin:28px 0;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  figure img{display:block;width:100%;height:auto;}
+  figcaption{font-family:var(--kai);font-size:.92rem;color:var(--soft);text-align:center;padding:9px 12px 11px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:780px;margin:0 auto;}
+  @media (max-width:560px){
+    .hero{min-height:50vh;padding:64px 18px 44px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:14px 16px 56px;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="haojing-xiange.html">返回《濠鏡弦歌詞稿》</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>解紅慢</h1>
+      <div class="sub">詞牌名 · 依《鳴鶴餘音》無名氏體</div>
+      <div class="sub2">客加州大學洛杉磯分校訪學感懷</div>
+    </div>
+  </header>
+  <main>
+    <div class="ornament">✦ 書聲與海風 ✦</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>丙午春夏，余客美國加州大學洛杉磯分校訪學。其地在洛城西郭，山岡起伏，棕櫚夾道；羅伊斯禮堂與鮑威爾圖書館相望，紅磚長廊，草木清暉。晨入書樓，夕步庭除，聽課論文，披卷治史，始知遠遊非徒為看山看海，亦是借他邦之光，反照胸中所學。</p>
+      <p>因倚《解紅慢》一調，記此數月讀書、問道、思鄉、立志之感。詞調見《鳴鶴餘音》，雙調一百六十字，前段十七句、後段十八句，魚虞語麌遇一部通叶。今不敢謂盡合聲律，惟依其句讀長短，以寫客中治學之心。</p>
+    </section>
+
+    <section class="poem">
+      <div class="stanza">
+        <p class="seg">前　段</p>
+        <p class="line">翠岡徐步。過棕庭，書聲通碧樹。</p>
+        <p class="line">韶光暗換，紫楹又落滿前除。</p>
+        <p class="line">西窗雨霽，何處鐘殘催客語。</p>
+        <p class="line">見羅伊斯影，書樓外，斜陽暮。</p>
+        <p class="line">晚涼趁，蕉風清，海雲度。</p>
+        <p class="line">這閒裏、青編向誰訴。</p>
+        <p class="line">孤懷萬卷能幾許。</p>
+        <p class="line">似潮聲起伏，歸夢難悟。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">後　段</p>
+        <p class="line">留此處，問師門何如。</p>
+        <p class="line">青燈畔，省識萬里琴書。</p>
+        <p class="line">洛城日暮，校園下，自檢微軀。</p>
+        <p class="line">一任人間，大道紛紜催今古。</p>
+        <p class="line">爭如我、寸心求索，貧與素。</p>
+        <p class="line">興時讀，倦時眠，狂時賦。</p>
+        <p class="line">把萬事、浮名總不顧。</p>
+        <p class="line">從他海國長羈旅。</p>
+        <p class="line">伴清風皓月，歸隱蓬壺。</p>
+      </div>
+      <p class="colophon">丙午孟夏，客洛城西郭，訪學 UCLA，倚《解紅慢》。</p>
+    </section>
+
+    <figure>
+      <img src="assets/images/travel/ucla-campus-courtyard.jpg" width="1800" height="1350" alt="UCLA 校園庭院、紅磚建築、草坪與樹影" loading="lazy">
+      <figcaption>UCLA 校園庭院：羅伊斯、書樓、草木與晴光，皆入此調。</figcaption>
+    </figure>
+
+    <section class="jianzhu">
+      <h2>箋註 · 詞牌與作意</h2>
+      <div class="card">
+        <p class="mine">解紅慢</p>
+        <div class="why"><span class="tag">詞牌</span>調見《鳴鶴餘音》，雙調一百六十字。今依無名氏「杖藜徐步」體，前後段皆取短句錯落之勢。可參《欽定詞譜》所錄<a href="https://www.52shici.com/zd/pu.php?id=2270">《解紅慢》譜</a>。</div>
+      </div>
+      <div class="card">
+        <p class="mine">翠岡徐步。過棕庭，書聲通碧樹。</p>
+        <div class="why"><span class="tag">作意</span>UCLA 校園依山岡而起，棕櫚、草坪、紅磚樓宇相間。首句從「徐步」寫入，取訪學日常：不以壯遊起，而以入校讀書起。</div>
+      </div>
+      <div class="card">
+        <p class="mine">韶光暗換，紫楹又落滿前除。</p>
+        <div class="why"><span class="tag">作意</span>「紫楹」即藍花楹（Jacaranda），洛城與校園春夏多見。花落滿地，既是加州風物，也暗寫時間流轉。</div>
+      </div>
+      <div class="card">
+        <p class="mine">見羅伊斯影，書樓外，斜陽暮。</p>
+        <div class="why"><span class="tag">作意</span>羅伊斯，Royce Hall；書樓，Powell Library。二者相望，是 UCLA 最有標識性的校園空間之一。斜陽入暮，正是課後步出書樓之景。</div>
+      </div>
+      <div class="card">
+        <p class="mine">一任人間，大道紛紜催今古。</p>
+        <div class="why"><span class="tag">作意</span>訪學之感，不止風景。身處世界名校，見學術分科、方法流變、思想交鋒，遂有「大道紛紜」之嘆；而治史者終須在紛紜中守其問題。</div>
+      </div>
+      <div class="card">
+        <p class="mine">興時讀，倦時眠，狂時賦。</p>
+        <div class="why"><span class="tag">作意</span>承《解紅慢》原調「興時歌，困時眠，狂時舞」之句法，改為訪學生活：讀書、休息、賦詞，三者皆是真實日課。</div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>註釋 · 詞語</h2>
+      <div class="note"><span class="term">加州大學洛杉磯分校</span><span class="gloss">University of California, Los Angeles，簡稱 UCLA。作者於丙午春夏客此訪學。</span></div>
+      <div class="note"><span class="term">羅伊斯</span><span class="gloss">Royce Hall，UCLA 標誌性建築之一，與 Powell Library 相對，為校園核心景觀。</span></div>
+      <div class="note"><span class="term">書樓</span><span class="gloss">指 Powell Library，亦泛指校園圖書館與讀書之所。</span></div>
+      <div class="note"><span class="term">青編</span><span class="gloss">青簡、書冊，借指讀書治學。</span></div>
+      <div class="note"><span class="term">海國</span><span class="gloss">海外之國。此處指美國西岸，亦含太平洋相隔之意。</span></div>
+      <div class="note"><span class="term">蓬壺</span><span class="gloss">蓬萊、方壺，古代海上仙山。結句不是逃世，而是寫心中自有安頓之地：清風皓月、書卷文章，可以為歸。</span></div>
+    </section>
+
+    <section class="postscript">
+      <h2>跋</h2>
+      <p>在 UCLA 的日子，最深的感覺不是「到了遠方」，而是「看見了自己還能走多遠」。一座校園把海風、陽光、圖書館、課堂與陌生語言並置，使人既覺渺小，又覺開闊。渺小者，知學問無涯；開闊者，知此身尚可遠行。</p>
+      <p>故此詞不專寫景。前段寫校園與客懷，後段寫治學與自省。末以「把萬事、浮名總不顧」收束，並非真能忘名，而是願將一時榮辱放輕些，把心力還給讀書、寫作與史學本身。</p>
+    </section>
+  </main>
+  <footer>
+    原創《解紅慢》一闋　|　UCLA 訪學感懷　|　Open-access web edition
+  </footer>
+</body>
+</html>
