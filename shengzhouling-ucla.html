@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>勝州令 · 再記洛城問學</title>
+<meta name="description" content="原創《勝州令》一闋，依《御定詞譜》鄭意孃體，四疊二百十五字，續記作者在加州大學洛杉磯分校（UCLA）訪學問學之感。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#22252d; --soft:#5a6270; --accent:#315a73; --gold:#b58b4a;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#fff7e8;border:1px solid rgba(255,247,232,.55);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(25,40,55,.45);backdrop-filter:blur(6px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(25,40,55,.65);}
+  .hero{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;
+        padding:76px 24px 58px;color:#fff7e8;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:url("assets/images/travel/ucla-campus-courtyard.jpg") center/cover no-repeat;
+        transform:scale(1.01);}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,22,34,.58),rgba(11,22,34,.34) 52%,rgba(11,22,34,.68));}
+  .hero-inner{position:relative;z-index:1;max-width:760px;text-shadow:0 2px 18px rgba(0,0,0,.4);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.4rem,8vw,3.7rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(1rem,3.4vw,1.16rem);letter-spacing:.14em;margin:.2em 0;color:#f4ead3;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.92rem,3.2vw,1.04rem);letter-spacing:.1em;margin:.2em 0 0;color:#d9e5eb;}
+  main{max-width:780px;margin:0 auto;padding:22px 22px 72px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.48em;margin:34px 0 8px;font-size:1.02rem;}
+  section{margin:32px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p,.postscript p{font-family:var(--kai);font-size:1.05rem;text-align:justify;text-indent:2em;color:#333842;margin:0 0 14px;}
+  .poem{margin:8px 0 6px;}
+  .stanza{margin:30px 0;text-align:center;}
+  .stanza .seg{font-family:var(--kai);color:var(--gold);font-size:.82rem;letter-spacing:.3em;margin-bottom:6px;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.1rem,4.6vw,1.42rem);letter-spacing:.06em;
+              color:var(--ink);margin:.24em 0;line-height:1.95;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,50,70,.05);}
+  .card .mine{font-family:var(--kai);color:var(--ink);font-size:1.09rem;margin:0 0 7px;line-height:1.8;}
+  .card .why{color:#404652;font-size:.96rem;line-height:1.8;}
+  .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  .card .why .tag{background:var(--gold);}
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  figure{margin:28px 0;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  figure img{display:block;width:100%;height:auto;}
+  figcaption{font-family:var(--kai);font-size:.92rem;color:var(--soft);text-align:center;padding:9px 12px 11px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:780px;margin:0 auto;}
+  @media (max-width:560px){
+    .hero{min-height:50vh;padding:64px 18px 44px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:14px 16px 56px;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="haojing-xiange.html">返回《濠鏡弦歌詞稿》</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>勝州令</h1>
+      <div class="sub">詞牌名 · 依《御定詞譜》鄭意孃體</div>
+      <div class="sub2">再記洛城問學</div>
+    </div>
+  </header>
+  <main>
+    <div class="ornament">✦ 客窗與書燈 ✦</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>既作《解紅慢》記客加州大學洛杉磯分校訪學之初感，意猶未盡，復取《勝州令》一調，寫其後讀書問學、夜窗自省之懷。洛城晴日，紫楹過雨；羅伊斯外，書樓相望。人在萬里之外，反覺胸中所治之史、所守之志，皆被海風與燈火照得分明。</p>
+      <p>《勝州令》調見《花草粹編》，《御定詞譜》錄鄭意孃一體，四疊二百十五字：第一疊十一句七仄韻，第二疊十一句六仄韻，第三疊十句五仄韻，第四疊九句四仄韻。譜中又云原詞「用韻太雜，無別首可校」，今依其句數字數為準，略取仄韻相承之意，以續客中問學之篇。</p>
+    </section>
+
+    <section class="poem">
+      <div class="stanza">
+        <p class="seg">第一疊</p>
+        <p class="line">紫楹新過雨。晴雲垂樹。</p>
+        <p class="line">晚鐘初度。</p>
+        <p class="line">倚廊聽、講筵清響，羅伊斯外深路。</p>
+        <p class="line">棕陰深處，書樓影轉斜陽暮。</p>
+        <p class="line">對海氣，贏得襟懷素。</p>
+        <p class="line">青編堪共語，誰更催歸去。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">第二疊</p>
+        <p class="line">追思此日，共客洛城攜手，暫從萬里羈旅。</p>
+        <p class="line">到今似、海角雲涯，猶能得見師友。</p>
+        <p class="line">翻思學事在心，向誰邊細訴。</p>
+        <p class="line">卻會舊書，淚滴燈前句。</p>
+        <p class="line">意中山海阻，覺客窗清苦。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">第三疊</p>
+        <p class="line">都是今番悟。</p>
+        <p class="line">把浮名俗念都掃去。</p>
+        <p class="line">到此近、數月棲遲，是海闊天遙處。</p>
+        <p class="line">當初自許，為信史不辭苦。</p>
+        <p class="line">卻甚夜深，尚與殘編遇。</p>
+        <p class="line">蘭臺夢何處，肯負青燈否。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">第四疊</p>
+        <p class="line">終待把、雲箋細數，把平生、未了新譜。</p>
+        <p class="line">問君怎見得，書中天地，自成歸路。</p>
+        <p class="line">可憐萬里西風，細尋思，</p>
+        <p class="line">都在心深處。</p>
+        <p class="line">莫負此行旅。</p>
+      </div>
+      <p class="colophon">丙午孟夏，客洛城西郭，訪學 UCLA，續倚《勝州令》。</p>
+    </section>
+
+    <figure>
+      <img src="assets/images/travel/ucla-campus-courtyard.jpg" width="1800" height="1350" alt="UCLA 校園庭院、紅磚建築、草坪與樹影" loading="lazy">
+      <figcaption>洛城西郭，書樓與草木相映；客中問學之意，遂入《勝州令》。</figcaption>
+    </figure>
+
+    <section class="jianzhu">
+      <h2>箋註 · 詞牌與作意</h2>
+      <div class="card">
+        <p class="mine">勝州令</p>
+        <div class="why"><span class="tag">詞牌</span>調見《花草粹編》，《御定詞譜》卷三十九錄鄭意孃體，四疊二百十五字。譜注稱「用韻太雜，無別首可校」，故此篇重在依其句數字數與長調氣勢。可參維基文庫所收<a href="https://zh.wikisource.org/wiki/%E5%BE%A1%E5%AE%9A%E8%A9%9E%E8%AD%9C_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B739">《御定詞譜》卷三十九</a>。</div>
+      </div>
+      <div class="card">
+        <p class="mine">紫楹新過雨。晴雲垂樹。</p>
+        <div class="why"><span class="tag">作意</span>紫楹，即藍花楹。UCLA 春夏多見紫花滿枝，雨後色尤明淨，故以此開篇，承《解紅慢》中「紫楹又落」之意而更深一層。</div>
+      </div>
+      <div class="card">
+        <p class="mine">倚廊聽、講筵清響，羅伊斯外深路。</p>
+        <div class="why"><span class="tag">作意</span>「講筵」寫課堂、講座與師友論學；「羅伊斯」即 Royce Hall。此句把校園地標與問學聲響合寫，避免單作風景遊記。</div>
+      </div>
+      <div class="card">
+        <p class="mine">為信史不辭苦。</p>
+        <div class="why"><span class="tag">作意</span>「信史」為治史者自警之語。人在海外，所見越廣，越知史學不止求新求奇，更要能在材料、方法與良知之間守住可信之義。</div>
+      </div>
+      <div class="card">
+        <p class="mine">蘭臺夢何處，肯負青燈否。</p>
+        <div class="why"><span class="tag">作意</span>蘭臺，漢代藏書與史官之署，後借指史學、文獻與著述之志。結以「肯負青燈否」，是客窗夜讀時對自己的追問。</div>
+      </div>
+      <div class="card">
+        <p class="mine">問君怎見得，書中天地，自成歸路。</p>
+        <div class="why"><span class="tag">作意</span>遠遊之後，真正的歸處未必只是地理故鄉，也在書卷、文章與學問所開出的精神世界。故曰「書中天地，自成歸路」。</div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>註釋 · 詞語</h2>
+      <div class="note"><span class="term">勝州令</span><span class="gloss">詞牌名。《御定詞譜》錄鄭意孃體，四疊二百十五字。因傳本少，格律可校者有限。</span></div>
+      <div class="note"><span class="term">紫楹</span><span class="gloss">藍花楹（Jacaranda），南加州春夏常見花木，校園中亦多。</span></div>
+      <div class="note"><span class="term">羅伊斯</span><span class="gloss">Royce Hall，UCLA 標誌性建築之一，與 Powell Library 相對。</span></div>
+      <div class="note"><span class="term">書樓</span><span class="gloss">指 Powell Library，亦泛指圖書館與讀書治學之所。</span></div>
+      <div class="note"><span class="term">青編</span><span class="gloss">青簡、書冊，借指文獻與學問。</span></div>
+      <div class="note"><span class="term">蘭臺</span><span class="gloss">漢代藏書、校書與史官之署。此處借指史學志業。</span></div>
+    </section>
+
+    <section class="postscript">
+      <h2>跋</h2>
+      <p>《解紅慢》較多寫初至 UCLA 的校園感受：山岡、棕庭、書樓、海風，以及遠行後忽然打開的胸襟。《勝州令》則更向內，寫數月之後，客居生活漸成日課，課堂、圖書館、筆記、夜燈一一沉入心中，成為問學之力。</p>
+      <p>長調之好，在可容迴環。前二疊寫校園與師友，三疊寫自警，末疊寫歸路。所謂「莫負此行旅」，不是要把遠行說得過分壯闊，而是提醒自己：既已來到這裏，便當把看見的世界、讀到的書、受過的啟發，真真切切地帶回自己的研究與寫作裏。</p>
+    </section>
+  </main>
+  <footer>
+    原創《勝州令》一闋　|　UCLA 訪學問學　|　Open-access web edition
+  </footer>
+</body>
+</html>
