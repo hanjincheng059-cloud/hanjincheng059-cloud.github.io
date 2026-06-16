@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鶯啼序 · 記濠鏡（澳門）負笈之歲</title>
+<meta name="description" content="原創《鶯啼序》一闋，倚南宋吳文英（夢窗）正體，四疊二百四十字，仄韻一韻到底。記作者客濠鏡（澳門）負笈數年，治清代廣州中西貿易之史，附箋註與註釋。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23262e; --soft:#5b6270; --accent:#2f5a5c; --gold:#b08d57;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#eef3ec;border:1px solid rgba(238,243,236,.42);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(10,30,34,.32);backdrop-filter:blur(5px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(10,30,34,.5);}
+  /* header */
+  .hero{position:relative;overflow:hidden;color:#eef3ec;padding:64px 24px 52px;text-align:center;
+        background:linear-gradient(165deg,#0a1a24 0%,#123040 48%,#1c4a4e 100%);}
+  .orb{position:absolute;top:34px;right:42px;width:74px;height:74px;border-radius:50%;
+        background:radial-gradient(circle at 38% 36%,#fffdf3,#f3e9c8 58%,#e3cf9c);
+        box-shadow:0 0 36px 10px rgba(247,238,200,.42),0 0 80px 30px rgba(90,150,150,.22);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.3rem,8vw,3.5rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#cfe0dc;letter-spacing:.12em;margin:.2em 0;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#a9c2bd;letter-spacing:.1em;margin:.15em 0 0;}
+  /* layout */
+  main{max-width:760px;margin:0 auto;padding:18px 22px 70px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.5em;margin:34px 0 8px;font-size:1.05rem;}
+  section{margin:30px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p{font-family:var(--kai);font-size:1.06rem;text-align:justify;text-indent:2em;color:#33363f;margin:0;}
+  /* poem */
+  .poem{margin:8px 0 6px;}
+  .stanza{margin:30px 0;text-align:center;}
+  .stanza .seg{font-family:var(--kai);color:var(--gold);font-size:.82rem;letter-spacing:.3em;margin-bottom:6px;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.16rem,4.8vw,1.5rem);letter-spacing:.06em;
+              color:var(--ink);margin:.3em 0;line-height:1.95;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  /* 箋註 cards */
+  .intro{color:var(--soft);font-size:.96rem;margin:-4px 0 16px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,60,60,.05);}
+  .card .mine{font-family:var(--kai);color:var(--ink);font-size:1.1rem;margin:0 0 7px;line-height:1.8;}
+  .card .why{color:#404652;font-size:.96rem;line-height:1.8;}
+  .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  .card .why .tag{background:var(--gold);}
+  /* 註釋 */
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  /* 跋 */
+  .postscript p{font-family:var(--kai);font-size:1.04rem;text-align:justify;text-indent:2em;color:#33363f;margin:0 0 14px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:760px;margin:0 auto;}
+  @media (max-width:520px){
+    .hero{padding:58px 18px 40px;} .orb{width:54px;height:54px;top:22px;right:24px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:12px 16px 54px;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="index.html">返回主頁</a>
+  <header class="hero">
+    <div class="orb" aria-hidden="true"></div>
+    <h1>鶯啼序</h1>
+    <div class="sub">詞牌名 · 倚夢窗（吳文英）正體</div>
+    <div class="sub2">記濠鏡（澳門）負笈之歲</div>
+  </header>
+  <main>
+    <div class="ornament">✦ ❀ ✦</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>余自魯之章丘明水負笈而南，歷香港屯門，越伶仃之洋，客濠鏡（澳門）者數年。其地古稱蠔鏡，明清之際番舶互市，妈閣一祠，「Macau」之名所自出；今則蜃樓夜炫，賭國燈紅，而濠江潮聲，終古不改。余治清代廣州中西貿易之史——十三行、土茯苓、茶瓷之屬，日與殘編簡牘相對。青鐙苦讀之餘，鄉思時起，遂倚夢窗《鶯啼序》體，四疊二百四十字，仄韻一韻到底，述其羈旅治學之懷，併志再渡重洋之志。</p>
+    </section>
+
+    <section class="poem">
+      <div class="stanza">
+        <p class="seg">一　疊</p>
+        <p class="line">鏡海初臨倦客，正殘春羈旅。</p>
+        <p class="line">莽南陲、番舶曾喧，蠔鏡終古煙樹。</p>
+        <p class="line">悵孤棹、飄蓬到此，媽閣燈火明滅暮。</p>
+        <p class="line">對蒼茫、十字潮回，亂縈煙渚。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">二　疊</p>
+        <p class="line">廿年書劍，自漱玉鄉，又濠江倦霧。</p>
+        <p class="line">渡伶仃、驚浪相催，簡編重理寒素。</p>
+        <p class="line">傍青鐙、三巴影裏，恁拋卻、韶光如縷。</p>
+        <p class="line">夜潮平，蜃市燈紅，照人鷗鷺。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">三　疊</p>
+        <p class="line">潮生潮落，倦眼摩挲，對殘編自語。</p>
+        <p class="line">嘆故國、十三行遠，茯苓茶舶，瓷市帆檣，半歸塵土。</p>
+        <p class="line">關河北望，鄉雲南斷，漁燈一點濠江宿，恁勾回、負笈平生路。</p>
+        <p class="line">韋編暗展，臨窗細校瑤箋，淚痕偷灑淒楚。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">四　疊</p>
+        <p class="line">危樓倚遍，鏡海無垠，嘆此身如羽。</p>
+        <p class="line">暗自檢、離懷萬緒。尚惹征塵，未了鄉愁，對鐙誰訴。</p>
+        <p class="line">殷勤自誓，重摹信史，長風好掛滄溟席，恁飄然、又指瀛洲去。</p>
+        <p class="line">平生一寸丹心，倩取瑤琴，爲君重譜。</p>
+      </div>
+      <p class="colophon">丙午，記濠鏡（澳門）負笈之歲，倚夢窗《鶯啼序》體。</p>
+    </section>
+
+    <section class="jianzhu">
+      <h2>箋註 · 詞牌與作意</h2>
+      <p class="intro">《鶯啼序》為詞中最長之調，凡四疊、二百四十字，仄韻一韻到底，以南宋吳文英（夢窗）《鶯啼序·春晚感懷》為正體。此篇倚夢窗體，押《詞林正韻》第四部（魚虞模）上去聲——旅、樹、暮、渚／霧、素、縷、鷺／語、土、路、楚／羽、緒、訴、去、譜，凡十七韻。四疊，恰如客濠之四時。</p>
+      <div class="card">
+        <p class="mine">一疊 · 初臨</p>
+        <div class="why"><span class="tag">作意</span>寫初抵澳門。澳門古稱濠鏡、蠔鏡，明清為番舶互市之地，妈閣廟即「Macau」一名所自出。以「倦客」「飄蓬」自况，十字門潮回、煙渚蒼茫，狀羈旅初臨、四顧無依之感。</div>
+      </div>
+      <div class="card">
+        <p class="mine">二疊 · 來路</p>
+        <div class="why"><span class="tag">作意</span>溯求學之途。「漱玉鄉」謂故里章丘明水，李清照《漱玉詞》所自出；繼負笈香港，今渡伶仃洋而入濠江。青鐙苦讀於大三巴之側，而「蜃市燈紅」（賭城夜炫）與之相映——治學之清，正對濠江之華。</div>
+      </div>
+      <div class="card">
+        <p class="mine">三疊 · 治史</p>
+        <div class="why"><span class="tag">作意</span>入於本業。十三行、茯苓（土茯苓）、茶舶、瓷市，皆作者所治清代廣州中西貿易、藥材與商品環流之史。撫卷思鄉，北望關河，南斷鄉雲，負笈平生，韋編細勘——史與身交織，淚墨同滴。</div>
+      </div>
+      <div class="card">
+        <p class="mine">四疊 · 言志</p>
+        <div class="why"><span class="tag">作意</span>倚樓望海，身世如羽；然不墮其志，誓「重摹信史」，乘長風而再渡重洋（將赴美國加州大學洛杉磯分校訪學）。末句「爲君重譜」，呼應舊作《三台》「這青史、從頭自譜」之意——治史者重述世界之願也。</div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>註釋 · 詞語</h2>
+      <div class="note"><span class="term">鏡海 · 濠江 · 蠔鏡 · 濠鏡</span><span class="gloss">皆澳門之古稱與雅稱。澳門前山有南北二灣，水鏡如鏡，故稱「濠鏡」「鏡海」；又以多產蠔，稱「蠔鏡」。</span></div>
+      <div class="note"><span class="term">媽閣</span><span class="gloss">媽閣廟，澳門最古之廟，祀媽祖。相傳葡人初至問地名，土人以廟名「媽閣」（A-Ma-Gao）對，遂訛為「Macau」，今澳門西文名所自出。</span></div>
+      <div class="note"><span class="term">十字 · 十字門</span><span class="gloss">十字門，澳門與氹仔、路環間之古航道，明清番舶出入要津，曾為中西海上貿易之孔道。</span></div>
+      <div class="note"><span class="term">漱玉鄉</span><span class="gloss">指作者故里山東章丘明水。宋李清照有《漱玉詞》，明水為其故里，今有李清照故居；作者嘗於其地從事文史整理。</span></div>
+      <div class="note"><span class="term">伶仃</span><span class="gloss">伶仃洋，珠江口外之海。作者自香港渡海赴澳，必經其處。文天祥「零丁洋裏歎零丁」之歎，隱然在焉。</span></div>
+      <div class="note"><span class="term">三巴 · 青鐙</span><span class="gloss">三巴即大三巴牌坊（聖保祿教堂遺址），澳門地標。青鐙，青燈，謂寒夜苦讀之燈；與下「蜃市燈紅」相對，以見治學之清寂。</span></div>
+      <div class="note"><span class="term">蜃市</span><span class="gloss">海市蜃樓，喻澳門賭城夜間之繁燈幻彩，富貴如夢、瞬息可消之意寓焉。</span></div>
+      <div class="note"><span class="term">十三行 · 茯苓 · 茶舶 · 瓷市</span><span class="gloss">皆作者治史之題。十三行為清代廣州專營對外貿易之行商；茯苓即土茯苓（China root, <i>Smilax glabra</i>），作者研究之要藥；茶、瓷則清代外銷大宗。四者並舉，總括其學。</span></div>
+      <div class="note"><span class="term">韋編</span><span class="gloss">韋編三絕，孔子讀《易》而韋（皮繩）三絕，後以喻勤學不輟、反覆研讀。此謂作者之勘檔治史。</span></div>
+      <div class="note"><span class="term">長風 · 瀛洲</span><span class="gloss">宗愨少時云「願乘長風破萬里浪」。瀛洲，海中仙山，泛指海外；此謂作者將再渡重洋，赴美訪學。</span></div>
+      <div class="note"><span class="term">重摹信史 · 爲君重譜</span><span class="gloss">摹、譜皆謂重述、重撰。呼應作者《三台》詞「這青史、從頭自譜」，言以一己之筆，重述近代全球貿易之史。</span></div>
+    </section>
+
+    <section class="postscript">
+      <h2>跋</h2>
+      <p>《鶯啼序》四疊二百四十字，為詞調之最長者。夢窗以之寫春晚感懷，迷離悽惋，後人謂其「如七寶樓臺，眩人眼目」。余不自量，借此巨製以容數年之客懷——蓋短調不足以載其重也。</p>
+      <p>四疊者：一曰初臨，二曰來路，三曰治史，四曰言志。自魯而港、而澳，將復之美洲，行跡所至，皆係於一「渡」字；而青鐙黃卷、殘檔故紙，則此身安頓之所。賭國之燈雖明，不如一鐙之久；他鄉之月雖好，終是故國之心。聊綴此篇，以志負笈濠江之歲，亦以自勵雲爾。</p>
+    </section>
+  </main>
+  <footer>
+    原創《鶯啼序》一闋　|　倚夢窗體，記濠鏡（澳門）負笈之歲
+  </footer>
+</body>
+</html>
