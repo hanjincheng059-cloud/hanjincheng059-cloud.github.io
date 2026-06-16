@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="《梦泉词稿》(Lyrics of Dream Spring) — 韩金成原创古典诗词作品集，共四十五阕，附自序与详尽注释。Open-source full text of Jincheng Han's collection of original classical Chinese ci poetry, with author's preface and scholarly annotations.">
+  <title>梦泉词稿 · Lyrics of Dream Spring — Jincheng Han</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    /* --- 梦泉词稿 collection page --- */
+    .mq-hero { text-align:center; padding:2.4rem 0 1.4rem; border-bottom:1px solid var(--color-border-light); }
+    .mq-hero h1 { font-size:3.2rem; letter-spacing:0.08em; margin-bottom:0.3rem; }
+    .mq-hero .mq-en { font-family:var(--font-display); font-style:italic; font-size:1.3rem; color:var(--color-text-muted); }
+    .mq-hero .mq-meta { font-family:var(--font-label); color:var(--color-text-muted); margin-top:0.6rem; font-size:0.95rem; }
+    .mq-actions { margin-top:1.4rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; }
+    .mq-btn { display:inline-block; padding:0.55rem 1.3rem; border-radius:8px; font-family:var(--font-label);
+              font-size:0.95rem; text-decoration:none; border:1px solid var(--color-accent); color:var(--color-accent);
+              background:var(--color-card); transition:all .2s ease; }
+    .mq-btn:hover { background:var(--color-accent); color:#fff; }
+    .mq-btn-primary { background:var(--color-accent); color:#fff; }
+    .mq-btn-primary:hover { background:var(--color-accent-hover); border-color:var(--color-accent-hover); }
+
+    .mq-note { max-width:640px; margin:1.4rem auto 0; font-size:0.9rem; color:var(--color-text-muted); text-align:center; line-height:1.7; }
+
+    .mq-toc { background:var(--color-card); border:1px solid var(--color-border-light); border-radius:10px; padding:1.6rem 1.8rem; }
+    .toc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.35rem 1.4rem; margin-top:0.6rem; }
+    .toc-grid a { text-decoration:none; color:var(--color-text-body); font-size:0.95rem; padding:0.15rem 0;
+                  border-bottom:1px dotted transparent; transition:color .15s; }
+    .toc-grid a:hover { color:var(--color-accent); border-bottom-color:var(--color-border); }
+    .toc-num { display:inline-block; width:1.9em; color:var(--color-accent); font-family:var(--font-label); font-size:0.82rem; }
+
+    .ci-card { background:var(--color-card); border:1px solid var(--color-border-light); border-radius:10px;
+               padding:1.8rem 2rem; margin-bottom:1.6rem; scroll-margin-top:84px; }
+    .ci-head { display:flex; align-items:baseline; gap:0.7rem; border-bottom:1px solid var(--color-border-light); padding-bottom:0.7rem; margin-bottom:1.1rem; }
+    .ci-num { font-family:var(--font-label); color:var(--color-accent); font-size:1rem; letter-spacing:0.05em; }
+    .ci-title { font-size:1.7rem; margin:0; }
+    .ci-title::after { display:none; }
+    .ci-sub { font-size:1rem; font-weight:400; color:var(--color-text-muted); }
+    .ci-preface { font-style:italic; color:var(--color-text-muted); font-size:0.92rem; line-height:1.9;
+                  border-left:2px solid var(--color-border); padding-left:1rem; margin-bottom:1.2rem; }
+    .ci-lyric { text-align:center; line-height:2.25; font-size:1.16rem; color:var(--color-text);
+               font-family:var(--font-body); letter-spacing:0.02em; padding:0.4rem 0; }
+    .ci-annos { margin-top:1.4rem; border-top:1px solid var(--color-border-light); padding-top:0.9rem; }
+    .ci-annos > summary { cursor:pointer; font-family:var(--font-label); color:var(--color-accent); font-size:0.95rem; }
+    .ci-annos-body { font-size:0.86rem; color:var(--color-text-muted); line-height:1.85; margin-top:0.9rem; }
+    .ci-annos-body p { margin-bottom:0.55rem; }
+    .ci-annos-body strong { color:var(--color-text-body); }
+
+    .mq-section-card { background:var(--color-card); border:1px solid var(--color-border-light); border-radius:10px; padding:1.6rem 1.9rem; }
+    .mq-refs { list-style:none; padding:0; columns:2; column-gap:2rem; }
+    .mq-refs li { font-size:0.9rem; color:var(--color-text-body); line-height:1.65; margin-bottom:0.4rem; break-inside:avoid; }
+    .mq-bios p { font-size:0.88rem; color:var(--color-text-muted); line-height:1.8; margin-bottom:0.6rem; }
+    .mq-bios strong { color:var(--color-text-body); }
+
+    @media (max-width:720px) {
+      .mq-hero h1 { font-size:2.4rem; }
+      .toc-grid { grid-template-columns:repeat(2,1fr); }
+      .mq-refs { columns:1; }
+      .ci-card { padding:1.4rem 1.2rem; }
+      .ci-lyric { font-size:1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Jincheng Han</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="digital.html">Digital</a></li>
+        <li><a href="news.html">News &amp; Notes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-lang"><a href="zh.html">中文</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <section class="section">
+      <div class="container">
+        <div class="mq-hero">
+          <h1>梦泉词稿</h1>
+          <p class="mq-en">Lyrics of Dream Spring</p>
+          <p class="mq-meta">韩金成 著 · Jincheng Han · 2023–2024 · 章丘明水古城</p>
+          <div class="mq-actions">
+            <a href="#contents" class="mq-btn mq-btn-primary">目录 Contents</a>
+            <a href="assets/files/mengquan-cigao.pdf" class="mq-btn" download>下载原书 PDF · Download</a>
+            <a href="publications.html" class="mq-btn">← Publications</a>
+          </div>
+          <p class="mq-note">原创古典诗词作品集，依宋词词牌填就，共四十五阕，附作者自序与详尽注释。此为全文开源发表，原书排版另见 PDF。<br>
+          A collection of forty-five original <em>ci</em> lyrics in the classical Chinese tradition — full open-source text with the author's preface and scholarly annotations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">自序 · Author's Preface</p>
+        <div class="mq-section-card">
+          <p>创作无关对错好坏，只要是能把自己的真情实感表达出来，就是绝佳的作品。对我而言，文学的作用主要有三个：一是寻找同道知己，二是记录生活点滴，三是推销自己的产品。我将三者按顺序排列是有原因的，如果说要让所有人都来读懂亦或是喜爱上我之所作，那断然是不可能的，因此我想通过此书来抛砖引玉，遇到并逢识更多的在诗词文学方面有爱好、有造诣的知交好友。再者，关于记录生活方面，一开始我并没有将自己的词集整理成书本的想法，只是将其看作成排解消遣的工具。自港返乡五个月以来，我把每日所见所感都尽量以宋代词牌名的形式表达出来，在此首先要对我所在的章丘明水古城单位的领导和同事说声谢谢，对明水古城这一座年轻且又极具文化底蕴的景区说声谢谢，没有如此契机，我无法完成自己的创作。同时，我也要感谢远在港岛的各位教授恩师，感谢屯门，感谢铜锣湾。数月以来，我几乎每天都漫步在景区的一隅一角，可以说这本书是古城赋予我的，它不单单属于我一个人。第三点，也是我认为最为敏感的点，恐怕是“推销”二字了， 在求学期间，我做过书店售货员，做过保险销售，起初我认为文学与销售总是不沾边的，通过最近时间的写作总结，我得出文学创作原来就是最大的销售。怎么理解呢？文学创作成果的表现形式无非是两种： 一是书中的思想内涵，二是书籍这一实体内容。当然，我认为前者的价值远胜于后者。</p>
+          <p>如若论及我对于文学的喜爱程度，是金庸古龙梁羽生里的快意恩仇，是聊斋封神子不语里的怪力乱神，同时也是李白李贺李清照的高才殊调，人这一生，就是不断地遇到自己的贵人，不断地刷新自己的认知，不断地向上攀登。</p>
+          <p>每个人的一生都是一本精彩的故事，我只是把我的人生片段总结出来，分享给我的亲友。最后，如若鄙人拙作能引得诸君尽兴一二，那便也是不错的甄陶了。</p>
+          <p style="margin-top:1rem;font-family:var(--font-label);color:var(--color-text-muted);">—— 韩金成，济南章丘，2023</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">作者简介 · About the Author</p>
+        <div class="mq-section-card">
+          <p><strong>韩金成（Jincheng Han）</strong>，济南章丘明水人，2023 年毕业于香港珠海学院，华南历史与文化文学硕士。作者从2023 年8 月份由香港返回章丘家乡，现于山东济南章丘明水古城景区（李清照故居) 从事文史整理及活动策划工作。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contents">
+      <div class="container">
+        <p class="section-label">目录 · Contents</p>
+        <div class="mq-toc">
+          <div class="toc-grid">
+          <a href="#poem-1"><span class="toc-num">01</span>永遇乐</a>
+          <a href="#poem-2"><span class="toc-num">02</span>满庭芳</a>
+          <a href="#poem-3"><span class="toc-num">03</span>蝶恋花</a>
+          <a href="#poem-4"><span class="toc-num">04</span>临江仙·明水城怀古</a>
+          <a href="#poem-5"><span class="toc-num">05</span>夜合花</a>
+          <a href="#poem-6"><span class="toc-num">06</span>念奴娇</a>
+          <a href="#poem-7"><span class="toc-num">07</span>水龙吟</a>
+          <a href="#poem-8"><span class="toc-num">08</span>行香子·访青州归来堂</a>
+          <a href="#poem-9"><span class="toc-num">09</span>渔家傲·青州道中</a>
+          <a href="#poem-10"><span class="toc-num">10</span>醉花阴</a>
+          <a href="#poem-11"><span class="toc-num">11</span>遐方怨·香港早行</a>
+          <a href="#poem-12"><span class="toc-num">12</span>更漏子</a>
+          <a href="#poem-13"><span class="toc-num">13</span>齐天乐</a>
+          <a href="#poem-14"><span class="toc-num">14</span>秋蕊香</a>
+          <a href="#poem-15"><span class="toc-num">15</span>宴清都·赠明水湖鸭道人</a>
+          <a href="#poem-16"><span class="toc-num">16</span>清波引</a>
+          <a href="#poem-17"><span class="toc-num">17</span>翠楼吟</a>
+          <a href="#poem-18"><span class="toc-num">18</span>小重山·重阳</a>
+          <a href="#poem-19"><span class="toc-num">19</span>琵琶仙·天地作囊</a>
+          <a href="#poem-20"><span class="toc-num">20</span>一萼红·赋双泉酒店前百叶蔷薇</a>
+          <a href="#poem-21"><span class="toc-num">21</span>惜红衣</a>
+          <a href="#poem-22"><span class="toc-num">22</span>雨霖铃·记明水古城狐仙巡游</a>
+          <a href="#poem-23"><span class="toc-num">23</span>二郎神</a>
+          <a href="#poem-24"><span class="toc-num">24</span>甘草子</a>
+          <a href="#poem-25"><span class="toc-num">25</span>少年游·雪中遇梅花泉</a>
+          <a href="#poem-26"><span class="toc-num">26</span>月华清</a>
+          <a href="#poem-27"><span class="toc-num">27</span>绕佛阁</a>
+          <a href="#poem-28"><span class="toc-num">28</span>天仙子</a>
+          <a href="#poem-29"><span class="toc-num">29</span>武陵春</a>
+          <a href="#poem-30"><span class="toc-num">30</span>鹧鸪天·屯门青山思故里</a>
+          <a href="#poem-31"><span class="toc-num">31</span>三部乐·题明水城狐仙居</a>
+          <a href="#poem-32"><span class="toc-num">32</span>斗百花·题东麻湾</a>
+          <a href="#poem-33"><span class="toc-num">33</span>翦朝霞·题明水城泉秀</a>
+          <a href="#poem-34"><span class="toc-num">34</span>青玉案·题清照故居</a>
+          <a href="#poem-35"><span class="toc-num">35</span>剑器近·题明水古城墙</a>
+          <a href="#poem-36"><span class="toc-num">36</span>声声慢·回忆往昔，都如梦寐</a>
+          <a href="#poem-37"><span class="toc-num">37</span>殢人娇·题明水城下芦花丛</a>
+          <a href="#poem-38"><span class="toc-num">38</span>倾杯乐·题明水城冶坊</a>
+          <a href="#poem-39"><span class="toc-num">39</span>鹤冲天·事古城三月有此作</a>
+          <a href="#poem-40"><span class="toc-num">40</span>贺新郎·登聊斋城</a>
+          <a href="#poem-41"><span class="toc-num">41</span>苏武慢·罗浮寻真</a>
+          <a href="#poem-42"><span class="toc-num">42</span>西平乐·于明水城读《聊斋·画壁》有感</a>
+          <a href="#poem-43"><span class="toc-num">43</span>汉宫春</a>
+          <a href="#poem-44"><span class="toc-num">44</span>风入松</a>
+          <a href="#poem-45"><span class="toc-num">45</span>洞仙歌·感遇有怀</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">词 · The Lyrics</p>
+
+        <article class="ci-card" id="poem-1">
+          <div class="ci-head"><span class="ci-num">01</span><h2 class="ci-title">永遇乐</h2></div>
+          <div class="ci-lyric">
+            钗搦清阳，佩结西苑，薄暗时暮。<br>
+            雪润香凝，窗隔粉弄，城月回舞。<br>
+            善才妆素，秋娘堕珥，易向彩云皇祜。<br>
+            琴舟断，云根柳畔，乱红蹑逐零露。<br>
+            残灯剩影，流霞被醉，顾景自怜身误。<br>
+            文鹢冲飞，星龛烜赫，吹皱汀滢路。<br>
+            重门悭客，浮江催羽，片绣麝熏微度。<br>
+            余生寄，梅花馆窄，惯游野处。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（18）</summary>
+    <div class="ci-annos-body">
+          <p><strong>永遇乐</strong>：“永遇乐”原是宋代的宫廷乐。宋周密《武林旧事》卷一在“圣节”下列“天基圣节”庆典，天基圣节是宋理宗诞辰，此谓为皇帝祝寿的仪式。周密在《天基圣节排当乐次》下云：“正月五日。乐奏夹钟宫。臀篥起《万寿永无疆》，引子。上寿。第一盏，笛起《帝寿昌慢》……第五盏，黯篥起《永遇乐慢》。”宫中设宴称为排当。可见“永遇乐慢”原是用于祝寿宴会等喜庆场合的宫廷音乐，可能很早就传人民间，北宋时已被文人用为词调。</p>
+          <p><strong>清毛先舒《填词名解》云</strong>：“唐杜秘书工小词。邻家有小女名酥香，凡才人歌曲悉能吟讽，尤喜杜词。遂成逾墙之好。后为仆所诉，杜竟流河朔。临行，述《永遇乐》词诀别。女持纸三唱而死。第未知此调创自杜与否?”杜秘书指“杜与”。其人史料无传。又：一说“杜秘书”指晚唐杜牧。杜牧进士及第后又中制科，授弘文馆校书郎，执掌校理典籍、刊正谬误，与魏晋时的秘书郎职位职责相当，故亦称杜秘书。然杜牧流放河朔一事史无记载，但此后他曾一度入观察使幕和节度使幕的经历似与在朝任职被贬有关。</p>
+          <p><strong>清阳</strong>：1. 声音清越悠扬。2. 指眉目之间。3. 清轻。此处指眉目之间。南北朝 徐悱《赠内诗》：“日暮想清阳，蹑履出椒房”。</p>
+          <p><strong>西苑</strong>：即北京的三海( 北海、中海、南海)。此处指济南章丘明水古城西边的园林。汉 佚名《乌生八九子》：“白鹿乃在上林西苑中，射工尚复得白鹿脯”。</p>
+          <p><strong>薄暗时暮</strong>：薄暗，指光线微弱，事物模糊不清。时暮，日暮。魏晋 陆机《梁甫吟》：“冉冉年时暮，迢迢天路徵”。</p>
+          <p><strong>雪润香凝</strong>：宋 范成大《初四日东郊观麦苗》：“土膏脉起条风扇，宿雪润田畴”。宋 吴文英《风入松》：“黄蜂频扑秋千索，有当时、纤手香凝”。</p>
+          <p><strong>窗隔粉弄</strong>：宋 周邦彦《六丑·蔷薇谢后作》：“但蜂媒蝶使，时叩窗隔。”清 宗婉《凤凰台上忆吹箫》：“岂比寻常儿女，只解把、粉弄脂调”。</p>
+          <p><strong>善才妆素，秋娘堕珥</strong>：善才，唐代用来称呼弹琵琶的艺人或乐师。意为“能手”。秋娘，唐代歌伎常用的名字, 有时用为善歌貌美的歌伎的通称。唐 白居易《琵琶行》：“曲罢曾教善才服, 妆成每被秋娘妒。”堕珥，即堕珥遗簪，指耳环与簪子都掉落在地上。多形容妇女在交际、游乐场合所表现的欢乐、轻狂情景。宋 柳永《木兰花慢》：“向路旁往往，遗簪堕珥，珠翠纵横”。</p>
+          <p><strong>皇祜</strong>：洪福。《书·礼乐志》：“ 汾脽出鼎，皇祜元始。” 颜师古注：“皇，大也；祜，福也”。</p>
+          <p><strong>云根</strong>：1. 深山云起之处。2. 山石。3. 道院僧寺。为云游僧道歇脚之处，故称。此处指明水湖云起之景。元 卫立中《殿前欢》：“挂云和八尺琴瑟，卧苔石将云根枕”。</p>
+          <p><strong>乱红</strong>：落花。宋 秦观《点绛唇》：“山无数，乱红如雨。不记来时路”。</p>
+          <p><strong>蹑逐</strong>：追逐。宋 孔平仲《再寄子由》：“岧峣阻跻攀，疲曳愧蹑逐”。</p>
+          <p><strong>零露</strong>：1、降落的露水。2、比喻容易消失的事物。《诗．郑风．野有蔓草》﹕" 野有蔓草﹐零露漙兮。" 郑玄笺﹕" 零﹐落也。" 南朝宋鲍照《代蒿里行》﹕" 驰波催永夜﹐零露逼短晨。" 清谭嗣同《公宴》诗﹕" 华月流绮疏﹐置酒临高台。剑佩拂零露﹐冠盖纷以来。" 比喻容易消失的事物。宋张元干《沁园春》词﹕" 富贵浮云﹐身名零露﹐事事无心归便归。" 一说﹐露珠。见高亨《诗经今注》。</p>
+          <p><strong>流霞</strong>：1、亦作" 流瑕" ﹑" 流赮"。浮动的彩云。 2、传说中天上神仙的饮料。 3、泛指美酒。唐孟浩然《清明日宴梅道士房》：“童颜若可驻，何惜醉流霞”。</p>
+          <p><strong>文鹢</strong>：船首画有鷁鸟形状的船。《史记·司马相如列传》：“浮文鷁，扬桂枻。” 裴駰《集解引书音义》：“鷁，水鸟也，画其象於船首。淮南子曰：‘龙舟鷁首，天子之乘也。’” 南朝 梁 萧钧《晚景游泛怀友诗》：“浪随文鷁转，渡逐彩鸳浮。”明 刘基《郁离子·九难》：“翠盖飘摇，文鷁委蛇”。</p>
+          <p><strong>星龛</strong>：谓散布如列星的佛龛或佛塔。 唐 王勃《广州宝庄严寺舍利塔碑》：“星龛月殿，俄盈震旦之墟；凤刹蜺旌，坐遍阎浮之域”。</p>
+          <p><strong>汀滢</strong>：亦作“ 汀濙 ”。 1. 小水。2. 水清澈貌。唐 韩愈《奉酬卢给事云夫四兄曲江荷花行见寄》：“玉山前却不复来，曲江汀滢水平杯。我时相思不觉一回首，天门九扇相当开。上界真人足官府，岂如散仙鞭笞鸾凤终日相追陪”。</p>
+          <p><strong>麝熏微度</strong>：麝熏，麝香的气味。麝本动物名，即香獐，其体内的分泌物可作香料。这里即指香气。唐 李商隐《无题》：“蜡照半笼金翡翠，麝熏微度绣芙蓉。刘郎已恨蓬山远，更隔蓬山一万重”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-2">
+          <div class="ci-head"><span class="ci-num">02</span><h2 class="ci-title">满庭芳</h2></div>
+          <div class="ci-lyric">
+            心重牵机，身轻琼海，多情重倚长门。<br>
+            道服纱帽，今夜又空尊。<br>
+            莎草灵均万顷，听天帐、坊曲幽纷。<br>
+            闲庭外，人人寂寞，烟里望华村。<br>
+            沉沉归有计，蒿莱欲下，星月初分。<br>
+            复登临、冰帘凉簟犹存。<br>
+            绣岸盈盈敛恨。棱断处、接续苔痕。<br>
+            红成阵，寒酥蘸碧，葩叶掩黄昏。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（15）</summary>
+    <div class="ci-annos-body">
+          <p><strong>满庭芳</strong>：满庭芳，词牌名，又名“锁阳台”“满庭霜”“潇湘夜雨”“话桐乡”满庭花“等。清徐釚《词苑丛谈》认为，调名取自唐柳宗元“满庭芳草积”的诗句（见柳宗元《赠江华长老》诗）。清毛先舒《填词名解》则认为：“《满庭芳》采唐吴融诗‘满庭芳草易黄昏。’”按：唐吴融《废宅》诗有“满庭荒草近黄昏”句，非“芳”字也，今辨之。五代后蜀毛熙震《浣纱溪》词也有“满庭芳草绿萋萋”句。调名本意即咏庭院的满同茂盛花草。</p>
+          <p><strong>牵机</strong>：即牵机药，剧毒。引宋 王铚《默记》：“后主相持大哭，乃坐默不言。忽长吁叹曰‘当时悔杀了潘佑、李平’。铉不敢隐，遂有秦王赐牵机药之事。牵机药者，服之前却数十回，头足相就如牵机状也。”清 洪亮吉《杀潘福》：“君不见，悔杀此人方出齿，明日牵机药随至”。</p>
+          <p><strong>琼海</strong>：1. 仙人的居所。 2. 太空云海。 3. 指海南岛。 4. 指琼州海峡。此处指太空云海。宋 辛弃疾《洞仙歌·浮石山庄》词：“仙人琼海上，握手当年，笑许君携半山去”。</p>
+          <p><strong>道服纱帽</strong>：道服，此处指佛教徒穿在外面的长袍。可以分为大褂、得罗、戒衣、法衣、花衣、衲衣等六种以上服装，均取肥大宽松，以寓包藏乾坤、隔断尘凡之意。又取直领，以示潇散。纱帽，古代君主、官员戴的一种帽子, 用纱制成。后用作官职的代称。也叫“乌纱帽”引宋 王铚《默记》：“顷间，李主纱帽道服而出”。</p>
+          <p><strong>莎草</strong>：多年生草本植物。茎直立，三棱形。叶细长，深绿色，质硬有光泽。夏季开穗状小花，赤褐色。地下有细长的匍匐茎，并有褐色膨大块茎。块茎称" 香附子"，可供药用。多生长在潮湿处或沼泽地，分布于华南、华东、西南各省，少数种在东北、华北、西北一带亦常见到；此外，世界各国也都广泛分布。明 刘基《水龙吟》：“但侵阶莎草，满庭绿树，不知昏晓”。</p>
+          <p><strong>灵均</strong>：灵均，屈原之字。后引申为词章之士。晚唐诗人黄滔曾作《灵均》诗。王逸注《离骚》曰：“灵，神也。均，调也。言正平可法则者，莫过于天；养物均调者，莫神于地。”五臣注曰：“灵，善也。均亦平也。言能正法则，善平理”。先秦 屈原《离骚》：“皇览揆余初度兮，肇锡余以嘉名：名余曰正则兮，字余曰灵均”。</p>
+          <p><strong>万顷</strong>：1. 百万亩。百亩为一顷。 2. 常用以形容面积广阔。此处指明水古城词章之士如莎草覆盖一样面积广阔。</p>
+          <p><strong>天帐</strong>：如天一般辽阔的帐幕，这里指明水古城孟家戏楼。 宋 刘摰《月夜即席次韵》：“天帐空虚碧玉寒，露华应满汉宫盘”。</p>
+          <p><strong>沉沉</strong>：形容心事沉重，也形容寂静无声或声音悠远隐约。清 王士祯《蝶恋花·和漱玉词》：“凉夜沉沉花漏冻，欹枕无眠，渐觉荒鸡动”。</p>
+          <p><strong>蒿莱</strong>：1、野草；杂草。2、草野。魏晋 阮籍《咏怀八十二首·其三十一》：“战士食糟糠，贤者处蒿莱”。</p>
+          <p><strong>盈盈</strong>：1. 仪态美好貌。盈，通“嬴”。2. 充积貌；充盈貌。3. 清澈貌；晶莹貌。此处指明水湖畔泉眼充盈。宋 范成大《车遥遥篇》：“月暂晦，星常明。留明待月复，三五共盈盈”。</p>
+          <p><strong>棱断处、接续苔痕</strong>：取自宋 保暹《秋径》：“虫迹穿幽穴，苔痕接断棱”。我细细地品味着四周的一切，路边松软的泥土，那一个个小小的洞穴，虫子钻过的痕迹宛在；一块块石板的断处缝边，长满了暗绿的青苔。</p>
+          <p><strong>红成阵</strong>：形如花落如雨。取自 宋 秦观《水龙吟·小楼连苑横空》：“破暖轻风，弄晴微雨，欲无还有。卖花声过尽，斜阳院落；红成阵，飞鸳甃”。</p>
+          <p><strong>寒酥蘸碧</strong>：寒酥，喻指雪花。取自 宋 柳永《破阵乐》：“露花倒影，烟芜蘸碧，灵沼波暖”。</p>
+          <p><strong>葩叶</strong>：葩，花，引申为华美。明 黄淮《感知己》：“桃李竞春风，葩叶交相媚。纷纷绮罗子，日向花间醉”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-3">
+          <div class="ci-head"><span class="ci-num">03</span><h2 class="ci-title">蝶恋花</h2></div>
+          <div class="ci-lyric">
+            六六巫峰谁是我。<br>
+            半是谪仙，半是林中箨。<br>
+            暮雨乍收金琥珀，龙驹凤辇逐轻络。<br>
+            玉斗摇飏星转陌。<br>
+            绛景玄晨，俯眄池中火。<br>
+            白玉扉前吟未沫，紫泉宫殿华光堕。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（11）</summary>
+    <div class="ci-annos-body">
+          <p><strong>蝶恋花</strong>：原是唐教坊曲，后用作词牌，本名“鹊踏枝”，又名“黄金缕”“卷珠帘”“凤栖梧”“明月生南浦”“细雨吹池沼”“一箩金”“鱼水同欢”“转调蝶恋花”等。关于“蝶恋花”调的来源，学者说法不一。明代杨慎在《词品》卷一“词名多取诗句”条中指出：“‘蝶恋花’则取梁元帝‘翻阶蛱蝶恋花情’。”此说有误，此诗见于梁简文帝萧纲《东飞伯劳歌》其一：“翻阶蛱蝶恋花情，容华飞燕相逢迎。”清代毛先舒承袭杨慎的观点，在《填词名解》卷二中认为：“梁简文帝乐府有‘翻阶蛱蝶恋花情’故名。”今人李琏生在《中国历代词分调评注&lt; 蝶恋花&gt;》一书中，从词调史的角度否定了前人的观点，认为：“‘蝶恋花’虽与梁简文帝诗句有关，可能这是出于明人的附会，因它绝不可能是六朝时所创制的曲。此调本为唐代教坊曲，源于盛唐时期，属于新的燕乐曲。</p>
+          <p><strong>六六</strong>：1. 六的六倍﹐三十六。 2. 谓巫山三十六峰。 3. 鲤鱼的别称。宋 程垓《朝中措》：“真游六六洞中仙。骑鹤下三天”。</p>
+          <p><strong>谪仙</strong>：原指神仙被贬入凡间后的一种状态，引申为才情高超、清越脱俗的道家人物，有如自天上被谪居人世的仙人。中国历史人物中，汉朝的东方朔，唐朝的李白、杜甫，宋朝的苏轼等极有才能的文人，都曾被称为谪仙。唐 李白《对酒忆贺监二首》：“四明有狂客，风流贺季真。长安一相见，呼我谪仙人”。</p>
+          <p><strong>箨</strong>：竹笋上一片一片的皮。唐 杜甫《严郑公宅同咏竹》：“绿竹半含箨，新梢才出墙”。</p>
+          <p><strong>暮雨乍收</strong>：取自宋 陈东《西江月》：“暮雨乍收寒浅，朝云又起春浓”。</p>
+          <p><strong>玉斗</strong>：指玉制的酒器，玉制的斗形器物。或指北斗星，也借喻江山社稷。宋 刘翰《玉斗歌》：“君王间道却归来，满地秋声鸣玉斗”。</p>
+          <p><strong>摇飏</strong>：解释为摇曳、飞扬。唐 李绅《奉酬乐天立秋夕有怀见寄》：“冰兔半升魄，铜壶微滴长。薄帷乍飘卷，襟带轻摇飏”。</p>
+          <p><strong>绛景玄晨，俯眄池中火</strong>：取自魏晋 云林右英夫人《诗二十五首 其十一 九月二十五日夜云林右英夫人授作》：“绛景浮玄晨，紫轩乘烟征。仰超绿阙内，俯眄朱火城”。</p>
+          <p><strong>白玉扉</strong>：白玉做的门扇。宋 李楙《寄赠华阳洞隐者》：“天上神仙白玉扉，春云谁绣六铢衣”。</p>
+          <p><strong>未沫</strong>：1. 不曾休止。 2. 引申为未消失。宋 陈造《行春辞三首》：“饭云子而泛乳兮，引吟兴之未沫”。</p>
+          <p><strong>紫泉</strong>：紫色之泉，神仙饮用的泉水。唐 李商隐《隋宫》：“紫泉宫殿锁烟霞，欲取芜城作帝家”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-4">
+          <div class="ci-head"><span class="ci-num">04</span><h2 class="ci-title">临江仙 <span class="ci-sub">· 明水城怀古</span></h2></div>
+          <div class="ci-lyric">
+            漱玉堂前初见，<br>
+            狐仙居上曾穹。<br>
+            十洲云水画屏东。<br>
+            凤凰楼倚翠，杨柳陌招红。<br>
+            残月自明江雪，<br>
+            孤星难与君同。<br>
+            锦帷飘尽羽觞空。<br>
+            玲珑造化外，薄幸汉宫中。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（6）</summary>
+    <div class="ci-annos-body">
+          <p><strong>临江仙</strong>：原是唐教坊曲，后用作词牌。临江仙源起颇多歧说。南宋黄昇《花庵词选》注：“唐词多缘题。所赋《临江仙》，则言仙事。”明董逢元《唐词纪》认为，此调“多赋水媛江妃”，即多为咏水中的女神。调名本意即咏临江凭吊水仙女神。近代学者任半塘先生据敦煌词有句云“岸阔临江底见沙”谓词意涉及临江。“临”本意是俯身看物；临江而看的自是水仙。但中国历代所祭的水仙并不确定。像东汉袁康、吴平《越绝书》所记的春秋吴国功勋伍子胥受谗而死成为长江水仙，东晋王嘉《拾遗记》称战国楚大夫屈原为湘江水仙。此外，还有琴高、郭璞、陶岘各为不同水仙的记载。另外，投湘江而死的舜之二妃、三国魏曹植笔下的洛河女神，都是人们祭祀的对象。</p>
+          <p><strong>曾穹</strong>：高空。《文选·谢惠连&lt; 七月七日夜咏牛女&gt;》：“蹀足循广除，瞬目矖曾穹。” 唐 吴筠《览古》诗之十三：“晚节希鸾鹄，长飞戾曾穹”。</p>
+          <p><strong>十洲云水</strong>：十洲，道教称大海中神仙居住的十处名山胜境。亦泛指仙境。云水，云与水。宋 晏几道《留春令》：“画屏天畔，梦回依约，十洲云水”。</p>
+          <p><strong>锦帷</strong>：锦帐。宋 李祁《和咏海棠韵》：“步入锦帷香径小，醉扶银烛画堂深”。</p>
+          <p><strong>羽觞</strong>：羽觞（觞音如“商”，指酒杯），又称羽杯、耳杯，是中国古代的一种盛酒器具，器具外形椭圆、浅腹、平底，两侧有半月形双耳，有时也有饼形足或高足。因其形状像爵，两侧有耳，就象鸟的双翼，故名“羽觞”。唐 李白《春夜宴从弟桃李园序》：“开琼筵以坐花，飞羽觞而醉月”。</p>
+          <p><strong>玲珑造化</strong>：玲珑，明亮貌。造化，天地，大自然。取自宋 李清照《渔家傲》：“造化可能偏有意，故教明月玲珑地”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-5">
+          <div class="ci-head"><span class="ci-num">05</span><h2 class="ci-title">夜合花</h2></div>
+          <div class="ci-lyric">
+            醉舞酣歌，百花丛里，我独捩眼侯王。<br>
+            蓬山燕榭凤台，浅唱宫黄。<br>
+            古枫屦旌阳。对悬淙、重整梅妆。<br>
+            兽炉香冷，樊笼久困，半死南乡。<br>
+            词宗贯古无双。笑当时，夜合花树欢狂。<br>
+            谪仙唱彻，陶然恰尔追芳。<br>
+            叹景景流伤。忆昨日、泉壑开阳。<br>
+            梦魂来也，髫年去后，绛雪扶光。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（23）</summary>
+    <div class="ci-annos-body">
+          <p><strong>夜合花</strong>：即合欢花树。南宋郑樵《通志》云：“合欢曰合昏、曰青裳、曰夜合，其木似梧桐，枝弱叶繁，互相交结缀植之庭阶使人不忿其叶，至暮而合，故曰合昏，今人皆为之夜合花。”唐窦淑向《夏夜宿表兄话旧》诗：“夜合花开香满庭，夜深微雨醉初醒。”调名本意即咏夜晚的合欢花。调见北宋晁补之《晁氏琴趣外编》。</p>
+          <p><strong>醉舞酣歌</strong>：醉舞，狂舞；酣歌，尽兴歌唱。清 杨玉衔《莺啼序》：“愔愔巷陌，醉舞酣歌，恼春人梦寐”。</p>
+          <p><strong>捩眼</strong>：左右侧视; 侧目而视。宋 高斯得《莫恃势行》：“君不见夫差称霸会黄池，诸侯不敢捩眼窥”。</p>
+          <p><strong>蓬山</strong>：即蓬莱山。相传为仙人所居。唐 李商隐《无题》：“蓬山此去无多路，青鸟殷勤为探看”。</p>
+          <p><strong>燕榭</strong>：供人游宴的台榭。宋 王珪《赠司空侍中晏元献公挽词二首》：“露湿铭旌晓，尘凝燕榭春”。</p>
+          <p><strong>凤台</strong>：1. 古台名。 2. 泛指华美的楼台。唐 王无竞《相和歌辞·凤台曲》：“凤台何逶迤，嬴女管参差。一旦彩云至，身去无还期”。</p>
+          <p><strong>宫黄</strong>：古代妇女额上涂饰的黄色。宋 周邦彦《瑞龙吟》：“侵晨浅约宫黄，障风映袖，盈盈笑语”。</p>
+          <p><strong>古枫屦旌阳</strong>：此处用典。取自 宋 姜夔《鹧鸪天·曾共君侯历聘来》：“是日即平甫初度，因买酒茅舍，并坐古枫下。古枫，旌阳在时物也。旌阳尝以草屦悬其上，土人谓屦为屐，因名曰挂屐枫”。</p>
+          <p><strong>悬淙</strong>：指瀑布。清 王恩浩《晴》：“久旱忽逢霖渥沛，新晴好听瀑悬淙”。</p>
+          <p><strong>梅妆</strong>：即梅花妆，又称落梅妆，乃古妇女之妆饰；指女子在额上贴一梅花形的花子妆饰。这种妆容起源于南北朝时期的寿阳公主，唐朝时（武周）因上官婉儿而再度兴起。据宋《太平御览》记载，南朝宋武帝刘裕的女儿寿阳公主，在某一年的正月初七仰卧于含章殿下，殿前的梅树被微风一吹，落下来一朵梅花，不偏不倚正好粘在公主的额上，而且怎么都揭不下来。于是，皇后就把公主留在自己身边，观察了好长时间。三天之后，梅花被清洗了下来，但公主额上却留下了五个花瓣的印记。宫中女子见公主额上的梅花印非常美丽，都想效仿，于是就剪梅花贴于额头，一种新的美容术从此诞生，当时被称“梅花妆”。其式，在额上画一圆点，或多瓣梅花状，唐时很流行。宫女们觉得额头上装饰几朵梅花花瓣，更显娇俏，也学着在额头上粘花瓣。这种妆就成了宫廷日妆。但腊梅不是四季都有，于是她们就用很薄的金箔剪成花瓣形，贴在额上或者面颊上，叫做“梅花妆”。这种装扮传到民间，成为民间女子、官宦小姐及歌伎舞女们争相效仿的时尚妆容，一直到唐五代都非常流行。宋 王禹偁《后土庙琼花诗》：“若使寿阳公主在，自当羞见落梅妆”。</p>
+          <p><strong>兽炉</strong>：兽形的香炉。元 张可久《塞鸿秋·春情》：“兽炉沉水烟，翠沼残花片。一行写入相思传”。</p>
+          <p><strong>樊笼</strong>：1. 关鸟兽的笼子。比喻受束缚不自由的境地。2. 指囚笼。魏晋 陶渊明《归园田居·其一》：“户庭无尘杂，虚室有余闲。久在樊笼里，复得返自然”。</p>
+          <p><strong>半死南乡</strong>：半死，形容受到的折磨、摧残极深，也指还未死。宋 贺铸《鹧鸪天》：“重过阊门万事非。同来何事不同归。梧桐半死清霜后，头白鸳鸯失伴飞。”南乡，南方。取自宋 陆游《诉衷情》：“此生谁料，心在天山，身老沧州”。</p>
+          <p><strong>词宗</strong>：1.词章为众所宗仰的人﹔词坛泰斗。 2.犹词旨。 3. 指诗词的流派、品格。清 唐蕴贞《扬州慢·题白石小像》：“一代词宗，半生落拓，布衣空老江湖”。</p>
+          <p><strong>谪仙</strong>：谪仙曲，指伊格赛听和叶里合唱歌曲《谪仙》：“称谪仙瑶宫难留，去凡间红楼斗酒，多情眸，落墨诗卷又几斗”。</p>
+          <p><strong>陶然</strong>：闲适欢乐的样子。唐 李白《经乱离后天恩流夜郎忆旧游书怀赠江夏韦太守良宰》：“逢君听弦歌，肃穆坐华堂。百里独太古，陶然卧羲皇”。这首诗是李白在江夏临别时赠写太守韦良宰的，通过写古述今表达了他对自身境遇和对乱世的忧愤。此诗云：“传闻赦书至，却放夜郎回。”又云“寥落天地秋”，当是公元759 年（乾元二年）秋在江夏作。诗云：“君登凤池去，忽弃贾生才。”仍希冀朝廷任用自己。</p>
+          <p><strong>追芳</strong>：谓与前人媲美。明 钱肃润《喜迁莺》：“君复结庐到此，恰尔追芳齐躅”。</p>
+          <p><strong>泉壑</strong>：1. 泉水和山谷。 2. 引申为隐退之处。 3. 山谷间的泉水。唐 钱起《谷口书斋寄杨补阙》：“泉壑带茅茨，云霞生薜帷”。</p>
+          <p><strong>开阳</strong>：1. 北斗七星的第六星。 2. 东汉时洛阳城门名。清 张云璈《浮山禹庙观山海经塑像》：“安得昆仑墟，开阳作干掫”。</p>
+          <p><strong>梦魂</strong>：古人以为人的灵魂在睡梦中会离开肉体，故称“梦魂”。五代 李煜《望江南》：“多少恨，昨夜梦魂中。还似旧时游上苑，车如流水马如龙。花月正春风”。</p>
+          <p><strong>髫年</strong>：指幼童时期，词语出自晋代陶渊明的《桃花源记》：“黄发垂髫，并怡然自乐。”和唐代杨炯的 《明威将军梁公神道碑》：“丱岁腾芳，髫年超霭”。</p>
+          <p><strong>绛雪</strong>：1. 炼丹家丹药名。 2. 比喻红色花朵。宋 柳永《瑞鹧鸪》：“恨听烟坞深中，谁恁吹羌管、逐风来。绛雪纷纷落翠苔”。</p>
+          <p><strong>扶光</strong>：扶桑之光。指日光。亦指日。明 欧大任《罗浮》：“日观齐石楼，朱明通地肺。天鸡始一鸣，扶光彻幽蔽”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-6">
+          <div class="ci-head"><span class="ci-num">06</span><h2 class="ci-title">念奴娇</h2></div>
+          <div class="ci-lyric">
+            旧章新剪，尽拼作，迢递高城风榭。<br>
+            暖霭东隅，留恋处，清照泉石颐解。<br>
+            绿绮无穷，眉峰有尽，迟诉房栊雪。<br>
+            依约曾见，洞天多少豪烈。<br>
+            店外野水横遮，对河梁隐映，春心争涉。<br>
+            桂棹兰舟，芦帐里，一枕双星明灭。<br>
+            此地明年，断肠多少事，酒消花怯。<br>
+            烟波湖上，小池开满弦月。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（17）</summary>
+    <div class="ci-annos-body">
+          <p><strong>念奴娇</strong>：《念奴娇》曲名，来源于唐天宝中名倡念奴。元稹《连昌宫词》云：“初过寒食一百六，店舍无烟宫树绿。夜半月高弦索鸣，贺老琵琶定场屋。力士传呼觅念奴，念奴潜伴诸郎宿、须臾觅得又连催，特敕街中许然烛。春娇满眼泪红绡，掠削云鬓旋装束。飞上九天歌一声，二十五郎吹管逐。”元氏自注：“念奴，天宝中名倡，善歌每岁楼下关宴，万众喧溢，严安之、韦黄裳辈辟易不能禁，众乐为之罢奏。明皇遗高力士大呼楼上曰：‘欲遣念奴唱歌，那二十五郎吹小管逐看人能听否？’皆悄然奉语然明皇不欲夺狭游之盛，未尝置在官禁。岁幸温汤，时巡东洛，有词潜遭从行而已。”五代王仁裕《开元天宝遗事》有“眼色娟人”条：“念奴者，有姿色，善歌唱，未常一日离帝左右。每执板，当席顾眄。帝谓妃子曰：‘此女妖丽，眼色媚人。’每啭声歌喉，则声出于朝体之上，虽钟鼓笙竽嘈杂而莫能遏。官妓中帝之钟爱也。”今按：念奴以有姿色，善歌唱擅名于天宝年间，玄宗的品题“此女妖丽，眼色媚人”，更使之艳名远播。念奴的明艳娇媚，于是成为文人艳称的题材，形之歌咏，播于乐府。元稹诗有“春娇满眼”之句，《念奴娇》曲名，即取义于此。《念奴娇》曲子起源于何时，史无明文。王灼《碧鸡漫志》载：“今大石调《念奴娇》，世以为天宝中所制曲，予固疑之。然唐中叶渐有今体慢曲子，而近世有填连昌词入此曲者。”现存唐五代词作中，并无《念奴娇》词作传世。今传《念奴娇》词，最早的是沈唐“杏花过雨”一阕。其作年当在北宋嘉祐、照宁之间，则该曲可能起于北宋中期。宋末元初王仲晖《瓮天脞语》记北宋宋江一词：“天南地北，问乾坤何处，可容狂客。借得山东烟水寨，来买风城春色。翠袖围香，鲛绡笼玉，一笑千金值。神仙体态，薄幸如何消得。回想芦叶滩头，蓼花汀畔，皓月空凝碧。六六雁行连八九，只待金鸡消息。义胆包天，忠肝盖地，四海无人识。闲愁万种，醉乡一夜头白。这应是传说之词，可见此调在民间的流行。</p>
+          <p><strong>旧章</strong>：1. 昔日的典章。2. 古代的篇章。两汉张衡《东京赋》：“建象魏之两观，旌六典之旧章”。</p>
+          <p><strong>迢递</strong>：高峻貌。唐 李商隐《安定城楼》：“迢递高城百尺楼，绿杨枝外尽汀洲”。</p>
+          <p><strong>风榭</strong>：指台榭。宋 吕本中《暮步至江上》：“雪篱风榭年年事，辜负风光取次回”。</p>
+          <p><strong>暖霭</strong>：春天的云气。宋 叶梦得《贺新郎》：“渐暖霭、初回轻暑，宝扇重寻明月影，暗尘侵、上有乘鸾女”。</p>
+          <p><strong>东隅</strong>：1. 东角；东方。2. 古代指中原地区以东的小国。3. 指日本。4. 亦作“ 东嵎 ”。因日出东隅，故以“东隅”指早晨，引申指始，初。唐 李白《有所思》：“我思仙人，乃在碧海之东隅。海寒多天风，白波连山倒蓬壶”。</p>
+          <p><strong>颐解</strong>：犹解颐。开颜欢笑; 欢笑 宋 周密 《齐东野语·解颐》：“本朝 盛度 ，以第二名登第，其父喜甚，颐解而卒。” 明 无心子 《金雀记·作赋》：“鸾交凤兮神庥，凤友鸾兮颐解。” 明 陈文烛 《序》：“辨往喆之屈笔，闻者颐解；反先代之成案，令人心服。</p>
+          <p><strong>绿绮眉峰</strong>：绿绮，1. 古琴名。 2. 泛指琴。 3. 绿色的丝绸。眉峰，眉毛，眉头。 宋 柳永 《雪梅香》词：“别后愁颜，镇歛眉峰。” 明 周履靖 《锦笺记·阅录》：“喜今日眉峯少整，无限惜花情，试向林园寻问。”《花月痕》第四五回：“眉峯离恨锁层层，欲断情丝总未能。” 艾芜 《山峡中》：“她的两条眉峰一竖，眼睛露出恶毒的光芒，看起来，却是又美丽又可怕的。”唐 李白《听暑僧濬弹琴》：“蜀僧抱绿绮，西下峨眉峰。”</p>
+          <p><strong>房栊</strong>：1. 亦作" 房笼"。 2. 窗棂。 3. 泛指房屋。宋 叶梦得《贺新郎》：“睡起流莺语，掩苍苔、房栊向晚，乱红无数”。</p>
+          <p><strong>洞天</strong>：道教指神仙居住的地方, 意思是洞中别有天地, 现在借指引人入胜的境地。宋 周邦彦《瑞鹤仙》：“叹西园、已是花深无地，东风何事又恶？任流光过却，犹喜洞天自乐”。</p>
+          <p><strong>豪烈</strong>：1. 指刚正有为﹑勇于任事的人。 2. 犹言奔放强烈。唐 李白《万愤词投魏郎中》：“ 子胥鸱夷， 彭越 醢醯。自古豪烈，胡为此繄？”</p>
+          <p><strong>野水</strong>：1. 野外的水流。 2. 指非经人工开凿的天然水流。宋 苏轼《书李世南所画秋景二首》：“野水参差落涨痕，疏林欹倒出霜根。扁舟一棹归何处？家在江南黄叶村”。</p>
+          <p><strong>河梁</strong>：桥梁。旧题汉·李陵《与苏武》诗之三：“携手上河梁，游子暮何之？……行人难久留，各言长相思。”后因以“河梁”借指送别之地。</p>
+          <p><strong>争涉</strong>：争执交涉。清 李符《摸鱼儿》：“歌桡动，长在白蘋开际。筠笼争涉烟水”。</p>
+          <p><strong>兰舟</strong>：木兰木制造的船，文学作品中常用的对船的美称。吴文英《风入松》：“兰舟高荡涨波凉。愁被矮桥妨。暮烟疏雨西园路，误秋娘、浅约宫黄”。</p>
+          <p><strong>此地明年</strong>：指章丘明水古城。取自 明 欧大任《九日登观海楼送陈士鹄北上》：“青山谢傅相将去，白首冯公尚未招。此地明年重忆汝，佩萸应在紫宸朝”。</p>
+          <p><strong>弦月</strong>：1. 呈半圆形的月亮。指农历初七﹑八或廿二﹑三之月。宋 李彭老《浪淘沙》：“钿车罗盖竞归城。别有水窗人唤酒，弦月初生”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-7">
+          <div class="ci-head"><span class="ci-num">07</span><h2 class="ci-title">水龙吟</h2></div>
+          <div class="ci-lyric">
+            坐吟金魄圆光，水中夜夜伤别剑。<br>
+            胡山放马，鬓棱时候，雾凇如焰。<br>
+            笑取乌蟾，星摇斗落，意浓情淡。<br>
+            正红蓼懒浴，新凉到处，尘沙碎，冰霜惨。<br>
+            荒径蓬蒿岂敢，上吴台，恨同收敛。<br>
+            桃源梦好，未还先怯，青苺文簟。<br>
+            罗幕翻香，坠风飘絮，镜波凭览。<br>
+            趁今朝岁晚，移花洲渡，解青丝缆。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（16）</summary>
+    <div class="ci-annos-body">
+          <p><strong>水龙吟</strong>：据说，“水龙吟”最早是南北朝时北齐的一组古琴曲，据《北齐书》卷二十九“郑述祖传”：“述祖能鼓琴，自造《龙吟十弄》，云尝梦人弹琴，寤而写得。当时以为绝妙。”同时，汉马融《长笛赋》云：“近世羌笛从羌起，羌人伐竹未及已。龙吟水中不见己，截竹吹之声相似。”故人们也以龙吟喻笛声，如南朝梁刘孝先《咏竹诗》：“谁能制长笛，当为吐龙吟。”南北朝诗人庾信《对酒诗》：“惟有龙吟笛，桓伊能独吹。”入唐，唐代君王出行有仪仗鼓吹，所奏乐曲有《龙吟声》。据《新唐书》卷二十三下“仪卫下”载：“大驾卤簿鼓吹，分前后二部。凡鼓吹五部：一鼓吹，二羽葆，三铙吹，四大横吹，五小横吹，总七十五曲。……鼓吹部有扛鼓、大鼓、金钲小鼓、长鸣、中呜。扛鼓十曲，……长鸣一曲三声：一《龙吟声》，二《彪吼声》，三《河声》。”《龙吟声》是出行中吹打的一种仪仗乐。而在宫内娱乐时，也有类似的笛曲，李白《宫中行乐词八首》第三：“笛奏龙吟水，箫鸣凤下空。”杜甫《刘九法曹、郑瑕丘石门宴集》诗：“晚来横吹好，泓下亦龙吟。”除了宫廷音乐外，唐代民间也流传着一种击打乐《龙吟歌》。中唐时，诗人李贺作《假龙吟歌》，歌为杂言，前半四言，后半七言，全用仄声押韵，韵字则入声与上声交替，语言亦奇崛险怪，用各种奇特比喻写龙吟声。假者，假借也，借龙吟歌作杂言歌词。唐代乐曲名虽有“龙吟”而无“水”字，但在唐人的理念中，龙与水密不可分，故唐人亦多以龙吟喻水声。如李白《梦游天姥吟留别》中有“熊咆龙吟殷岩泉，栗深林兮惊层巅”。晚唐张祜《题李渎山居玉潭》，用“一听夜龙吟”比喻潭水声。另外，中国古代的《易经》云：“云从龙，风从虎。”故人们以为龙吟云起，虎啸风生。每当干旱之时，君王便下诏祈雨。唐玄宗时曾诏令修建龙坛和龙堂以供祭祀求雨。由唐代这种风俗文化出发，龙与水是不可分离的，所以很容易由《龙吟声》或《龙吟歌》演变出《水龙吟》的曲名曲调。对于词名的来源，毛先舒《填词名解》卷三认为李白诗“笛奏龙吟水”是其调名之来源，而陈元龙《片玉集注》卷十谓本于李贺诗“雌龙怨吟寒水光”。对于最早使用该曲调填词之人，一说唐末五代时的道士吕岩；《见历代诗余》卷七十四认为是柳永；一说为苏轼。</p>
+          <p><strong>金魄圆光</strong>：1. 金之精﹔纯金。 2. 指满月。圆光，月亮。取自 唐 李白《古风·蟾蜍薄太清》：“圆光亏中天，金魄遂沦没”。</p>
+          <p><strong>别剑</strong>：喻夫妻生离死别。取自 南朝宋 鲍照《赠故人马子乔》诗之六:" 双剑将别离，先在匣中鸣。烟雨交将夕，从此遂分形。雌沈吴江里，雄飞入楚城。吴江深无底，楚阙有崇扃。一为天地别，岂直限幽明？" 按，晋干宝《搜神记》卷十一谓，楚人干将﹑莫邪曾造雌雄之剑。</p>
+          <p><strong>胡山</strong>：胡山在明水古城正南八公里处，层峦叠嶂、崖青壁绿。被列入章丘十二景观。胡山道教历史悠久，是山东宗教文化的重要发祥地，道教历史上山东除泰山、崂山，胡山并列其后。自唐代时胡山顶峰上就有庙宇，远近百姓都有前来上香祈愿的。庙宇曾由僧侣和道士交替主持，自清康熙后，一直为全真教龙门宗主持。后来庙宇不知何故被扒掉，现遗址只留下几块基石。</p>
+          <p><strong>放马</strong>：取自 南北朝 佚名《折杨柳歌辞五首》：“放马两泉泽，忘不著连羁。担鞍逐马走，何见得马骑”。</p>
+          <p><strong>雾凇</strong>：雾凇，俗称冰花、树挂等，是低温时空气中水汽直接凝华，或过冷雾滴直接冻结在物体上的乳白色冰晶沉积物，是非常难得的自然奇观。宋 曾巩《雾凇》：“园林日出静无风，雾凇花开树树同。记得集贤深殿里，舞人齐插玉珑璁”。</p>
+          <p><strong>乌蟾</strong>：1. 指神话传说日中的三足乌和月中的蟾蜍。 2. 指日月; 时光。 唐 韩愈《苦寒》：“日月虽云尊，不能活乌蟾。羲和送日出，恇怯频窥觇”。</p>
+          <p><strong>红蓼</strong>：蓼的一种。多生水边，花呈淡红色。宋 秦观《满庭芳》：“红蓼花繁，黄芦叶乱，夜深玉露初零”。</p>
+          <p><strong>蓬蒿</strong>：1. 蓬草和蒿草。亦泛指草丛；草莽。2. 借指荒野偏僻之处。唐 杜荀鹤《小松》：“自小刺头深草里，而今渐觉出蓬蒿。时人不识凌云木，直待凌云始道高”。</p>
+          <p><strong>吴台</strong>：指春秋吴王阖闾( 一说夫差) 所筑之姑苏台( 在江苏吴县西南)。宋 吴文英《忆旧游》：“故人为写深怨，空壁扫秋蛇。但醉上吴台，残阳草色归思赊”。</p>
+          <p><strong>桃源</strong>：1." 桃花源" 的省称，又称“桃花浔”,“桃花洞”。指避世隐居的地方, 亦指理想的境地 2. 指桃源洞。 3. 宋时临安县嘉会门外泠水峪，夹山多桃花，中有流水，人称桃源，为都人游集之地。五代李存勖《忆仙姿》：“曾宴桃源深洞，一曲清歌舞凤。长记欲别时，和泪出门相送。如梦！如梦！残月落花烟重”。</p>
+          <p><strong>罗幕</strong>：丝罗帐幕。五代 李煜《临江仙》：“子规啼月小楼西，玉钩罗幕，惆怅暮烟垂”。</p>
+          <p><strong>镜波</strong>：如镜般光洁明亮的湖面。唐 李绅《寿阳罢郡日有诗十首》：“霞散浦边云锦截，月升湖面镜波开”。</p>
+          <p><strong>凭览</strong>：登高远望。唐 沈佺期《登瀛洲南城楼寄远》：“层城起丽谯，凭览出重霄。兹地多形胜，中天宛寂寥”。</p>
+          <p><strong>移花</strong>：移植花木。唐 李商隐《野菊》：“紫云新苑移花处，不取霜栽近御筵”。</p>
+          <p><strong>青丝</strong>：1.黑发2.青色的丝绳。两汉 佚名《上陵》：“桂树为君船，青丝为君笮，木兰为君棹，黄金错其间”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-8">
+          <div class="ci-head"><span class="ci-num">08</span><h2 class="ci-title">行香子 <span class="ci-sub">· 访青州归来堂</span></h2></div>
+          <div class="ci-lyric">
+            鹜雁随虹，虚负楸桐。<br>
+            正狸花栖处情浓。<br>
+            朱衣紫绶，阑入丛丛。<br>
+            向天中乌，星中鹊，月中鹲。<br>
+            归来似去，溪亭难寄。<br>
+            对贤祠瘦老渔翁。<br>
+            龙团雪乳，饮散西东。<br>
+            剩半朵梨云，<br>
+            一枕春绪，万盏骄风。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>行香子</strong>：南宋程大昌《演繁露》云：“行香即释教之谓行道烧香也。行道者，主斋之人亲自周行道场之中；烧香者，熟之于炉也。”从南北朝开始，朝廷即举办“行香”法会。唐张籍《送令狐尚书赴东都留守》诗：“行香暂出天桥上，巡礼常过禁殿中。”调名本意即以小曲的形式歌咏拜佛仪式中的绕行上香。《南史·王弘传》附王僧达：“何尚之致仕，复膺朝命，于宅设八关斋，大集朝士，自行香。”此调当为佛曲。此调当为重头曲，后段首旬当用韵，其余宋人之作多如此；苏轼七首后段首句不用韵，亦可。苏轼用于咏物、写景、酬赠、感叹人生。其另一首感叹人生之作：“三入承明。四至九卿。问儒生、何辱何荣。金张七叶，纨绮貂缨。无汗马事，不献赋，不明经。成都卜肆，寂寞君平。郑子真、产谷躬耕。寒灰炙手，人重人轻。除竺乾学，得无念，得无名。”苏轼此词与“清夜无尘”词影响极大，确立基本情调格局，故多用以感悟人生哲理。辛弃疾四首具嘲讽之意，风格更为恣肆，如《博山戏呈赵昌甫韩仲止》：“少日尝闻。富不如贫。贵不如、贱者长存。由来至乐，总属闲人。且饮瓢泉，弄秋水，看停云。岁晚情亲。老语弥真。记前时、劝我殷勤。都休梦带酒，也莫论文。把相牛经，种鱼法，教儿孙。”此调亦用以言情，如洪瑹词：“楚楚精神。杨柳腰身。是风流、天上飞琼。凌波微步，罗袜生尘。有许多娇，许多韵，许多情。十年心事，两字眉婚。问何时、真个行云。秋衾半冷，窗月窥人。相为人愁，为人瘦，为人颦。”宋蒋捷《舟宿兰湾》词意极为轻快：“红了樱桃。绿了芭蕉。送春归、客尚蓬飘。昨宵谷水，今夜兰皋。奈云溶溶，风淡淡，雨潇潇。银字笙调。心字香烧。料芳悰、乍整还凋。待将春恨，都付春潮。过窈娘堤，秋娘渡，泰娘桥。”此调以四字句和三字句为主，间以两个上三下四之七字句法。每段前半和缓，结尾由一个领字领三个三字句而又流畅奔放。每结之三字句须构词法相同，而又意义连贯，意象优美，音节响亮，具语意回环之艺术效果，故使此调特色显著。纵观宋人之作多表达感慨、嘲讽、轻快之情意。</p>
+          <p><strong>鹜雁</strong>：鸭子和大雁。宋 李甲《望云涯引》：“闲渔唱晚，鹜雁惊飞处，映远碛。数点轻帆，送天际归客”。</p>
+          <p><strong>楸桐</strong>：落叶乔木。明 凌义渠《频过大明湖》：“香满静池饶雁鹭，荫分客馆列楸桐”。</p>
+          <p><strong>狸花</strong>：指狸花猫，狸花猫个性独立，活泼好动，对周围环境的改变比较敏感，一旦饲主有了变更，会对它们的心理造成不同程度的伤害，成年狸花猫并不太爱与人玩耍。狸花猫很容易家庭饲养，只需适合的粮食及干净的饮用水。宋 章甫《从贾倅乞猫》：“昨宵闻说二车家，花墩五子俱可夸。此诗虽拙胜盐茶，不问白黑灰狸花”。</p>
+          <p><strong>朱衣紫绶</strong>：取自 唐 李白《驾去温泉后赠杨山人》：“幸陪鸾辇出鸿都，身骑飞龙天马驹。王公大人借颜色，金璋紫绶来相趋”。</p>
+          <p><strong>阑入</strong>：指擅自闯入。宋 韩淲《恋绣衾》：“溪风吹雨晚打窗。把心情、阑入醉乡”。</p>
+          <p><strong>丛丛</strong>：形容人或物聚集的样子。唐 李贺《巫山高》：“碧丛丛，高插天，大江翻澜神曳烟。楚魂寻梦风飔然，晓风飞雨生苔钱”。</p>
+          <p><strong>贤祠</strong>：三贤祠，山东青州的范公亭公园亭东有三贤祠，为后人祀三位青州知州范仲淹、富弼、欧阳修之所。</p>
+          <p><strong>龙团雪乳</strong>：龙团，宋代贡茶名。饼状，上有龙纹，故称。雪乳，1. 白色浓厚的浆液。指酒。 2. 白色浓厚的浆液。指泉水。 3. 白色浓厚的浆液。指茶水。宋 李之仪《满庭芳》：“新秋。初雨过，龙团细碾，雪乳浮瓯。问殷勤何处，特地相留”。</p>
+          <p><strong>梨云</strong>：1. 指梨花。 2. 指梨花云。用唐王建梦见梨花云事典。宋 周密《瑶花慢》：“朱钿宝玦，天上飞琼，比人间春别。江南江北曾未见，漫拟梨云梅雪”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-9">
+          <div class="ci-head"><span class="ci-num">09</span><h2 class="ci-title">渔家傲 <span class="ci-sub">· 青州道中</span></h2></div>
+          <div class="ci-lyric">
+            北宇西楼相觑了。<br>
+            天伦乐事争多少。<br>
+            烟墅沧溟皆冷笑。<br>
+            皆冷笑。<br>
+            大言殊调宣公道。<br>
+            走马关山行未到。<br>
+            晴川流落桃花老。<br>
+            且放诗囊收贮好。<br>
+            收贮好。<br>
+            残红数点霜空晓。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（12）</summary>
+    <div class="ci-annos-body">
+          <p><strong>渔家傲</strong>：渔家傲，作为曲调，原是用于佛曲、道曲。《能改斋漫录》卷二：“南方释子作“渔父”“拨棹子”“渔家傲”“千秋岁”唱道之辞。”渔家傲词牌创调者当为北宋的范仲淹。《乐府纪闻》：“张志和自称烟波钓徒，愿为浮家泛宅，往来苕霅间，作‘渔歌子’。”按张志和所作“西塞山前白鹭飞”一词，亦名“渔父词”，其调之曲拍，不传于后世。而唐宋词人，又多有“渔家乐”之作，其为描写渔人生活之词则同。至范希文乃有本调之创，题义盖与“渔家乐”无二致也。《东轩笔录》云：“范文正守边日，作‘渔家傲’乐歌数曲，皆以‘塞下秋来’为首句，颇述边镇之劳苦。欧阳公尝呼为‘穷塞王’之词。及王尚书素出守平凉。文忠亦作‘渔家傲’一首以送之。”是此调之创自希文，已可证明；惟所咏则渐涉于泛耳。</p>
+          <p><strong>相觑</strong>：基本意思为互相看见。相觑也有照顾、关照之意。宋 毛滂《惜分飞》：“此恨平分取，更无言语空相觑”。</p>
+          <p><strong>天伦乐事</strong>：天伦原指自然的道理，代指父子、兄弟等亲属关系，常用于书面语言当中。乐事，得意事; 使人高兴或满意的事。唐 王纬《元宵次弟文哲韵》：“天伦乐事如良夜，秉烛閒游万虑消”。</p>
+          <p><strong>烟墅沧溟</strong>：取自 宋 施岳《水龙吟》：“翠鳌涌出沧溟，影横栈壁迷烟墅。楼台对起，阑干重凭，山川自古”。</p>
+          <p><strong>皆冷笑，大言殊调宣公道</strong>：取自 唐 李白《上李邕》：“世人见我恒殊调，闻余大言皆冷笑。宣父犹能畏后生，丈夫未可轻年少”。</p>
+          <p><strong>走马</strong>：骑马疾走；驰逐，此处指乘车。唐 李贺《走马引》：“我有辞乡剑，玉锋堪截云。襄阳走马客，意气自生春”。</p>
+          <p><strong>关山</strong>：1、关隘山岭。2、比喻难关。南北朝 《徐陵》：“关山三五月，客子忆秦川。思妇高楼上，当窗应未眠”。</p>
+          <p><strong>晴川</strong>：晴天下的江面。唐 刘长卿《谪仙怨》：“晴川落日初低，惆怅孤舟解携。鸟向平芜远近，人随流水东西”。</p>
+          <p><strong>诗囊</strong>：诗囊，典故名，典出《全唐文》卷七百八十〈李商隐十·李贺小传〉。李贺“恒从小奚奴，骑距驴，背一古破锦囊，遇有所得，即书投囊中。”后遂以”诗囊“指贮放诗稿的袋子。宋 刘克庄《一剪梅·余赴广东实之夜饯于风亭》：“束缊宵行十里强。挑得诗囊，抛了衣囊”。</p>
+          <p><strong>收贮</strong>：收藏。唐 白居易《题文集匮》：“破柏作书匮，匮牢柏复坚。收贮谁家集，题云白乐天”。</p>
+          <p><strong>残红</strong>：凋残的花；落花。唐 王建《宫词》之九十：“树头树底觅残红，一片西飞一片东。”宋王安石 《次韵再游城西李园》：“残红已落香犹在，羁客多伤涕自挥”。</p>
+          <p><strong>霜空</strong>：秋冬的晴空。 唐 张说 《和朱使欣》之二：“霜空极天静，寒月带江流。” 宋 范成大 《送江朝宗归括苍》诗：“塔灯落淮水 ，寺楼倚霜空。”明 张居正 《中秋前再过关侍御得阳字》诗：“霜空征雁送斜阳，凉月纷纷满建章 ”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-10">
+          <div class="ci-head"><span class="ci-num">10</span><h2 class="ci-title">醉花阴</h2></div>
+          <div class="ci-lyric">
+            竹啸冰嘶开远狩，<br>
+            懒向云门奏。<br>
+            菁藻复堆烟，<br>
+            露重舟轻，<br>
+            翠羽征僝僽。<br>
+            朽材子墨堪雕镂，<br>
+            试桨花浮骤。<br>
+            纵溘溘寒声，<br>
+            病树年年，<br>
+            不似侬依旧。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（13）</summary>
+    <div class="ci-annos-body">
+          <p><strong>醉花阴</strong>：唐教坊曲有《醉花间》，调名与此稍异。此调首见于北宋毛滂词，因词中有“人在翠阴中……劝君对客杯须覆”句，取其句意为词调名。调名本意即咏醉酒于花丛树荫下。此调前后段第二句五言句，前人或用上二下三句式，或用上一下四句式，或在前后段用两种不同的句式，因此，此句形式可以灵活使用。如李清照《醉花阴·薄雾浓云愁永昼》词上段第二句“瑞脑消金兽”是上二下三句式，下段第二句“有暗香盈袖”即是上一下四句式。由于李清照词中有名句“莫道不销魂，帘卷西风，人比黄花瘦”，故后人填此调多以《漱玉词》为准。北宋新声，北宋舒亶词两首，其一题为《试茶》：“露芽初破云腴细。玉纤纤亲试。香雪透金瓶，无限仙风，月下人微醉。相如消渴无佳思。了知君此意。不信老卢郎，花底春寒，赢得空无睡。”此调无有别体，李清照词为名篇，结句为名句。自李清照以此调写重阳节序之后，宋人多沿用，但亦有用以抒情、言志、咏物者。南宋陈亮两词亦写重阳感慨，但风格粗旷，其一词云：“姓名未勒慈恩寺。谁作山林意。杯酒且同欢，不许时人，轻料吾曹事。可怜风月于人媚。那对花前醉。珍重主人情，闻说当年，宴出红妆妓。”此调为重头曲，前后段相同，每段有三个五字句，配以七字句与四字句，音节颇为流畅，因用仄韵并以五字句为主，故调势又较平稳。?</p>
+          <p><strong>竹啸</strong>：竹叶被风吹打所发出的响声。宋 陆游《东篱杂题》：“风生丛竹啸，露坼野花新。自作东篱後，经旬不过邻”。</p>
+          <p><strong>冰嘶</strong>：水面结冻发出的声音。明 张穆《画勾漏洞图并题》：“勾漏当年令葛仙，冰嘶鹅管玉田田。千秋药冷丹炉火，再向寒灰续紫烟”。</p>
+          <p><strong>远狩</strong>：1. 远出围猎。 2. 婉称囚禁于远方。明张弼《黄连篇》：“伤哉曲江相去李猫来，青骡远狩悲风埃。伤哉司马镌各相章蔡，五国城荒双辇迈”。</p>
+          <p><strong>云门</strong>：山名。在山东省青州市南。一名云峰山。唐 杜甫《忆昔二首》：“宫中圣人奏云门，天下朋友皆胶漆。百馀年间未灾变，叔孙礼乐萧何律”。</p>
+          <p><strong>翠羽</strong>：1. 翠鸟的羽毛。古代多用作饰物。 2. 翠鸟。 3. 绿色的羽毛。 4. 指鸟翼。 5. 比喻青葱的树叶。6. 借指珍宝。唐 韦庄《菩萨蛮》：“琵琶金翠羽，弦上黄莺语。劝我早归家，绿窗人似花”。</p>
+          <p><strong>僝僽</strong>：⒈ 亦作“僝偢”。责骂；埋怨。⒉ 折磨。⒊ 引申为揉搓。⒋ 烦恼；愁苦。⒌ 憔悴。⒍ 谓排遣愁怀。</p>
+          <p><strong>朽材</strong>：朽木。喻衰朽之人。常用为谦辞。明方孝孺《次郑好义纪梦韵》：“朽材浪迹偏见怜，绳墨匡持重砻斲”。</p>
+          <p><strong>子墨</strong>：汉扬雄作品中虚构的人名。后借指文章﹑文辞。两汉 杨雄《长杨赋》：“聊因笔墨之成文章，故借翰林以为主人，子墨为客卿以风”。</p>
+          <p><strong>雕镂</strong>：雕刻，刻镂。魏晋 葛洪《抱朴子·外篇·博喻》：“必死之病，不下苦口之药；朽烂之材，不受雕镂之饰”。</p>
+          <p><strong>试桨花浮骤</strong>：取自 明 湛若水《同道林诸贤天关泛舟》：“急桨花在后，缓桨花无有。忘情缓急间，不觉花在手”。</p>
+          <p><strong>溘溘</strong>：1. 象声词。 2. 寒貌。明 李德《十二月乐章》：“鸾帕抹烟山梦浓，萧飒愁思开暝容。江头溘溘水声动，微和着柳黄金重”。</p>
+          <p><strong>病树</strong>：枯萎的树木。唐 刘禹锡《酬乐天扬州初逢席上见赠》：“沉舟侧畔千帆过，病树前头万木春。今日听君歌一曲，暂凭杯酒长精神”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-11">
+          <div class="ci-head"><span class="ci-num">11</span><h2 class="ci-title">遐方怨 <span class="ci-sub">· 香港早行</span></h2></div>
+          <div class="ci-lyric">
+            沉斗室，醉筐床。<br>
+            去岁伊人泪，今镶玉钿旁。<br>
+            裹糇粮不塞橐囊，探妖祥逸宕山堂。<br>
+            撩鬓影，理侵霜。<br>
+            满把韶华系，无聊作嫁妆。<br>
+            问层楼借取霓裳，用烟霞赚尽明珰。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（9）</summary>
+    <div class="ci-annos-body">
+          <p><strong>遐方怨</strong>：遐方怨，唐教坊曲名，后用作词调名。始见《花间集》载温庭筠、顾复等词。初为边地舞曲，敦煌写卷中有此曲舞谱，讹“怨”为“远”。</p>
+          <p><strong>遐方</strong>：犹远方，指边远偏僻的边疆地区。有“遐方绝域”的成语。西汉扬雄《长杨赋》文：“是以遐方疏俗，殊邻绝党之域，自上仁所不化，茂德所不绥莫不跻足抗首，请献厥珍。”调名本意即咏来自僻远边疆的怨情。调见五代后蜀赵崇祚《花间集》所辑唐温庭筠词。</p>
+          <p><strong>斗室</strong>：指小得像斗一样的房子，形容屋子极小。清 黄遵宪《夜起》：“沉阴噎噎何多日，残月晖晖尚几星。斗室苍茫吾独立，万家酣梦几人醒”。</p>
+          <p><strong>筐床</strong>：匡床。方正而安适的床。唐 韦庄《和郑拾遗秋日感事一百韵》：“飞骑黄金勒，香车翠钿装。八珍罗膳府，五采斗筐床”。</p>
+          <p><strong>去岁伊人泪，今镶玉钿旁</strong>：玉钿，(1). 玉制的花朵形的首饰。 宋 万俟咏《尉迟杯慢》词：“见说 徐妃 ，当年嫁了，信任玉钿零落。” 宋 周密《武林旧事·元夕》：“ 李篔房 诗云：‘……香尘掠粉翻罗带，密炬笼绡鬭玉钿。’” 清 金农《老子祠李花》诗：“玉钿雾縠休轻比，恐污玄元七叶孙。”(2).喻洁白如玉的花朵。 宋 吴文英《清平乐·书栀子扇》词：“柔柯翦翠，蝴蝶双飞起，谁堕玉钿花径里，香带熏风临水”。取自 唐 李白《长相思三首·其二》：“昔日横波目，今成流泪泉。不信妾肠断，归来看取明镜前”。</p>
+          <p><strong>糇粮</strong>：干粮，食粮。唐 白居易《采地黄者》：“采之将何用，持以易糇粮。凌晨荷锄去，薄暮不盈筐”。</p>
+          <p><strong>橐囊</strong>：盛粮食的口袋。语本《诗? 大雅? 公刘》：“迺裹糇粮，于橐于囊”。</p>
+          <p><strong>逸宕</strong>：超脱而无拘束。明 倪应征《赠邹吹之六十》：“风华刊落剩骦裘，逸宕湖山六十秋。气逼剑霜诗骨冷，韵标花社墨香浮”。</p>
+          <p><strong>明珰</strong>：用珠玉串成的妆饰品。唐 李朝威《柳毅传》：“红妆千万，笑语熙熙。中有一人，自然蛾眉，明珰满身，绡縠参差”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-12">
+          <div class="ci-head"><span class="ci-num">12</span><h2 class="ci-title">更漏子</h2></div>
+          <p class="ci-preface">余夜发一梦，时祖母卧床上，翕目微言曰：“鬼</p>
+          <p class="ci-preface">差来，我即走也。”语毕，恍惚若有闻，缘声行至</p>
+          <p class="ci-preface">阴暗悄恻处，丁灵不绝，亦多呜咽。盖冥使至矣，</p>
+          <p class="ci-preface">吾醒且涕于寝庭，将实情具告周亲，众皆骇然。清</p>
+          <p class="ci-preface">蒲公松龄《聊斋志异》好言怪异事，妖妄之说参涉</p>
+          <p class="ci-preface">章丘诸县邑，向尝为吾示之，吾深以为然。今依李</p>
+          <p class="ci-preface">道清更漏子秋思韵仰戴祖母鸿慈，临笔涕零。</p>
+          <div class="ci-lyric">
+            愕梦缺，谲光剩。秋风秋月长静。<br>
+            攒眦泪，展澜漪，桓碑漆木晞。<br>
+            玉绳紧，银筝慢，枕冷簟凉芝苑。<br>
+            临敝幽，遇瞑魂，给园不见人。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（15）</summary>
+    <div class="ci-annos-body">
+          <p><strong>更漏子</strong>：唐教坊曲有《更漏长》曲，与此稍异。“更漏子”调名本意即为咏唱深夜滴漏报更的小曲。唐人称夜间为“更漏”，杜甫《江边新乐诗》：“余光隐更漏，况乃露华浓。”许浑《韶州驿楼》诗：“主人不醉下楼去，月在南轩更漏长。”此调创于晚唐，而温飞卿最擅其词。《苕溪渔隐丛话》：“庭筠工于造语，极为绮靡，《花间集》可见矣；《更漏子》一词尤佳。其词云：‘玉炉香，红蜡泪。’”飞卿传者有两首，而所咏又俱本意，调名创作，或即为温飞卿本人耳。毛氏《填词名解》亦云：“唐温庭筠做《秋思词》，中咏‘更漏’，后以名词。”?唐人诗歌中屡见“更漏”，但作为词调名的“更漏子”，却是始于晚唐温庭筠，温庭筠最擅其词，用此调咏更漏，故而得名。《钦定词谱》卷六：“更漏子，此调有两体，四十六字者始于温庭筠。唐宋词最多。《尊前集》注：大石调。又属商调。一百四字者，止杜安世词，无别首可录。”此调宋代贺铸词，有“江南独倚楼”之句，故又名“独倚楼”；又有“翻翠袖，怯春寒”之句，故名“翻翠袖”；又有“付金钗，平斗酒”之句，故名“付金钗”。金代丘处机词，名“无漏子”。?晏殊四首写花间尊前情景，晏几道六首写闺情与离愁。无名氏一首是此调佳作：“解语花，断肠草。谙尽风流烦恼。欢会少，别离多。此情无奈何。帐前灯，明如月。记得那年时节。绣被剩，画屏空。如今在梦中。”此调前后段共八个三字句，音节较急促，而又频繁换韵，仄韵与平韵交互，故曲折而富于变化。唐宋词人多用以写景和抒情。</p>
+          <p><strong>愕梦</strong>：惊愕而梦。后指可怖不祥之梦。 清 钱谦益《蝶梦》：“愕梦前尘外，浮生一枕馀”。</p>
+          <p><strong>谲光</strong>：谲，怪异。此处指怪异的光。魏晋 郭璞《江赋》：“及其谲变儵怳，符祥非一”。</p>
+          <p><strong>秋风秋月</strong>：引唐朝李白《三五七言》：“秋风清，秋月明，落叶聚还散，寒鸦栖复惊”。</p>
+          <p><strong>攒</strong>：拿，取。</p>
+          <p><strong>眦泪</strong>：犹眼泪。明 黄瑜《寿星塘》：“京波有定日，眦泪无乾时”。</p>
+          <p><strong>展</strong>：舒展; 伸展。</p>
+          <p><strong>澜漪</strong>：水波纹。宋 张嵲《过杨村溪》：“细雨川上来，澜漪满沿泝。灌木生退滩，危桥架孤屿”。</p>
+          <p><strong>桓碑</strong>：指墓碑。 宋 欧阳修 《集古录目序》：“ 汉魏已来，圣君贤士，桓碑彝器，铭诗序记。下至古文籀篆分隶诸家之字书，皆三代以来至寳”。</p>
+          <p><strong>漆木</strong>：黑色的木头，指灵牌。战国 《山海经·山经·西山经》：“又西三百五十里，曰英鞮之山，上多漆木，下多金玉，鸟兽尽白”。</p>
+          <p><strong>晞</strong>：干，干燥。</p>
+          <p><strong>玉绳</strong>：1. 星名。常泛指群星。 2. 比喻雨滴。3、农历六月的简称。此处指雨滴。唐 李商隐《蜀桐》：“玉垒高桐拂玉绳，上含非雾下含冰”。</p>
+          <p><strong>银筝</strong>：用银装饰的筝或用银字表示音调高低的筝。 唐 戴叔伦 《白苎词》：“回鸾转凤意自娇，银筝锦瑟声相调”。</p>
+          <p><strong>芝苑</strong>：芝草生长的园地。南朝·齐·孔稚珪《让詹事表》：“自非器上白云，韵同明月，何以延芳芝苑，插羽琼条”。</p>
+          <p><strong>敝幽</strong>：困顿，不得志。 清 唐甄 《潜书·恒悦》：“ 管仲 敝幽于 南阳 ， 百里奚 饭牛于 秦 市，时忧也”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-13">
+          <div class="ci-head"><span class="ci-num">13</span><h2 class="ci-title">齐天乐</h2></div>
+          <p class="ci-preface">余早登明水城邀璐瑶兄东游道济桥外松龄书</p>
+          <p class="ci-preface">屋，复相与步于鲁绣、如意二巷，堂尽弄穷处始见</p>
+          <p class="ci-preface">岑楼萧屑、檐牙乖张。其时柽柳雕碧，蜻蜓点黛，</p>
+          <p class="ci-preface">胸襟甫畅。昔者庐山人言“秋日胜春朝”，吾观古</p>
+          <p class="ci-preface">城秋景甚江南季春远矣。今依南宋高竹屋碧云阙处</p>
+          <p class="ci-preface">无多雨韵以亢答。</p>
+          <div class="ci-lyric">
+            紫坛凤阙独归远，云切复思掸掸。<br>
+            渚断南天，舤弹翠盖，江笔长波心短。<br>
+            飞阁日满，间徙倚桥头，冷宫闲院。<br>
+            细嗅香瓜，醉中颦笑瘦丝管。<br>
+            悠然维港岛客，吐平生意气，芳树连绻。<br>
+            荇藻沉浮，惊鸿??，横軃澹容眉浅。<br>
+            霓旌乱飐，僿闻倚来文，闹茶抅拦。<br>
+            暗度重门，绣泉石尽染。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（26）</summary>
+    <div class="ci-annos-body">
+          <p><strong>齐天乐</strong>：齐天，谓高与天相等。今人梁启勋《词学·调名》云：“盖取与天齐寿之义。”唐韩愈《元和圣德诗》云：“天锡皇帝，与天齐寿。”调名本意即咏皇帝寿高，能与天齐寿。此调别名多出自词句，《钦定词谱》卷三十一日：“周邦彦词，有‘绿芜凋尽台城路’句，名‘台城路’；沈端节词，名‘五福降中天’；张辑词，有‘如此江山’句，名‘如此江山’”。宋郭茂倩《乐府诗集》卷五十六所录南朝《宋泰始歌舞曲辞》，有虞铄“明君大雅”词，云：“英勋冠帝则，万寿永齐天。”于是“齐天”二字，恒用以比寿。入宋，谱入乐章，成为曲名。此调原为宋代教坊乐曲，后成为文人词调。《宋史·乐志》载：“宋初，循旧制置教坊，凡四部。……所奏凡十八调，四十六曲。一日正宫调，其曲三：日《梁州》、《瀛府》、《齐天乐》。”《钦定续通志》卷一百二十七“宋教坊排当九十六曲”下列有《齐天乐曲破》、《圣寿齐天乐慢》二曲。排当是宫中设宴之称。宋周密《武林旧事》卷一记载宋天基圣节（宋理宗生日）的庆祝仪典，有《天基圣节排当乐次》：“乐奏夹钟宫，第一盏，赙篥起《圣寿齐天乐慢》。”据此，可知这一乐曲原是宋代宫廷宴享之乐章，多用于节日或祝寿。嗣后散入民间，遂为词调牌名。北宋时最早由周邦彦用为词调，乃宋大曲《齐天乐》之摘遍。周邦彦徽宗时为徽猷阁待制，提举大晟府。既熟悉宫廷音乐，又精通音律，曾创作不少新词调。其《清真集》以“齐天乐”入正宫（黄钟宫）调。宋人用此调者甚众，尤为南宋婉约词人所喜用。调势不急不缓，纡徐和谐，兼用黄钟宫，得中和之音，故为朝廷吉庆活动所用。宋人用以抒情、写景、咏物、祝颂、赠酬，适用题材广泛。前后段中相同之三韵四四六句式为句群，四字句一韵，又五四句式为一句群，连贯起来最能体现此调特点，流美而和婉。前后两结句则有收敛之效。周词抒写深秋旅怀，层次清晰，充满诗情画意，极为雅致，是为宋词名篇。姜夔《齐天乐》词注：“黄钟宫，俗名正宫。”姜词题为赋蟋蟀，构思纤细工巧，为宋词名篇。此调经周邦彦、姜夔的再创造，依旧曲而制新腔，遂由颂圣之宴乐变成抒情之乐章。</p>
+          <p><strong>紫坛</strong>：以紫贝砌成的庭坛，又指道教祭坛。宋 高献民《题九仙宫》：“迢递寻真到紫坛，参差楼阁倚层峦。三株树古巢玄鹤，五粒松低下素鸾”。</p>
+          <p><strong>凤阙</strong>：汉代宫阙名。唐 刘禹锡《杨柳枝词九首》：“凤阙轻遮翡翠帏，龙池遥望麴尘丝。御沟春水相晖映，狂杀长安少年儿”。</p>
+          <p><strong>切qiè</strong>：贴近。</p>
+          <p><strong>复思</strong>：亦作" 复罳"。即罘罳。门外之屏。 又指 重思，再思。</p>
+          <p><strong>掸掸dǎndǎn</strong>：相缠不去貌。</p>
+          <p><strong>渚</strong>：水中的小洲。渚断南天，此处取自李白《陪族叔刑部侍郎晔及中书贾舍人至游洞庭五首》中“洞庭西望楚江分，水尽南天不见云”，亦取南天竹之音。</p>
+          <p><strong>舤fán</strong>：船。</p>
+          <p><strong>弹</strong>：用手指拨弄。</p>
+          <p><strong>翠盖</strong>：荷叶。宋 秦观《江城子》：“清明天气醉游郎。莺儿狂。燕儿狂。翠盖红缨，道上往来忙”。</p>
+          <p><strong>江笔长波心短</strong>：和高观国《金人捧露盘·水仙花》“香心静，波心冷，琴心怨，客心惊”，江笔，江淹笔。</p>
+          <p><strong>飞阁</strong>：高阁。 宋 吴文英《风入松》：“临池飞阁乍青红。移酒小垂虹。贞元供奉梨园曲，称十香、深蘸琼钟”。</p>
+          <p><strong>徙倚</strong>：徘徊，流连不去。两汉 司马相如《长门赋并序》：“间徙倚于东厢兮，观夫靡靡而无穷。挤玉户以撼金铺兮，声噌吰而似钟音”。</p>
+          <p><strong>颦笑</strong>：皱眉和欢笑、厌恶和喜欢。 宋 王洋《和赋千叶桃花二首》：“才喜寻春又惜春，寻春眉展惜春颦。莫将颦笑为花用，处处平芜是醉裀”。</p>
+          <p><strong>丝管</strong>：泛指乐器、音乐。</p>
+          <p><strong>维港</strong>：维多利亚港，位于中华人民共和国香港特别行政区的香港岛和九龙半岛之间的海港。</p>
+          <p><strong>芳树</strong>：泛指佳木；花木。</p>
+          <p><strong>连绻</strong>：连卷。</p>
+          <p><strong>荇藻</strong>：水草。</p>
+          <p><strong>沉浮</strong>：亦作晨凫。</p>
+          <p><strong>横軃duǒ</strong>：横躺而睡着。</p>
+          <p><strong>霓旌</strong>：相传仙人以云霞为旗帜。</p>
+          <p><strong>僿闻</strong>：不实的消息。</p>
+          <p><strong>闹茶</strong>：沏茶。</p>
+          <p><strong>重门</strong>：宫门。</p>
+          <p><strong>绣泉</strong>：华丽的泉水。此处指济南章丘绣江河与百脉泉。绣羽衔花他自得，红颜骑行我无缘。——杜甫《草堂诗笺》</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-14">
+          <div class="ci-head"><span class="ci-num">14</span><h2 class="ci-title">秋蕊香</h2></div>
+          <p class="ci-preface">是日值癸卯仲秋前夜，吾观广东道乐团奏《帝</p>
+          <p class="ci-preface">女花》一曲，乾道吹箫，坤道鸣筝，另闻唐大和年</p>
+          <p class="ci-preface">间文生吴女于钟陵得道事“何令人之景慕，以至于</p>
+          <p class="ci-preface">此耶！”元代仇仁近，武林人也，一生著述颇丰，</p>
+          <p class="ci-preface">游山水以终，今步三径归来秋早韵记之。</p>
+          <div class="ci-lyric">
+            羁鸟自啼城早。<br>
+            庭院黄花梳扫。<br>
+            前宫摇落吹蓬草。<br>
+            慢咽轻尝终了。<br>
+            仙姬神女风颜老。<br>
+            群山晓。<br>
+            金罍换却谁年少。<br>
+            不见晚来家小。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（11）</summary>
+    <div class="ci-annos-body">
+          <p><strong>秋蕊香</strong>：秋蕊香，北宋新声，晏殊词为创调之作。</p>
+          <p><strong>秋蕊</strong>：清张玉书、陈廷敬、李光地等《佩文韵府》和清张廷玉《骈字类编》两大诗词类工具书均未收录这个词，应指菊花。蕊：花朵的花心。此调始见北宋晏殊《珠玉词》。词中有“奉宴赏，菊英环坐，金玉成围”句，描写菊花花朵及花瓣的具体形象。调名即咏秋天菊花的花心馨香。此调为宋教坊曲，又名《秋蕊香令》。南宋赵以夫九十七字体者为长调，与此体迥异，音谱亦不同。柳永《秋蕊香引》与此调亦不同。宋人多以此调抒写怀旧感伤之情，如毛开词，音节凝涩低沉，表情抑郁。</p>
+          <p><strong>羁鸟</strong>：犹笼鸟。 晋 陶潜 《归园田居》诗之一：“羁鸟恋旧林，池鱼思故渊”。</p>
+          <p><strong>前宫</strong>：前朝的宫殿，指明朝。</p>
+          <p><strong>摇落</strong>：凋残，零落。</p>
+          <p><strong>蓬草</strong>：轻小的草，比喻行踪漂泊不定。明 罗洪先《寄殷虚白》：“一回相见色渐槁，我今已是秋蓬草”。</p>
+          <p><strong>慢咽轻尝</strong>：出自粤剧《帝女花》：“世显：递过金杯慢咽轻尝，将砒霜带泪放在葡萄上。”，《帝女花》是1957 年首演的一场作品，作者是。本剧背景是明末崇祯六年，国势积弱多年，虽欲励精图治，但因饱受沉重压力，用人不当，国势日益衰弱。戏曲讲述与的悲情爱情故事。</p>
+          <p><strong>仙姬神女</strong>：泛指仙女。宋 刘敞《三清殿木槿》：“仙姬神女衣服丽，紫玉杂佩垂玫瑰”。</p>
+          <p><strong>风颜</strong>：风采容貌。唐 李白《送张遥之寿阳幕府》诗：“投躯紫髯将，千里望风颜”。</p>
+          <p><strong>群山</strong>：山连山。唐 李华《吊古战场文》：“河水萦带，群山纠纷”。</p>
+          <p><strong>金罍</strong>：1、饰金的大型酒器。2、泛指酒盏。宋 苏洵《九日和韩魏公》晚岁登门最不才，萧萧华发映金罍”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-15">
+          <div class="ci-head"><span class="ci-num">15</span><h2 class="ci-title">宴清都 <span class="ci-sub">· 赠明水湖鸭道人</span></h2></div>
+          <p class="ci-preface">予久居绣江母畔，听百脉之声歌，观清照</p>
+          <p class="ci-preface">之颜泽。有禅楼岑寂、游鱼群戏之景熙，数无</p>
+          <p class="ci-preface">胜计。宋朱希真自封清都山水郎，盖洛阳仙君也。</p>
+          <p class="ci-preface">今我为明水郎君，依宋黄廷璹坠叶窥檐语韵摛</p>
+          <p class="ci-preface">笔记之。</p>
+          <div class="ci-lyric">
+            卷一重帘幕。澄江寒，砌成烟翠无数。<br>
+            残舟荡岸，初阳倚瑟，柳腰深处。<br>
+            合肥恋情难托，倩何人、乘肩小女。<br>
+            大乐议，免解登科，桥边鬓影容与。<br>
+            支风给雨仙官，邀来并坐，伴游龙虎。<br>
+            鹊鹊嘻嘻，沙沙簌簌，共神随住。<br>
+            偷开兑泽山艮，问何事、七真吐哺。<br>
+            考古图，又锁名缰，彤霞晓露。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（20）</summary>
+    <div class="ci-annos-body">
+          <p><strong>宴清都</strong>：宴清都，又名《宴满都》《四代好》。始见北宋周邦彦《清真集》。南朝梁沈约《和竟陵王游仙诗二首》有“朝上闾阖宫，暮宴清都阙”的诗句，调名本此。《清真集》入中吕调（夹钟羽）。</p>
+          <p><strong>清都</strong>：神话传说中天帝居住的宫阙，也指帝王居住的都城。西晋左思《魏都赋》：“盖比物以错辞，述清都之闲丽。”此调为宋教坊曲。调名本意即咏在帝王居住的都城宴饮。</p>
+          <p><strong>帘幕</strong>：亦作“ 帘幙”。用于门窗处的帘子与帷幕。宋 欧阳修《诉衷情》：“清晨帘幕卷轻霜，呵手试梅妆。都缘自有离恨，故画作远山长”。</p>
+          <p><strong>澄江</strong>：清澈的江水，此处指山东章丘明水古城百脉泉景区绣江河。</p>
+          <p><strong>烟翠</strong>：1、青蒙蒙的云雾。2、指杨柳，此处指云雾青蒙。唐 元稹《感石榴二十韵》：“绿叶裁烟翠，红英动日华”。</p>
+          <p><strong>倚瑟</strong>：汉 司马迁《史记·张释之冯唐列传》：“使慎夫人鼓瑟，上自倚瑟而歌”。</p>
+          <p><strong>合肥恋情</strong>：选自《姜夔词集》：“姜夔爱情词的表达对象非常专一，直接指向其在合肥与一红颜知己发生的一段凄美的爱情故事。夏承焘先生曾对姜夔这段凄婉悱恻恋情做了详细的考证（见《姜白石词编年笺校》之《行实考·合肥词事》）”。</p>
+          <p><strong>乘肩小女</strong>：选自《姜夔词集》，宋 姜夔《鹧鸪天·正月十一日观灯》：“巷陌风光纵赏时。笼纱未出马先嘶。白头居士无呵殿，只有乘肩小女随。”据今人叶嘉莹考证，“乘肩小女”有两解，一个是指站在人家肩膀上进行杂技表演的小女孩，这种表演在当时的杭州很流行；另一个说法是指姜夔自己年龄约七八岁的小女儿。</p>
+          <p><strong>大乐议</strong>：选自《姜夔词集》：“庆元三年（1197），姜夔向朝廷上《大乐议》、《琴瑟考古图》，当时朝中有人嫉妒他的才能，使他这次献书没有什么结果”。</p>
+          <p><strong>免解</strong>：宋承五代·后唐制，举人获准不经解试（荐名于朝廷的地方考试），直接参加礼部试，称“免解”。</p>
+          <p><strong>登科</strong>：科举时代应考人被录取, 也说“登第。”宋 韦骧《登科》：“喜汝登科年尚少，好摅事业趁明时”。</p>
+          <p><strong>容与</strong>：随水波起伏动荡貌。宋 姜夔《湘月》：“中流容与，画桡不点清镜”。</p>
+          <p><strong>支风给雨</strong>：呼风唤雨。支，调度。宋 朱敦儒《鹧鸪天·西都作》：“曾批给雨支风券，累上留云借月章”。</p>
+          <p><strong>鹊鹊</strong>：形容鹊的鸣叫声。</p>
+          <p><strong>嘻嘻</strong>：鸟叫声，喜悦貌。</p>
+          <p><strong>沙沙</strong>：形容踩沙子、飞沙击物或风吹草木等声音。</p>
+          <p><strong>簌簌</strong>：风吹物体发出的声音。</p>
+          <p><strong>七真</strong>：1. 道教尊崇的七位真人。(1) 相传汉茅盈﹑茅固﹑茅衷兄弟隐于茅山得道成仙，后晋之杨羲﹑许穆﹑许翙及唐之郭崇真皆于茅山得道，因合称" 七真"。唐陆龟蒙《和江南道中怀茅山广文南阳博士》诗之一:" 一片轻帆背夕阳，望三峰拜七真堂。" 自注:" 三茅﹑二许﹑一杨﹑一郭，是为七真。" 唐齐己《赴郑谷郎中招游龙兴观读题诗板谒七真仪像因有十八韵》:"《诗》悬《大雅》作，殿礼七真仪。"(2) 指张紫阳﹑石杏林﹑薛道光﹑陈泥丸﹑白紫清﹑刘永年﹑彭鹤林七人，称" 南宗七真"。(3) 指马丹阳﹑丘长春﹑谭长真﹑刘长生﹑郝广宁﹑王玉阳和孙清静( 仙姑) 七人，称" 北宗七真"。 2. 道教称北斗七星为七元解厄星君，并分别赐以贪狼﹑巨门﹑禄存﹑文曲﹑廉贞﹑武曲﹑破军之名，谓之" 七真"。</p>
+          <p><strong>吐哺</strong>：吐出嘴里食物，极言殷勤待士。魏晋费祎《嘲吴群臣》：“凤皇来翔，骐驎吐哺”。</p>
+          <p><strong>浮名锁缰</strong>：浮名，虚名。锁缰，枷锁和缰绳。彤霞晓露：山东章丘明水古城百脉泉景点。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-16">
+          <div class="ci-head"><span class="ci-num">16</span><h2 class="ci-title">清波引</h2></div>
+          <p class="ci-preface">霜华癸卯，予事古城策划。趁闲入清照故居，</p>
+          <p class="ci-preface">见梅花泉喷有如吞吐天地之势，抚玉液于石桥上，</p>
+          <p class="ci-preface">则沧凉骨髓，寻迹墨泉亦然如此。散值，迂走长虹，</p>
+          <p class="ci-preface">见暮云汗血，光灯燎辉，诡丽至极。今用天琴老人</p>
+          <p class="ci-preface">玉窗清晓韵记之。</p>
+          <div class="ci-lyric">
+            太阶侵晓。梦言未半人缥缈。<br>
+            墨泉笛俏。花枝戏朋鸟。<br>
+            有桂魄瑶馆，竟似伊心头好。<br>
+            只今薄暮高风，并刀霍霍难觉。<br>
+            凭阑引啸。倩捉取鳞羽霭帽。<br>
+            鹤林鹓沼。俊英贾儿少。<br>
+            留偏顶鵓角，自理风尘贞抱。<br>
+            纵使金镜重光，梵宫空老。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（26）</summary>
+    <div class="ci-annos-body">
+          <p><strong>清波引</strong>：“清波”是放舟江湖的载体。六朝乐府有歌曲曰《清波》。引：唐宋杂曲的一种体制，本于乐府琴曲。词调中的“引”，多是宋人取唐五代小令，曼衍其声，别成新腔，名之曰“引”。一说来自大曲，是截取大曲前段的某一遍而成，个别来自杂曲。调名本意即以引曲的形式歌咏放舟江湖的逸志。调见南宋姜夔《白石道人歌曲》。?</p>
+          <p><strong>太阶</strong>：1. 古星名。即三台。上台﹑中台﹑下台各二星﹐相比而斜上﹐如阶级然﹐故名。 2. 指三公之位。 3. 宫殿﹑庙堂的台阶。此处指台阶。唐 王涯《杂曲歌辞·太平乐》：“行看采花曲，尽是太阶平”。</p>
+          <p><strong>缥缈</strong>：隐隐约约，若有若无的样子。形容空虚渺茫。一般指格外难得、遥不可及的东西，并非指虚无，不存在于现实的东西。也可形容富有美感。宋 米芾《望海楼》：“云间铁瓮近青天，缥缈飞楼百尺连”。</p>
+          <p><strong>墨泉</strong>：位于山东章丘明水古城百脉泉畔，因泉水黝深，水色如墨而得名。</p>
+          <p><strong>花枝</strong>：1. 开有花的枝条。 2. 比喻美女。唐皇甫冉《春思》：“机中锦字论长恨，楼上花枝独笑眠”。</p>
+          <p><strong>朋鸟</strong>：即鹏鸟，喻指高才。宋 贺铸《黄楼歌》：“昨日春游咏白苹，后夜秋风悲鹏鸟”。</p>
+          <p><strong>桂魄</strong>：古代传说月中有桂，故为月的别称。《尚书》注谓月轮无光之处为“魄”。又《酉阳杂俎》“月中有桂，高五百丈，下有一人常斫之，树创随合”。</p>
+          <p><strong>瑶馆</strong>：1. 仙境里的玉馆。 2. 泛指华美的屋舍。明 柯潜《题御史傅实进士画像》：“道旁观者如堵墙，谓是神仙出瑶馆”。</p>
+          <p><strong>伊</strong>：第三人称代词，相当于她。宋 欧阳修《长相思·花似伊》:”花似伊，柳似伊。花柳青春人别离。低头双泪垂”。</p>
+          <p><strong>薄暮</strong>：傍晚。唐 孟浩然《秋登兰山寄张五》：“愁因薄暮起，兴是清秋发”。</p>
+          <p><strong>高风</strong>：1. 强劲的风。 2. 指遭受强风。 3. 指秋风。4. 高尚的风操。 5. 高雅的艺术风格。 6. 美善的风教﹑政绩。此处指秋风。魏晋 曹植《仙人篇》：“飞腾逾景云，高风吹我躯”。</p>
+          <p><strong>并刀</strong>：1. 亦称" 并州刀"。 2. 即并州剪。清陈维崧《南乡子》：“秋色冷并刀，一派酸风卷怒涛”。</p>
+          <p><strong>霍霍</strong>：象声词，指磨刀声，此处指强风凌冽。</p>
+          <p><strong>凭阑</strong>：凭栏，倚靠着栏杆。</p>
+          <p><strong>霭帽</strong>：云气织成的帽子。霭，云气，烟雾。</p>
+          <p><strong>鹤林</strong>：1. 佛教语。指佛入灭之处。佛于娑罗双树间入灭时，林色变白，如白鹤之群栖，故称。 2.僧寺周围的树林。 3. 佛寺。此处指山东章丘龙泉寺。</p>
+          <p><strong>鹓y u ā n 沼</strong>：凤凰池，1. 禁苑中池沼。魏晋南北朝时设中书省于禁苑﹐掌管机要﹐接近皇帝﹐故称中书省为" 凤凰池。" 2. 唐代宰相称同中书门下平章事，故多以" 凤凰池" 指宰相职位。 3. 池水的美称。 4. 砚名。 北齐 无名氏 《临淮王像碑》：“始暎金蝉，鄙丁刘於汉 日；暂栖鵷沼，蔑陈张於晋京。”此处指山东章丘百脉泉景区墨泉、东麻湾盛景。</p>
+          <p><strong>豪英</strong>：1. 指豪杰英雄。 2. 形容才能出众。近现代 金庸《破阵子·千里茫茫若梦》：“草木残生颅铸铁，虫豸凝寒掌作冰。挥洒缚豪英”。</p>
+          <p><strong>贾儿</strong>：清 蒲松龄《聊斋志异》小说主人公，机智斗狐。</p>
+          <p><strong>偏顶鵓角</strong>：鵓角，古代儿童发式。《宋史·五行志》载：宋理宗朝时，童孩削发，必留象大钱大一些的头发，于头顶左，名之曰：“偏顶”。</p>
+          <p><strong>风尘</strong>：1. 比喻纷乱的社会或漂泊江湖的境况2.比喻旅途的艰辛劳累3. 旧指娼妓生涯</p>
+          <p>唐杜甫《咏怀古迹五首· 其一》：“支离东北风尘际，漂泊西南天地间”。</p>
+          <p><strong>贞抱</strong>：忠贞坦白的襟怀。清 叶廷琯 《病中摘句怀人诗病少间续得八首》：“贞抱区区誓绿波，书生志节定难磨”。</p>
+          <p><strong>金镜</strong>：1. 铜镜。 2. 比喻月亮。 3. 比喻显明的正道。 4. 指对人进行讽谕的文章和书籍。唐 李贺《七夕》：“天上分金镜，人间望玉钩”。此处指百脉泉景区金镜泉。</p>
+          <p><strong>重光</strong>：光复, 再次见到光明。魏晋 司马懿《征辽东歌》：“天地开辟，日月重光”。</p>
+          <p><strong>梵宫</strong>：佛寺。唐 王勃《梓州郪县兜率寺浮图碑》：“梵宫霞积，香阁星浮”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-17">
+          <div class="ci-head"><span class="ci-num">17</span><h2 class="ci-title">翠楼吟</h2></div>
+          <p class="ci-preface">癸卯兔年九月初七，予驾新日轺至明水古城。</p>
+          <p class="ci-preface">见城中宾客攒聚，罗旌张磔，桥下有胡姬送艒，凤</p>
+          <p class="ci-preface">曲横波。后趋步遄迅于狐仙街，又见豆腐吱啦。是</p>
+          <p class="ci-preface">时丛篁齐抃、月季独妖，风势肃冽。不觉人日过半，</p>
+          <p class="ci-preface">醉饱秋容。清龙阳易实甫暮年放浪，着诗酒以寄情，</p>
+          <p class="ci-preface">今用姜白石古今不得其调之《翠楼吟》怀矜。</p>
+          <div class="ci-lyric">
+            百脉清都，章丘便郡，<br>
+            莲塘悄揖乳燕。<br>
+            贯珠拥皎镜，又长坠青襟香脸。<br>
+            天班黜贬。想瘦客婆娑，竹郎三变。<br>
+            云崖敛，碧台月榭，黛眉星眼。<br>
+            逞艳，灯院霜钟，<br>
+            多少音尘拣，晚来梳倦。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（31）</summary>
+    <div class="ci-annos-body">
+          <p><strong>翠楼吟</strong>：翠楼吟，词牌名，始于南宋，夹钟商曲。以姜夔《翠楼吟·月冷龙沙》为定格。翠楼吟，始于南宋，调为南宋姜夔自度曲（自撰歌词、自谱新调），夹钟商曲，此词专为武昌安远楼落成而赋。词序云：“淳熙丙午（1186）冬，武昌安远楼成，与刘去非诸友落之，度曲见志。予去武昌十年，故人有泊舟鹦鹉洲者，闻小姬歌此词，问之，颇能道其事，还吴为余言之。兴怀昔游，且伤今之离索也。”词中有“层楼高峙”“檐牙飞翠”句，取其句意为词调名。另外，翠楼的意思，可能是指酒楼，如《揽辔录》云：“过相州市，有秦楼、翠楼……皆旗亭也。”范成大《翠楼》诗云：“连衽成堆迓汉宫，翠楼沽酒满城欢。”也可能是指妆楼，如王昌龄《闺怨》诗云：“闺中少妇不知愁，春日凝妆上翠楼。”杜牧《南楼夜》诗云：“声袅袅彻清夜，月色娟娟当翠楼”。吟：古代诗歌体裁的一种。词名中用“吟”，只是为了模仿乐府，与词调格律和题义无关。吟体诗词一般宜于抒发吁嗟慨叹、悲忧深思的情感。调名本意即以吟体的形式来歌咏武昌安远楼旧事。调见南宋姜夔《白石道人歌曲》卷四。</p>
+          <p><strong>百脉</strong>：1. 全身血脉的总称。《素问·经脉别论》：“肺朝百脉，而主治节。”2. 指山东章丘百脉泉公园西侧的百脉泉，《泉韵百脉》：“龙泉寺内，因百泉俱出，故名百脉泉。北魏时，郦道元在《水经注·卷八》中记载：百脉水，出土鼓县（今绣水村附近）故城西”。</p>
+          <p><strong>清都</strong>：1. 神话传说中天帝居住的宫阙。2. 帝王居住的都城。宋 王庭珪《送胡邦衡之新州贬所·其一》：“囊封初上九重关，是日清都虎豹闲”此处指神仙宫阙。</p>
+          <p><strong>章丘</strong>：章丘区是一个位于中国山东省中北部济南市的市辖区。章丘位于泰山东北、黄河南岸。面积1699 平方公里。辖20 个乡、镇、办事处。是宋代词人李清照的家乡。</p>
+          <p><strong>便郡</strong>：政务清简之地。 宋 苏舜钦《赠太子太保韩公行状》：“或谓贡定不当北冲，改知澶州，属以控扼之计。数以疾请便郡，移亳州 。”《宋史·吴育传》：“﹝育﹞迁礼部侍郎，知永兴军，召兼翰林侍读学士。以疾辞，且请便郡”。</p>
+          <p><strong>莲塘</strong>：开满睡莲的池塘，山东章丘明水古城长虹桥边有一池塘，开满睡莲，娇柔旖旎。睡莲，莲的异种。初秋开花，重瓣，昼开夜垂似睡，故名。</p>
+          <p><strong>揖</strong>：拱手行礼。唐 李商隐《西溪》：“野鹤随君子，寒松揖大夫”。</p>
+          <p><strong>乳燕</strong>：指雏燕，幼燕。</p>
+          <p><strong>贯珠</strong>：1. 成串的珍珠2. 比喻珠圆玉润的诗文、声韵。3. 念珠4. 穿戴珠宝5. 犹贯通。此处指山东章丘百脉泉景区的东麻湾景里泉水如成串的珍珠一般。清代道光十三年《章丘县志·水》记载：“百脉泉位于县南25 里，明水镇东，绣江泉也。方圆半亩许，其源直上涌出，百脉沸腾，状如贯珠，历落可数，故名”。</p>
+          <p><strong>皎镜</strong>：1. 犹明镜。亦喻水面。 2. 明洁貌。南朝·齐 谢朓《奉和随王殿下》之十一：“方池含积水，明月流皎镜。”此处指东麻湾明水湖面。</p>
+          <p><strong>青襟</strong>：1. 青色衣服的交领。 2. 借指学子之服。3. 借指学子。 4. 借指青年时期。 5. 喻指襟怀﹐心胸。唐 方千《感时三首》：“今朝犹作青襟子，明日还成白首翁”。</p>
+          <p><strong>香脸</strong>：香，气味好闻。脸，面孔。此处指女子美丽的容貌。宋 李清照《渔家傲·雪里已知春信至》：“香脸半开娇旖旎，当庭际，玉人浴出新妆洗”。</p>
+          <p><strong>天班</strong>：仙班，1. 天上仙人的行列。 2. 指仙人之辈。 3. 借指朝班。宋 张孝祥《水调歌头（为时传之寿）》：“早晚金泥封诏，归侍玉皇香案，踵武列仙班。玉骨自难老，未用九霞丹”。</p>
+          <p><strong>黜贬</strong>：贬斥。《警世通言·崔衙内白鹞招妖》：“后因李白学士题沉香亭牡丹诗，将赵飞燕比著大真娘娘，暗藏讥刺，被高力士奏告贵妃，位诉天子，将李白黜贬”。</p>
+          <p><strong>瘦客</strong>：指月季花。唐 白居易《酬思黯相公晚夏雨后感秋见赠》：“夜长只和愁人觉，秋冷先应瘦客知”。</p>
+          <p><strong>婆娑</strong>：1. 形容盘旋和舞动的样子2. 枝叶纷披的样子。南北朝 佚名《折杨柳歌辞五首》：“遥看孟津河，杨柳郁婆娑”。</p>
+          <p><strong>竹郎</strong>：竹的美称。明 杨慎《送彭湖之官保靖》：“苇籥祈盘瓠，丛词赛竹郎。” 三种变化。指君子三变。《论语．子张》:" 君子有三变: 望之俨然，即之也温，听其言也厉"。</p>
+          <p><strong>云崖</strong>：云际，云端。魏晋 左思《杂诗·秋风何冽冽》：“明月出云崖，皦皦流素光”。</p>
+          <p><strong>碧台</strong>：碧绿色的台子，此处指山东章丘明水古城碧绿色泉水上的舞台。明 吴宽《游朝天宫》：“紫府新开延日月，碧台高筑倚云霄”。</p>
+          <p><strong>月榭</strong>：赏月的台榭。榭，建筑在台上的房屋。唐 李商隐《银河吹笙》：“月榭故香因雨发，风帘残烛隔霜清”。</p>
+          <p><strong>黛眉</strong>：黛画之眉。特指女子之眉。唐 张泌《江城子·浣花溪上见卿卿》：“浣花溪上见卿卿，眼波明，黛眉轻”。</p>
+          <p><strong>星眼</strong>：指明亮美丽的眼睛( 多指女子的)。元 王实甫《崔莺莺待月西厢记·崔莺莺夜听琴( 第二本)》：“觑他云鬟低坠，星眼微朦，被翻翡翠，袜绣鸳鸯”。</p>
+          <p><strong>逞艳</strong>：犹争艳。炫耀色彩艳丽。 唐 王贞白 《太湖石》诗：“不同花逞艳，多愧竹垂阴”。</p>
+          <p><strong>灯院霜钟</strong>：灯院，此处指寺院，即山东章丘明水古城内龙泉寺。霜钟，指钟或钟声。语本《山海经．中山经》﹕" ﹝丰山﹞有九钟焉﹐是知霜鸣。" 郭璞注﹕" 霜降则钟鸣﹐故言知也。" 又 唐 李白《听蜀僧濬弹琴》：“客心洗流水，馀响入霜钟”。</p>
+          <p><strong>音尘</strong>：1. 音信，消息2. 踪迹。宋 晏几道《生查子·关山魂梦长》：“关山魂梦长，鱼燕音尘少”。抵文章数帙：抵zhǐ，击、轻敲。唐 白居易《与元微之书》：“危惙之际，不暇及他，唯收数帙文章”。</p>
+          <p><strong>南岭</strong>：广西、广东北部、湖南、江西南部的山系的总称, 又称“五岭”。晋 陶渊明《庚子岁五月中从都还阻风于规林·其一》：“延目识南岭，空叹将焉如！”</p>
+          <p><strong>匣鸣双剑</strong>：宋 释祖可《秋屏阁》：“匣鸣双剑忽生兴，我欲因从东去船”。此处指两位名字中带有鸣的好友。流岁飞光：流岁，流逝的时光。唐 韦应物《登楼》：“兹楼日登眺，流岁暗蹉跎。”飞光，1. 飞逝的光阴。 2. 犹耀光。唐 李贺《苦昼短》：“飞光飞光，劝尔一杯酒。吾不识青天高，黄地厚。唯见月寒日暖，来煎人寿”。</p>
+          <p><strong>孟家情面</strong>：孟家，指民国儒商孟洛川家，孟家大院位于山东章丘明水古城内。引谢家，指晋太傅谢安家。亦常用以代称高门世族之家。情面，私人间的情分和面子。此处指离开孟家大院。</p>
+          <p><strong>茗轩</strong>：茶楼，位于山东章丘明水古城孟家戏楼，也指章丘百脉泉景点。</p>
+          <p><strong>鱼龙曼衍</strong>：原指各种杂戏同时演出。后形容事物杂乱。也比喻变化很多（含贬义）。</p>
+          <p><strong>辕门诃殿</strong>：辕门，古时军营的门或官署的外门。诃殿：古代官员出外时的一种仪式。侍卫大声呵呼以示威严称为诃殿。引章丘梆子《辕门斩子》，章丘梆子，群众称它为山东沤。是一种山东省的传统戏曲剧种。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-18">
+          <div class="ci-head"><span class="ci-num">18</span><h2 class="ci-title">小重山 <span class="ci-sub">· 重阳</span></h2></div>
+          <div class="ci-lyric">
+            玉树芝兰连昼昏。<br>
+            迳庭梧树叶，正搏心。<br>
+            半拆一搦绣罗裙。<br>
+            重阳日，不是老夫身。<br>
+            惝恍到泉濒。<br>
+            将丹青泪粉，共开匀。<br>
+            落花无数可缝拼。<br>
+            拼无数，悲恼两三针。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>小重山</strong>：小重山，是词牌名，又名“小重山令”“小冲山”“柳色新”等。《小重山》，调见《金奁集》，又名《小重山令》、《小冲山》、《柳色新》、《群玉轩》、《璧月堂》、《玉京山》。相传这个词牌是韦庄所创。据说韦庄有一个心爱的侍妾，貌美如花且禀赋词翰，却蜀主王建夺去。身为人臣，韦庄只好压抑了自己的思念，作了一阕《小重山》。曲调一经唱出，凄婉异常，侍妾听后，竟抑郁而终。侍妾去了，因她而来的小重山调却渐渐被人们永久地记住。从此，《小重山》成了凄苦思念的代名词。《宋史·乐志》录宋太宗赵匡义新制乐曲亦有《小重山》，注入双调（夹钟商），盖借旧曲名另制新声。《词律》卷八、《词谱》卷一三均列有此调。</p>
+          <p><strong>玉树</strong>：1. 神话传说中的仙树。 2. 用珍宝制作的树。 3.槐树的别称。 4.美丽的树。 5.白雪覆盖的树。6. 南朝宋刘义庆《世说新语·言语》:" 谢太傅问诸子侄:' 子弟亦何预人事，而正欲使其佳?' 诸人莫有言者。车骑答曰:' 譬如芝兰玉树，欲使其生于阶庭耳。'" 后以" 玉树" 称美佳子弟。 7. 南朝陈后主所作歌曲《玉树后庭花》的省称。此处指美佳子弟。</p>
+          <p><strong>芝兰</strong>：芝草和兰草皆香草名。古时比喻君子德操之美或友情、环境的美好等。宋 李清照《新荷叶·薄露初零》：“芝兰为寿，相辉映、簪笏盈庭。花柔玉净，捧觞别有娉婷”。</p>
+          <p><strong>连昼</strong>：1. 犹连日。 2. 犹整日。</p>
+          <p><strong>昏</strong>：古同“婚”，婚姻。</p>
+          <p><strong>迳庭</strong>：门外小路和庭院。宋 姚勉《听筝》：“除却高山与流水，琵琶箜篌俱径庭”。</p>
+          <p><strong>梧树</strong>：梧桐，古代诗歌常见意象。1. 做琴的材料。2. 象征高洁的品质，尊贵、荣美。3. 指雄树、雌树的美好爱情。4. 象征落寞、清冷、惆怅与萧条的清秋意境。</p>
+          <p><strong>半拆一搦</strong>：半拆，大指与二指伸张开时的距离。一搦，一握；一把。形容纤细。元 王实甫《西厢记》第四本第一折：“绣鞋儿刚半拆，柳腰儿勾一搦。”王季思注：“俗本多作折，误……拆谓大指与二指伸张时之距离，今徐海间语尚如此。”参见“ 半弓 ”。</p>
+          <p><strong>老夫身</strong>：老者打扮。唐 王维《山中示弟》：“安知广成子，不是老夫身”。</p>
+          <p><strong>惝恍</strong>：形容失意、不愉快的样子。形容感知时间过得很快，恍若隔世。此处指时间过得很快。唐 韩愈《此日足可惜赠张籍》：“哀情逢吉语，惝恍难为双”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-19">
+          <div class="ci-head"><span class="ci-num">19</span><h2 class="ci-title">琵琶仙 <span class="ci-sub">· 天地作囊</span></h2></div>
+          <div class="ci-lyric">
+            舟系金瓯，短篷却、捣醒寥天芦叶。<br>
+            纤手轻解珠璎，生来与痴绝。<br>
+            争袖探、轩廊橘柚，又重识、画堂鶗鴂。<br>
+            皓月三千，青春廿四，星数难说。<br>
+            料龙泉、吟啸江南，念今日、正霜降时节。<br>
+            须买俊音同醉，剪西窗蓂荚。<br>
+            应乱把，才名揉碎，便望荷、绿酒红雪。<br>
+            唤起几点丹阳，共伤离别。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（18）</summary>
+    <div class="ci-annos-body">
+          <p><strong>琵琶仙</strong>：南宋姜夔自度曲( 自撰歌词、自谱新调)。词序云:《吴都赋》云:“户藏烟浦，家具画船。唯吴兴为然。春游之盛西湖未能过也。已西岁(1189)，予与萧时父载酒南郭，感遇成歌。”此为姜夔在吴兴冶游时所作。他所“感遇”的事是回忆起与合肥勾栏中歌妓情人的旧事。合肥的歌妓善弹琵琶，故名《琵琶仙》。调见南宋姜夔《白石道人歌曲》。</p>
+          <p><strong>金瓯</strong>：金的盆盂；比喻疆土之完固，亦用以指国土等。元 任昱《正宫·小梁州·春怀》：“玳瑁筵，葡萄酒，殷勤红袖，莫惜捧金瓯”。</p>
+          <p><strong>寥天</strong>：1.《庄子·大宗师》：“安排而去化，乃入於寥天一。” 郭象 注：“安於推移，而与化俱去，故乃入於寂寥而与天为一也。”后遂用“寥天”指道教所谓虚无之境，即太虚。 唐? 宋之问?《使至嵩山题壁赠杜侯杜四诗》：“忆昔同携手，山栖接二贤。笙歌入玄地，诗酒生寥天。” 唐 李白?《大庭库》诗：“莫辨陈郑火，空霾邹鲁烟。我来寻梓慎，观化入寥天。” 清 顾炎武?《前诗意有未尽再赋四章》：“性定自能潜福地，机忘真已入寥天。”2. 辽阔的天空。 唐 姚月华?《怨诗》：“登臺北望烟雨深，回身泣向寥天月。” 清 赵翼《绵州刺史刘荫萱远寄藏佛一尊赋谢》：“安得金粟影接寥天长，玉毫光共素月皎。”? 周恩来《送蓬仙兄返里有感》诗：“群鸦恋晚树，孤雁入寥天。”</p>
+          <p><strong>纤凝</strong>：犹纤云。凝，指云气凝聚。 明·高明《琵琶记·中秋望月》：“长空万里，见婵娟可爱，全无一点纤凝”。</p>
+          <p><strong>珠璎</strong>：1. 珍珠璎珞，多用为项饰。 2. 比喻晶莹连缀之物。唐 刘禹锡 《送僧元暠南游》诗：“从此多逢大居士，何人不愿解珠璎”。</p>
+          <p><strong>生来</strong>：生来，从小时候起；从来。宋 周敦颐《任所寄乡关故旧》：“老子生来骨性寒，宦情不改旧儒酸”。</p>
+          <p><strong>橘柚</strong>：橘柚，树姿开张，树势较强。果实扁圆形，紧实，果梗部略呈球形，果顶部平坦，果皮橙黄色，果面不太光滑，剥皮略难，同胡柚相近，带有橙香味。唐 王昌龄《送魏二》：“醉别江楼橘柚香，江风引雨入舟凉”。</p>
+          <p><strong>画堂</strong>：1. 古代宫中有彩绘的殿堂。 2. 泛指华丽的堂舍。南唐 李煜《虞美人·风回小院庭芜绿》：“烛明香暗画堂深，满鬓青霜残雪思难任”。此处指华丽的堂舍。</p>
+          <p><strong>鶗鴂</strong>：亦作“ 鶗鴃 ”。即杜鹃鸟。宋 李清照《好事近·风定落花深》：“魂梦不堪幽怨，更一声鶗鴂”。</p>
+          <p><strong>廿四</strong>：二十四，指作者作此篇的年岁，也拓指二十四桥，故址在江苏省扬州市江都县西郊。唐杜牧《寄扬州韩绰判官》：“二十四桥明月夜，玉人何处教吹箫”。</p>
+          <p><strong>星数</strong>：星命、运数。 明 王鏊 《震泽长语·杂论》：“后世星数之説行，谓人之富贵贫贱寿夭，莫不定於有生之初”。</p>
+          <p><strong>龙泉</strong>：常泛指僧院、佛门。这里指山东章丘明水古城百脉泉景点名。宋 辛弃疾《婆罗门引》：“龙泉佳处，种花满县却东归”。</p>
+          <p><strong>吟啸</strong>：1. 犹呼啸；呼叫。2. 悲叹；哀号。3. 高声吟唱；吟咏。此处指高声吟唱。金 元好问《玉漏迟·咏怀》：“时自笑，虚名负我，半生吟啸”。</p>
+          <p><strong>蓂荚</strong>：古代传说中的瑞草。又名“历荚。”唐 卢仝《感古四首》：“阶下蓂荚生，琴上南风薰”。</p>
+          <p><strong>应乱把，才名揉碎</strong>：取自唐 李白《清平乐·画堂晨起》：“应是天仙狂醉，乱把白云揉碎”。</p>
+          <p><strong>绿樽</strong>：酒杯。唐 夷陵女郎《空馆夜歌》：“绿樽翠杓，为君斟酌。今夕不饮，何时欢乐”。</p>
+          <p><strong>红雪</strong>：1. 喻枝头红花。 2. 犹红云。喻荔枝。3. 古代一种珍贵的化妆用品。犹今之护肤油脂之类。此处指红云。宋 汤恢《八声甘州·摘青梅荐酒》：“正柳腴花瘦，绿云冉冉，红雪霏霏”。</p>
+          <p><strong>丹阳</strong>：指铜的别称，也指道教支派全真教二代掌教丹阳子马钰，世称马丹阳。宋 释仲殊《京口怀古二首·其二》：“一昨丹阳王气销，尽将豪侈谢尘嚣”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-20">
+          <div class="ci-head"><span class="ci-num">20</span><h2 class="ci-title">一萼红 <span class="ci-sub">· 赋双泉酒店前百叶蔷薇</span></h2></div>
+          <div class="ci-lyric">
+            水云亲。表诗文情愫，鱼雁问宾宾。<br>
+            朱户寒肤，琐窗销骨，三李六甲缄唇。<br>
+            惹芳妒、出身自碧，哀笛儿、斫刈六弦琴。<br>
+            泪打腰楼，沮折脾土，花气骎淫。<br>
+            应有长吉百岁 ，纵兰摧玉碎，肺腑飘淋。<br>
+            闭架羞钗，塞庭病钏，试问憔悴几巡。<br>
+            唤小园、茶茶渐远， 怜风月、野客旧山心。<br>
+            来意无托，倩谁低唱孤斟。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（24）</summary>
+    <div class="ci-annos-body">
+          <p><strong>一萼红</strong>：一萼红，词牌名，有平韵、仄韵两体。毛先舒《填词名解》云：“太真初妆，宫女进白牡丹，妃捻之，手脂未洗，适染其瓣，次年花开，俱绛其一瓣，明皇为制《一捻红》曲，词名沿之，曰《一萼红》。”宋姜夔《白石道人歌曲》，自序云：“丙午人日，予客长沙别驾之观政堂，堂上曲沼，沼西负古垣，有卢橘、幽篁，一径深曲，穿径而南，官梅数十株，如椒如菽，或红破白露，枝影扶疏，着屐苍苔细间，野兴横生……兴尽悲来，醉吟成调。”又《乐府雅词》无名氏词中有“未教一萼，红开鲜蕊”句，《词谱》谓调名由此而得。</p>
+          <p><strong>诗文</strong>：1. 指诗歌。 2. 指《诗经》的文字。 3. 诗和文。此处指诗和文。唐 韩愈《唐故国子司业窦公墓志铭》：“尚书于大历初名能为诗文，及公为文，亦最长于诗“。</p>
+          <p><strong>情愫</strong>：内心的真情。清 郑燮《踏莎行·无题》：“中表姻亲，诗文情愫，十年幼小娇相护“。</p>
+          <p><strong>鱼雁</strong>：1. 用来形容书信2. 后遂以代书信，又指传书之人。明 唐寅《唐寅落花诗》：“倘是东君问鱼雁，心情说在雨声中”。</p>
+          <p><strong>宾宾</strong>：1. 频频。俞樾《诸子平议．庄子一》:"宾宾，犹频频也。”一说恭勤貌。2. 尊重臣属。</p>
+          <p><strong>朱户</strong>：1. 古代帝王赏赐诸侯或有功大臣的朱红色的大门，古为" 九锡" 之一种。 2. 泛指朱红色大门。 3. 指富贵人家。此处指朱红色大门。宋 晏殊《蝶恋花·槛菊愁烟兰泣露》：“明月不谙离别苦，斜光到晓穿朱户”。</p>
+          <p><strong>琐窗</strong>：镂刻有连琐图案的窗棂。宋 李清照《鹧鸪天·寒日萧萧上琐窗》：“寒日萧萧上琐窗，梧桐应恨夜来霜”。</p>
+          <p><strong>缄唇</strong>：指闭口不言。《隋书·儒林传·王孝籍》：“孝籍郁郁不得志，奏记於吏部尚书牛弘曰：‘……况怀抱之内，冰火铄脂膏；腠理之间，风霜侵骨髓。安可齰舌缄脣，吞声饮气，恶呻吟之响，忍酸辛之酷哉！’。“明 徐渭《陈玉屏饷瓦窑村银鱼》：“银鱼百尾瓦窑肥，蛤蜊径寸围”。</p>
+          <p><strong>出身</strong>：1. 个人最早的经历或身份2. 出生；产地 唐 杨志坚《送妻》：“渔父尚知溪谷暗，山妻不信出身迟”。</p>
+          <p><strong>斫刈</strong>：砍杀。《金史·列传·卷七十一》：“贼四面登城，押军猛安乌古孙阿里补率军士数人，各持刀以身率先循城击贼力战，斫刈甚众，贼乃退走，城赖以完”。</p>
+          <p><strong>六弦琴</strong>：有六根弦，用指拨弹。初于，后我国。曾译作“六弦”。亦称“（guitar）。”</p>
+          <p><strong>骎淫</strong>：逐渐蔓延﹑扩展。明 王佐《暮年三宠诗·其一 喜童》：“衰年病体蓄虚风，双耳骎淫”。</p>
+          <p><strong>长吉</strong>：长，时间久。吉，好的；善的；有利的事情。此处指唐代诗人李贺的字。又有长吉体：指唐代诗人李贺作品所独有的风格意境。李贺诗熔铸词采﹐驰骋想象﹐善于运用神话传说﹐语言新奇瑰丽。宋严羽《沧浪诗话．诗体》有" 李长吉体"。</p>
+          <p><strong>百岁</strong>：1. 百年。指长时间。 2. 终身; 毕生。 3. 死的讳称。此处指百年。清“中国大儒”沈曾植有《芳草·长吉多神语，戏效其意》。</p>
+          <p><strong>兰摧玉碎</strong>：兰草衰败, 美玉破碎。比喻贤才的夭折死亡。后多用为哀悼人不幸早夭取自唐 李贺《李凭箜篌引》：“昆山玉碎凤凰叫，芙蓉泣露香兰笑”。</p>
+          <p><strong>肺腑</strong>：肺脏。内心深处; 心腹。唐 杜荀鹤《自叙》：“平生肺腑无言处，白发吾唐一逸人”。</p>
+          <p><strong>飘淋</strong>：流泻。 唐 顾况 《大茅岭东新居忆亡子从真》：“赬景宣叠丽，绀波响飘淋”。</p>
+          <p><strong>憔悴</strong>：指黄瘦；瘦损；瘦弱无力脸色难看的样子。宋 李清照《声声慢·寻寻觅觅》：“满地黄花堆积，憔悴损，如今有谁堪摘？”。</p>
+          <p><strong>茶茶</strong>：对少女的昵称。明 张振《愁倚栏令·和程正伯韵 其一》：“人在画楼深院里，唤茶茶”。</p>
+          <p><strong>风月</strong>：1. 清风明月2. 男女情爱。宋 欧阳修《蝶恋花·画阁归来春又晚》：“风月无情人暗换，旧游如梦空肠断”。</p>
+          <p><strong>野客</strong>：1. 村野之人。多借指隐逸者。2. 蔷薇花的戏称。唐 杜甫《楠树为风雨所拔叹》：“野客频留惧霜雪，行人不过听竽籁”。</p>
+          <p><strong>山心</strong>：1. 隐逸山中的心情2. 山中。清 朱祖谋《蓦山溪》：“压天霜散，憔悴旧山心”。</p>
+          <p><strong>无托</strong>：无处寄托。宋 周邦彦《解连环·怨怀无托》：“怨怀无托。嗟情人断绝，信音辽邈”。</p>
+          <p><strong>低唱孤斟</strong>：浅斟低唱，慢慢地喝酒，低低地歌唱。宋 柳永《鹤冲天·黄金榜上》：“青春都一饷。忍把浮名，换了浅斟低唱”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-21">
+          <div class="ci-head"><span class="ci-num">21</span><h2 class="ci-title">惜红衣</h2></div>
+          <div class="ci-lyric">
+            往事拨灯，衾裯话夜，算来才力。<br>
+            奉帚银湖，溪童寝醇碧。<br>
+            词园坠粉，都幻作、吴山娇丽。<br>
+            幽蔽，蕴聚雅齐，教藤萝将意。<br>
+            鸳鸯渡口，巷柳枝头 ，心思任腾起。<br>
+            阖秋待驻，古色暗天陛。<br>
+            未免旧华胥处 ，漫抵津楼登历。<br>
+            阆苑瑶台里，宁宁染啥服式？
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（19）</summary>
+    <div class="ci-annos-body">
+          <p><strong>惜红衣</strong>：“惜红衣”，南宋姜夔自度曲。词序云：“吴兴，号水晶宫，荷华盛丽。陈简斋（两宋之交的诗人陈与义）云：‘今年何以报君恩。一路荷花、相送到青墩。’亦可见矣。丁未（1187）之夏，予游千岩，数往来红香中。自度此曲。”词中有“红衣半狼藉”句，取其句意为词调名。调名本意即咏惋惜夏未的荷花已呈衰败的样子。《词谱》卷二十一：“姜夔自度曲。属无射宫。取词内‘红衣半狼籍’句为名。”《词律》于前段第二句断句，以为未用韵，《词谱》以为用韵。《词谱》于后段第四、五句作：“维舟试望故国。渺天北。”《词律》作：“维舟试望，故国渺天北。”。张炎赠歌妓双波词云：“两剪秋痕，平分水影，炯然冰洁。末识新愁，眉心倩人贴。无端醉里，通一笑、柔花盈睫。痴绝。不解送情，倚银屏斜瞥。长歌短舞，换羽移官，飘飘步回雪。扶娇倚扇，欲把艳怀说。旧日杜郎重到，只虑空江桃叶。但数峰犹在，如傍那家风月。”此词后段首句未用韵，第六句《全宋词》无“旧目”两字，但留空格，兹从《词谱》补正。此调已为现代音乐家译为今谱，可以演唱，其曲调极有特色。旋律优雅而富于变化，颇为动听。此调宜于抒情与写景。</p>
+          <p><strong>衾裯</strong>：1. 指被褥床帐等卧具。语出《诗．召南．小星》:" 肃肃宵征，抱衾与裯，實命不犹。" 2. 借指侍奉寝卧等事的婢妾。 3. 借指男女欢合。此处指被褥床帐等卧具。</p>
+          <p><strong>算来</strong>：计算起来；推测起来。南唐 李煜《乌夜啼·昨夜风兼雨》：“世事漫随流水，算来一梦浮生”。</p>
+          <p><strong>才力</strong>：才能，能力。唐 李白《东武吟》：“才力犹可倚，不惭世上雄”。</p>
+          <p><strong>奉帚</strong>：持帚洒扫。多指嫔妃失宠而被冷落。唐 王昌龄《长信秋词》之三：“奉帚平明金殿开，且将团扇暂裴回”。</p>
+          <p><strong>醇碧</strong>：一种色碧﹑味厚的酒。宋 陆游《自适》：“家酿倾醇碧，园蔬摘矮黄”。</p>
+          <p><strong>词园</strong>：诗文园地。唐 李商隐《祭长安杨郎中文》：“笔海惊波，词园鞠草。文场不写于中心，丹苑空留于秘宝”。</p>
+          <p><strong>坠粉</strong>：落花。形容凋谢。宋 赵令畤《蝶恋花·卷絮风头寒欲尽》：“卷絮风头寒欲尽。坠粉飘红，日日香成阵”。</p>
+          <p><strong>吴山</strong>：吴地的山。常泛指江南的山。宋张孝祥《水调歌头》：“吴山楚泽行徧，只欠到潇湘”。</p>
+          <p><strong>娇丽</strong>：1.艳丽。《醒世恒言·卖油郎独占花魁》：“秦重 定睛观之，此女容颜娇丽，体态轻盈，目所未覩。” 明? 唐寅?《江儿水》曲：“覷芳容旖旎多娇丽，待冤家嗔喜千般意。” 应修人?《小学时的姊姊》：“让他蜂蝶们飞进窗里来，娇丽的花枝儿新有帕儿盖，要採花粉也不可採”。2. 指称美女。 清? 李渔?《风筝误·贺岁》：“何曾见侯门娇丽，肯容人较瘦量肥”。</p>
+          <p><strong>幽蔽</strong>：1. 亦作" 幽敝"。 2. 深暗。先秦 屈原《楚辞·九章·怀沙》：“脩路幽蔽，道远忽兮”。</p>
+          <p><strong>古色</strong>：古雅的意趣、色调。 唐? 杜甫《殿中杨监见示张旭草书图》诗：“悲风生微綃，万里起古色。” 宋? 王安石《昆山慧聚寺次孟郊韵》：“扫石出古色，洗松纳空光。” 明? 胡应麟《诗薮·古体上》：“余谓拟 魏 晋 乐府，尽仍其误不妨，乃反有古色”。</p>
+          <p><strong>天陛</strong>：1. 天宫台阶。借指天上宫阙。 宋? 何大圭?《水调歌头》词：“风缠云捲，转觉天陛玉楼宽”。 2. 帝王宫殿之台阶。借指朝廷。 唐? 韦应物?《贾常侍林亭燕集》诗：“高贤侍天陛，跡显心独幽。”宋? 王庭圭?《赠胡绍立》诗：“此去飞腾对天陛，不应顦顇困书生”。</p>
+          <p><strong>华胥</strong>：1. 人名。传说是伏羲氏的母亲。 2.《列子．黄帝》:" ﹝黄帝﹞昼寝，而梦游于华胥氏之国。华胥氏之国在弇州之西，台州之北，不知斯齐国几千万里。盖非舟车足力之所及，神游而已。其国无帅长，自然而已; 其民无嗜欲，自然而已……黄帝既寤，怡然自得。" 后用以指理想的安乐和平之境，或作梦境的代称。</p>
+          <p><strong>津楼</strong>：渡口修筑的瞭望楼台。 唐? 陈子昂《岘山怀古》诗：“野树苍烟断，津楼晚气孤。” 唐? 黄滔?《祭宋员外文》：“沙岸迎欢，津楼送别，且言不日之后会，谁料终天之永诀！”</p>
+          <p><strong>登历</strong>：登临游历。唐 白居易《过紫霞兰若》：“我爱此山头，及此三登历”。</p>
+          <p><strong>阆苑</strong>：也称阆风苑、阆风之苑，传说中在昆仑山之巅，是西王母居住的地方。在诗词中常用来泛指神仙居住的地方，有时也代指帝王宫苑。清 曹雪芹《枉凝眉》：“一个是阆苑仙葩，一个是美玉无瑕”。</p>
+          <p><strong>瑶台</strong>：瑶台是中国神话传说中神仙所居之地。《穆天子传》卷三：" 天子宾于西王母，天子觞西王母于瑶池之上。西王母为天子谣曰：' 白云在天，山陵自出。道里悠远，山川间之。将子无死，尚能复来。' 天子答之曰：' 予归东土，和治诸夏。万民平均，吾顾见汝。比及三年，将复而野。'"《武帝内传》称王母为" 玄都阿母"。</p>
+          <p><strong>服式</strong>：衣服样式。清 翁山柱砥、何梦梅《白牡丹·第三十五回》：“丈贵谢恩，换了服式。又封李梦雄为山东大同关提督，永镇山东”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-22">
+          <div class="ci-head"><span class="ci-num">22</span><h2 class="ci-title">雨霖铃 <span class="ci-sub">· 记明水古城狐仙巡游</span></h2></div>
+          <div class="ci-lyric">
+            危楼照瞩，向长空、索笠子巾褚。<br>
+            神兵诏音降下，今朝偃武，残留萧鼓。<br>
+            试看狐居巷陌，旧书参差舞。<br>
+            不赌时、公子牌坊，自有金陵暖香坞。<br>
+            满庭里寂寥谁主，趁青旗、半醉相思骨。<br>
+            环肥燕瘦妙手，恁换了、玉泉轻漱。<br>
+            笑我多情，堂燕双双，欲同飞路。<br>
+            细忖量、织女嫦娥，竟把竹郎负。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（25）</summary>
+    <div class="ci-annos-body">
+          <p><strong>雨霖铃</strong>：雨霖铃，原唐教坊曲，后用作词调，始见于宋柳永《乐章集》。《乐章集》入双调（夹钟商）。“雨霖铃”曾载入唐崔令钦《教坊记》曲名。</p>
+          <p><strong>唐段安节《乐府杂录》云</strong>：“《雨霖铃》者，因唐明皇驾回至骆谷，闻雨淋銮铃，因令张野狐撰为曲名。”唐郑处诲《明皇杂录》：“明皇既幸蜀西南行，初人斜谷，属霖雨涉旬，于栈道雨中，闻铃音与山相应，上既悼念贵妃，采其声为《雨霖铃》曲，以寄恨焉。时梨园弟子善吹觜篥者张野狐，惟此人从至蜀。上因以其曲授野狐。洎至德中，车驾复幸华清官，从官嫔御多非旧人。上于望京楼下命野狐奏《雨霖铃》曲，未半，上四顾凄凉，不觉流涕。左右感动，与之欺欷。其曲今传于法部。”据此可知，此曲是唐玄宗安史之乱后奔蜀途中所作，由于在“马嵬之变”中处死了杨贵妃，玄宗作此曲以寄思念之情、死别之恨。宋王灼《碧鸡漫志》卷五曾引唐代罗隐、杜牧、张祜诗，详作考证。罗隐诗“细雨霏微宿上亭，雨中因感雨淋铃”，言闻铃之地在四川梓桐。杜牧诗“行云不下朝元阁，一曲《淋铃》泪数行”，写返京后奏曲情景。张祜诗“雨霖铃夜却归秦，犹是张徽一曲新”，言明皇入蜀时作此曲，至归秦后，犹是张野狐向来新曲。中唐时，元稹作《琵琶歌》，中有“因兹弹作《雨霖铃》，风雨萧条鬼神泣”，可知此曲之悲伤幽怨。王灼并云：“今双调《雨淋铃慢》，颇极哀怨，真本曲遗声。”?宋人借旧曲之名，另倚新声。柳永词抒写离情别绪，词情哀怨，与调情相符。宋人用此调亦多写离情。</p>
+          <p><strong>危楼</strong>：高楼。唐 李白《夜宿山寺》：“危楼高百尺，手可摘星辰”。</p>
+          <p><strong>长空</strong>：指天空。天空辽阔无垠，故称。唐 白居易《七夕》：“烟霄微月澹长空，银河秋期万古同”。</p>
+          <p><strong>笠子</strong>：箬笠。唐 李白《戏赠杜甫》：“饭颗山? 头逢? 杜甫，头戴笠子日卓午”。</p>
+          <p><strong>巾褚</strong>：布囊。宋 孔平仲《呈张子平》：“巾褚藏经勤问学，子孙传业富文章”。</p>
+          <p><strong>神兵</strong>：犹天兵。谓秉承天意有天神为助之兵。常用以称王师。唐 李益《夜发军中》：“中坚分暗阵，太乙起神兵”。</p>
+          <p><strong>诏音</strong>：沼命。宋 陈造《鹳带箭行》：“使君暂拥山城麾，诏音不日遄其归”。</p>
+          <p><strong>降下</strong>：落下。元 郭翼《题美人图》：“上清宫殿五云车，降下仙人萼绿华”。</p>
+          <p><strong>今朝</strong>：现在。唐 白居易《井底引银瓶·止淫奔也》：“瓶沉簪折知奈何？似妾今朝与君别”。</p>
+          <p><strong>偃武</strong>：停息武备。明 沈周《王明妃》：“君王欲偃武，贱妾岂惜身”。</p>
+          <p><strong>萧鼓</strong>：箫和鼓，泛指乐曲。明 郑之文《金陵元夕篇》：“今宵无处无箫鼓，佳丽名都较得数”。</p>
+          <p><strong>旧书</strong>：古书。唐 韩愈《张中丞传后叙》：“元和二年四月十三日夜，愈与吴郡张籍阅家中旧书，得李翰所为《张巡传》”。</p>
+          <p><strong>参差舞</strong>：杂乱不齐地舞蹈。宋 姜夔《点绛唇·丁未东过吴松作》：“今何许，凭阑怀古，残柳参差舞”。</p>
+          <p><strong>不赌时</strong>：同“不覩事。”糊里糊涂，不更事。元关汉卿 《蝴蝶梦》第二折：“俺孩儿，好寃屈，不覩事，下牢狱”。</p>
+          <p><strong>暖香坞</strong>：红楼梦中大观园里的一座建筑，是贾四小姐惜春住所。清 曹雪芹《红楼梦》第七十四回：“周瑞家的等人劝了一番。凤姐直待服侍探春睡下，方带着人往对过暖香坞来”。</p>
+          <p><strong>寂寥</strong>：寂静。唐 柳宗元《小石潭记》：“坐潭上，四面竹树环合，寂寥无人，凄神寒骨，悄怆幽邃”。</p>
+          <p><strong>青旗</strong>：指酒旗。唐 元稹《和乐天重题别东楼》：“唤客潜挥远红袖，卖炉高掛小青旗”。</p>
+          <p><strong>环肥燕瘦</strong>：又称“燕瘦环肥。”唐明皇宠妃杨玉环，与汉成帝嬖后赵飞燕，一肥一瘦，各以此擅胜而并美。后比喻美人不同的体态而各擅其美。</p>
+          <p><strong>妙手</strong>：技艺高超的人。宋 陆游《文章》：“文章本天成，妙手偶得之”。</p>
+          <p><strong>玉泉轻漱</strong>：即漱玉泉，山东章丘明水古城李清照故居景点名。</p>
+          <p><strong>忖量</strong>：思量。明 袁宏道《过吾戏柬江进之》：“从头细忖量，客比官较好”。</p>
+          <p><strong>织女</strong>：织女别名 天孙、天仙娘娘，又与七仙女姊妹合称七星娘娘。织女是中国古代神话中，代表织女星的女神，编织云雾的女神，是纺织业者、情侣、妇女、儿童的保护神。她是著名的牛郎织女神话的女主角。与织女相关的传统节日是七夕节。最早记录其身份的，是汉代《史记·天官书》：“织女，天女孙也。”织女为一位天帝的孙女。此天帝不是玉皇。盖因《史记》为汉代所写，但汉代还没有玉皇的神话。织女神话出现早在先秦，比玉皇神话早得多。</p>
+          <p><strong>嫦娥</strong>：又作“姮娥”。传说中后羿的妻子,后从人间飞升到月亮，后比喻美女。</p>
+          <p><strong>竹郎</strong>：1. 即竹王。 2. 竹的美称。指章丘明水古城景区东边的竹林。唐 薛涛《题竹郎庙》：“竹郎庙前多古木，夕阳沈沈山更绿。何处江村有笛声，声声尽是迎郎曲”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-23">
+          <div class="ci-head"><span class="ci-num">23</span><h2 class="ci-title">二郎神</h2></div>
+          <p class="ci-preface">余观漠南内蒙乌尔善之《封神第一部》，一睹</p>
+          <p class="ci-preface">清源妙道天尊威仪，神采奕奕、风貌甚都，实难具陈。</p>
+          <p class="ci-preface">有射阳居士美之曰：“儀容清俊貌堂堂，兩耳垂肩</p>
+          <p class="ci-preface">目有光... 赤城昭惠英靈聖，顯化無邊號二郎。”今</p>
+          <p class="ci-preface">依曹勋半山未雨韵以记之。</p>
+          <div class="ci-lyric">
+            素秋促入。暗坠升、金乌玉兔。<br>
+            礶口众仙家，皆为龙虎，正法欺诳罪罟。<br>
+            上界神君，蜀都川主，旦暮餐霞吸露。<br>
+            不用诉、此去何如，魂梦乱山深处。<br>
+            睁目。三尖两刃，犭灵犭是 倾俯。<br>
+            净口业真言，身高万丈，踏破般般物物。<br>
+            霡霂酣足，彝伦攸叙，复骋望郊原土。<br>
+            犯笑侮、左右听凭，家国靖护。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>素秋促入</strong>：出自《聊斋志异·卷一·素秋》：「骇异闻，素秋促入，惨然曰：『兄弟何以隔阂？』」素秋，秋季。古代五行之说，秋属金，其色白，故称素秋。促，急迫、紧迫。入，进。金乌玉兔，丹道术语，太阳和月亮。取自明嘉靖《二郎宝卷》：“金乌坠，玉兔升，六门紧闭 找来人。云花女，望前行，找找临凡左金童。心中闷，等元人，恐怕功果不完成。”，全名《清源妙道显圣真君一了真人护国佑民忠孝二郎开山宝卷》，主要讲述二郎神出身历史。《道枢·百问篇》：“正阳子曰：金乌者，心中之水，水中之真气也；玉兔者，肾中之气，气中之真水也。”</p>
+          <p><strong>礶口</strong>：即灌江口。众仙家，指梅山六兄弟。《西游记》中载：“菩萨道：‘乃陛下令甥显圣二郎真君，现居灌洲灌江口，享受下方香火。他昔日曾力诛六怪，又有梅山兄弟与帐前一千二百草头神，神通广大”。</p>
+          <p><strong>皆为龙虎</strong>：出自《史记·项羽本纪》，比喻英雄豪杰。</p>
+          <p><strong>正法</strong>：按法论罪，以正法典之意。</p>
+          <p><strong>欺诳</strong>：欺诈性言辞，蛊惑人心的言辞。</p>
+          <p><strong>罪罟</strong>：罪网。出自《诗·小雅·小明》：“岂不怀归，畏此罪罟”。</p>
+          <p><strong>餐霞吸露</strong>：同" 餐霞漱瀣"，餐食日霞，吸饮沆瀣。指超尘脱俗的仙家生活。出自明·单本《蕉帕记·幻形》：“翦雪披霜号九尾，餐霞吸露历千秋”。</p>
+          <p><strong>犭灵犭是</strong>：细犬别称。出自张之杰《二郎神的细犬是什么犬》，此处指哮天犬。</p>
+          <p><strong>净口业真言</strong>：出自《二郎宝卷》；身高万丈，出自《西游记第六回》：“那真君抖擻神威，搖身一變，變得身高萬丈”。</p>
+          <p><strong>霡霂酣足</strong>：霡霂，小雨。酣足，痛快满足，这里指风调雨顺。彝伦攸叙，伦理道德有秩序。出自《尚书·洪范》及晋 葛洪《抱朴子·广譬》：“是以庸人盈朝，不能使彝伦攸叙。”《重修灌口二郎庙引》载：“祝辞既毕，甘雨旁敷。骋望郊原，无复焦土”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-24">
+          <div class="ci-head"><span class="ci-num">24</span><h2 class="ci-title">甘草子</h2></div>
+          <div class="ci-lyric">
+            冬至。<br>
+            霁月光风，暗掷凌云笔。<br>
+            笔底玉京山，遗我双双鲤。<br>
+            情癖病中强梳洗。<br>
+            见往日、别时踪迹。<br>
+            但使溪岚上灵祉。<br>
+            又缀连重壁。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（13）</summary>
+    <div class="ci-annos-body">
+          <p><strong>甘草子</strong>：甘草: 中药药草名，又名蜜草。署名西汉刘安的《淮南子·览冥训》云:“夫地黄主属骨，而甘草主生肉之药也。子: 词调的一种名称，有小曲的意思。故调名本意即为咏甘草药的小曲。调见今人唐圭璋《全宋词》所辑北宋寇准词。此调又名《天道无亲》。</p>
+          <p><strong>冬至</strong>：俗称“冬节”“长至节”或“亚岁”等。冬至是农历二十四节气中一个重要的节气，也是中华民族的一个传统节日。冬至为“冬节”，所以被视为冬季的大节日，在古代民间有“冬至大如年”的讲法。古时候，漂在外地的人到了这时节都要回家过冬节，所谓“年终有所归宿”。古时有“冬至一阳生”的讲法，也就是说从冬至这天开始，阳气慢慢开始回升。</p>
+          <p><strong>霁月光风</strong>：指雨过天晴后清风明月的景象,比喻胸怀宽广, 心地坦白。亦称“光风霁月”。</p>
+          <p><strong>凌云笔</strong>：唐杜甫《戏为六绝句》之一:" 庾信文章老更成，凌云健笔意纵横。" 本为赞扬庾信笔势超俗，才思纵横出奇，后遂以" 凌云笔" 泛指为文作诗的高超才华。</p>
+          <p><strong>笔底</strong>：犹笔下。金 元好问《论诗三十首·十五》：“笔底银河落九天，何曾憔悴饭山前”。</p>
+          <p><strong>玉京山</strong>：传说中元始天尊居住的仙山。宋白玉蟾《华阳吟三十首》：“不动丝毫过玉关，关头自有玉京山”。</p>
+          <p><strong>遗我双双鲤</strong>：双双鲤，即双鲤鱼。指藏书信的函，就是刻成鲤鱼形的两块木板，一底一盖，把书信夹在里面。一说将上面写着书信的绢结成鱼形。这里指山东章丘明水古城景区的锦鲤。两汉 佚名《饮马长城窟行》：“客从远方来，遗我双鲤鱼”。</p>
+          <p><strong>灵祉</strong>：神灵降赐的福祉。《晋书·赫连勃勃载记》：“灵祉踰昌，世业弥盛。” 南朝 宋 殷淡《宋章庙乐舞歌·肃咸乐一》：“祗对灵祉，皇庆昭膺。”南朝梁 沈约《梁雅乐歌·禋雅一》：“肃彼灵祉，咸达皇虔”。</p>
+          <p><strong>情癖</strong>：癖，对事物的偏爱成为习惯。这里指为爱痴狂。清 蒋坦《秋灯琐忆》：“秋芙生负情癖，病中尤为缠缚”。</p>
+          <p><strong>梳洗</strong>：梳头洗脸。宋 孙应时《巫山祠梳洗楼》：“神女无可哀郢意，强教梳洗为谁容”。</p>
+          <p><strong>溪岚</strong>：溪谷的雾气。唐 白居易《题元八溪居》：“溪岚漠漠树重重，水槛山窗次第逢”。</p>
+          <p><strong>缀连</strong>：组合；连属。清 厉志《赠姚燮》：“侧侧鹰隼排长翮，翩翩骅骝缀连钱”。</p>
+          <p><strong>重壁</strong>：指城墙。宋 晁说之《游灵岩山寺》：“连岫鏁宝符，重壁藏修灵”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-25">
+          <div class="ci-head"><span class="ci-num">25</span><h2 class="ci-title">少年游 <span class="ci-sub">· 雪中遇梅花泉</span></h2></div>
+          <div class="ci-lyric">
+            玉鸾飞上柳梢头，寒气锁更楼。<br>
+            波涟颤动，渚宫层掖，听万遍凝愁。<br>
+            梅花滚滚丹泉府，常记起、少年游。<br>
+            惯有词姬，醉亭争论，吾是第一流。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>少年游</strong>：六朝乐府“杂曲歌辞”有《少年行》，与此稍异近人梁启勋《词学·调名》称调名源自“鲍照行乐诗:“春风太多情，村村花柳好。少年宜游春，莫使颜色槁。”检今人逮钦立《先秦汉魏晋南北朝诗》所辑鲍照诗，并无此几句。调见北宋柳永《乐章集》。因词中有“贪迷恋、少年游，似恁疏狂”句，取“少年游”三字为词调名。调名本意即咏怀少年时的恣意游乐。此调的异名有:《小阑干》《太常引》《玉腊梅枝》。按:《钦定词谱》认为调名取自北宋晏殊此调的“长似少年时”句。柳永此调名词有“少年游”句，比“少年时”句更切题意; 且柳永大晏殊八岁，故调名少年游: 见前《少年游》调名的解释。慢: 唐宋杂曲的一种体制。它本指调长拍缓、节奏纤徐舒缓的“慢曲子”调名本意即以慢曲的形式歌咏少年时的游乐。调见北宋张先《张子野词·补遗》。</p>
+          <p><strong>玉鸾</strong>：白色的鸾鸟，喻雪。宋 杨万里《早朝紫宸殿贺雪呈尤衍之二首》：“雪妃月姊宴群仙，珠阁银楼集玉鸾”。</p>
+          <p><strong>柳梢头</strong>：柳树的末端。欧阳修《生查子·元夕》：“月上柳梢头，人约黄昏后”。</p>
+          <p><strong>寒气</strong>：寒冷的气，冷的气流。唐 李商隐《对雪二首》：“寒气先侵玉女扉，清光旋透省郎闱”。</p>
+          <p><strong>更楼</strong>：旧时专为报更用的建筑物, 里面设置着报更用的鼓，此处指山东章丘明水古城景区内更楼景点名。唐 张巡《闻笛》：“旦夕更楼上，遥闻横笛音”。</p>
+          <p><strong>波涟</strong>：水波，波纹。《诗·小雅·渐渐之石》“有豕白蹢，烝涉波矣” 汉 郑玄 笺：“白蹄其尤躁疾者，今离其缯牧之处，与众豕涉入水之波涟矣。” 陆德明 释文：“涟……一本作‘澜’”。</p>
+          <p><strong>渚宫</strong>：江陵。唐 白居易《八月十五日夜禁中独直对月忆元九》：“渚宫东面烟波冷，浴殿西头钟漏深”。</p>
+          <p><strong>凝愁</strong>：凝聚愁情。唐 杨衡《长门怨》：“丝声繁兮管声急，珠帘不卷风吹入。万遍凝愁枕上听”。</p>
+          <p><strong>梅花</strong>：梅花形状的，这里指山东章丘明水古城景区李清照故居内梅花泉。宋 吕本中《踏莎行·雪似梅花》：“雪似梅花，梅花似雪”。</p>
+          <p><strong>词姬</strong>：指李清照。宋 李清照《如梦令》：“常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭”及《鹧鸪天·桂花》：“何须浅碧深红色，自是花中第一流”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-26">
+          <div class="ci-head"><span class="ci-num">26</span><h2 class="ci-title">月华清</h2></div>
+          <p class="ci-preface">—和林元抚总督邓嶰筠尚书沙角眺月原韵上日</p>
+          <p class="ci-preface">龙阳，白沙鸭胾，虎门伶仃狮子。</p>
+          <div class="ci-lyric">
+            寄寓泊船，却把阿芙蓉匿。<br>
+            喜中堂，闽浙戢兵；愁仆役，献章失辞。<br>
+            柔夷。想天朝诏谕，稍能游移？<br>
+            向觇船坚炮利，肇鳌柱候涛，泮池欷涕。<br>
+            边衅奄急，尚言恩威同济？<br>
+            梦良兆，四寅佳期；卜灵签，五虎制敌。<br>
+            善议。谒静海禅寺，金门石壁。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（1）</summary>
+    <div class="ci-annos-body">
+          <p><strong>月华清</strong>：词牌名，又称“月华清慢”。此调只有一体，以洪瑹词《月华清·春夜对月》为代表，双调九十九字，前段十句五仄韵，后段十句六仄韵。代表作品有《月华清·梨花》等见《空同词》。始创制者及调名典故俱无史料可考。《钦定词谱》：“此调，只有一体，宋元人俱照此填。”《词谱》云：“此调只有一体，宋元人俱照此填。有马庄父、朱淑真、蔡松年，《高丽史? 乐志》词可校。”《高丽史·乐志》作“月华清慢”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-27">
+          <div class="ci-head"><span class="ci-num">27</span><h2 class="ci-title">绕佛阁</h2></div>
+          <p class="ci-preface">予朝参南海西樵山宝峰寺天王殿，迷津空门，</p>
+          <p class="ci-preface">复适山寺后禅院谒大慈大悲观世音菩萨。途闻香港</p>
+          <p class="ci-preface">屯门青山宿老杨玉衔同友人唐圭璋依清真四声作，</p>
+          <p class="ci-preface">感慨长叹，因以次韵。</p>
+          <div class="ci-lyric">
+            月丹细敛。云杳雾锁，<br>
+            旸谷被馆。星昴日短。<br>
+            想经久事, 托思搂朱幔。<br>
+            苦年易满。空有巃嵸，山水高远。<br>
+            连理嬿婉。青青孤挺, 回棹渚岸。<br>
+            碧甃唱琼液，寿老泉边缠彩线。<br>
+            由薜荔多，生缘僧鬼面。<br>
+            九曲季华乡，东西矢箭。<br>
+            二樵相见。<br>
+            望宝刹精舍, 心地弗乱。<br>
+            卧眠琴、玉书闲展。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（27）</summary>
+    <div class="ci-annos-body">
+          <p><strong>绕佛阁</strong>：绕佛阁，调见《清真乐府》，入“大石调”，为北宋周邦彦创调。周邦彦精通音律，晚年被宋徽宗任命为家最高音乐机关——大晟府提举官。他同当时任大晟府协律郎的晁端礼、撰制万俟咏一起，讨论古音，制定古调，增演漫词，创制了许多新曲。《绕佛阁》，就是其中的一种。邦彦词格律之精细，在于其不仅辨清浊阴阳，而且讲究四声配搭。夏承焘《唐宋词字声之变》载：“《绕佛阁》之双拽头，目四声多合。……此（指前两叠）十句五十字中，‘敛上去通读，‘池’、‘动’、‘迥’阳上去，‘出’清入作上：四声无一字不合；此开后来方千里、吴梦全依四声之例；《乐章集》中，未尝有也。”吴文英《梦窗词集》入“夹钟商”。</p>
+          <p><strong>绕佛</strong>：即绕佛三匝，对佛的礼方式之一。佛的弟子见佛都是顶礼三拜，右绕三匝；旋三匝者也表敬三尊：佛、法、僧；亦念灭三毒: 贪、嗔、痴。佛阁：即佛教建筑中供奉佛陀（释迦牟尼）的楼阁。故调名本意即咏佛教的礼佛活动中绕佛三匝的敬礼仪式。</p>
+          <p><strong>月丹</strong>：山茶别名。西樵山又称“观山”、“茶山”自古樵山花满园，有山茶花、桃花、玉堂春、杜鹃花竞相开放，一派旖旎。</p>
+          <p><strong>云杳雾锁</strong>：取西樵山特产云雾茶。郭沫若1961 年到西樵山揽胜， 在其游记《西樵山白云洞》一文中提到：“...... 饮了西樵的特产云雾茶，入口有涩味， 颇苦，而回味清适，如嚼西藏橄榄”。</p>
+          <p><strong>旸谷</strong>：古称日出之处。晋 陶潜《读&lt; 山海经&gt;》诗之六：“洪柯百万寻，森散覆暘谷”。</p>
+          <p><strong>星昴日短</strong>：取自《尚书 尧典》：“日短星昴，以正仲冬。”在帝尧时代， 人们靠观察昴星团来判断时节。</p>
+          <p><strong>经久</strong>：历时很久。取自清 赖世贞 《赋得郎朗如玉山行》：“石室烹经久，云衢蹑足初。”托思，寄托思念。取自明 夏良胜 《挽饶惠徵》：“生死无缘逃大块，文章有幸托思亭。”朱幔，红色的帷幕。取自晋 张协 《洛楔赋》：“朱幔虹舒，翠幕蜿连；罗樽列爵，周以长筵”。</p>
+          <p><strong>苦年易满</strong>：取自唐 李白《短歌行》：“白日何短短， 百年苦易满”。</p>
+          <p><strong>空有</strong>：佛教语。空，指法性；有，指幻相。谓相反相成的真俗两谛。</p>
+          <p><strong>巃嵸</strong>：亦作“巉縱”，山势高峻貌。这里指清乾隆年间初建的巃嵸阁，为邑内文人学者讲学读书之所。</p>
+          <p><strong>连理</strong>：即连理树。两树交合在一起。多比喻恩爱夫妇。取自明 沉鲸 《双珠记·夫妻永诀》：“连理树，青青荣，一夜风威凛冽，双枝崩裂成凋零”。</p>
+          <p><strong>嬿婉</strong>：欢好，和美。取自明 沉鲸《双珠记·吉筵叙故》：“ 秦 晋 同休，成两姓绸缪之好； 朱 陈媲美，缔百年嬿婉之欢”。</p>
+          <p><strong>青青</strong>：茂盛的样子。取自宋 辛弃疾 《清平乐 村居》：“茅檐低小， 溪上青青草。”孤挺，即孤挺花，又名并蒂花。取自唐 杜甫《进艇》诗：“俱飞蛱蝶元相逐， 並蒂芙蓉本自双”。</p>
+          <p><strong>回棹</strong>：船返回。</p>
+          <p><strong>渚岸</strong>：小洲水边的高地。</p>
+          <p><strong>碧甃</strong>：青绿色的井。</p>
+          <p><strong>琼液</strong>：嘉美液汁。取自唐 白居易《与沉杨二舍人阁老同食敕赐樱桃玩物感恩因成十四韵》：“琼液酸甜足， 金丸大小匀”。</p>
+          <p><strong>彩线</strong>：象征吉祥的五彩花线。取自宋 苏轼 《浣溪沙 端午》：“彩线轻缠红玉臂， 小符斜挂绿云鬟。佳人相见一千年”。</p>
+          <p><strong>薜荔多</strong>：梵语Preta 的译音， 义为饿鬼。</p>
+          <p><strong>生缘</strong>：佛教语，一为尘世的缘分， 一为受生转世的因缘。宋 苏辙 《示诸子》诗：“老去惟堪一味闲， 坐会诸子了生缘”。</p>
+          <p><strong>九曲</strong>：迁回曲折， 这里指西樵山景点九曲溪与九曲桥。季华乡， 佛山旧称。</p>
+          <p><strong>东西矢箭</strong>：《方言九》载：“自关而东谓之矢，关西曰箭”。</p>
+          <p><strong>二樵</strong>：指的是东樵与西樵二山，东樵即惠州罗浮山。</p>
+          <p><strong>宝刹精舍</strong>：指佛教寺院。取自唐 白居易《菩提寺上方晚望香山寺寄舒员外》：“晚登西宝刹，晴望东精舍”。</p>
+          <p><strong>心地</strong>：佛教语。指心，即思想、意念等。心能生万法，如地能长万物。</p>
+          <p><strong>眠琴</strong>：即西樵山眠琴石。</p>
+          <p><strong>玉书</strong>：指《黄庭内景经》。亦泛指道书。《黄庭内景经·上清章》：“是曰玉书可精研， 咏之万过昇三天”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-28">
+          <div class="ci-head"><span class="ci-num">28</span><h2 class="ci-title">天仙子</h2></div>
+          <div class="ci-lyric">
+            蹀躞小童惊奔迓，细俛小紬绸翠絓，<br>
+            罗衣绮靡玉蝉纱，<br>
+            岩崖打，吹骨胯，<br>
+            恁借取金和作画。<br>
+            伊阙洞开冲太华，恰正有仟仟缱发，<br>
+            远山含黛忍相狎，<br>
+            覆松蜡，谈小雅，<br>
+            折煞了茶棚豆架。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（16）</summary>
+    <div class="ci-annos-body">
+          <p><strong>天仙子</strong>：原为唐教坊曲名，后用作词调名，据唐人段安节《乐府杂录》云：“《天仙子》本名《万斯年》。李德裕进，属龟兹部舞曲。因皇甫松词有‘懊恼天仙应有以’句，取以为名”。此调有单调、双调，唐人用单调，宋以后始有双调，双调即依单调叠一遍成上下两片六十八字。</p>
+          <p>另有近代词曲理论家任半塘说：“《天仙子》与《万斯年》应无关。因《万斯年》乃宰相所进之颂圣大曲，不应有小曲之别名。皇甫松作及敦煌写卷所见之《天仙子》，无不咏调名本意，辞内各有天仙、仙子、仙娥等字，尤不合宰相进乐之体。《新唐书·礼乐志》亦载其事，但并无即《天仙子》说。”今人有人认为，《天仙子》是与道教有关的法曲。因李德裕为中唐时人，而盛唐时的《教坊记》就载有《天仙子》曲，且敦煌杂曲子《云谣集》中也有《天仙子》二首，可知曲名要早于唐武宗时的李德和晚唐五代的皇甫松。</p>
+          <p><strong>天仙</strong>：仙女。多比喻美女。南朝陈徐陵《玉台新咏·序》云：“画出天仙，阏氏览而遥妒”。子：“曲子”的省称，即小曲的意思。调名本意即为歌咏仙女或美女的小曲。调见五代后蜀赵崇祚《花间集》所辑唐末五代韦庄词。此调的异名有：《万斯年》《万斯年曲》《秋江碧》。</p>
+          <p><strong>蹀躞</strong>：隋唐时期出现的一种功能型腰带，称为蹀躞带，简称蹀躞。唐 李白《效古二首》：“归时落日晚，蹀躞浮云骢”。</p>
+          <p><strong>奔迓</strong>：奔跑迎接。元 耶律楚材《过太原南阳镇题紫薇观壁三首·其一》：“廷臣侍从蔑前驱，道侣忻奔迓使车”。</p>
+          <p><strong>俛f ǔ</strong>：同“俯”。屈身；低头。</p>
+          <p><strong>紬</strong>：古同“绸”。</p>
+          <p><strong>绸</strong>：一种薄而软的丝织品。</p>
+          <p><strong>翠絓</strong>：绿色的茧粗丝。</p>
+          <p><strong>罗衣</strong>：轻软丝织品制成的衣服。</p>
+          <p><strong>绮靡</strong>：1、美好；艳丽。2、侈丽；浮华。3、指风格浮艳柔弱。</p>
+          <p><strong>蝉纱</strong>：薄如翼的纱绸。清 董以宁《御街行·画廊》：“画廊窗小蝉纱护，仿佛巫山云路”。</p>
+          <p><strong>伊阙</strong>：即今河南省洛阳市区南约2 公里处的龙门。两山对峙，伊水中流，如天然门阙，故曰伊阙。</p>
+          <p><strong>太华</strong>：山名。即西岳华山﹐在陕西省华阴县南﹐因其西有少华山﹐故称太华，作者指位于香港太子太子道西的太华楼，泛指香港。</p>
+          <p><strong>松蜡</strong>：香水名。</p>
+          <p><strong>茶棚</strong>：茶棚是旧时庙会期间在香道中修建的为香客提供沿途饮食、休息的场所。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-29">
+          <div class="ci-head"><span class="ci-num">29</span><h2 class="ci-title">武陵春</h2></div>
+          <div class="ci-lyric">
+            圣诞日游香港天星码头，和李清照韵<br>
+            槲寄榆枝柯槎孽，了了在滩头。<br>
+            影影摇光那肯休，且放此中流。<br>
+            香岛墉垣春日早，好解趁星舟。<br>
+            顾盼墉垣两涘舟，眺不尽恁多愁。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（5）</summary>
+    <div class="ci-annos-body">
+          <p><strong>武陵春</strong>：词牌名，双调小令，又名“武林春”“花想容”。相传是北宋词人毛滂所创毛滂根据楚地流传的曲调，作了一曲“武林春”，后来便作为曲子词形式流传了下来。《填词名解》云，调名取自唐人方干《睦州吕郎中郡中环溪亭》诗“为是仙才登望处，风光便似武陵春”。其源出东晋陶潜《桃花源记》中“晋太元中，武陵人捕鱼为业”语，故名。</p>
+          <p><strong>槲</strong>：常绿小灌木，茎柔软，有节，雌雄异株，寄生在槲、杨、柳、榆等树枝上，茎叶入中药。</p>
+          <p><strong>枝柯</strong>：枝条。汉 曹植《妾薄命行·其一》：“仰泛龙舟绿波，俯擢神草枝柯”。</p>
+          <p><strong>槎孽</strong>：砍伐幼林。且夫山不槎蘖，泽不伐天。——《国语·鲁语上》</p>
+          <p><strong>香岛</strong>：香港岛。位于中华人民共和国香港特别行政区。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-30">
+          <div class="ci-head"><span class="ci-num">30</span><h2 class="ci-title">鹧鸪天 <span class="ci-sub">· 屯门青山思故里</span></h2></div>
+          <div class="ci-lyric">
+            一纸帛召近天南，临别欲语语言言。<br>
+            曾思卿相效松龄，也教金石唤易安。<br>
+            谒魑怪，友神仙，<br>
+            几般狂狯自来观。古来真士常清净，<br>
+            莲渡失津大道参。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（4）</summary>
+    <div class="ci-annos-body">
+          <p><strong>鹧鸪天</strong>：词牌名，又名“思佳客”“思越人”“醉梅花”“半死梧”“剪朝霞”等《乐章集》注“正平调”，《太和正音谱》注“大石调”，蒋氏《丸宫谱目》入仙吕引子。赵令畤词名“思越人”，李元膺词名“思佳客”。贺铸词有“剪刻朝霞钉露盘”句，名“剪朝霞”，又有“梧桐半死清霜后”句，名“半死桐”。韩淲词有“只唱鹂歌一叠休”句，名“骊歌一叠”。卢祖皋词有“人醉梅花卧未醒”句，名“醉梅花”。唐人郑嵎诗“春游鸡鹿塞，家在鹧鸪天”，调名取此。鹧鸪，鸟名，形似母鸡，头如鹑，胸前有白圆点如珍珠，背毛有紫赤浪纹。俗象其鸣声曰“行不得也哥哥”。此调为北宋初年新声，始词为夏竦所作。柳永词属正平调。此调仅此一体，无别体。北曲用作小令，或用于套曲。南曲列为“引子”，多用于传奇剧的结尾处。</p>
+          <p><strong>帛召</strong>：用布做成的书，此处指录取通知书。</p>
+          <p><strong>天南</strong>：指岭南。亦泛指南方。 唐 白居易? 得潮州杨相公继之书并诗以此寄之诗：“诗情书意两殷勤，来自天南瘴海滨。” 唐 周繇? 送杨环校书归广诗：“天南行李半波涛，滩树枝枝拂戏猱。” 唐戴叔伦? 屯田词：“艰辛歷尽谁得知，望断天南泪如雨。” 宋 杨万里? 潮阳海岸望海诗：“身行岛北新春后，眼到天南最尽头”。</p>
+          <p><strong>言言</strong>：1. 指欢言。 2. 高大貌﹔茂盛貌。 3. 用言语表达。 4. 句句。宋 邵雍《言默吟》：“当默用言言是垢，当言任默默为尘。当言当默都无任，尘垢何由得到身”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-31">
+          <div class="ci-head"><span class="ci-num">31</span><h2 class="ci-title">三部乐 <span class="ci-sub">· 题明水城狐仙居</span></h2></div>
+          <div class="ci-lyric">
+            镜湖如月。恨水入北声，并添凄冽。<br>
+            瘦亭仍在，商略碑铭残夜。<br>
+            空争个、清景良天。<br>
+            奈绣河远近，院曲呜咽。<br>
+            控引兽环，奏彻翠葩金叶。<br>
+            霜畦晚醒挹恹，冷落清照处，雾龙翻雪。<br>
+            悬耿绛宫紫汉，飞舟何者。<br>
+            念欢娱、未曾赛社。<br>
+            古风迥、笔谈紧切。<br>
+            逢客便榭，此地有、万夫长策。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（27）</summary>
+    <div class="ci-annos-body">
+          <p><strong>三部乐</strong>：词牌名，调名本意即咏皇家教坊三部之乐曲。据北宋欧阳修等《新唐书·礼乐志》载，唐明皇分教坊乐部为三部：堂下立奏，谓之立部伎；堂上坐奏，谓之坐部伎；又酷爱法曲，选坐部伎弟子三百教于梨园，为法部伎。三部之名，殆出于此。此调为宋教坊曲。宋时的三部乐，即指除大曲外的法部、龟兹、鼓笛三部之乐。调名本意即咏皇家教坊三部之乐曲。调见北宋苏轼《东坡乐府》。</p>
+          <p><strong>镜湖</strong>：如镜子一般平整的湖面。唐 李白《越女词五首·其五》：“镜湖水如月，耶溪女似雪”，这里指山东章丘明水湖。如月，形容明水湖的色彩如月亮般皎洁。</p>
+          <p><strong>恨水</strong>：离愁别恨的思绪如水一样流动。宋 吴文英《琐窗寒》：“离烟恨水，梦杳南天秋晚”。</p>
+          <p><strong>北声</strong>：北方的音乐，北方的乐歌。唐 李商隐《河内诗二首》：“莫因风雨罢团扇，此曲断肠惟北声”。</p>
+          <p><strong>凄绝</strong>：指极度凄凉或伤心。宋 秦观《长相思·铁瓮城高》：“念凄绝秦弦，感深荆赋，相望几许凝愁”。</p>
+          <p><strong>商略</strong>：商量、酝酿。宋 姜夔《点绛唇·丁未冬过吴松作》：“燕雁无心，太湖西畔随云去。数峰清苦。商略黄昏雨”。</p>
+          <p><strong>碑铭</strong>：指碑文和铭文。有韵的碑文，叫铭。元 张养浩《山坡羊·北邙山怀古》：“悲风成阵，荒烟埋恨，碑铭残缺应难认”。</p>
+          <p><strong>清景良天</strong>：1. 清光2. 清丽的景色，此处指山东章丘明水古城景区李清照故居处景色清丽。宋 苏轼《永遇乐·彭城夜宿燕子楼》：“明月如霜，好风如水，清景无限。”良天，美好的时节。宋 柳永《玉蝴蝶》词之四：“苦留连。凤衾鸳枕，忍负良天”。清景良天亦改自明 汤显祖《牡丹亭·惊梦·皂罗袍》：“良辰美景奈何天，赏心乐事谁家院”。</p>
+          <p><strong>绣河</strong>：绣江河，亦称濛河。“绣江，因芹藻浮动、水纹如绣而得名。”选自翟伯成《水纹如绣绣江河》。清 钟运泰《绣江春涨》：“一天春卷千堆雪，三月晴轰两岸雷”。</p>
+          <p><strong>远近</strong>：附近。唐 刘长卿《谪仙怨·晴川落日初低》：“鸟向平芜远近，人随流水东西”。</p>
+          <p><strong>院曲</strong>：小院里的戏曲。指山东章丘明水古城孟家戏楼表演的章丘梆子等戏曲。清 张玉珍《菩萨蛮·回文》：“秋水近帘钩，钩帘近水秋。片花飞曲院，院曲飞花片”。</p>
+          <p><strong>呜咽</strong>：1. 低声哭泣。亦指悲泣声。2. 形容低沉凄切的声音。汉 蔡琰《胡笳十八拍》：“冰霜凛凛兮身苦寒，饥对肉酪兮不能餐。夜间陇水兮声呜咽，朝见长城兮路杳漫”。</p>
+          <p><strong>控引</strong>：1. 贯通2. 控制，掌握。此处指控制，掌握。魏晋 左思《三都赋》：“白藏之藏，富有无堤。同赈大内，控引世资”。</p>
+          <p><strong>兽环</strong>：旧式大门上的金属门环，衔在兽头形装饰的口中。清 徐灿《满庭芳·寒夜别意》：“风摇处，兽环双控，银烛影微红”。</p>
+          <p><strong>翠葩金叶</strong>：翠葩，绿花。金叶，秋天的夜色叶片。明 刘基《钧天乐》：“烟挥雾霍不可测，翠葩金叶光相射”。</p>
+          <p><strong>霜畦</strong>：霜天的圃畦。清 吴敬梓《入琵琶峡》：“霜畦绮错衰杨外，满眼青山谢眺诗”。</p>
+          <p><strong>冷落</strong>：冷清; 不热闹。宋 高观国《少年游·草》：“冷落闲门，凄迷古道，烟雨正愁人”。</p>
+          <p><strong>翻雪</strong>：1.《宋书．符瑞志下》:" 大明五年正月戊午元日，花雪降殿庭。时右卫将军谢庄下殿，雪集衣。还白，上以为瑞。于是公卿并作花雪诗。"后因用为典实。 2. 形容白浪翻滚。 3. 泛出白色。此处指山东章丘明水古城百脉泉景区梅花泉雪日白浪翻涌。</p>
+          <p><strong>悬耿</strong>：谓牵挂于心。清 蒲松龄《聊斋志异·翩翩》：“女曰：’阿叔腊故大高，幸復强健，无劳悬耿’”。</p>
+          <p><strong>绛宫</strong>：绛宫，名词。本义是漆成红色的宫殿（绛，大红色）。引申为传说中神仙所住的宫殿。宋 苏轼《李白谪仙诗》：“绛宫楼阙百千仞，霞衣谁与云烟浮”。</p>
+          <p><strong>紫汉</strong>：犹紫霄。指天空。宋 宋庠《擢第南归道中早发》：“紫汉回天斗柄横，萧萧羸马困遄征”。</p>
+          <p><strong>便榭</strong>：建于台上的简易敞屋。 宋? 岳珂《桯史·番禺海獠》：“中堂有四柱，皆沉水香，高贯于栋，曲房便榭不论也”。</p>
+          <p><strong>笔谈</strong>：以文字书写沟通。清? 王韬 《瓮牖馀谈·新金山少水》：“﹝ 日本 官商﹞遍游内地，与名公卿大夫交，笔谈往復”。</p>
+          <p><strong>赛社</strong>：旧俗。一年农事完毕后，陈酒食以祭田神，相与饮酒作乐。 宋 高承《事物纪原·岁时风俗·赛神》：“岁十二月，索鬼神而祭祀，则党正以礼属民，而饮酒劳农而休息之，使之燕乐，是君之泽也。今赛社则其事尔。” 元? 关汉卿《五侯宴》第三折：“秋收已罢，赛社迎神。” 清? 黄景仁《车中杂诗》：“赛社闹鹅鸭，趁虚喧蝱蚊”。</p>
+          <p><strong>紧切</strong>：1. 迫切。 2. 重要。 3. 紧要密切。宋陈淳《警惰》：“当然紧切功，一一事散漫”。</p>
+          <p><strong>万夫</strong>：万人；万民；众人。宋 辛弃疾《鹧鸪天·有客慨然谈功名因追念少年时事戏作》：“壮岁旌旗拥万夫，锦襜突骑渡江初”。</p>
+          <p><strong>长策</strong>：1. 长的鞭。常比喻威势。 汉? 贾谊《过秦论上》：“及至 始皇 ，奋六世之餘烈，振长策而御宇内，吞二 周 而亡诸侯。” 唐? 高适《送董判官》诗：“长策须当用，男儿莫顾身。” 清? 林则徐《程玉樵饯予于兰州》诗：“我无长策靖蛮氛，愧説楼船练水军。”2. 犹良计。《史记·平津侯主父列传》：“靡獘中国，快心 匈奴 ，非长策也。”《北齐书·王琳传》：“ 吴兵甚鋭，宜长策制之，慎勿轻鬭”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-32">
+          <div class="ci-head"><span class="ci-num">32</span><h2 class="ci-title">斗百花 <span class="ci-sub">· 题东麻湾</span></h2></div>
+          <div class="ci-lyric">
+            点点凫行云馆，簇簇池花初绽，<br>
+            昭阳鳷鹊浸翠，梵宫炉篆长暖。<br>
+            半飘瑞霭，凭高放过青松。<br>
+            抛上吟鞭小院，帘卷金钩软。<br>
+            林稚泉叟，惯披罗绶丝缎。<br>
+            华色美人，闲中醉里着眼。<br>
+            倒角樽空，惆然未惹清狂，<br>
+            快乐江南茶栈。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（8）</summary>
+    <div class="ci-annos-body">
+          <p><strong>斗百花</strong>：词牌名，又名“斗百花近拍”“斗修行”“夏州”。调见北宋柳永《乐章集》。词中有“春困厌厌，抛掷斗草工夫，冷落踏青心绪”句，犹含调名意。此调又名《斗百花近拍》《斗修行》《夏州》。</p>
+          <p><strong>清毛先舒《填词名解》云</strong>：“唐天宝（742—755）时，斗花以奇者为胜，词取以名之。”斗花游戏以头上插戴奇花多者为胜。调名本意即咏斗花游戏。</p>
+          <p><strong>云馆</strong>：高耸入云的馆舍。亦为馆名。魏晋 左思《三都赋》：“寒暑隔阂於邃宇，虹霓回带於云馆”。</p>
+          <p><strong>昭阳</strong>：1. 岁时名。十干中癸的别称，用于纪年。2. 汉宫殿名。后泛指后妃所住的宫殿。唐 徐凝《汉宫曲》：“水色帘前流玉霜，赵家飞燕侍昭阳”。</p>
+          <p><strong>鳷鹊</strong>：1. 传说中的异鸟名。 2. 指喜鹊。 3. 汉宫观名。在长安甘泉宫外。汉武帝建元中建。 4. 南朝楼阁名。在江苏南京。唐 骆宾王《帝京篇》：“三条九陌丽城隈，万户千门平旦开。复道斜通鳷鹊观，交衢直指凤凰台”。</p>
+          <p><strong>炉篆</strong>：指香炉中的烟缕。因其缭绕如篆书，故称。宋 释正觉《行月大师求颂》：“床头炉篆浮寒紫，壁上龛灯对冷红。个里宗乘消息在，蒲团纸帐旧家风”。</p>
+          <p><strong>瑞霭</strong>：吉祥之云气，亦以美称烟雾。宋 佚名《满庭芳》：“瑞霭非烟，小春良月，翠开五叶阶蓂”。</p>
+          <p><strong>金钩</strong>：金钩形似剑而曲。汉赵晔 《吴越春秋·阖闾内传》：“阖闾既宝莫耶，复命於国中作金钩。令曰：‘能为善钩者赏之百金。’”《南史·吉士瞻传》：“得一金革钩，隐起镂甚精巧，篆文曰：‘锡尔金钩，且公且侯’”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-33">
+          <div class="ci-head"><span class="ci-num">33</span><h2 class="ci-title">翦朝霞 <span class="ci-sub">· 题明水城泉秀</span></h2></div>
+          <div class="ci-lyric">
+            泉越丹台舞正酣。<br>
+            一枝天光动峤南。<br>
+            此间心意疏悬剪，旧日诗盟续孟韩。<br>
+            横坠髻，挂薄褴。<br>
+            何须城色到临安。<br>
+            槐国功名波罗岸，犹人胡旋障袖转。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>丹台</strong>：1. 道教指神仙的居处。 指吕洞宾炼丹台。在今杭州·北高峰南。2. 指古代帝王为功臣绘制画像的台阁。3.《史记? 货殖列传》载，秦时，蜀寡妇清守先人丹砂矿穴，擅其利而显富，秦始皇许为贞妇而客遇之，为筑女怀清台。后以“丹台”为寡妇而富有资产的典故。4. 红色的楼台。此处指章丘明水古城红色的楼台。唐 李白《题随州紫阳先生壁》：“神农好长生，风俗久已成。复闻紫阳客，早署丹台名”。</p>
+          <p><strong>天光</strong>：指日光、天空的光辉。见《庄子·庚桑楚》：“宇泰定者，发乎天光”。</p>
+          <p><strong>峤南</strong>：指岭南。宋 范成大《水龙吟》：“漠北寒烟，峤南和气，笑谈都了”。</p>
+          <p><strong>悬剪</strong>：传说中神剑名。宋 李穆、李昉、徐铉《太平御览·兵部·卷七十五》：“四曰悬剪，飞鸟游遇触其刃如斩截焉”。</p>
+          <p><strong>孟韩</strong>：孟子与韩愈的并称。明 孙承恩《次双岩司马亭溪少宰夜酌联句韵》：“霜月萦窗细，寒花照几妍。未窥风雅窟，试续孟韩篇”。</p>
+          <p><strong>坠髻</strong>：坠马髻的省称。 唐 白居易《代书诗一百韵寄微之》：“风流夸坠髻，时世鬭啼眉”。</p>
+          <p><strong>槐国</strong>：槐安国。唐李公佐《南柯太守传》中的虚构之国。元鲜于枢《困学斋杂录》引田时秀《感兴》诗：“百年身世槐安国，千古人情羹颉侯。”清陈维崧《南乡子·夏日午睡》词：“蜨梦翅冥冥，行向槐安国内经，正拜南柯真太守，还醒，一片松涛沸枕楞。”亦省作“槐国 ”。元曹伯启《梦酒诗会》诗：“乌蚁混游槐国市，绿醅初泼汉江涛”。</p>
+          <p><strong>波罗岸</strong>：彼岸。</p>
+          <p><strong>胡旋</strong>：即胡旋舞。胡旋舞是由西域传来的民间舞。此舞的传入，史书中多有记载，主要来自西域游牧民族。胡旋舞节拍鲜明奔腾欢快，多旋转蹬踏，故名胡旋。伴奏音乐以打击乐为主，与它快速的节奏、刚劲的风格相适应的。《胡旋舞》是通过丝绸之路传来的西域旋转性的舞种。《胡旋舞》是著名的西北少数民族舞蹈。胡旋女所穿为宽摆长裙，头戴饰品，长袖摆，旋舞起来时，身如飘雪飞如。唐 白居易《胡旋女》：“胡旋女，胡旋女。心应弦，手应鼓。弦鼓一声双袖举。回雪飘飖转蓬舞”。</p>
+          <p><strong>障袖</strong>：以袖遮面。借指美女。宋 姜夔《角招》：“犹有，画船障袖，青楼倚扇，相映人争秀”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-34">
+          <div class="ci-head"><span class="ci-num">34</span><h2 class="ci-title">青玉案 <span class="ci-sub">· 题清照故居</span></h2></div>
+          <div class="ci-lyric">
+            藕花渡口息香埠，柳径外，年年怒。<br>
+            谁道旅情徵沈阻？<br>
+            玳筵迢递，琵琶轻抚，好景行难住。<br>
+            兰桡憔悴芭蕉树，潋滟岑波楚宫府。<br>
+            敢向将阳歌乐舞？<br>
+            酥娘工妙，白鹇鹤顾，分付孜煎土。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（9）</summary>
+    <div class="ci-annos-body">
+          <p><strong>青玉案</strong>：青玉案，词牌名，又名“一年春”“西湖路”“青莲池上客”等。《青玉案》作为宋代著名词调之一，由来已久，从名称上分析，“案”的含义历来争议较大。一种看法认为“案”为古“碗”字，为今之“碗”一类器物。一种看法认为“案”为古时有足之盘，综合各类史料和文物考证，“案”一字的含义应为盛食的托盘。据谢桃坊《唐宋词调考实》一文，青玉案调为宋人首创，是北宋时期的“时调新声”。其调名源自东汉末年张衡的《四愁诗》：“美人赠我锦绣缎，何以报之青玉案。”一句。此诗以一种情诗的形式，寄托了自己的政治抱负，以抒发忧国忧民的情怀。基于此，取自《四愁诗》的青玉案本身便包含有政治不得意、满腹愁苦无奈的声情内涵，在后人的创作之中，所传达的情感以激越豪壮者为少，大多传达绵长悠远、温婉、悲凉的情思，通过格律声韵的组合转化，使情感的传达更加迂回曲折。青玉案词首次面世之作为贺铸《青玉案·凌波不过横塘路》，词作因巧妙的构思、深婉的情怀、凄清的氛围在词坛上赢得了极大的声誉，而这首词是一首抒发怀才不遇、仕宦不达的愁苦之词，由此可印证青玉案调之声情内涵与张衡《四愁诗》的含义是具有内在一致性的。《青玉案》调的别名有“横塘路”，来源于贺铸《青玉案·凌波不过横塘路》首句，属于以词中字句创词调名。“一年春”，来源于《青玉案·一年春事都来几》首句，其作者是否为欧阳修尚存争议。“西湖路”，来源于宋韩漉《青玉案·苏公堤上西湖路》首句。“青莲池上客”，出现于《全金元词》，共三首，来源于金丘处机《青莲池上客·入关》、《青莲池上客·幽栖》和元王丹桂《青莲池上客·赠乌林答德润》，得名原因暂不详。“谢师恩”，出现于《全金元词》，共一首，来源于王处一《谢师恩·谢师提挈沉沦外》。《青玉案》调除正体以外，受词人青睐的别体也众多，比如李弥逊所填之体、曹组所填之体、赵长卿所填之体等，皆有诸多作品。其区别在于句式，多为个别句子的添字或减字，正如《钦定词谱》所云：“若张炎词之叠韵，李弥逊、吴潜、胡铨词之添字，李清照词之句法小异，曹组词之句法小异、又添字，毛词别首之摊破句法，赵长卿词之减字，赵词别首之句读参差，皆变体也。”? 在用韵、章法上则无大的差异，皆为仄韵格，符合《青玉案》词首创之贺铸词的格律模式。此词牌有贺铸抒发闲愁之作：“若问闲情都几许？一川烟草，满城风絮，梅子黄时雨。”苏轼送别友人思乡怀归：“辋川图上看春暮。常记高人右丞句。作个归期天已许。春衫犹是，小蛮针线，曾湿西湖雨。”李清照送别亲人之绵绵悲痛：“相逢各自伤迟暮，犹把新词诵奇句。盐絮家风人所许。如今憔悴、但余双泪，一似黄梅雨。”辛弃疾抒怀自怜：“众里寻他千百度。蓦然回首，那人却在，灯火阑珊处。”吴文英抒写女子闺中情思：“吴天雁晓云飞后。百感情怀顿疏酒。彩扇何时翻翠袖。歌边拌取，醉魂和梦，化作梅边瘦。”可见《青玉案》调篇幅精悍短小，其情质朴独特，不仅适合秦楼楚馆里的唱词，表达缠绵悱侧的感情，亦可以表达仕途之沉浮，符合士大夫的审美诉求，其风格的综合性，或是其在宋金元词坛长久不衰的重要原因。</p>
+          <p><strong>香埠</strong>：指通寺院的码头。隋 江总 《经始兴广果寺题恺法师山房》诗：“息舟候香埠，怅别在寒林”。</p>
+          <p><strong>旅情</strong>：羁旅者的思绪、情怀。 唐 白居易《自江陵之徐州路上作寄兄弟诗》：“夕宿劳乡梦，晨装惨旅情”。 唐 李咸用《别友诗》：“北吹微微动旅情，不堪分手在平明”。 清 黄景仁《感旧杂诗之三》：“轻移锦被添晨卧，细酌金巵遣旅情”。</p>
+          <p><strong>玳筵</strong>：谓豪华、珍贵的宴席。唐 杜甫《观公孙大娘弟子舞剑器行》：“玳筵急管曲复终，乐极哀来月东出。老夫不知其所往，足茧荒山转愁疾”。</p>
+          <p><strong>迢递</strong>：连绵不绝貌。唐 李商隐《宿骆氏亭寄怀崔雍崔衮》：“竹坞无尘水槛清，相思迢递隔重城。秋阴不散霜飞晚，留得枯荷听雨声”。</p>
+          <p><strong>兰桡</strong>：小舟的美称。宋 柳永《少年游》：“一曲阳关，断肠声尽，独自凭兰桡”。</p>
+          <p><strong>将阳</strong>：徘徊；摇动貌。尚书大传卷一下：“羲伯之乐，舞将阳，其歌声比大謡，名曰朱于。”郑玄注：“将阳，言象物之秀实动摇也。” 清 朱骏声说文通训定声·壮部：“将阳，犹相羊也”。</p>
+          <p><strong>酥娘</strong>：宋 柳永《木兰花》：“酥娘一搦腰肢袅。回雪萦尘皆尽妙。几多狎客看无厌，一辈舞童功不到”。</p>
+          <p><strong>孜煎</strong>：愁苦；忧烦。宋 柳永《驻马听》：“无事孜煎，万回千度，怎忍分离”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-35">
+          <div class="ci-head"><span class="ci-num">35</span><h2 class="ci-title">剑器近 <span class="ci-sub">· 题明水古城墙</span></h2></div>
+          <div class="ci-lyric">
+            弹如雨，昼欲尽、罡风无住。<br>
+            药王赐颁畴墅，管情取。<br>
+            望蟾户，跨凤肆、书空不语。<br>
+            斑斑绿芜情绪，向谁去。<br>
+            倾树，岁寒人倦午。<br>
+            东关扼守，久不返、默默知盐絮。<br>
+            玄机高论吐峥嵘，落银河九天，大城诗榜曾许。<br>
+            弈棋招数，一纸屏藩，倒断山河定据。<br>
+            紫微诏下斜阳暮。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（16）</summary>
+    <div class="ci-annos-body">
+          <p><strong>剑器近</strong>：剑器近，词牌名。《剑器》，唐舞曲。杜甫有《观公孙大娘舞剑器行》。“近”为宋教坊曲体之一种，如《祝英台近》之类皆是。《宋史·乐志》：“教坊奏《剑器》曲，其一属中吕宫，其二属黄钟宫，又有《剑器》舞队。”此当是截取《剑器曲》中之一段为之。此云“近”者，其声调相近也。此调音节极低回掩抑。这是一个孤调，宋人作惟袁去华《剑器近·夜来雨》一首。这首词前段三十七字，后段则为五十八字，前后段相差达二十一字，比例甚为失调。在宋词中，这样的结构是比较少见的。</p>
+          <p><strong>罡风</strong>：道家称天空极高处的风, 现在有时用来指强烈的风。宋 刘克庄《梦馆宿》：“罡风误送到蓬莱，昔种琪花今已开”。</p>
+          <p><strong>药王</strong>：1. 旧时民间奉神农﹑扁鹊等为" 药王"。2. 佛教菩萨名。梵语为" 穰麌梨"。此处指章丘明水古城景区花神庙内花神。</p>
+          <p><strong>赐颁</strong>：赏赐。宋 周紫芝《次韵季共大雪早游竹阁书所见》：“收藏备赐颁，功用等神速。归来阅空庭，玉立僵冻木”。</p>
+          <p><strong>畴墅</strong>：田地和房舍。《新唐书·忠义传上·李憕》：“ 憕 通《左氏春秋》，颇殖产? 伊川?，占膏腴，自都至 阙口 ，畴墅弥望，时谓‘地癖’”。</p>
+          <p><strong>管情</strong>：犹包管。元 王实甫《西厢记》第五本第二折：“写时管情泪如丝，既不呵，怎生泪点儿封皮上渍。” 明 徐渭 《女状元》第一出：“你晓得的，我这般才学，若肯去应举，可管情不落空。”《西游记》第九十回：“待明日绝早，我兄弟二人去那山中，管情捉住老妖，还你四个王子”。</p>
+          <p><strong>书空</strong>：1. 用手指在空中虚划字形。 2. 雁在空中成列而飞，其行如字，故称。宋 苏轼《行香子》：“问公何事，不语书空。但一回醉，一回病，一回慵”。</p>
+          <p><strong>斑斑</strong>：1. 斑点众多貌。2. 形容为数众多。3. 色彩鲜明貌。4. 犹彬彬，文雅貌。宋 周邦彦《诉衷情》：“南陌上，落花闲。雨斑斑。不言不语，一段伤春，都在眉间”。</p>
+          <p><strong>绿芜</strong>：丛生的绿草。宋 柳永《洞仙歌》：“绿芜平畹，和风轻暖，曲岸垂杨，隐隐隔、桃花圃。芳树外，闪闪酒旗遥举”。</p>
+          <p><strong>情绪</strong>：1. 缠绵的情意。2. 泛指感情。3. 心情，心境。4. 情况；端绪。5. 犹劲头。6. 指不正当或不愉快的情感。宋 周邦彦《喜迁莺》：“薄纱厨，轻羽扇。枕冷簟凉深院。此时情绪此时天。无事小神仙”。</p>
+          <p><strong>岁寒</strong>：1. 一年的严寒时节。2. 喻事情的终极。3. 喻老年。4. 喻困境，乱世。5. 喻忠贞不屈的节操（或品行）。宋 李纲《次韵陈介然幽兰翠柏之作·其一·翠柏》：“翠柏方岁寒，独立群木外。不为众所知，此理实难会”。</p>
+          <p><strong>东关</strong>：1. 关隘名。三国吴诸葛恪筑。为魏、晋、南北朝时的要冲。故址在今安徽省含山县西南濡须山上。2.复姓。春秋晋有东关嬖五。宋 姜夔《满江红》：“神奇处，君试看。奠淮右，阻江南。遣六丁雷电，别守东关”。</p>
+          <p><strong>盐絮</strong>：1. 指美好的诗句2. 指诗才。唐 房玄龄《晋书．列女传．王凝之妻谢氏》载: 谢安侄女道韫，才思敏捷，尝居家遇雪，安曰:" 何所似也？" 安兄子朗曰:" 散盐空中差可拟。" 道韫曰:" 未若柳絮因风起。" 谢安十分赞赏。后因以" 盐絮" 指美好的诗句。 2. 以指诗才。</p>
+          <p><strong>玄机</strong>：天意；天机；深奥微妙的义理；神妙的机宜、计策；天赋的灵性；亦指阴谋。</p>
+          <p><strong>峥嵘</strong>：1. 形容山的高峻突兀或建筑物的高大耸立2. 高爽空旷3. 魁梧4. 卓异, 不平凡。</p>
+          <p><strong>元张可久《折桂令》</strong>：“倚苍云绀宇峥嵘，有听法神龙，渡水胡僧”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-36">
+          <div class="ci-head"><span class="ci-num">36</span><h2 class="ci-title">声声慢 <span class="ci-sub">· 回忆往昔，都如梦寐</span></h2></div>
+          <div class="ci-lyric">
+            琉璃谢镜，璨绮穷香，衔泥飞燕回廊。<br>
+            放管雕楼横倚，昼短情长。<br>
+            分明忧怀怅惘，到尊前、醉渖清光。<br>
+            蓬丘古道，宝奁妆下，运律操张。<br>
+            林间蛟眉寻遍，芳尘尽、三年枕上来凰。<br>
+            自负柳郎才调，并比三唐。<br>
+            疏狂少年眼里，也愁同绣水相将。<br>
+            羁心离绪，万千言，寄钓乡。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（12）</summary>
+    <div class="ci-annos-body">
+          <p><strong>声声慢</strong>：最早见于北宋晁补之笔下，词名《胜胜慢》，其题序云“家妓荣奴既出有感”，说明是为他的家妓荣奴离去所作的曲词。慢，就是慢词，其名称从“慢曲子”而来，指依慢曲所填写的调长拍缓的词。“慢曲子”相对于“急曲子”而言，慢与急是按照乐曲的节奏来区别的。敦煌发现的唐代琵琶乐谱，往往在一个调名之内有急曲子又有慢曲子。慢曲子大部分是长调，这是因为它声调延长，字句也就跟着加长。慢词并不自宋始，唐代已有很多慢词。它一部分是从大曲、法曲里截取出来的，一部分则来自民间。《钦定词谱》卷十：“柳永、周邦彦作慢词，又与令词截然不同，盖调长拍缓，即古曼声之意。”所谓“古曼声”，是指“慢”，古书上写作“曼”，是延长引申的意思，歌声延长，就唱得迟缓了，因此由“曼”字引出了“慢”。毛先舒《填词名解》卷三：“词以慢名者，慢曲也。拖音袅娜，不欲辄尽。”慢曲相对于令曲，字句长，韵少，节奏舒缓。晁补之词名《胜胜慢》，可见此曲较之一般的慢曲还要曼声缠绵。后之词人又作《声声慢》。《填词名解》卷三又云：“《声声慢》，宋蒋捷赋秋声，俱用‘声’字收韵，故名之。”言蒋捷作此词都用“声”字收韵，故名《声声慢》。贺铸词有“殷勤彩风求凰”句，名“凤求凰”；又有“寒松半欹涧底”句，名“寒松叹”；王喆词名“神光灿”。吴文英词有“人在小楼”句，故名“人在楼上”。</p>
+          <p><strong>琉璃</strong>：亦作“瑠璃”。1.一种有色半透明的玉石。2. 指用铝和钠的硅酸化合物烧制成的釉料，常见的有绿色和金黄色两种，多加在黏土的外层，烧制成缸、盆、砖瓦等。3. 指玻璃。4. 诗文中常以喻晶莹碧透之物。5. 指玻璃灯。唐 李贺《将进酒》：“琉璃钟，琥珀浓，小槽酒滴真珠红。烹龙炮凤玉脂泣，罗帏绣幕围香风”。</p>
+          <p><strong>璨绮</strong>：华丽。唐 黄滔 《魏侍中谏猎赋》：“盖以诗中，中律锵金，成章璨绮”。</p>
+          <p><strong>清光</strong>：1. 清美的风彩。多喻帝王的容颜。2. 清亮的光辉。多指月光、灯光之类。宋 辛弃疾《太常引》：“斫去桂婆娑，人道是，清光更多”。</p>
+          <p><strong>蓬丘</strong>：即蓬莱山。宋 柳永《瑞鹧鸪》：“吴会风流。人烟好，高下水际山头。瑶台绛阙，依约蓬丘”。</p>
+          <p><strong>宝奁</strong>：梳妆镜匣的美称。宋 严仁《玉楼春》：“意长翻恨游丝短，尽日相思罗带缓。宝奁明月不欺人，明日归来君试看”。</p>
+          <p><strong>操张</strong>：1. 谓张琴。 2. 握持开张。 3. 操纵﹐支配。</p>
+          <p><strong>蛟眉</strong>：谓连在一起的双眉。南北朝 祖冲之《鬼母食子》：“南海小虞山中，有鬼母，能产天下鬼。一产千鬼，朝产之，暮食之。今苍梧有鬼姑神是也，虎头、龙足、蟒目、蛟眉”。</p>
+          <p><strong>才调</strong>：犹才气。多指文才。宋 吴泳《水龙吟》：“天然带得，酒星风骨，诗囊才调。沔水春深，屏山月淡，吟鞭俱到”。</p>
+          <p><strong>三唐</strong>：诗家论唐人诗作，多以初﹑盛﹑中﹑晩分期，或以中唐分属盛﹑晩，谓之" 三唐"。</p>
+          <p><strong>疏狂</strong>：亦作“疎狂”。亦作“踈狂”。豪放，不受拘束。宋 朱敦儒《鹧鸪天》：“我是清都山水郎，天教分付与疏狂”。</p>
+          <p><strong>钓乡</strong>：渔村。亦指家乡。唐 伍乔? 闻杜牧赴阙诗：“他时得意交知仰，莫忘裁诗寄钓乡”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-37">
+          <div class="ci-head"><span class="ci-num">37</span><h2 class="ci-title">殢人娇 <span class="ci-sub">· 题明水城下芦花丛</span></h2></div>
+          <div class="ci-lyric">
+            悠忽莲舟，载满苕边溪月。<br>
+            都付与、宝钗铜阙。<br>
+            古琴辉赫，拭风波清烈。<br>
+            唯此地、大桥小桥虚设。<br>
+            官陌行歌，芳尘凝绝。<br>
+            孤相送、玄冬凛冽。<br>
+            东楼得尽，问平生功列。<br>
+            梁苑里、或睹云霞明灭。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（8）</summary>
+    <div class="ci-annos-body">
+          <p><strong>殢人娇</strong>：词牌名，又名”咨逍遥“。北宋新声，属林钟商。殢：泥、引逗、恋昵之意。如宋人吕谓老《思佳客》：“殢人索酒复同倾。”明杨慎《词品》云：“泥人娇，俗谓柔言索物曰泥，乃计切，谚所谓软缠也。”唐韩偓《无题》诗的“娇娆欲泥人”句，可做调名的注脚。调名本意即咏女子软柔缠人的娇态。调见北宋柳永《乐章集》。此调又名《咨逍遥》。晏殊词三首，两首为寿词。宋人一般用以抒写儿女之情，苏轼三首，其中两首是赠歌妓之作，另一首是戏友人之作。</p>
+          <p><strong>悠忽</strong>：闲散放荡。元 谭处端《神光灿·寄长生刘师兄》：“处端稽首，上覆刘仙，一别悠忽三年”。</p>
+          <p><strong>莲舟</strong>：采莲的船。宋 贺铸《踏莎行·杨柳回塘》：“杨柳回塘，鸳鸯别浦。绿萍涨断莲舟路”。</p>
+          <p><strong>宝钗铜阙</strong>：即宝钗铜雀。宝钗，宝钗楼，唐宋时咸阳酒楼名。铜阙，铜雀台。亦作" 铜爵台"。汉末建安十五年冬曹操所建。周围殿屋一百二十间﹐连接榱栋﹐侵彻云汉。铸大孔雀置于楼顶﹐舒翼奋尾﹐势若飞动﹐故名铜雀台。故址在今河北省临漳县西南古邺城的西北隅﹐与金虎﹑冰井合称三台。宋 陆游《采桑子》：“宝钗楼上妆梳晚，懒上秋千。”唐 汪遵《咏铜雀台》：“铜雀台成玉座空，短歌长袖尽悲风。不知仙驾归何处，徒遣颦眉望汉宫”。</p>
+          <p><strong>辉赫</strong>：1、犹显赫，煊赫。2、明亮貌。3、谓声势显赫。唐 杜甫《送李校书二十六韵》：“十五富文史，十八足宾客。十九授校书，二十声辉赫”。</p>
+          <p><strong>大桥小桥</strong>：指章丘明水古城景区各类大小不一的石桥，也指东汉末年孙策夫人大乔和周瑜夫人小乔。</p>
+          <p><strong>芳尘</strong>：1、指落花。2. 指美好的风气、声誉。3. 指名贤的踪迹。4. 芳香之尘。多指女子之步履而起者。元 王冕《白梅》：“冰雪林中著此身，不同桃李混芳尘。忽然一夜清香发，散作乾坤万里春”。</p>
+          <p><strong>凝绝</strong>：凝结不动。宋 严羽《满江红》：“天下事，吾能说；今老矣，空凝绝”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-38">
+          <div class="ci-head"><span class="ci-num">38</span><h2 class="ci-title">倾杯乐 <span class="ci-sub">· 题明水城冶坊</span></h2></div>
+          <div class="ci-lyric">
+            万古秦楼，此时巫岫，青春片晌欢错。<br>
+            冶馆夜永。素景饮散，念述吟教墨。<br>
+            胡山陇首云飞渡，立箭波槎沫。<br>
+            舷窗向晓，风淡荡、踏碎连环珠络。<br>
+            若若。金章绿绶，弟兄羁旅，何以明寒魄。<br>
+            有计意相怜，茶枪方蘸碧、江裙初破。<br>
+            燕寝凝香，都门十二，未肯轻然诺。<br>
+            九皋阔。身似鹤凤鸣高卧。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（20）</summary>
+    <div class="ci-annos-body">
+          <p><strong>倾杯乐</strong>：倾杯乐，唐教坊曲名，后用作词调名。《乐府杂录》云：“《倾杯乐》，宣宗喜吹芦管，自制此曲。”见《宋史·乐志》者二十七宫调，柳永《乐章集》注“宫调七”。“倾杯”为进酒之动作，此曲或源于舞席间所歌劝酒之词。北周时已有六言之《倾杯曲》，《隋书·音乐志》载：牛弘改周乐之声，“献奠登歌六言，象《倾杯曲》”。至唐初形成大曲，用龟兹乐，如许敬宗《上恩光曲歌词启》所云：“窃寻乐府雅歌，多皆不用六言，近代有《三台》《倾杯乐》等艳曲之例，始用六言。”太宗曾诏命长孙无忌等制词。玄宗曾用以配合马舞，有数十曲之多。近人冒广生谓张说《舞马词》六首，皆六言，即用玄宗时之《倾杯乐》曲调（《倾杯考》）。可见此曲之齐言体唐代颇为盛行。唐南卓《羯鼓录》载《倾杯乐》，属太簇商。南朝陈后主《临高台》述宴乐情形：“隔窗已响吹，极眺且倾杯”。其杂言体，首见敦煌曲《云谣集杂曲子》，任二北谓乃摘自大曲中美听之联片而成。此调二首，字句颇相异，无从辨体，或阑入衬字之故。其第一首写闺情，词云：“忆昔笄年，未省离阁，生长深闺苑。闲凭着绣床，时拈金针，拟貌舞凤飞鸾。对妆台、重整娇姿面。知身貌算料，岂交人见。又被良媒，苦出言词相诱该。每道说、水际鸳鸾，惟指梁间双燕。被父母、将儿匹配，便认多生宿姻眷。一旦娉得狂夫，攻书业、抛妾求名宦。纵然选得，一时朝要，荣华争稳便。”唐宋燕乐曲里存在曲名相同而音谱不同的现象。敦煌琵琶谱（P3080）存燕乐分段半字谱二十五首，其中《倾杯乐》即有十个不同的曲谱。柳永《乐章集》存《倾杯乐》八首，分属仙吕宫、大石调、林钟商、黄钟羽和散水调，各词字数不同。万树《词律》卷七：“柳集一百六字‘禁漏花深’一首属仙吕宫，‘皓月金风’二首属大石调，‘木（鹜）落’一首属双调，‘楼头’、‘冻水，、‘离宴’三首属林钟商，‘水乡’一首属黄钟调，因调异，故曲异也。然又有同调（宫调）而长短大殊者。总之世远音亡，字讹书错，只可阙疑而已。”《词谱》于此调列十体，柳词此首为羁旅行役词之名篇，可为此调之正体。此调别体甚多，同一词人之作已出现字数与句式相异较大之现象。</p>
+          <p><strong>万古</strong>：远古；万代；万世。亦为死亡的婉辞。唐 杜甫《戏为六绝句·其二》：“尔曹身与名俱灭，不废江河万古流”。</p>
+          <p><strong>秦楼</strong>：秦穆公为其女弄玉所建之楼。亦名凤楼。相传秦穆公女弄玉，好乐。五代 李煜《临江仙》：“秦楼不见吹箫女，空余上苑风光”。</p>
+          <p><strong>巫岫</strong>：巫山。战国宋玉《高唐赋》序:" 昔者先王尝游高唐，怠而昼寝。梦见一妇人，曰:' 妾巫山之女也，为高唐之客。闻君游高唐，愿荐枕席。'王因幸之。去而辞曰:' 妾在巫山之阳，高丘之阻，旦为朝云，暮为行雨，朝朝暮暮，阳台之下。' 旦朝视之，如言，故为之立庙，号曰朝云。" 后遂用为男女幽会的典实。 2. 山名。在四川﹑湖北两省边境。北与大巴山相连，形如"巫"字，故名。长江穿流其中，形成三峡。明 屈大均《辛亥中秋夕作》：“吴宫紫玉遂成烟，巫岫朝云元是梦”。</p>
+          <p><strong>片晌</strong>：1. 亦作" 片饷"。 2. 片刻。宋 葛长庚《沁园春》：“好个鼎炉，见成铅汞，片晌工夫结圣胎。人身里，三千世界，十二楼台”。夜永：夜长；夜深。多用于诗中。宋 柳永《戚氏》：“夜永对景，那堪屈指，暗想从前”。</p>
+          <p><strong>素景</strong>：1. 日月的光辉。景，本指日光。 2. 秋季的景色。 3. 晋朝的代称。古代五行之说，以金配秋，其色尚白，而晋以金德为帝，故称。宋 柳永《临江仙引》：“凭高念远，素景楚天，无处不凄凉”。</p>
+          <p><strong>教墨</strong>：指对他人书信的敬称。明 程敏政《慎德堂》：“时时瞻云思，往往泣对客。兹焉趋吾庐，启卷冀教墨”。</p>
+          <p><strong>陇首</strong>：1. 古山名。2. 指陇山之巅。3. 泛指高山之巅。宋 柳永《曲玉管》：“陇首云飞，江边日晚，烟波满目凭阑久”。</p>
+          <p><strong>箭波</strong>：流动迅速有如飞箭的水波。? 宋 周邦彦《还京乐》：“望箭波无际，迎风漾日黄云委。任去远，中有万点，相思清泪”。</p>
+          <p><strong>槎沫</strong>：水击船筏激起的泡沫。宋 梅尧臣《黄河》：“槎沫夜浮光，舟人朝发唱。洪梁画鷁连，古戍苍崖向”。</p>
+          <p><strong>珠络</strong>：1. 缀珠而成的络。头饰之一种。2. 比喻晶莹连贯之物。明 杨基《蝶恋花》：“新制罗衣珠络缝，消瘦肌肤，欲试犹嫌重”。</p>
+          <p><strong>若若</strong>：1. 长而下垂的样子。 2. 众多的样子。3. 每每，常常。唐 刘禹锡《吐绶鸟词》：“越山有鸟翔寥廓，嗉中天绶光若若。越人偶见而奇之，因名吐绶江南知”。</p>
+          <p><strong>金章绿绶</strong>：金章，1. 金质的官印。一说﹐铜印。因以指代官宦仕途。 2. 古代高级官员的官服。绿绶，绿色丝质带子。宋 李清照《长寿乐》：“荣耀，文步紫禁，一一金章绿绶。更值棠棣连阴，虎符熊轼，夹河分守”。</p>
+          <p><strong>弟兄羁旅</strong>：亦作“羇旅”。1. 寄居异乡。2. 指客居异乡的人。唐 白居易《望月有感》：“时难年荒世业空，弟兄羁旅各西东。田园寥落干戈后，骨肉流离道路中”。</p>
+          <p><strong>寒魄</strong>：指月亮。亦指月光。唐 方千《中秋月》：“泉澄寒魄莹，露滴冷光浮。未折青青桂，吟看不忍休”。</p>
+          <p><strong>计意</strong>：考虑﹔计较。</p>
+          <p><strong>茶枪</strong>：茶未展的嫩芽。</p>
+          <p><strong>都门</strong>：出自《汉书·王莽传》，转为京都之意。白居易《长恨歌》：“东望都门信马归，归来池苑皆依旧。”第三十七回湘云《白海棠诗》“神仙昨日降都门”，第六十三回贾珍、贾蓉“一日到了都门，先奔入铁槛寺”，其中“都门”均为引申义。按第十五回叙明铁槛寺在城外郊野，故“到了都门”只是到了京都地界之意。</p>
+          <p><strong>九皋</strong>：1、曲折深远的沼泽，2、亦称鹤。3、九方皋 的省称。《宋书? 武帝纪中》：“公官方任能，网罗幽滞，九皋辞野，髦士盈朝”。</p>
+          <p><strong>高卧</strong>：1. 安卧；悠闲地躺着。2. 指隐居不仕。元 张可久《金字经·乐闲》：“百年浑似醉 ，满怀都是春。高卧东山一片云。嗔，是非拂面尘，消磨尽，古今无限人”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-39">
+          <div class="ci-head"><span class="ci-num">39</span><h2 class="ci-title">鹤冲天 <span class="ci-sub">· 事古城三月有此作</span></h2></div>
+          <div class="ci-lyric">
+            南山唤动，笙筑聆泉漏。<br>
+            秋影绕街行，庭如昼。<br>
+            素杼风知处，挥袖袂、从今后。<br>
+            燕燕双垂首。<br>
+            月华流照，攀附岸唇浦口。<br>
+            年年似旧游曹偶。<br>
+            看钧天广乐，飘零久。<br>
+            幕底蜚廉走，方整点、红牙手。<br>
+            岂在明城柳。<br>
+            贵公高士，赠我小窗春瘦。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（8）</summary>
+    <div class="ci-annos-body">
+          <p><strong>鹤冲天</strong>：调名源自唐韦庄《喜迁莺》词:“街鼓动，禁城开莺已迁，龙已天上探人回。凤衔金榜出云来，平地一声雷。化，一夜满城车马。家家楼上簇神仙，争看鹤冲天。”词的本意即咏贫寒之士通过科举，一旦中举，就如“平地一声雷”，又如“鹤冲天”。鹤冲天: 用一鸣惊人的典故。战国 韩非《韩非子·喻老》:“虽无飞，飞必冲天; 虽无鸣，鸣必惊人。”据南宋吴曾《能改斋漫录》记载，传说柳永再次应试，本已考中。当北宋仁宗看到词中“忍把浮名，换了浅斟低唱”，特意把柳永的名字黜落，曰:“日去浅斟低唱，何要浮名1”此后，柳永自我解嘲道“奉旨填词柳二变”，并填此调名词以抒胸中怀才不遇之不平。这是调名的本事。调名本意即为希冀通过科举考试能够如鹤冲天，一鸣惊人。调见北宋柳永《乐章集》。按: 此调为《鹤冲天》本调，与《喜迁莺》《春光好》《阮郎归》等调之别名《鹤冲天》调不同。</p>
+          <p><strong>素杼</strong>：织布机上的筘，古代亦指梭。宋 辛弃疾《绿头鸭》：“素杼冷，临风休织，深诉隔年诚。飞光浅，青童语款，丹鹊桥平”。</p>
+          <p><strong>燕燕</strong>：1. 燕子。2. 安适貌；和乐貌。3. 喻娇妻美妾。元 乔吉《天净沙》：“莺莺燕燕春春，花花柳柳真真。事事风风韵韵。娇娇嫩嫩，停停当当人人”。</p>
+          <p><strong>月华</strong>：1. 月光，月色。2. 月亮。3. 月精。月的精华。4. 月亮周围的五彩光环。由月亮光线通过云层内小水滴或细小冰晶，经衍射所致。宋 范仲淹《御街行》：“年年今夜，月华如练，长是人千里”。</p>
+          <p><strong>曹偶</strong>：侪辈；同类。宋 司马光《走索》：“徒资旁观好，曹偶相称褒。岂知从事者，处之危且劳。”</p>
+          <p><strong>钧天广乐</strong>：钧天：古代神话传说指天之中央；广乐：优美而雄壮的音乐。指天上的音乐，仙乐。后形容优美雄壮的乐曲。宋 辛弃疾《千年调》：“钧天广乐，燕我瑶之席。帝饮予觞甚乐，赐汝苍壁”。</p>
+          <p><strong>蜚廉</strong>：1. 人名。夏后启( 开) 的臣子﹐铸九鼎于昆吾。 2. 人名。商纣的臣子。 3. 传说中的神禽名。 4. 传说中的神兽名。 5. 风神。 6. 宫观名。 7. 姓。此处指风神。明 刘基《二鬼》：“蜚廉吹笙虎击筑，罔象出舞奔冯夷”。</p>
+          <p><strong>红牙</strong>：1. 檀木的别称。檀木色红质坚，故名。2. 乐器名。檀木制的拍板，用以调节乐曲的节拍。宋 辛弃疾《满江红》：“佳丽地，文章伯。《金缕》唱，红牙拍。看尊前飞下，日边消息”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-40">
+          <div class="ci-head"><span class="ci-num">40</span><h2 class="ci-title">贺新郎 <span class="ci-sub">· 登聊斋城</span></h2></div>
+          <div class="ci-lyric">
+            小径攒青杳。<br>
+            弄纤云、女弟寒丹，意中儇佻。<br>
+            罗刹飞来真仙岛。永巷故倡初到。<br>
+            自忖个、才非至宝。逸兴遄飞思邈渺。<br>
+            解风情、浩气冲陵表。难再有，佳人好。<br>
+            葳蕤缚锁谁年少。<br>
+            更何须、泉源沸涌，远山寒峭。<br>
+            一纸精神人莫造。佣铁铮铮佼佼。<br>
+            怕辜负、衣冠人笑。<br>
+            欲往瑶阶寻琪草。<br>
+            念沉鱼、唱彻阳关调。<br>
+            舟壑里，五湖老。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（25）</summary>
+    <div class="ci-annos-body">
+          <p><strong>贺新郎</strong>：《贺新郎》词调起于北宋，盛于南宋，衰落于金元。《贺新郎》由北宋苏轼首次填写，是宋代使用频率较高的词调。对于《贺新郎》词调的来源问题，众说纷纭，至今无确切结论，其中最具代表性的两家是宋人杨堤和胡仔。因杨堤和胡仔二人的分歧衍生出两种观点，一种如杨堤所言，《贺新凉》是词调本名，《贺新郎》一名为后人误传；另一种观点认为《贺新郎》是词调本名。对于此二种说法，或同意第一种观点，如清毛先舒《填词名解》载：“词云‘乳燕飞华屋，悄无人，槐阴转午，晚凉新浴’故名《贺新凉》，后误为“郎”；陈子清、孙永都《词律浅谈》一书中载：“因苏轼词中有‘晚凉新浴’句，所以名《贺新凉》，后误为《贺新郎》”。或认为《贺新郎》为本名，《贺新凉》一名由苏词衍生，如《钦定词谱》中载：“苏轼词有‘晚凉新浴’句，名《贺新凉》”；谢桃坊先生在《唐宋词谱校正》《贺新郎》一调下注“北宋新声”，并引用胡仔语：“苏轼词为创调之作……宋人胡仔《菩溪渔隐丛话后集》卷三十九：‘《贺新郎》乃古曲名也。’北宋当据古曲改制而成……因有‘晚凉新浴’句，又名《贺新凉》”。对于《贺新郎》曲调的产生时间，史料甚少提及，考有关唐宋音乐记载的相关文献，《教坊记》、《揭鼓录》、《乐府杂录》、《唐会要》、《乐府诗集》、《碧鸡漫志》等，皆无《贺新郎》曲调来源的记载。南宋胡仔有《贺新郎》本为古曲的说法，此后词话中偶有提及也仅是引用胡仔之语。对于《贺新郎》曲调音乐的来源，据己有史料记载，皆认为《贺新郎》是苏轼按己有音乐填作，并无苏轼自度曲的说法。且看后人填制贺新郎，基本以叶梦得“睡起流莺语”一百一十六字一体为标准，可见叶词是最符合音律的。北宋时因受到政策支持歌妓行业发展繁荣，宴饮时一般会有歌妓歌唱俏酒，文人与歌妓间交往密切，故孙素彬推测《贺新郎》一曲最有可能为乐工乐妓所创，经苏轼填词后得以传播。《贺新郎》是异名比较丰富的词调，叶梦得词有“唱金缕”句，名《金缕歌》，又名《金缕曲》，又名《金缕词》。苏轼词有“乳燕飞华屋”句，名《乳燕飞》；有“晚凉新浴”句，名《贺新凉》；有“风敲竹”句，名《风敲竹》。张辑词有“把貂裘换酒长安市”句，名《貂裘换酒》。</p>
+          <p><strong>青杳</strong>：指幽深的青山。明 王渐达《游罗浮赋》：“历 崆峒 之崇阿，依青杳之修途。” 明 夏完淳《许元度自序》诗：“曲房丽丹霞，幽棂见青杳”。</p>
+          <p><strong>纤云</strong>：微云; 轻云。宋 刘克庄《清平乐》：“纤云扫迹，万顷玻璃色。醉跨玉龙游八极，历历天青海碧”。</p>
+          <p><strong>女弟</strong>：妹妹，此处用典。指汉代李延年的妹妹，汉 班固《汉书·佞幸传》：“李延年，中山人，身及父母兄弟皆故倡也。延年坐法腐刑，给事狗监中。女弟得幸于上，号李夫人，列《外戚传》。延年善歌，为新变声。是时，上方兴天地祠，欲造乐，令司马相如等作诗颂。延年辄承意弦歌所造诗，为之新声曲。而李夫人产昌邑王，延年由是贵为协律都尉，佩二千石印绶，而与上卧起，其爱幸埒韩嫣。久之，延年弟季（李季）与中人乱，出入骄恣。及李夫人卒后，其爱弛，上遂诛延年兄弟宗族”。汉 李延年《佳人曲》：“北方有佳人，绝世而独立。一顾倾人城，再顾倾人国。宁不知倾城与倾国？佳人难再得！”。</p>
+          <p><strong>寒丹</strong>：道教所谓的一种仙药。晋 葛洪《抱朴子·金丹》：“第九之丹名寒丹。服一刀圭，百日仙也。仙童仙女来侍，飞行轻举，不用羽翼”。</p>
+          <p><strong>儇佻</strong>：指浮薄轻佻。清 蒲松龄《聊斋志异》：“一日生坐斋头，有少年来求画，姿容甚美，意颇儇佻”。</p>
+          <p><strong>罗刹</strong>：罗刹，佛教中指恶鬼，指食人肉之恶鬼。《慧琳意义》卷二十五中记载：“罗刹，此云恶鬼也。食人血肉，或飞空、或地行，捷疾可畏。”同书卷七又说：“罗刹娑，梵语也，古云罗刹，讹也（中略）乃暴恶鬼名也。男即极丑，女即甚姝美，并皆食啖于人”。</p>
+          <p><strong>永巷</strong>：宫中长巷。宫中署名。掌管后宫人事，有令、仆射等，汉武帝时改为掖庭，有狱监禁宫人。深巷；长巷。</p>
+          <p><strong>故倡</strong>：谓世代相传的乐伎。《史记·佞幸列传》：“ 李延年 、 中山 人也，父母及身兄弟及女，皆故倡也”。</p>
+          <p><strong>逸兴遄飞</strong>：指超逸豪放的意兴勃发飞扬。唐 王勃《滕王阁序》：“遥襟俯畅，逸兴遄飞”。</p>
+          <p><strong>邈渺</strong>：渺茫貌。 三国 魏 阮籍 《大人先生传》：“邈渺绵绵，乃反复乎大道之所存”。</p>
+          <p><strong>浩气</strong>：1. 浩然的正气2. 指广大的水汽。语出北魏 郦道元 《水经注·溱水》：“泉源沸涌，浩气云浮，以腥物投之，俄顷即热”。</p>
+          <p><strong>陵表</strong>：墓表；墓碑。清 张四科《登甘泉山》：“近郊莽平楚，崇陵表步仞。邈尔蓄云雨，岿然作固镇”。</p>
+          <p><strong>葳蕤</strong>：草木茂盛, 枝叶下垂的样子。唐 张九龄《感遇十二首·其一》：“兰叶春葳蕤，桂华秋皎洁。欣欣此生意，自尔为佳节”。</p>
+          <p><strong>寒峭</strong>：寒气逼人。有变种曰" 春寒料峭"，意为刚入春天，温度还比较低。宋 秦湛《卜算子》：“春透水波明，寒峭花枝瘦。极目烟中百尺楼，人在楼中否”。</p>
+          <p><strong>铮铮</strong>：1. 象声词，金属撞击声。2. 比喻刚正，坚贞。3. 比喻声名显赫，才华出众。宋 辛弃疾《贺新郎》：“夜半狂歌悲风起，听铮铮、阵马檐间铁。南共北，正分裂”。</p>
+          <p><strong>佼佼</strong>：超过平均水平的; 美好出众的样子。唐周昙《前汉门樊崇徐宣》：“庸中佼佼铁铮铮，百万长驱入帝京。首事纵隳三善在，归仁何虑不全生”。</p>
+          <p><strong>辜负</strong>：亏负；使别人或者自己对自己或者别人的希望落空；违背了别人的好意、希望。</p>
+          <p><strong>明夏完淳《烛影摇红》</strong>：“辜负天工，九重自有春如海。佳期一梦断人肠，静倚银釭待”。</p>
+          <p><strong>衣冠</strong>：1. 衣服和礼帽。2. 服饰。3. 指绅士, 借指礼教、斯文，此处指蒲松龄。</p>
+          <p><strong>瑶阶</strong>：1. 玉砌的台阶。亦用为石阶的美称。2. 指积雪的石阶。宋 吴泳《水龙吟》：“算一生绕遍，瑶阶玉树，如君样、人间少”。</p>
+          <p><strong>琪草</strong>：仙草。明 邱云霄《感遇·其四》：“仙乡有琪草，托根蓬莱山。食之有长味，暗令生朱颜”。</p>
+          <p><strong>沉鱼、五湖</strong>：此处用典。人们形容女子长得漂亮，往往用“闭月羞花之貌，沉鱼尽雁之容”来比喻。其中，“沉鱼”，讲的是春秋战国时期西施的故事。西施，名夷光，春秋战国时期出生于浙江诸暨苎萝村。天生丽质。时越国称臣于吴国，越王勾践卧薪尝胆，谋复国。在国难当头之际，西施忍辱负重，以身许国，与郑旦一起由越王勾践献给吴王夫差，成为吴王最宠爱的妃子，把吴王迷惑得众叛亲离，无心国事，为勾践的东山再起起了掩护的作用，表现了一个爱国女子的高尚思想情操。后吴国终被勾践所灭。传说吴被灭后，西施与范蠡泛舟五湖，不知所终，她一直受到后人的怀念。</p>
+          <p><strong>阳关</strong>：古曲阳关三迭的省称。亦泛指离别时唱的歌曲。宋 辛弃疾《鹧鸪天·送人》：“唱彻《阳关》泪未干，功名馀事且加餐。浮天水送无穷树，带雨云埋一半山”。</p>
+          <p><strong>舟壑</strong>：藏在山谷中的船，后借指世事。清 徐灿《满江红》：“满眼河山擘旧恨，茫茫何处藏舟壑。记玉箫、金管振中流，今非昨”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-41">
+          <div class="ci-head"><span class="ci-num">41</span><h2 class="ci-title">苏武慢 <span class="ci-sub">· 罗浮寻真</span></h2></div>
+          <div class="ci-lyric">
+            ——依元冯尊师运气吞霞原韵<br>
+            僻陋之邦，园洲小邑，幽潜放逐吟哦。<br>
+            安期桂父，楚贾韩城，称此洞庭仙阿。<br>
+            尝见天人，大小石楼，崒嵂媲隆云娥。<br>
+            快哉风、生始乾坤，酥醪观中高低。<br>
+            微雨落、禹步横遮，<br>
+            魁罡踏踵，一数两仪三炁。<br>
+            祝嗥朗啸，万法伏藏，都入紫台乡里。<br>
+            溟津鸿濛，列星山岳，丹灶药炉无几。<br>
+            了真真洞玄，刀圭泥丸，九宫阖辟。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（10）</summary>
+    <div class="ci-annos-body">
+          <p><strong>苏武慢</strong>：词牌名，此调始见于宋周邦彦《片玉词》，注大石调。又名“选冠子”或“选官子”。曹勋词名“转调选冠子”。鲁逸仲词名“惜馀春慢”。一名“仄韵过秦楼”。苏武，说明调名来源于“苏武牧羊”典故；慢，说明是慢词，源于“慢曲子”，即调长拍缓的词。另有苏武令。苏武: 西汉武帝时，中郎将苏武出使奴。因匈奴国发生内乱，苏武被单于拘禁，放逐北海( 今俄罗斯贝加尔湖) 牧羊，持节不屈，羁留塞外十九年方得归汉。令: 唐宋杂曲的一种体制。源自“酒令”，多以流行小曲充之。调名本意即以令曲的形式歌咏不屈的民族英雄苏武。据南宋赵彦卫《云麓漫钞》记载，此调为抗金名将李纲词，曾在南宋绍兴初年(1131) 盛传，可能与北宋徽、钦二帝被金兵所俘的政治背景相关。李纲时为抗金名将，故有与苏武相同的民族气节。调见南宋赵彦卫《云麓漫钞》所辑两宋之交的李纲词。</p>
+          <p><strong>僻陋之邦，园洲小邑</strong>：取自北宋欧阳修《欧阳修全集》卷四十，《记八首·有美堂记》：“所谓罗浮…乃皆在乎下州小邑，僻陋之邦”，这里园洲指园洲镇，地处博罗县西部。幽潜放逐，指幽潜之士，放逐之臣。吟哦，有节奏地朗诵。</p>
+          <p><strong>安期桂父</strong>：即安期生与桂父。安期生，琅琊人，秦汉方仙道术士。明末清初学者屈大均在《广东新语》卷三，《山语·罗浮》中载：“罗浮之有游者，自安期始。自安期始至罗浮，而后桂父至焉。”桂父，秦朝神话人物，因服食桂丸而成仙。西汉刘向《列仙传》卷上，《桂父》：“桂父者，象林人也，色黑，而时白时黄而时赤。南海人见而尊事之。”楚贾韩城，即西汉文学家陆贾与太史公司马迁。《广东新语》载：“考罗浮始游者，安期生，始称之者陆贾、司马迁，始居者葛洪，始疏者，袁宏，始赋之者谢灵运”。</p>
+          <p><strong>天人石楼</strong>：出自屈大均《广东新语》卷三，《山语·罗浮》：“有大、小二十楼，仙人尝见其上。”崒嵂，指高山，明代韩晃《罗浮野乘》云：“大小石楼皆孤高崒嵂，邈出天际，重檐四柱，宛如楼阁，有石门，方广可容几席，云霭霞蒸，俯视沧海。”媲隆，《汉典》解释为兴盛之景况相当。云娥，(1)仙女。? 晋? 张华《游仙诗》之三：“云娥荐琼石，神妃侍衣裳。”(2) 泛指美女。宋? 吴潜《霜天晓角·和刘架阁自昭韵》词：“回首云娥折。老大成痴绝”。</p>
+          <p><strong>快哉风</strong>：取北宋苏东坡《水调歌头·黄州快哉亭赠张偓佺》：“一点浩然气，千里快哉风。”生始乾坤，取自《彖》，相传为孔子所作。乾坤，天地也。这里指乾元、坤元。《彖》解《周易》乾卦“元亨利贞”四字称：“大哉乾元，万物资始，乃统天。”解《周易坤卦》称：“至哉坤元，万物资生，乃顺承天。”酥醪观，乃罗浮山道教五大观之一。霍晖( 其人不详)《冲虚观记》云：“登罗浮，创都虚、孤青、白鹤、酥醪，东西南北四庵，为往来偃息之地，采灵芝神药，以养异丹。”其中，都虚观颇负盛名。陈伯陶《罗浮志补》卷三，《观》中载：宋哲宗元祐二年(1087) 赐额为“冲虚观。”取“元始天尊生于太元之先，禀自然之气，冲虚凝远莫知其极”之意。</p>
+          <p><strong>微雨落</strong>：取南宋陆放翁《晨起坐南堂书触目》：“漠漠断云开复合，纤纤微雨落还收。”时作者登罗浮山飞云峰下狮子亭，恰逢微雨，未几乍收。禹步，相传大禹治水，小腿负伤，《尸子·广泽》载“步不相过，人曰禹步。”《道藏》之《太上助国救民总真秘要》卷八说：“禹步者，大禹治水以成厥功。天授此步决，以制神，召灵，遂因名为禹步耳。”禹步又称步罡踏斗，与后文魁罡蹋踵字异义同。一数，一道，老子称道是宇宙万物的最初的本源，天地万物为道所生。两仪，即阴阳，二元论一说，对立统一。三炁，一谓无上三天玄元始三炁。一谓人身三炁。《道教义枢》称：“无上三天，最上为大罗天生玄、元、始、三炁，化为三清天”。</p>
+          <p><strong>祝嗥( 皋)</strong>：即道啸，道教的啸法，是由岭南巫术衍化而成的一种道教法术。道士走禹步时行啸法，《睡虎地秦墓竹简》中《日书甲种》云：“行到邦门困，禹步三……呼：‘皋，敢告曰：某行毋咎，先为禹除道。’”万法伏藏，即袁天罡《万法秘藏》，卷二《太上金锁连环隐遁法》记禹步行斗罡之法。紫台，道家称神仙所居。</p>
+          <p><strong>溟涬、鸿濛</strong>：皆称自然之气。</p>
+          <p><strong>了真真</strong>：取自金朝道士丹阳子( 马钰)《满庭芳·家缘猛弃》：“真了了，便得为蓬莱仙客。”洞玄，道教经典分洞真、洞玄、洞神三部，合称“三洞，”洞玄是洞神为小乘，洞玄是中乘，洞真为上乘。</p>
+          <p><strong>刀圭泥丸，九宫阖辟</strong>：刀圭，医术或药物。泥丸，道教语，脑神的别名。另指南宋高道陈楠陈泥丸，金丹派南五祖高道之一。惠州博罗人，居罗浮山冲虚观。九宫，道家词语? 是古代中国天文学家将天宫以井字划分乾宫、坎宫、艮宫、震宫、中宫、巽宫、离宫、坤宫、兑宫九个等份，在晚间从地上观天的七曜与星宿移动，可知方向及季节等资讯。阖辟，闭合与开启。出自《张子正蒙注·神化》，又引明宋濂《陈彦正丹室铭》：“阖辟泥丸，天行空飞”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-42">
+          <div class="ci-head"><span class="ci-num">42</span><h2 class="ci-title">西平乐 <span class="ci-sub">· 于明水城读《聊斋·画壁》有感</span></h2></div>
+          <div class="ci-lyric">
+            鬟凤低垂，髻云高簇，城色竟日应赊。<br>
+            殿宇垂髫，老僧兰若，别来万里重遮。<br>
+            且共赴芳洲酒渑，容许阇黎点化，<br>
+            清风肃甲流光，薄帷霁雪笼街。<br>
+            往听说法去，谁能解、报罢世堪嗟。<br>
+            青春孤付，梨花眷恋，珠泪樽前，临水微斜。<br>
+            初转想、蓬山缴绕，簪珥延留，尽是人心自动。<br>
+            白景西山，呈象昭昭鉴碧河。<br>
+            俦侣历阶，风泉耎卧，弹壁跼蹐，<br>
+            我与留仙，夙本相知，何时显效名家。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（21）</summary>
+    <div class="ci-annos-body">
+          <p><strong>西平乐</strong>：乐曲名。南朝陈释智匠《古今乐录》曰：“西平乐，倚歌（伴奏有鼓吹而无弦乐）也。”明徐献忠《乐府原》云：“冶驰情之曲。填词仿此以名。”调名本意即咏《西平乐》曲。此为调名咏《西平乐》乐曲说。又：西平郡：东晋十六国时，前凉、后凉等地方政权先后在西宁设立了西平郡。隋炀帝大业三年（607）后改鄯州为西平郡（治今青海乐都县）。北宋崇宁三年（1104）改鄯州为西宁州，隶属于陇西都护府。此为调名咏地名说。又：近人梁启勋《词学·调名》云：“《后汉书》注：平乐，观名，在城之西。”平乐：即平乐观，汉代宫观名。东汉都洛阳，明帝取长安飞帘、铜马移洛阳西门外，置平乐观。在今河南洛阳故城西，故云《西平乐》。此为调名咏道观说。调名本事未详。?西平乐又名“西平乐慢”，分仄韵，平韵两体。仄韵始见柳永《乐章集》，平韵始于周邦彦《清真集》。《乐章集》、《清真集》及吴文英《梦窗词稿》并注小石调（仲吕商）。《词律》卷一七、《词谱》卷三。列录此调。仄韵者，《词谱》以柳永“尽日凭高寓目”一词为正体，又列别体二种。平韵者，《词谱》以周邦彦“稚绿苏晴”一词为正体，又列别体三种。</p>
+          <p><strong>鬟凤、髻云</strong>：鬟凤，指凤钗。妇女首饰。髻云，形容发髻浓黑如云。取自 清 蒲松龄《聊斋志异·卷一·画壁》：“髻云高簇，鬟凤低垂”。</p>
+          <p><strong>城色竟日应赊</strong>：取自唐 李白《陪族叔刑部侍郎晔及中书贾舍人至游洞庭五首·其二》：“南湖秋水夜无烟，耐可乘流直上天。且就洞庭赊月色，将船买酒白云边”。</p>
+          <p><strong>垂髫</strong>：亦作“垂齠”。指儿童或童年。髫，儿童垂下的头发。魏晋 陶渊明《桃花源记》：“黄发垂髫，并怡然自乐”。</p>
+          <p><strong>兰若</strong>：1. 寺庙, 即梵语“阿兰若”的省称。唐 杜甫《谒真谛寺禅师》：“兰若山高处，烟霞嶂几重。”2. 兰草与杜若。皆香草。唐 李白《题嵩山逸人元丹丘山居》：“尔能折芳桂，吾亦采兰若”。</p>
+          <p><strong>芳洲</strong>：芳草丛生的小洲。战国 屈原《九歌·湘君》：“采芳洲兮杜若，将以遗兮下女。时不可兮再得，聊逍遥兮容与”。</p>
+          <p><strong>酒渑</strong>：酒池。渑，古水名，在今中国山东省临淄市一带。宋 朱雍《八声甘州》：“仙娥许，酒渑与我，消尽春愁”。</p>
+          <p><strong>阇黎</strong>：高僧，也泛指僧人、和尚。宋 晁补之《答恂阇黎乞浆》：“白头破褐恂阇黎，硬白高谈岂易知。却喜粟浆如北客，从教薄相笑无奇”。</p>
+          <p><strong>肃甲</strong>：肃，严正，认真。引申为整理，这里指整理铠甲。宋 王阮《谢赵宰拜襄敏墓并留题二首》：“故家零落今朝遇，此段孤高近世无。地下结成无限草，待公肃甲破幽都”。</p>
+          <p><strong>流光</strong>：1、谓福泽流传至后世。2. 流动、闪烁的光彩。3. 特指如水般流泻的月光。4. 指如流水般逝去的时光。见《谷梁传·僖公十五年》：“德厚者流光，德薄者流卑”。</p>
+          <p><strong>霁雪</strong>：雪止放晴。宋 尹焕《霓裳中序第一·茉莉咏》：“梦十里、梅花霁雪。归来也，恹恹心事，自共素娥说”。</p>
+          <p><strong>缴绕</strong>：1. 谓说理﹑行文或问题﹑事情等纠缠不清。 2. 缠扰不休。 3. 围绕; 缠绕。 4. 引申为曲折迂回。明 石珝《杂诗》：“藤萝附松柏，缴绕固其真。桃李虽不言，吐华自阳春”。</p>
+          <p><strong>白景西山</strong>：白景，太阳。西山，西方的山。唐 李贺《古悠悠行》：“白景归西山，碧华上迢迢。今古何处尽，千岁随风飘”。</p>
+          <p><strong>昭昭</strong>：1. 明亮，光明。2. 明白，清楚。3. 形容有心事。唐 韩愈《获麟解》：“麟之为灵，昭昭也。咏于《诗》，书于《春秋》，杂出于传记百家之书，虽妇人小子皆知其为祥也”。</p>
+          <p><strong>俦侣</strong>：1. 伴侣；朋辈。2. 指结为伴侣或朋友。明 《文征明》：“青雀西来，嫦娥报我，道佳期近矣。寄言俦侣，莫负广寒沈醉”。</p>
+          <p><strong>历阶</strong>：登阶, 跨过台阶。唐 舒元舆《牡丹赋》：“玉栏风满，流霞成波，历阶重台，万朵千棵”。</p>
+          <p><strong>耎卧</strong>：柔软地趴着。唐 李贺《南园十三首·其九》：“泉沙耎卧鸳鸯暖，曲岸回篙舴艋迟。泻酒木栏椒叶盖，病容扶起种菱丝”。</p>
+          <p><strong>跼蹐</strong>：1、局促不安。2、谨慎小心。3、局限，受拘束。4、狭仄；狭隘。5、困顿窘迫。6、滞留不进；徘徊不前。清 蒲松龄《聊斋志异·卷一·画壁》：“朱跼蹐既久，觉耳际蝉鸣，目中火出，景状殆不可忍”。</p>
+          <p><strong>留仙</strong>：清代文学家蒲松龄，字留仙，一字剑臣，别号柳泉居士，世称聊斋先生，自称异史氏。山东省淄博市淄川区洪山镇蒲家庄人。</p>
+          <p><strong>显效</strong>：1. 见效; 显示效果。2 明显的、显著的效果。唐 罗隐《自贻》：“衰老应难更进趋，药畦经卷自朝晡。纵无显效亦藏拙，若有所成甘守株”。</p>
+          <p><strong>名家</strong>：在某种学术或技能方面有特殊贡献的著名人物。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-43">
+          <div class="ci-head"><span class="ci-num">43</span><h2 class="ci-title">汉宫春</h2></div>
+          <div class="ci-lyric">
+            起舞花间。有流波美瓣，别远徂川。<br>
+            年来志云轻荡，遍涉江天。<br>
+            长蓑短笠，映山魈、非鬼非仙。<br>
+            无计是，围炉夜话，英雄当见残年。<br>
+            明倚暮山诗眼，叹桥边外事，缺月连娟。<br>
+            苑中社翁夜宴，重坐楼船。<br>
+            东林傍览，想如今、灏露堆烟。<br>
+            唯此地，良辰好景，新亭对泣寒蝉。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（12）</summary>
+    <div class="ci-annos-body">
+          <p><strong>汉宫春</strong>：词牌名，又名“汉宫春慢”“庆千秋”。汉宫，汉朝宫殿，亦借指古代封建王朝的宫殿。元盛如梓《庶斋老学丛谈》云：“武昌濒江有吕公矶，上有黄鹤楼。一日有题《汉宫春》于其上云……不知为何人作，或言洞宾语也。后三十年己未，元兵渡江。”东晋无名氏据旧籍撰有《汉宫春色》，写西汉惠帝皇后张嫣遗事，以张皇后为汉宫第一美人，然其遭遇极为不幸。调名或本此。此调有两体。一为平韵体，始见《梅苑》卷一载宋张先词。《词谱》卷二四云：“皆以前后段起句用韵、不用韵辨体。”一为仄韵体，见宋康与之《顺庵乐府》。宋有无名氏词名《汉宫春慢》，见《高丽史·乐志》二。北宋新声，张先《蜡梅》词为创调之作。宋人用此调者较多。辛弃疾词题为《立春》，乃宋词名篇，亦为宋人通用之正体。辛词另有《会稽蓬莱阁怀古》是以文为词之典范，词情悲凉而豪放，词云：“秦望山头，看乱云急雨，倒立江湖。不知云者为雨，雨者云乎。长空万里，被西风、变灭须臾。回首听、月明天籁，人间万窍号呼。谁问若耶溪上，倩美人西去，麋鹿姑苏。至今故国人望，一舸归欤。岁云暮矣，问何不、鼓瑟吹竽。君不见、王亭谢馆，冷烟寒树啼乌。”词中多用文言虚词与文言句法，但全词意脉贯注，极为生动。无名氏一首抒写宫怨，最切合此调之声情，词云：“玉减香消，被婵娟误我，临镜妆慵。无聊强开强解，蹙破眉峰。凭高望远，但断肠、残月初钟。须信道、承恩在貌，如何教妾为容。风暖乌声和碎，更日高院静，花影重重。愁来待只滞酒，酒困愁浓。长门怨感，恨无金、买赋临邛。翻动念、年年女伴，越溪共采芙蓉。”陆游《初自南郑来成都作》乃感慨时事与言志之词，词云： “羽箭雕弓，忆呼鹰古垒，截虎平川。吹笳暮归野帐，雪压青毡。淋漓醉墨，看龙蛇、飞落蛮笺。人误许、诗情将略，一时才气超然。何事又作南来，看重阳药市，元夕灯山。花时万人乐处，鼓帽垂鞭。闻歌感旧，尚时时、流涕尊前。君记取、封侯事在，功名不信由天。”此调音节较响亮，而调势于奔放中归于收敛，多为豪放词人所用以言志抒情，但亦可表达婉约与含蓄之情。南宋词人用者较众。</p>
+          <p><strong>流波</strong>：1、流水。2. 比喻晶莹流转的眼波。唐 刘禹锡《叹水别白二十二》：“君游金谷堤上，我在石渠署里。两心相忆似流波，潺湲日夜无穷已”。</p>
+          <p><strong>徂川</strong>：流水。亦比喻流逝的岁月。唐 李白《月夜江行寄崔员外宗之》：“归路方浩浩，徂川去悠悠。徒悲蕙草歇，复听菱歌愁”。</p>
+          <p><strong>轻荡</strong>：1.轻浮淫荡。 2.轻飘晃荡。魏晋 阮籍《咏怀八十二首》：“轻荡易恍惚，飘飖弃其身。飞飞鸣且翔，挥翼且酸辛”。</p>
+          <p><strong>山魈</strong>：传说中山里的怪物。唐 施肩吾《咏山魈》：“山魈本是伍家奴，何事今为圣者呼？小鬼不须乖去就，国家才子号肩吾”。</p>
+          <p><strong>缺月</strong>：不圆之月。宋 辛弃疾《沁园春》：“正惊湍直下，跳珠倒溅；小桥横截，缺月初弓”。</p>
+          <p><strong>连娟</strong>：1. 弯曲而纤细。 2. 纤弱; 苗条。宋 苏轼《白鹤峰新居欲成夜过西邻翟秀才二首》：“林行婆家初闭户，翟夫子舍尚留关。连娟缺月黄昏后，缥缈新居紫翠间”。</p>
+          <p><strong>社翁</strong>：旧时对文士名流的尊称。 宋 蔡绦《西清诗话·方城高士》：“ 范谦叔居方城 。有高士自言：昔乃白发社翁，遇师授以神药，颜如渥丹。” 清 李渔《慎鸾交·订游》：“小生请问老社翁来到敝乡，可曾徧阅山川，略亲歌舞？”。</p>
+          <p><strong>东林</strong>：1. 东边的树林或竹林。 2. 指庐山东林寺。 3. 指明末东林党。 4. 指东林书院。此处指章丘明水古城东边的竹林。唐 王维《赠从弟司库员外絿》：“清冬见远山，积雪凝苍翠。浩然出东林，发我遗世意”。</p>
+          <p><strong>傍览</strong>：从旁观看﹑打量。唐 李延寿《魏书·列传·卷九》：“及车驾还，浩从幸西河、太原，下临河流，傍览川城，慨然有感”。</p>
+          <p><strong>灏露</strong>：白露。灏，用同"皓"。明 刘基 《述志赋》：“漱飞泉之华滋兮，浥灝露之醇英”。</p>
+          <p><strong>新亭</strong>：取自宋 辛弃疾《水龙吟》：“长安父老，新亭风景，可怜依旧”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-44">
+          <div class="ci-head"><span class="ci-num">44</span><h2 class="ci-title">风入松</h2></div>
+          <div class="ci-lyric">
+            空斋扶杖唱悲欢。<br>
+            飘罢科目三。<br>
+            玉珑信识琼枝软，最解情、烟瓦红栏。<br>
+            茶碨密云腾去，粟明霏雪同还。<br>
+            词波清障倦姣寒。<br>
+            千里赴超然。<br>
+            梨宫曾护梨花泪，只留得、冰鉴疏残。<br>
+            常醉年年花里，野情时到春山。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（13）</summary>
+    <div class="ci-annos-body">
+          <p><strong>风入松</strong>：词牌名，古琴曲，又名“风入松慢”“松风慢”“远山横”“销夏”。古琴曲有《风入松》，相传为晋代嵇康所作。唐僧皎然有《风人松歌》，调名本此。宋郭茂倩《乐府诗集》卷六十“琴曲歌辞”四录唐代诗僧皎然的《风入松歌》，并注云：“《琴集》日：‘《风入松》，晋嵇康所作也。”’皎然《风入松歌》为杂言乐府：“西岭松声落日秋，千枝万叶风飕飕。美人援琴弄成曲，写得松间声断续。声断续，清我魂，流波坏陵安足论。美人夜坐月明里，含少商兮照清徵。风何凄兮飘凤脊，搅寒松兮又夜起。夜未央，曲何长，金徽更促声泱泱。何人此时不得意，意苦弦悲闻客堂。”故《白香词谱》谓：“是本调调名。由琴曲而入乐府，复由乐府而沿为词名，由来古矣。”《钦定词谱》云：“古琴曲有《风入松》，……《宋史·乐志》注“林钟商”；元高拭词，注‘仙吕调’，又‘双调’；蒋氏《十三调》注‘双调’。亦名‘风人松慢’，韩淲词，有‘小楼春映远山横’句，名‘远山横’。”? 元赵汸“代送吴德夫衡阳巡检”一词名“松风慢”，见《东山存稿》。? 清沈谦用仄韵，有“忽忆东头销永夏”句，故名“销夏”，见《今词宛》。?宋人据古琴曲谱词，始词为晏几道两首，均言情之作，如其一：“心心念念忆相逢。别恨谁浓。就中懊恼难拼处，是擘钗、分钿匆匆。却是桃源路失，落花空记前踪。彩笺出尽浣溪红。深意难通。强欢碲酒图消遣，到醒来，愁闷还重。若是初心未改，多应此意须同。”此为七十四字体，前后段第二旬比吴词少一字，为五字句，余同。吴词七十六字者为宋人通用之正体。吴文英此调五词均佳作，“听风听雨过清明”一首为宋词名篇。调属林钟商，重头曲，每段三个七字句，其中一句为上三下四句法，嵌入一个五字句，而两结句为平仄相对之六字句，起两句音节较为响亮，而上三下四之七字句一顿，结两句有收敛之势，故音韵婉约谐美而含蓄，南宋词人用者甚众。前后段各两结句或前段对偶，或后段对偶，如吴文英前段对偶：“昨夜灯前歌黛、今朝陌上啼妆”。后段对偶：“哀曲霜鸿凄断，梦魂寒蝶幽飓”。南宋初年宋高宗曾甚赏太学生俞国宝一词。周密《武林旧事》卷三：“一日，御舟经（西湖）断桥，桥旁有小酒肆，颇雅洁，中饰素屏，书《风入松》一词于上，光尧（宋高宗）驻目称赏久之，宣问何人所作，乃太学生俞国宝醉笔也。其词云：‘一春长费买花钱。日日醉湖边。玉骢惯识西泠路，骄嘶过、沽酒楼前。红杏香中歌舞，绿杨影里秋千。东风十里丽人天。花压鬓云偏。画船载取春归去，余情在、湖水湖烟。明日再携残酒，来寻陌上花钿。’上笑日：‘此词甚好，但末句未免儒酸。’因改定云‘明日重扶残醉’，则迥不同矣。即日命解褐云。”俞国宝之词因此为宋词名篇。侯真《西湖戏作》实为感旧之词：“少年心醉杜韦娘。曾格外疏狂。锦笺预约西湖上，共幽深、竹院松窗。愁夜黛眉颦翠，怕归罗帕分香。重来一梦觉黄粱。空烟水迷茫。如今眼底无姚魏，记旧游、凝伫凄凉。入扇柳风残酒，点衣花雨斜阳。”此词流美工致，前后段各两结句均为对偶。纵观此调宜于感旧、悼亡、写景，要求词意婉约而意象优美。</p>
+          <p><strong>空斋</strong>：空荡荡的书房。宋 辛弃疾《送剑与傅岩叟》：“镆邪三尺照人寒，试与挑灯子细看。且挂空斋作琴伴，未须携去斩楼兰”。</p>
+          <p><strong>扶杖</strong>：拄杖。唐 柳宗元《觉衰》：“出门呼所亲，扶杖登西林。高歌足自快，商颂有遗音”。</p>
+          <p><strong>科目三</strong>：网络流行词，科目三原是机动车驾驶考试的一部分，现在指一套儿丝滑的小连招儿舞蹈，让人不禁想舞动起来。广西科目三据说可以追溯到一场婚礼，是当地人自创的用“魔性”舞步代替婚闹，庆祝新人喜结连理的舞蹈形式。科目三也被泛指为动作夸张、魔性、类似土味“社会摇”的动作。</p>
+          <p><strong>玉珑</strong>：即玉珑松，花名。? 金 元好问《游天坛杂诗五首·其二》：“漫山白白与红红，小树低丛看不供。总道楂花香气好，就中偏爱玉珑松”。</p>
+          <p><strong>琼枝</strong>：1. 传说中的玉树。 2. 喻嘉树美卉。 3. 喻贤才。 4. 喻皇族子孙。 5. 喻美女。 6. 喻灯烛。 7. 木棉树的别名。宋 李清照《渔家傲》：“雪里已知春信至，寒梅点缀琼枝腻”。</p>
+          <p><strong>烟瓦</strong>：指绵延的屋宇。 宋? 范仲淹?《苏州十咏·虎丘山》：“ 吴 都十万户，烟瓦亙西南”。</p>
+          <p><strong>密云</strong>：密布的浓云。《后汉书·桓帝纪》：“顷雨泽不沾，密云復散，儻或在兹。” 晋? 曹摅?《思友人诗》：“密云翳阳景，霖潦淹庭除。” 许地山?《你为什么不来》：“在密云不飞，急雨如注的时候，谁不愿在深闺中等她心爱的人前来细谈呢？”。</p>
+          <p><strong>霏雪</strong>：纷飞的雪花。宋 吴潜《霜天晓角》：“金粟如霏雪。扫地为芳席。且令诸公一笑，怕明夜、无此月”。</p>
+          <p><strong>词波</strong>：1.文词的光华。 2.指文词。宋 杨万里《谢曹宗臣惠双溪集》：“溪光滴作两眼明，溪秀吐作五字清。开卷看来掩卷坐，词波跤作双溪声”。</p>
+          <p><strong>超然</strong>：超凡脱俗，高超出众，豁然，怅然，超越常人的想法和行为。宋 陆游《汉宫春》：“人误许、诗情将略，一时才气超然”。</p>
+          <p><strong>梨宫、梨花</strong>：1. 汉宫名。 2. 泛指帝宫。引申梨园之意，此处指章丘明水古城孟家戏楼。宋 项安世《七夕谢孟漕品味》：“戢戢玉莲参藕艇，忻忻火枣会梨宫。星轺著意来看客，不与寻常乞巧同”。梨花：1. 亦作" 棃花"。 2. 梨树的花，一般为纯白色。3. 一种较小的酒杯名。 4. 指梨花枪法。 5. 指梨花大鼓。详" 梨花大鼓"。 6. 旧武器名。参见" 梨花枪"。明 唐寅《一剪梅》：“雨打梨花深闭门，孤负青春，虚负青春。赏心乐事共谁论？花下销魂，月下销魂”。</p>
+          <p><strong>冰鉴</strong>：1. 古代器物名，置冰于其中，以冷藏食物。2. 镜子。3. 指月亮。4. 比喻明察。5. 引申为借鉴。6. 相面。清 戴亨《冰鉴》：“谩誇水镜别妍媸，一夕严风异昔时。我自不嫌寒彻骨，独留冰鉴照须眉”。</p>
+    </div>
+  </details>
+        </article>
+
+        <article class="ci-card" id="poem-45">
+          <div class="ci-head"><span class="ci-num">45</span><h2 class="ci-title">洞仙歌 <span class="ci-sub">· 感遇有怀</span></h2></div>
+          <div class="ci-lyric">
+            遥想，及冠当年，自命文昌阁主。<br>
+            奋首跨雕鞍，敕雨龙风虎。<br>
+            忘机鸥鹭，浮云吩咐。<br>
+            望断烟波，景至已、吞空谷。<br>
+            人过尽，料理半江情愫。<br>
+            承顾。<br>
+            欲染胭脂琼朵，浣石滩渡。<br>
+            书剑暗许明城，谁管天聚散、千秋蹴。<br>
+            不堪忍见青娥，来春依傍祖洲，方知有、颜光禄。<br>
+            豪饮酒中湖，白日悬处。吟诗李杜。<br>
+            锦帐里、世涂翻覆。<br>
+            耶溪近，古月远、竟将身误。
+          </div>
+          <details class="ci-annos">
+    <summary>注释 · Annotations（16）</summary>
+    <div class="ci-annos-body">
+          <p><strong>洞仙歌</strong>：洞仙歌，原唐教坊曲名，后用作词调名。洞仙：仙人好居洞壑，故通称为洞仙。这里指道教成仙之人。据北宋李昉《太平广记》载，九陇（在今四川广元西）人张守珪，家庭殷富，有茶园，每岁皆召采茶人力百余，男女佣工皆有。其中一少年自言无亲族，聪慧勤恳忠实，守珪特别喜爱，收为义子。娶茶园一位二十岁女子为妻。二人有道术，能让树生食盐和奶酪，让碗里生酒。自称阳平洞中的仙人，能在洞中洞察人世间的生死兴衰和旱涝风雨。调名本意即为歌咏洞中仙人自在生活的歌曲。敦煌曲中有此调，但与宋人所作此词体式不同。有中调和长调两体。《乐章集》兼入“中吕”、“仙吕”、“般涉”三调，句读亦参差不一。八十三字，前后片各三仄韵。常以《东坡乐府》之《洞仙歌令》为准。音节舒徐，极骀宕摇曳之致。调见北宋柳永《乐章集》。此调又名《洞仙歌令》《洞仙歌慢》《洞仙词》《洞中仙》《洞玄歌》《羽仙歌》。</p>
+          <p><strong>及冠</strong>：指男子年满二十。古代男子二十岁行冠礼，故名。宋 欧阳修《画地有声》：“幼敏悟过人，读书辄成诵。及冠，嶷然有声”。</p>
+          <p><strong>文昌阁</strong>：位于山东济南章丘东山湿地公园，作者年少居于此处。明 袁宏道《虎丘记》：“文昌阁亦佳，晚树尤可观”。</p>
+          <p><strong>奋首</strong>：犹仰首。明 黄省曾《独漉篇》：“石鲸峨峨，扬鬣奋首。雷雨满盈，常自鸣吼”。</p>
+          <p><strong>雕鞍</strong>：1、是指雕饰有精美图案的马鞍。2.借指宝马。3. 雕刻花纹的马鞍。借指坐骑。元 乔吉《春闺怨》：“不系雕鞍门前柳，玉容寂寞见花羞，冷风儿吹雨黄昏后”。</p>
+          <p><strong>忘机</strong>：消除机巧之心。常用以指甘于淡泊，与世无争。元 白朴《沉醉东风》：“虽无刎颈交，却有忘机友，点秋江白鹭沙鸥。傲杀人间万户侯，不识字烟波钓叟”。鸥鹭忘机，人无巧诈之心，异类可以亲近。后比喻淡泊隐居，不以世事为怀。</p>
+          <p><strong>景至</strong>：冬至之景。唐 穆寂《冬至日祥风应候》：“节逢清景至，占气二仪中。独喜登台日，先知应候风”。</p>
+          <p><strong>情愫</strong>：也作“情素” ; 愫：真实的情意，诚意。代表在特定情境下的一种只可意会不可言传的心境。宋 李新《行路难》：“百年拆拟同灰尘，醉指青松表情愫。可怜一日君心改，前日之言复谁顾”。</p>
+          <p><strong>承顾</strong>：承继看管。宋 黄晞《诗一首》：“还记当头洒泪人，同是從前旧承顾。中郎一见厚难忘，柯亭有竹君知否”。</p>
+          <p><strong>书剑</strong>：书和剑。学书学剑。谓学文学武。宋辛弃疾《鹧鸪天》：“鹏北海，凤朝阳。又携书剑路茫茫。明年此日青云上，却笑人间举子忙”。</p>
+          <p><strong>青娥</strong>：在古典文学里，指与女性有关的一些意象。一是指青女，也就是主司霜雪的女神；二是指美丽的少女，如明代夏完淳《青楼篇与漱广同赋》：“ 长安大道平如组，青娥红粉娇歌舞。”；三是指娥眉。</p>
+          <p><strong>祖洲</strong>：古代传说中的十洲之一。宋 贺铸《寒松叹》：“鹊惊桥断，凤怨箫闲，彩云薄晚苍凉。难致祖洲灵草，方士神香”。</p>
+          <p><strong>颜光禄</strong>：南朝刘宋文学家，南朝宋文坛领袖人物，“元嘉三大家”之一。颜延之的诗文辞藻艳丽，当时的人们常将他与同时代的谢灵运并称“颜谢”，又与谢灵运、鲍照一起，被称为南朝“元嘉三大家”。颜延之的文学成就，在中国古代文学史上占有重要一席。颜延之少孤贫，居负郭，室巷甚陋。好读书，无所不览，文章之美，冠绝当时。饮酒不护细行，年三十，犹未婚。妹适东莞刘宪之，穆之子也。</p>
+          <p><strong>李杜</strong>：李白和杜甫的合称。唐 韩愈《调张籍》：“李杜文章在，光焰万丈长。不知群儿愚，那用故谤伤”。</p>
+          <p><strong>世涂</strong>：光天化日之下; 亦常比喻处世的经历。《三国志·魏志·荀彧传》“ 诜 弟 顗 ， 咸熙 中为司空” 裴松之 注引 晋 孙盛 《晋阳秋》：“﹝ 荀粲﹞常谓 嘏 、 玄 曰：‘子等在世涂间，功名必胜我，但识劣我耳！’” 唐 秦韬玉 《寄李处士》诗：“世涂必竟皆应定，人事都来不在忙。” 明 何景明 《蹇赋》：“悲世涂之迫阨兮，互险坦而多歧。” 清 唐孙华 《送周序三广文之官宿松》诗：“世涂荆棘羡闲官，喜无案牍千重积”。</p>
+          <p><strong>耶溪</strong>：即若耶溪。传说西施浣纱处。唐 李白《采莲曲》：“若耶溪傍采莲女，笑隔荷花共人语。日照新妆水底明，风飘香袂空中举”。</p>
+    </div>
+  </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">参考书目 · References</p>
+        <div class="mq-section-card">
+          <ul class="mq-refs">
+            <li>《姜夔词集》 姜夔著，李强导读，上海古籍出版社</li>
+            <li>《柳永词集》 柳永著，谢桃坊导读，上海古籍出版社</li>
+            <li>《秦观词集》 秦观著，徐培均导读，上海古籍出版社</li>
+            <li>《李清照词集》李清照著，吴惠娟导读，上海古籍出版社</li>
+            <li>《陆游词集》 陆游著，夏承焘导读，上海古籍出版社</li>
+            <li>《苏轼词集》 苏轼著，刘石导读，上海古籍出版社</li>
+            <li>《李煜词集》 李煜著，王兆鹏导读，上海古籍出版社</li>
+            <li>《贺铸词集》 贺铸著，钟振振导读，上海古籍出版社</li>
+            <li>《欧阳修词集》 欧阳修著，张璟导读，上海古籍出版社</li>
+            <li>《周邦彦词全集》 谭新红李烨含著，崇文书局</li>
+            <li>《吴文英词全集》 李珊著，崇文书局</li>
+            <li>《辛弃疾词集》 辛弃疾著，上海古籍出版社</li>
+            <li>《温庭筠词集韦庄词集》 温庭筠韦庄著，上海古籍出版社</li>
+            <li>《晏殊词集晏几道词集》 晏殊晏几道著，张草纫导读，上 海古籍出版社</li>
+            <li>《李贺歌诗笺注》 李贺著，吴正子笺注，中华书局</li>
+            <li>《李商隐诗集》李商隐著，朱鹤龄笺注，上海古籍出版社</li>
+            <li>《石林词笺注》叶梦得著，苏哲伦笺注，上海古籍出版社</li>
+            <li>《樵歌校注》 朱敦儒著，邓子勉校注，上海古籍出版社 古诗文网 https://www.gushiwen.cn/ 汉典网 https://www.zdic.net/ 组词网 https://www.hanyuguoxue.com/zuci/ 搜韵网 https://sou-yun.cn/</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">词家简介 · Poets Referenced</p>
+        <details class="mq-section-card mq-bios">
+          <summary style="cursor:pointer;font-family:var(--font-label);color:var(--color-accent);">展开二十四位词家简介 · Show 24 poet biographies</summary>
+          <div style="margin-top:1rem;">
+          <p><strong>吴文英</strong>：（约1200 ～1260），字君特，号梦窗，晚年又号觉翁，四明（今浙江宁波）人。原出翁姓，后出嗣吴氏。与贾似道友善。有《梦窗词集》一部，存词三百四十余首，分四卷本与一卷本。其词作数量丰沃，风格雅致，多酬答、伤时与忆悼之作，号“词中李商隐”。而后世品评却甚有争论。</p>
+          <p><strong>秦观</strong>：（1049-1100）字太虚，又字少游，别号邗沟居士，世称淮海先生。汉族，北宋高邮（今江苏）人，官至太学博士，国史馆编修。秦观一生坎坷，所写诗词，高古沉重，寄托身世，感人至深。秦观生前行踪所至之处，多有遗迹。如浙江杭州的秦少游祠，丽水的秦少游塑像、淮海先生祠、莺花亭；青田的秦学士祠；湖南郴州三绝碑；广西横县的海棠亭、醉乡亭、淮海堂、淮海书院等。秦观墓在无锡惠山之北粲山上，墓碑上书“秦龙图墓”几个大字。有秦家村、秦家大院以及省级文物保护单位古文游台。</p>
+          <p><strong>苏轼</strong>：（1037 年1 月8 日-1101 年8 月24 日）字子瞻、和仲，号铁冠道人、东坡居士，世称苏东坡、苏仙，汉族，眉州眉山（四川省眉山市）人，祖籍河北栾城，北宋著名文学家、书法家、画家，历史治水名人。苏轼是北宋中期文坛领袖，在诗、词、散文、书、画等方面取得很高成就。文纵横恣肆；诗题材广阔，清新豪健，善用夸张比喻，独具风格，与黄庭坚并称“苏黄”；词开豪放一派，与辛弃疾同是豪放派代表，并称“苏辛”；散文著述宏富，豪放自如，与欧阳修并称“欧苏”，为“唐宋八大家”之一。苏轼善书，“宋四家”之一；擅长文人画，尤擅墨竹、怪石、枯木等。与韩愈、柳宗元和欧阳修合称“千古文章四大家”。作品有《东坡七集》《东坡易传》《东坡乐府》《潇湘竹石图卷》《古木怪石图卷》等。</p>
+          <p><strong>晏几道</strong>：（1038 年—1110 年），北宋著名词人。字叔原，号小山，抚州临川文港沙河（今属江西省南昌市进贤县）人。晏殊第七子。 历任颍昌府许田镇监、乾宁军通判、开封府判官等。性孤傲，中年家境中落。与其父晏殊合称“二晏”。词风似父而造诣过之。工于言情，其小令语言清丽，感情深挚，尤负盛名。表达情感直率。多写爱情生活，是婉约派的重要作家。有《小山词》留世。</p>
+          <p><strong>晁补之</strong>：（公元1053 年—公元1110 年），字无咎，号归来子，汉族，济州巨野（今属山东巨野县）人，北宋时期著名文学家。为“苏门四学士”（另有北宋诗人黄庭坚、秦观、张耒）之一。曾任吏部员外郎、礼部郎中。 工书画，能诗词，善属文。与张耒并称“晁张”。其散文语言凝练、流畅，风格近柳宗元。诗学陶渊明。其词格调豪爽，语言清秀晓畅，近苏轼。但其诗词流露出浓厚的消极归隐思想。著有《鸡肋集》、《晁氏琴趣外篇》等。</p>
+          <p><strong>辛弃疾</strong>：（1140 年5 月28 日－1207 年10 月3 日），原字坦夫，后改字幼安，中年后别号稼轩，山东东路济南府历城县（今山东省济南市历城区）人。南宋官员、将领、文学家，豪放派词人，有“词中之龙”之称。与苏轼合称“苏辛”，与李清照并称“济南二安”。辛弃疾出生时，中原已为金兵所占。21 岁参加抗金义军，不久归南宋。历任湖北、江西、湖南、福建、浙东安抚使等职。一生力主抗金。曾上《美芹十论》与《九议》，条陈战守之策。其词抒写力图恢复国家统一的爱国热情，倾诉壮志难酬的悲愤，对当时执政者的屈辱求和颇多谴责；也有不少吟咏祖国河山的作品。题材广阔又善化用前人典故入词，风格沉雄豪迈又不乏细腻柔媚之处。由于辛弃疾的抗金主张与当政的主和派政见不合，后被弹劾落职，退隐江西带湖。</p>
+          <p><strong>李清照</strong>：（1084 年3 月13 日～1155 年5 月12 日）号易安居士，汉族，山东省济南章丘人。宋代（南北宋之交）词人，婉约词派代表，有“千古第一才女”之称。所作词，前期多写其悠闲生活，后期多悲叹身世，情调感伤。形式上善用白描手法，自辟途径，语言清丽。论词强调协律，崇尚典雅，提出词“别是一家”之说，反对以作诗文之法作词。能诗，留存不多，部分篇章感时咏史，情辞慷慨，与其词风不同。有《易安居士文集》《易安词》，已散佚。后人有《漱玉词》辑本。今有《李清照集校注》。</p>
+          <p><strong>周紫芝</strong>：（1082-1155），南宋文学家。字少隐，号竹坡居士，宣城（今安徽宣州市）人。绍兴进士。高宗绍兴十五年，为礼、兵部架阁文字。高宗绍兴十七年（1147）为右迪功郎敕令所删定官。历任枢密院编修官、右司员外郎。绍兴二十一年（1151）出知兴国军（治今湖北阳新），后退隐庐山。交游的人物主要有李之仪、吕好问吕本中父子、葛立方以及秦桧等，曾向秦桧父子献谀诗。约卒于绍兴末年。著有《太仓稊米集》、《竹坡诗话》、《竹坡词》。有子周畴。</p>
+          <p><strong>孙光宪</strong>：（901-968），字孟文，自号葆光子，属鸡，出生在陵州贵平（今属四川省仁寿县东北的向家乡贵坪村）。仕南平三世，累官荆南节度副使、朝议郎、检校秘书少监，试御史中丞。入宋，为黄州刺史。太祖乾德六年卒。《宋史》卷四八三、《十国春秋》卷一○二有传。孙光宪“性嗜经籍，聚书凡数千卷。或手自钞写，孜孜校雠，老而不废”。著有《北梦琐言》、《荆台集》、《橘斋集》等，仅《北梦琐言》传世。词存八十四首，风格与“花间”的浮艳、绮靡有所不同。刘毓盘辑入《唐五代宋辽金元名家词集六十种》中，又有王国维缉《孙中丞词》一卷。</p>
+          <p><strong>李道清</strong>：字味兰，合肥人编修李经佘女。常熟举人杨鉴莹室。</p>
+          <p><strong>高观国</strong>：南宋词人。字宾王，号竹屋。山阴(今浙江绍兴) 人。生卒年不详。生活于南宋中期，年代约与姜夔相近。与史达祖友善，常常相互唱和，词亦齐名，时称“高，史”。其成就虽不及史达祖，但也有值得重视之处。他善于创造名句警语，如“香心静，波心冷，琴心怨，客心惊”；“开遍西湖春意烂，算群花、正作江山梦”，都颇为后人传诵。从其作品中看不出有仕宦的痕迹，大约是一位以填词为业的吟社中人。为“南宋十杰”之一。有词集《竹屋痴语》。</p>
+          <p><strong>仇远</strong>：(1247 年～1326 年），字仁近，一字仁父，钱塘（今浙江杭州）人。因居余杭溪上之仇山，自号山村、山村民，人称山村先生。元代文学家、书法家。元大德年间(1297~1307) 五十八岁的他任溧阳儒学教授，不久罢归，遂在忧郁中游山河以终。</p>
+          <p><strong>姜夔</strong>：（约1155—约1221），字尧章，号白石道人，汉族，一说南宋饶州鄱阳（今江西鄱阳）人，另一说江西德兴人，南宋文学家、音乐家，被誉为中国古代十大音乐家之一。他的作品素以空灵含蓄著称，姜夔对诗词、散文、书法、音乐，无不精善，是继苏轼之后又一难得的艺术全才。有《白石道人诗集》《白石道人歌曲》《续书谱》《绛帖平》等书传世。</p>
+          <p><strong>柳永</strong>：（约984 年—约1053 年）北宋著名词人，婉约派代表人物。汉族，崇安（今福建武夷山）人，原名三变，字景庄，后改名永，字耆卿，排行第七，又称柳七。宋真宗朝进士，官至屯田员外郎，故世称柳屯田。他自称“奉旨填词柳三变”，以毕生精力作词，并以“白衣卿相”自诩。其词多描绘城市风光和歌妓生活，尤长于抒写羁旅行役之情，创作慢词独多。铺叙刻画，情景交融，语言通俗，音律谐婉，在当时流传极其广泛，人称“凡有井水饮处，皆能歌柳词”，婉约派最具代表性的人物之一，对宋词的发展有重大影响，代表作 《雨霖铃》《八声甘州》。</p>
+          <p><strong>曹勋</strong>：（1098—1174）字公显，一字世绩，号松隐，颍昌阳翟( 今河南禹县) 人。宣和五年(1123)，以荫补承信郎，特命赴进士廷试，赐甲科。靖康元年(1126)，与宋徽宗一起被金兵押解北上，受徽宗半臂绢书，自燕山逃归。建炎元年(1127)秋，至南京( 今河南商丘) 向宋高宗上御衣书，请求召募敢死之士，由海路北上营救徽宗。当权者不听，被黜。绍兴十一年(1141)，宋金和议成，充报谢副使出使金国，劝金人归还徽宗灵柩。十四年、二十九年又两次使金。孝宗朝拜太尉。著有《松隐文集》、《北狩见闻录》等。他的诗比较平庸，但有几首使金诗颇值得注意。</p>
+          <p><strong>林则徐</strong>：1785 年8 月30 日（乾隆五十年）~1850 年11 月22 日（道光三十年），汉族，福建侯官人（今福建省福州），字元抚，又字少穆、石麟，晚号俟村老人、俟村退叟、七十二峰退叟、瓶泉居士、栎社散人等。是清朝后期政治家、思想家和诗人，是中华民族抵御外辱过程中伟大的民族英雄，其主要功绩是虎门销烟。官至一品，曾任江苏巡抚、两广总督、湖广总督、陕甘总督和云贵总督，两次受命为钦差大臣；因其主张严禁鸦片、抵抗西方的侵略、坚持维护中国主权和民族利益深受中国人的敬仰。</p>
+          <p><strong>杨玉衔</strong>：1869-1943，字懿生，号铁夫、季良、鸾坡，以号行，广东香山人。光绪二十七年（1901）举人，三十年（1904）考取内阁中书。官广西知府。民国间曾任无锡国专词学教授及香港广州大学、国民大学教授。曾从朱祖谋学梦窗，后即以笺释吴文英的《梦窗词》扬名词坛。著有《抱香室词钞》、《梦窗词笺》等。晚年蛰居香港之青山，以著述自娱。</p>
+          <p><strong>张先</strong>：（990 －1078），字子野，乌程（今浙江湖州吴兴）人。北宋时期著名的词人，曾任安陆县的知县，因此人称“张安陆”。天圣八年进士，官至尚书都官郎中。晚年退居湖杭之间。曾与梅尧臣、欧阳修、苏轼等游。善作慢词，与柳永齐名，造语工巧，曾因三处善用“影”字，世称张三影。</p>
+          <p><strong>黄庭坚</strong>：（1045.8.9-1105.5.24），字鲁直，号山谷道人，晚号涪翁，洪州分宁（今江西省九江市修水县）人，北宋著名文学家、书法家，为盛极一时的江西诗派开山之祖，与杜甫、陈师道和陈与义素有“一祖三宗”（黄庭坚为其中一宗）之称。与张耒、晁补之、秦观都游学于苏轼门下，合称为“苏门四学士”。生前与苏轼齐名，世称“苏黄”。著有《山谷词》，且黄庭坚书法亦能独树一格，为“宋四家”之一。</p>
+          <p><strong>贺铸</strong>：贺铸(1052 ～1125) 北宋词人。字方回，号庆湖遗老。汉族，卫州（今河南卫辉）人。宋太祖贺皇后族孙，所娶亦宗室之女。自称远祖本居山阴，是唐贺知章后裔，以知章居庆湖（即镜湖），故自号庆湖遗老。</p>
+          <p><strong>周邦彦</strong>：（1056 年－1121 年），中国北宋末期著名的词人，字美成，号清真居士，汉族，钱塘（今浙江杭州）人。历官太学正、庐州教授、知溧水县等。徽宗时为徽猷阁待制，提举大晟府。精通音律，曾创作不少新词调。作品多写闺情、羁旅，也有咏物之作。格律谨严。语言典丽精雅。长调尤善铺叙。为后来格律派词人所宗。旧时词论称他为“词家之冠”。有《清真集》传世。</p>
+          <p><strong>陆游</strong>：（1125年11月13日－1210年1月26日），字务观，号放翁，汉族，越州山阴（今浙江绍兴）人，尚书右丞陆佃之孙，南宋文学家、史学家、爱国诗人。陆游生逢北宋灭亡之际，少年时即深受家庭爱国思想的熏陶。宋高宗时，参加礼部考试，因受宰臣秦桧排斥而仕途不畅。孝宗时赐进士出身。中年入蜀，投身军旅生活。嘉泰二年（1202 年），宋宁宗诏陆游入京，主持编修孝宗、光宗《两朝实录》和《三朝史》，官至宝章阁待制。晚年退居家乡。创作诗歌今存九千多首，内容极为丰富。著有《剑南诗稿》《渭南文集》《南唐书》《老学庵笔记》等。</p>
+          <p><strong>张炎</strong>：（1248 年－1320 年），字叔夏，号玉田，晚年号乐笑翁。祖籍陕西凤翔。六世祖张俊，宋朝著名将领。父张枢，“西湖吟社”重要成员，妙解音律，与著名词人周密相交。张炎是勋贵之后，前半生居于临安，生活优裕，而宋亡以后则家道中落，晚年漂泊落拓。著有《山中白云词》，存词302 首。张炎另一重要的贡献在于创作了中国最早的词论专著《词源》，总结整理了宋末雅词一派的主要艺术思想与成就，其中以“清空”，“骚雅”为主要主张。</p>
+          <p><strong>李煜</strong>：（937 年8 月15 日―978 年8 月13 日），南唐元宗（即南唐中主）李璟第六子，初名从嘉，字重光，号钟隐、莲峰居士，汉族，生于金陵（今江苏南京），祖籍彭城（今江苏徐州铜山区），南唐最后一位国君。李煜精书法、工绘画、通音律，诗文均有一定造诣，尤以词的成就最高。李煜的词，继承了晚唐以来温庭筠、韦庄等花间派词人的传统，又受李璟、冯延巳等的影响，语言明快、形象生动、用情真挚，风格鲜明，其亡国后词作更是题材广阔，含意深沉，在晚唐五代词中别树一帜，对后世词坛影响深远。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Jincheng Han</p>
+      <p>《梦泉词稿》全文开源发表 · Open-sourced with care — a scholar's corner on the web.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
