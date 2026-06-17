@@ -52,6 +52,37 @@
       .mq-index-item{grid-template-columns:1fr;gap:0.55rem;}
       .mq-index-link{align-self:start;}
     }
+    .mq-toc { margin-top:0.4rem; }
+    .toc-juan { margin-bottom:1.7rem; }
+    .toc-juan:last-child { margin-bottom:0; }
+    .toc-juan-head { font-size:1.12rem; margin:0 0 0.5rem; padding-bottom:0.4rem;
+                     border-bottom:1px solid var(--color-accent); color:var(--color-accent);
+                     display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; }
+    .toc-juan-head span { font-family:var(--font-label); font-size:0.78rem; font-weight:400;
+                          color:var(--color-text-muted); letter-spacing:0.05em; }
+    .toc-list { list-style:none; padding:0; margin:0; }
+    .toc-row { display:flex; align-items:baseline; gap:0.5rem; padding:0.55rem 0;
+               border-bottom:1px dotted var(--color-border-light); }
+    .toc-row:last-child { border-bottom:none; }
+    .toc-num { font-family:var(--font-label); color:var(--color-text-muted); font-size:0.8rem;
+               min-width:1.9rem; text-align:right; }
+    .toc-piece { color:var(--color-text); text-decoration:none; font-size:1.06rem; }
+    .toc-piece:hover { color:var(--color-accent); }
+    .toc-piece .toc-ti { color:var(--color-text-muted); font-size:0.9rem; margin-left:0.35rem; }
+    .toc-dots { flex:1 1 1.2rem; border-bottom:1px dotted var(--color-border);
+                transform:translateY(-3px); min-width:1.2rem; }
+    .toc-form { font-family:var(--font-label); color:var(--color-text-muted); font-size:0.78rem;
+                white-space:nowrap; }
+    .toc-append { margin:0.85rem 0 0; font-family:var(--font-label); font-size:0.85rem;
+                  color:var(--color-text-muted); }
+    .toc-append a { color:var(--color-accent); text-decoration:none;
+                    border-bottom:1px solid rgba(156,91,43,.28); }
+    @media (max-width:720px){
+      .toc-row{flex-wrap:wrap;}
+      .toc-dots{display:none;}
+      .toc-piece .toc-ti{display:block;margin-left:0;}
+      .toc-form{flex-basis:100%;margin-left:1.9rem;}
+    }
   </style>
 </head>
 <body>
@@ -83,7 +114,7 @@
           <p class="mq-meta">韓金成 著 · Jincheng Han · 2024– · 澳門濠鏡 <span class="mq-status">編訂中 In progress</span></p>
           <div class="mq-actions">
             <a href="#preface" class="mq-btn mq-btn-primary">小引 Preface</a>
-            <a href="#included" class="mq-btn">已收篇目 Contents</a>
+            <a href="#included" class="mq-btn">目錄 Contents</a>
             <a href="yingtixu-macau.html" class="mq-btn">讀《鶯啼序》→</a>
             <a href="jiehongman-ucla.html" class="mq-btn">讀《解紅慢》→</a>
             <a href="shengzhouling-ucla.html" class="mq-btn">讀《勝州令》→</a>
@@ -109,56 +140,46 @@
 
     <section class="section" id="included">
       <div class="container">
-        <p class="section-label">已收篇目 · Included Lyrics</p>
-        <ol class="mq-index">
-          <li class="mq-index-item">
-            <div>
-              <h3 class="mq-index-title"><a href="yingtixu-macau.html">鶯啼序 · 記濠鏡（澳門）負笈之歲</a></h3>
-              <p class="mq-index-meta">2026 · Macau</p>
-            </div>
-            <div>
-              <p class="mq-index-desc">卷首長調，倚夢窗正體，四疊二百四十字，記澳門博士歲月與清代廣州中西貿易研究。</p>
-              <div class="mq-index-tags">
-                <span>Classical Chinese Poetry</span>
-                <span>Macau</span>
-                <span>Ci Poetry</span>
-              </div>
-            </div>
-            <a class="mq-index-link" href="yingtixu-macau.html">讀全篇 →</a>
-          </li>
-          <li class="mq-index-item">
-            <div>
-              <h3 class="mq-index-title"><a href="jiehongman-ucla.html">解紅慢 · 客加州大學洛杉磯分校訪學感懷</a></h3>
-              <p class="mq-index-meta">2026 · Los Angeles · UCLA</p>
-            </div>
-            <div>
-              <p class="mq-index-desc">客洛城訪學之作，依《鳴鶴餘音》無名氏體，寫 UCLA 校園風物、課堂書樓與治學自省。</p>
-              <div class="mq-index-tags">
-                <span>Classical Chinese Poetry</span>
-                <span>Ci Poetry</span>
-                <span>UCLA</span>
-                <span>Open Access</span>
-              </div>
-            </div>
-            <a class="mq-index-link" href="jiehongman-ucla.html">讀全篇 →</a>
-          </li>
-          <li class="mq-index-item">
-            <div>
-              <h3 class="mq-index-title"><a href="shengzhouling-ucla.html">勝州令 · 再記洛城問學</a></h3>
-              <p class="mq-index-meta">2026 · Los Angeles · UCLA</p>
-            </div>
-            <div>
-              <p class="mq-index-desc">繼《解紅慢》而作，依《御定詞譜》鄭意孃體，四疊二百十五字，續寫訪學、讀書與自警之懷。</p>
-              <div class="mq-index-tags">
-                <span>Classical Chinese Poetry</span>
-                <span>Ci Poetry</span>
-                <span>UCLA</span>
-                <span>Open Access</span>
-              </div>
-            </div>
-            <a class="mq-index-link" href="shengzhouling-ucla.html">讀全篇 →</a>
-          </li>
-        </ol>
+        <p class="section-label">目錄 · Contents</p>
+        <div class="mq-toc">
+
+          <div class="toc-juan">
+            <h3 class="toc-juan-head">卷一　濠鏡羈旅 <span>Macau</span></h3>
+            <ol class="toc-list">
+              <li class="toc-row"><span class="toc-num">一</span><a class="toc-piece" href="yingtixu-macau.html">鶯啼序<span class="toc-ti">· 記濠鏡負笈之歲</span></a><span class="toc-dots"></span><span class="toc-form">夢窗體 · 二四〇字 · 卷首</span></li>
+              <li class="toc-row"><span class="toc-num">二</span><a class="toc-piece" href="#qishi">戚氏<span class="toc-ti">· 記濠鏡半島日居</span></a><span class="toc-dots"></span><span class="toc-form">柳永體 · 二一二字</span></li>
+              <li class="toc-row"><span class="toc-num">三</span><a class="toc-piece" href="#yujingyao">玉京謠<span class="toc-ti">· 客濠鏡</span></a><span class="toc-dots"></span><span class="toc-form">夢窗自度曲 · 九七字</span></li>
+            </ol>
+          </div>
+
+          <div class="toc-juan">
+            <h3 class="toc-juan-head">卷二　詠物述學 <span>The China Root &amp; the Gourd</span></h3>
+            <ol class="toc-list">
+              <li class="toc-row"><span class="toc-num">四</span><a class="toc-piece" href="#gennong">個儂<span class="toc-ti">· 詠土茯苓 China Root</span></a><span class="toc-dots"></span><span class="toc-form">六醜（周清真）· 一四〇字</span></li>
+              <li class="toc-row"><span class="toc-num">五</span><a class="toc-piece" href="#huzhongtian">壺中天<span class="toc-ti">· 詠葫蘆 Bottle Gourd</span></a><span class="toc-dots"></span><span class="toc-form">念奴嬌 · 一〇〇字</span></li>
+            </ol>
+          </div>
+
+          <div class="toc-juan">
+            <h3 class="toc-juan-head">卷三　懷古 <span>The Canton Trade</span></h3>
+            <ol class="toc-list">
+              <li class="toc-row"><span class="toc-num">六</span><a class="toc-piece" href="#huaigu">寶鼎現<span class="toc-ti">· 廣州十三行懷古</span></a><span class="toc-dots"></span><span class="toc-form">須溪體 · 一五八字</span></li>
+            </ol>
+          </div>
+
+          <div class="toc-juan">
+            <h3 class="toc-juan-head">卷四　紀遊問學 <span>Travels</span></h3>
+            <ol class="toc-list">
+              <li class="toc-row"><span class="toc-num">七</span><a class="toc-piece" href="jiehongman-ucla.html">解紅慢<span class="toc-ti">· 客 UCLA 訪學感懷</span></a><span class="toc-dots"></span><span class="toc-form">鳴鶴餘音體 · 一六〇字</span></li>
+              <li class="toc-row"><span class="toc-num">八</span><a class="toc-piece" href="shengzhouling-ucla.html">勝州令<span class="toc-ti">· 再記洛城問學</span></a><span class="toc-dots"></span><span class="toc-form">鄭意孃體 · 二一五字</span></li>
+              <li class="toc-row"><span class="toc-num">九</span><a class="toc-piece" href="#shaobian">哨遍<span class="toc-ti">· 記黃石之遊</span></a><span class="toc-dots"></span><span class="toc-form">東坡體 · 二〇三字</span></li>
+              <li class="toc-row"><span class="toc-num">十</span><a class="toc-piece" href="#muhusha">穆護砂<span class="toc-ti">· 記客洛城訪學</span></a><span class="toc-dots"></span><span class="toc-form">宋褧體 · 一六九字</span></li>
+              <li class="toc-row"><span class="toc-num">十一</span><a class="toc-piece" href="#duoli">多麗<span class="toc-ti">· 客加州泛詠山海</span></a><span class="toc-dots"></span><span class="toc-form">易安體 · 一三九字</span></li>
+            </ol>
+            <p class="toc-append">附　<a href="chunjiang-huayueye.html">春江花月夜 · 擬張若虛體</a>（客洛城訪學時作）</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -284,7 +305,7 @@
             </div>
           </details>
         </div>
-        <div class="feat-poem" style="margin-top:1.6rem;">
+        <div class="feat-poem" id="huzhongtian" style="margin-top:1.6rem;">
           <h3>壺中天 <span style="font-size:1rem;font-weight:400;color:var(--color-text-muted);">· 詠葫蘆（Bottle Gourd）</span></h3>
           <p class="feat-sub">即《念奴嬌》別名（取「壺中別有天地」之義），雙調一百字，入聲仄韻（詞韻第十七部）；以詠物之調，詠所治之物</p>
           <p style="font-style:italic;color:var(--color-text-muted);font-size:0.92rem;line-height:1.9;border-left:2px solid var(--color-border);padding-left:1rem;margin-bottom:1.2rem;">〔小引〕葫蘆者，道家之法器、岐黃之藥器、民間之工巧也。其形上斂下豐，古人擬之天地；壺中別有日月，鐵柺懸之而貯丹，長房入之而遇仙。然清季番舶西航，此一物自南海之濱輾轉入歐洲好奇之櫥，於是法器、藥器之義盡褫，徒以「異域奇珍」明碼估值——所謂光暈未消，特資本之耳。余治葫蘆貿易之史，憐其浮沉，倚《壺中天》一調詠之。</p>
@@ -397,7 +418,7 @@
           </div>
           <p class="feat-more"><a href="shengzhouling-ucla.html">讀全篇、註釋與跋 · Read the full poem →</a></p>
         </div>
-        <div class="feat-poem">
+        <div class="feat-poem" id="shaobian">
           <h3>哨遍 <span style="font-size:1rem;font-weight:400;color:var(--color-text-muted);">· 記黃石之遊</span></h3>
           <p class="feat-sub">倚東坡正體，二百三字，平仄同部錯叶（詞韻第七部），體近散文</p>
           <p style="font-style:italic;color:var(--color-text-muted);font-size:0.92rem;line-height:1.9;border-left:2px solid var(--color-border);padding-left:1rem;margin-bottom:1.2rem;">〔小引〕丙午孟夏，自洛城北遊，越大鹽湖，趨黃石。其地當二陸之交，地火伏焉：平蕪百泉騰沸，煙柱排空；老忠泉者，每隔時噴薄，玉虹百尺。又見野牛獨齧於亂木間，宛若太古之遺。客中震懾於造化之奇，因倚東坡《哨遍》體記之。</p>
@@ -433,7 +454,7 @@
             </div>
           </details>
         </div>
-        <div class="feat-poem" style="margin-top:1.6rem;">
+        <div class="feat-poem" id="muhusha" style="margin-top:1.6rem;">
           <h3>穆護砂 <span style="font-size:1rem;font-weight:400;color:var(--color-text-muted);">· 記客洛城（洛杉磯）訪學</span></h3>
           <p class="feat-sub">倚宋褧正體，雙調一百六十九字；詞韻第四部，仄韻為主、三平韻通叶。調出西域，本唐張祐舊曲</p>
           <p style="font-style:italic;color:var(--color-text-muted);font-size:0.92rem;line-height:1.9;border-left:2px solid var(--color-border);padding-left:1rem;margin-bottom:1.2rem;">〔小引〕丙午春，余以訪學客洛城，僑止加州大學洛城分校（UCLA）。其地瀕太瀛，長春無冬，紫楹滿衢；園中羅馬連拱，芳甸孤標。余領「客卡」一枚，姓名在焉：朝出檢書，暮歸獨坐，西望神州，輒動鄉思。穆護砂者，唐張祐舊曲，調出西域，今藉以歌西土，亦一奇也。因倚宋褧體記之。</p>
@@ -469,7 +490,7 @@
             </div>
           </details>
         </div>
-        <div class="feat-poem" style="margin-top:1.6rem;">
+        <div class="feat-poem" id="duoli" style="margin-top:1.6rem;">
           <h3>多麗 <span style="font-size:1rem;font-weight:400;color:var(--color-text-muted);">· 客加州，泛詠山海之概</span></h3>
           <p class="feat-sub">倚易安（李清照）正體，雙調一百三十九字，平韻一韻到底（詞韻第三部）</p>
           <p style="font-style:italic;color:var(--color-text-muted);font-size:0.92rem;line-height:1.9;border-left:2px solid var(--color-border);padding-left:1rem;margin-bottom:1.2rem;">〔小引〕余客加州三月有奇，居洛城而遊其四境：西則太瀛無際，潮平千帆；春則長青不謝，棕櫚夾道。每登高西望，輒念太平洋者，即昔日茶瓷番舶、華工金山之所經也；身履其地，乃覺史在足下。前既以《穆護砂》歌洛城，茲復倚易安《多麗》體，泛詠加州山海之概，兼寄西歸之思。易安者，吾鄉章丘明水人也，借其調以寫客懷，亦一段香火因緣云。</p>
