@@ -948,3 +948,165 @@ a.card:hover .card-arrow {
   .audio-bar { gap: 0.75rem; }
   .audio-time { min-width: 64px; font-size: 0.75rem; }
 }
+
+/* ============================================================
+   Persistent music shell — floating mini-player + iframe frame
+   ============================================================ */
+html.shell-frame, html.shell-frame body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+html.shell-frame body {
+  background: var(--color-bg);
+}
+
+/* The site iframe fills the viewport below the (existing) fixed nav.
+   nav height = --nav-height (64px). We add a little breathing room. */
+#siteFrame {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--nav-height));
+  border: 0;
+  display: block;
+  background: var(--color-bg);
+}
+
+/* Floating persistent player (bottom-left so it doesn't clash with
+   the back-to-top button which sits bottom-right). */
+.audio-dock {
+  position: fixed;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 251, 245, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem 0.5rem 0.5rem;
+  box-shadow: 0 6px 28px rgba(44, 36, 22, 0.18);
+  max-width: calc(100vw - 2.8rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.audio-dock .ad-disc {
+  position: relative;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--color-card) 0 4px,
+              var(--color-primary) 5px 100%);
+  border: 2px solid var(--color-primary-light);
+}
+.audio-dock .ad-disc::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg 270deg, rgba(255,251,245,0.55) 360deg);
+  opacity: 0;
+}
+.audio-dock.playing .ad-disc {
+  animation: ad-spin 3s linear infinite;
+}
+.audio-dock.playing .ad-disc::after { opacity: 1; }
+@keyframes ad-spin { to { transform: rotate(360deg); } }
+
+.audio-dock .ad-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+.audio-dock .ad-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+.audio-dock .ad-time {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.audio-dock .audio-play {
+  width: 36px;
+  height: 36px;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.audio-dock .audio-progress {
+  flex: 1;
+  min-width: 80px;
+  height: 5px;
+  max-width: 180px;
+}
+.audio-dock .audio-time { display: none; } /* time shown via .ad-time */
+.audio-dock.collapsed {
+  padding: 0.4rem;
+  border-radius: 50%;
+}
+.audio-dock.collapsed .ad-info,
+.audio-dock.collapsed .audio-progress {
+  display: none;
+}
+.audio-dock-toggle {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.audio-dock-toggle:hover { background: var(--color-border-light); }
+
+/* Autoplay hint shown until the first user interaction unlocks audio */
+.audio-unlock {
+  position: fixed;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  z-index: 130;
+  background: var(--color-primary);
+  color: #FFFBF5;
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(44, 36, 22, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: ad-pulse 2s ease-in-out infinite;
+}
+.audio-unlock.hidden { display: none; }
+@keyframes ad-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(44,36,22,0.3); }
+  50% { box-shadow: 0 6px 28px rgba(139,69,19,0.5); }
+}
+
+@media (max-width: 560px) {
+  .audio-dock { gap: 0.6rem; padding: 0.45rem 0.9rem 0.45rem 0.45rem; bottom: 1rem; left: 1rem; }
+  .audio-dock .ad-title { max-width: 92px; font-size: 0.82rem; }
+  .audio-dock .audio-progress { display: none; }
+  .audio-dock .ad-time { font-size: 0.68rem; }
+}

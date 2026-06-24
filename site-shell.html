@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="shell-frame">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jincheng Han — Historian of Global Trade &amp; Medical History</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- Shared navigation. target="siteView" makes every link load inside the
+       iframe below WITHOUT reloading this shell, so the music keeps playing. -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" target="siteView" class="nav-brand">Jincheng Han</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" target="siteView" data-page="index.html">Home</a></li>
+        <li><a href="cv.html" target="siteView" data-page="cv.html">CV</a></li>
+        <li><a href="research.html" target="siteView" data-page="research.html">Research</a></li>
+        <li><a href="publications.html" target="siteView" data-page="publications.html">Publications</a></li>
+        <li><a href="digital.html" target="siteView" data-page="digital.html">Digital</a></li>
+        <li><a href="news.html" target="siteView" data-page="news.html">News &amp; Notes</a></li>
+        <li><a href="contact.html" target="siteView" data-page="contact.html">Contact</a></li>
+        <li class="nav-lang"><a href="zh.html" target="siteView" data-page="zh.html">中文</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <iframe id="siteFrame" name="siteView" src="index.html" title="Jincheng Han — site"></iframe>
+
+  <!-- Autoplay-unlock prompt: browsers block autoplay with sound until the
+       user interacts. This appears once; one click anywhere starts the music. -->
+  <button class="audio-unlock" id="audioUnlock" type="button">
+    <span aria-hidden="true">🎵</span> Click to play 《停笔处，海云生》
+  </button>
+
+  <!-- Persistent floating player. Lives in this shell, never destroyed. -->
+  <div class="audio-dock" id="audioDock" role="region" aria-label="Music player">
+    <span class="ad-disc" aria-hidden="true"></span>
+    <button class="audio-play" id="dockPlay" data-play-icon="▶" data-pause-icon="❚❚"
+            data-play-label="Play" data-pause-label="Pause" aria-label="Play">▶</button>
+    <div class="ad-info">
+      <span class="ad-title" id="dockTitle">停笔处，海云生</span>
+      <span class="ad-time" id="dockTime">0:00 / 0:00</span>
+    </div>
+    <div class="audio-progress" id="dockProgress" role="progressbar" aria-label="Playback progress">
+      <div class="ai-fill" id="dockFill"></div>
+    </div>
+    <button class="audio-dock-toggle" id="dockToggle" aria-label="Collapse player" title="Collapse">‹</button>
+    <!-- The single audio element, kept alive across page changes. -->
+    <audio id="bgAudio" preload="metadata" loop src="assets/audio/tingbi-chu-haiyun-sheng.mp3"></audio>
+  </div>
+
+  <script src="js/shell.js"></script>
+</body>
+</html>

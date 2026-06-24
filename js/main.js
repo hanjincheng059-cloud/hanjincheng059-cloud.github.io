@@ -6,6 +6,24 @@
 (function () {
   'use strict';
 
+  // --- Enter the persistent-music shell if opened as a top-level page ---
+  // The music lives in site-shell.html and is only continuous there. When a
+  // visitor lands directly on a page (bookmark, link, refresh), bounce them
+  // into the shell at the same page, unless we are ALREADY inside the shell.
+  if (window.top === window.self) {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    var hash = location.hash || '';
+    // Avoid an infinite loop: only redirect to the shell, which itself is
+    // never a top-level "content" page target.
+    if (path !== 'site-shell.html') {
+      try {
+        // Preserve the requested page so the shell opens it directly.
+        location.replace('site-shell.html#' + path + hash);
+        return; // stop further execution; page is navigating away
+      } catch (e) { /* ignore */ }
+    }
+  }
+
   // --- DOM refs ---
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
