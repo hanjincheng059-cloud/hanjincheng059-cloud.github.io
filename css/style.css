@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -22,9 +22,9 @@
   --color-border: #E5D5C0;
   --color-border-light: #F0E6D6;
 
-  --font-display: 'Cormorant Garamond', 'Noto Serif SC', serif;
-  --font-body: 'Source Serif 4', 'Noto Serif SC', serif;
-  --font-label: 'Crimson Pro', 'Noto Serif SC', serif;
+  --font-display: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  --font-body: 'Source Serif 4', 'Noto Serif TC', serif;
+  --font-label: 'Crimson Pro', 'Noto Serif TC', serif;
 
   --max-width: 880px;
   --nav-height: 64px;

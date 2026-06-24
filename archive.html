@@ -69,7 +69,7 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>SOIC Sales Catalogues, 1733–1759 <span style="font-size:1.1rem;font-weight:400">瑞典东印度公司销售账簿 · 中文翻译稿</span></h1>
+      <h1>SOIC Sales Catalogues, 1733–1759 <span style="font-size:1.1rem;font-weight:400">瑞典東印度公司銷售賬簿 · 中文翻譯稿</span></h1>
       <p class="page-desc">Full Chinese translation of the Riksarkivet Försäljningsböcker — 21 volumes, 2,003 pages, with a searchable auction database</p>
     </div>
   </header>
@@ -80,21 +80,21 @@
       <section class="section">
         <div class="stat-strip">
           <div><b>21</b>volumes 卷</div>
-          <div><b>2,003</b>pages 页</div>
+          <div><b>2,003</b>pages 頁</div>
           <div><b>1,469</b>tables 表格</div>
-          <div><b id="statRecords">19,000+</b>auction records 拍卖记录</div>
+          <div><b id="statRecords">19,000+</b>auction records 拍賣記錄</div>
         </div>
         <p class="muted">
           Translated from Riksarkivet, Ostindiska kompaniet, Försäljningsböcker (SE/RA/420132/31/2, microfilm R0002253–R0002259)
           and the Warwick digital series, 1733–1759. Translation completed June 2026. Data: CC BY 4.0 —
           <a href="digital.html#datasets">downloads &amp; citation</a> ·
-          <a href="assets/files/SOIC_翻译稿_整理版.docx" download>⬇ Word edition 整理版全文下载</a>.
+          <a href="assets/files/SOIC_翻译稿_整理版.docx" download>⬇ Word edition 整理版全文下載</a>.
         </p>
 
         <div class="tabs">
-          <button id="tabRead" class="active" onclick="showTab('read')">📖 Read 全文阅读</button>
-          <button id="tabSearch" onclick="showTab('search')">🔍 Search 全文检索</button>
-          <button id="tabData" onclick="showTab('data')">📊 Auction Database 拍卖数据</button>
+          <button id="tabRead" class="active" onclick="showTab('read')">📖 Read 全文閱讀</button>
+          <button id="tabSearch" onclick="showTab('search')">🔍 Search 全文檢索</button>
+          <button id="tabData" onclick="showTab('data')">📊 Auction Database 拍賣數據</button>
         </div>
       </section>
 
@@ -107,10 +107,10 @@
               <button onclick="gotoPage(pageIdx-1)">← Prev</button>
               <span class="pginfo" id="pgInfo"></span>
               <button onclick="gotoPage(pageIdx+1)">Next →</button>
-              <span class="pginfo">Jump to page 跳页:</span>
+              <span class="pginfo">Jump to page 跳頁:</span>
               <input type="number" id="pgJump" min="1" onchange="jumpToLabel(this.value)">
             </div>
-            <div id="pageBody"><div id="loading">Loading… 若长时间无内容，请通过本地服务器或 GitHub Pages 访问（file:// 无法加载数据）。</div></div>
+            <div id="pageBody"><div id="loading">Loading… 若長時間無內容，請通過本地服務器或 GitHub Pages 訪問（file:// 無法加載數據）。</div></div>
           </div>
         </div>
       </section>
@@ -118,24 +118,24 @@
       <!-- SEARCH -->
       <section class="section" id="paneSearch" style="display:none">
         <div class="searchbar">
-          <input id="ftQuery" placeholder="Search full text… 检索全文（如：Radix Chinæ / 茯苓 / Campbell / 武夷茶）" onkeydown="if(event.key==='Enter')runSearch()">
+          <input id="ftQuery" placeholder="Search full text… 檢索全文（如：Radix Chinæ / 茯苓 / Campbell / 武夷茶）" onkeydown="if(event.key==='Enter')runSearch()">
           <button class="pagebar-btn" style="padding:0.45rem 1.4rem;border:1px solid var(--color-border);border-radius:6px;background:var(--color-accent,#8B4513);color:#fff;cursor:pointer" onclick="runSearch()">Search</button>
         </div>
-        <p class="muted" id="ftStatus">Searches all 21 volumes (loads ~3 MB on first use). 首次检索需加载全部分卷数据。</p>
+        <p class="muted" id="ftStatus">Searches all 21 volumes (loads ~3 MB on first use). 首次檢索需加載全部分卷數據。</p>
         <div id="ftResults"></div>
       </section>
 
       <!-- DATABASE -->
       <section class="section" id="paneData" style="display:none">
         <div class="searchbar">
-          <input id="dbQuery" placeholder="Filter by item / buyer / lot… 按品名、买家、批号筛选（如：茶杯 / Sahlgren / 瓷）" oninput="renderDb()">
+          <input id="dbQuery" placeholder="Filter by item / buyer / lot… 按品名、買家、批號篩選（如：茶杯 / Sahlgren / 瓷）" oninput="renderDb()">
           <select id="dbVol" onchange="renderDb()"><option value="">All volumes 全部卷</option></select>
         </div>
         <p class="muted" id="dbStatus"></p>
         <div style="overflow-x:auto"><table class="db-table" id="dbTable">
           <thead><tr>
-            <th onclick="sortDb(0)">Volume 卷</th><th onclick="sortDb(1)">Page 页</th><th onclick="sortDb(3)">Lot 批号</th>
-            <th onclick="sortDb(4)">Qty 数量</th><th onclick="sortDb(5)">Item 品名</th><th onclick="sortDb(6)">Buyer 买家</th><th onclick="sortDb(7)">Price 价格</th>
+            <th onclick="sortDb(0)">Volume 卷</th><th onclick="sortDb(1)">Page 頁</th><th onclick="sortDb(3)">Lot 批號</th>
+            <th onclick="sortDb(4)">Qty 數量</th><th onclick="sortDb(5)">Item 品名</th><th onclick="sortDb(6)">Buyer 買家</th><th onclick="sortDb(7)">Price 價格</th>
           </tr></thead>
           <tbody></tbody>
         </table></div>
@@ -195,8 +195,8 @@
     const v = volCache[curVol]; if (!v) return;
     pageIdx = Math.max(0, Math.min(i, v.pages.length - 1));
     const pg = v.pages[pageIdx];
-    document.getElementById('pgInfo').textContent = `${v.title} — 第 ${pg.n} 页 (${pageIdx + 1}/${v.pages.length})`;
-    document.getElementById('pageBody').innerHTML = pg.blocks.map(renderBlock).join('') || '<p class="muted">（本页无文字内容）</p>';
+    document.getElementById('pgInfo').textContent = `${v.title} — 第 ${pg.n} 頁 (${pageIdx + 1}/${v.pages.length})`;
+    document.getElementById('pageBody').innerHTML = pg.blocks.map(renderBlock).join('') || '<p class="muted">（本頁無文字內容）</p>';
     window.scrollTo({ top: document.getElementById('paneRead').offsetTop - 80, behavior: 'smooth' });
   }
 
@@ -208,7 +208,7 @@
 
   function renderBlock(b) {
     if (b.t === 'h') return `<div class="blk-h">${esc(b.x)}</div>`;
-    if (b.t === 'n') return `<div class="blk-n"><strong style="color:var(--color-accent,#8B4513)">〖译注〗</strong>${esc(b.x)}</div>`;
+    if (b.t === 'n') return `<div class="blk-n"><strong style="color:var(--color-accent,#8B4513)">〖譯註〗</strong>${esc(b.x)}</div>`;
     if (b.t === 'li') return `<div class="blk-li">${esc(b.x)}</div>`;
     if (b.t === 'tb') return `<table class="blk-tb">${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c).replace(/\n/g, '<br>')}</td>`).join('')}</tr>`).join('')}</table>`;
     return `<div class="blk-p">${esc(b.x).replace(/\n/g, '<br>')}</div>`;
@@ -228,7 +228,7 @@
     const q = document.getElementById('ftQuery').value.trim();
     if (!q || !INDEX) return;
     const st = document.getElementById('ftStatus');
-    st.textContent = 'Loading volumes… 加载分卷数据…';
+    st.textContent = 'Loading volumes… 加載分卷數據…';
     Promise.all(INDEX.volumes.map(v => fetchVol(v.id))).then(() => {
       const ql = q.toLowerCase(); const hits = [];
       for (const meta of INDEX.volumes) {
@@ -247,12 +247,12 @@
           if (hits.length >= 300) break;
         }
       }
-      st.textContent = `${hits.length}${hits.length >= 300 ? '+' : ''} results 条结果 — “${q}”`;
+      st.textContent = `${hits.length}${hits.length >= 300 ? '+' : ''} results 條結果 — “${q}”`;
       const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
       document.getElementById('ftResults').innerHTML = hits.map(h =>
         `<div class="hit" onclick="showTab('read');loadVol(${h.vid},${h.pi})">
-          <span class="loc">${esc(h.vt)} · 第 ${h.pn} 页</span><br>${esc(h.snip).replace(re, m => '<mark>' + m + '</mark>')}</div>`).join('')
-        || '<p class="muted">No results. 未找到结果。</p>';
+          <span class="loc">${esc(h.vt)} · 第 ${h.pn} 頁</span><br>${esc(h.snip).replace(re, m => '<mark>' + m + '</mark>')}</div>`).join('')
+        || '<p class="muted">No results. 未找到結果。</p>';
     });
   }
 
@@ -303,7 +303,7 @@
     const slice = dbFiltered.slice(dbPage * PER, (dbPage + 1) * PER);
     document.querySelector('#dbTable tbody').innerHTML = slice.map(r =>
       `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td><td>${esc(r[5])}</td><td>${esc(r[6])}</td><td>${esc(r[7])}</td></tr>`).join('');
-    document.getElementById('dbStatus').textContent = `${dbFiltered.length.toLocaleString()} records 条记录`;
+    document.getElementById('dbStatus').textContent = `${dbFiltered.length.toLocaleString()} records 條記錄`;
     document.getElementById('dbPgInfo').textContent = `${dbPage + 1} / ${maxPg + 1}`;
   }
 
