@@ -109,4 +109,63 @@
     }
   })();
 
+  // --- Custom audio player ---
+  (function () {
+    document.querySelectorAll('.audio-interlude').forEach(function (root) {
+      var audio = root.querySelector('audio');
+      var playBtn = root.querySelector('.audio-play');
+      var progress = root.querySelector('.audio-progress');
+      var fill = root.querySelector('.ai-fill');
+      var timeEl = root.querySelector('.audio-time');
+      if (!audio || !playBtn) return;
+
+      var playIcon = playBtn.dataset.playIcon || '▶';
+      var pauseIcon = playBtn.dataset.pauseIcon || '❚❚';
+
+      function fmt(t) {
+        if (!isFinite(t) || t < 0) t = 0;
+        var m = Math.floor(t / 60);
+        var s = Math.floor(t % 60);
+        return m + ':' + (s < 10 ? '0' + s : s);
+      }
+
+      audio.addEventListener('loadedmetadata', function () {
+        timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      audio.addEventListener('timeupdate', function () {
+        var pct = (audio.currentTime / audio.duration) * 100 || 0;
+        fill.style.right = (100 - pct) + '%';
+        timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      });
+      audio.addEventListener('ended', function () {
+        playBtn.innerHTML = playIcon;
+        playBtn.setAttribute('aria-label', playBtn.dataset.playLabel || 'Play');
+        fill.style.right = '100%';
+      });
+
+      playBtn.addEventListener('click', function () {
+        document.querySelectorAll('audio').forEach(function (a) {
+          if (a !== audio) { a.pause(); }
+        });
+        if (audio.paused) {
+          audio.play();
+          playBtn.innerHTML = pauseIcon;
+          playBtn.setAttribute('aria-label', playBtn.dataset.pauseLabel || 'Pause');
+        } else {
+          audio.pause();
+          playBtn.innerHTML = playIcon;
+          playBtn.setAttribute('aria-label', playBtn.dataset.playLabel || 'Play');
+        }
+      });
+
+      progress.addEventListener('click', function (e) {
+        var rect = progress.getBoundingClientRect();
+        var ratio = (e.clientX - rect.left) / rect.width;
+        if (isFinite(audio.duration)) {
+          audio.currentTime = ratio * audio.duration;
+        }
+      });
+    });
+  })();
+
 })();
