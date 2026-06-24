@@ -1110,3 +1110,15 @@ html.shell-frame body {
   .audio-dock .audio-progress { display: none; }
   .audio-dock .ad-time { font-size: 0.68rem; }
 }
+
+/* --- Embedded inside the music shell's iframe ---
+   Hide the page's own nav bar (the shell provides one) and remove the
+   top spacing that page reserved for its own fixed nav. */
+html.embedded-in-shell .nav { display: none !important; }
+html.embedded-in-shell .page { padding-top: 0 !important; }
+/* Some pages use a page-header right under the nav; it has its own top
+   padding. Inside the shell it should sit flush at the iframe top. */
+html.embedded-in-shell .page-header { padding-top: 2.2rem !important; }
+/* The back-to-top button lives in the shell frame already; the inner page's
+   duplicate would overlap, so hide it. */
+html.embedded-in-shell .back-top { display: none !important; }

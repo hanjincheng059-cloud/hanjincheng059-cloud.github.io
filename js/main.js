@@ -24,6 +24,17 @@
     }
   }
 
+  // --- When embedded inside the music shell's iframe, hide THIS page's own
+  //     nav bar (the shell already provides one) and drop the top padding it
+  //     reserved for itself. Add the marker ASAP to avoid a layout flash.
+  if (window.top !== window.self) {
+    var embeddedClass = 'embedded-in-shell';
+    document.documentElement.classList.add(embeddedClass);
+    document.addEventListener('DOMContentLoaded', function () {
+      document.documentElement.classList.add(embeddedClass);
+    });
+  }
+
   // --- DOM refs ---
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
