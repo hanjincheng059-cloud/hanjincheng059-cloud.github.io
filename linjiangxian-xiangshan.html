@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>臨江仙 · 香山詞裏問濠鏡</title>
+<meta name="description" content="原創《臨江仙》一闋，擬晏幾道體，寫香山詞學傳統與澳門缺席之間的張力——雅音未許蠻風入，舊題襟上字，終不寫濠瀛。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23262e; --soft:#5b6270; --accent:#2f5a5c; --gold:#b08d57;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#eef3ec;border:1px solid rgba(238,243,236,.42);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(10,30,34,.32);backdrop-filter:blur(5px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(10,30,34,.5);}
+  .hero{position:relative;overflow:hidden;color:#eef3ec;padding:64px 24px 52px;text-align:center;
+        background:linear-gradient(165deg,#0a1a24 0%,#123040 48%,#1c4a4e 100%);}
+  .orb{position:absolute;top:34px;right:42px;width:74px;height:74px;border-radius:50%;
+        background:radial-gradient(circle at 38% 36%,#fffdf3,#f3e9c8 58%,#e3cf9c);
+        box-shadow:0 0 36px 10px rgba(247,238,200,.42),0 0 80px 30px rgba(90,150,150,.22);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.3rem,8vw,3.5rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#cfe0dc;letter-spacing:.12em;margin:.2em 0;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#a9c2bd;letter-spacing:.1em;margin:.15em 0 0;}
+  main{max-width:760px;margin:0 auto;padding:18px 22px 70px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.5em;margin:34px 0 8px;font-size:1.05rem;}
+  section{margin:30px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p{font-family:var(--kai);font-size:1.06rem;text-align:justify;text-indent:2em;color:#33363f;margin:0 0 12px;}
+  .poem{margin:8px 0 6px;}
+  .stanza{margin:30px 0;text-align:center;}
+  .stanza .seg{font-family:var(--kai);color:var(--gold);font-size:.82rem;letter-spacing:.3em;margin-bottom:6px;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.16rem,4.8vw,1.5rem);letter-spacing:.06em;
+              color:var(--ink);margin:.3em 0;line-height:1.95;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  .intro{color:var(--soft);font-size:.96rem;margin:-4px 0 16px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,60,60,.05);}
+  .card .mine{font-family:var(--kai);color:var(--ink);font-size:1.1rem;margin:0 0 7px;line-height:1.8;}
+  .card .why{color:#404652;font-size:.96rem;line-height:1.8;}
+  .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  .card .why .tag{background:var(--gold);}
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  .postscript p{font-family:var(--kai);font-size:1.04rem;text-align:justify;text-indent:2em;color:#33363f;margin:0 0 14px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:760px;margin:0 auto;}
+  @media (max-width:520px){
+    .hero{padding:58px 18px 40px;} .orb{width:54px;height:54px;top:22px;right:24px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:12px 16px 54px;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="haojing-xiange.html">返回《濠鏡弦歌詞稿》</a>
+  <header class="hero">
+    <div class="orb" aria-hidden="true"></div>
+    <h1>臨江仙</h1>
+    <div class="sub">詞牌名 · 擬晏幾道體</div>
+    <div class="sub2">香山詞裏問濠鏡</div>
+  </header>
+  <main>
+    <div class="ornament">✦ ❀ ✦</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>香山（今中山、珠海、澳門一帶）爲嶺南詞學重鎮，清中葉以降，黃培芳、陳澧、楊玉銜諸家迭出。然遍檢香山詞集，涉及澳門（濠鏡）者寥寥可數。澳門自明中葉即爲中西互市之要港，洋舶番貨、通事譯語，皆在目前；而雅正詞筆乃止於海岸，不寫濠瀛——此誠詞史上可思之沉默。因倚晏幾道《臨江仙》體，問此缺席。</p>
+      <p>此作以《臨江仙》晏幾道體意擬寫，未逐字校平仄。上下片各五句（7-6-7-5-5），韻腳城、輕、生、名、程、瀛，屬詞林正韻第十一部平聲庚青韻通押。若要按譜重填，可再據《欽定詞譜》逐字校准。</p>
+    </section>
+
+    <section class="poem">
+      <div class="stanza">
+        <p class="seg">上　片</p>
+        <p class="line">香山舊譜翻潮急，煙波自繞孤城。</p>
+        <p class="line">澳門帆影入詞輕。</p>
+        <p class="line">幾回停筆處，空有海雲生。</p>
+      </div>
+      <div class="stanza">
+        <p class="seg">下　片</p>
+        <p class="line">雅音未許蠻風入，誰知潮語無名。</p>
+        <p class="line">一灣微隔即千程。</p>
+        <p class="line">舊題襟上字，終不寫濠瀛。</p>
+      </div>
+      <p class="colophon">丙午夏，讀香山詞集有感而作，擬晏幾道《臨江仙》體。</p>
+    </section>
+
+    <section class="jianzhu">
+      <h2>箋註 · 詞牌與作意</h2>
+      <p class="intro">《臨江仙》原唐教坊曲，晏幾道「夢後樓臺高鎖」一闋最爲世傳。雙調五十四字（或五十八字），上下片各五句，平韻。此調宜寫臨流懷遠、今昔對照，聲情清麗中帶微茫——正合「香山詞不寫濠鏡」這一歷史沉默的體量：不是壯烈的拒絕，而是輕微的、不自覺的不寫。</p>
+      <div class="card">
+        <p class="mine">香山舊譜翻潮急，煙波自繞孤城</p>
+        <div class="why"><span class="tag">作意</span>「舊譜」雙關：既指香山詞學譜系（詞牌、詞譜），也指歷史檔案與地方文獻。「翻潮急」謂翻檢舊譜之時，歷史之潮聲已然迫人——但詞筆所及，煙波只繞孤城（香山縣城），不向外延伸。香山本瀕海，詞卻「自繞」內陸，此即缺席之始。</div>
+      </div>
+      <div class="card">
+        <p class="mine">澳門帆影入詞輕</p>
+        <div class="why"><span class="tag">作意</span>「入詞輕」三字是全詞最要緊處。不是沒有入詞——帆影是入了的，但入得極輕，輕到幾乎不被察覺。澳門在香山詞中的存在，就是這樣一種「輕」的存在：看得見，但未被正式寫入。「輕」字既寫帆影之遠，也寫詞筆之猶豫。</div>
+      </div>
+      <div class="card">
+        <p class="mine">幾回停筆處，空有海雲生</p>
+        <div class="why"><span class="tag">作意</span>「停筆」是詞人的動作——數度欲寫而擱筆。停筆之處，詞未成，只有海上雲氣自生自滅。此句將缺席從「未寫」轉爲「曾欲寫而未寫」，使沉默有了重量，也使「空」字不是虛無，而是充滿水汽和可能的空。</div>
+      </div>
+      <div class="card">
+        <p class="mine">雅音未許蠻風入，誰知潮語無名</p>
+        <div class="why"><span class="tag">作意</span>下片直問缺席之由。「雅音」謂詞的雅正文體傳統，「蠻風」謂澳門中西交匯的口岸風氣——不是貶義，而是詞體自身的文體門檻：雅正之音不允許（或不知如何容納）來自口岸的混合語聲。「誰知潮語無名」則是反問：潮水有聲，但這聲音在詞裏沒有名字。不是潮語不存在，是詞沒有給它位置。</div>
+      </div>
+      <div class="card">
+        <p class="mine">一灣微隔即千程。舊題襟上字，終不寫濠瀛</p>
+        <div class="why"><span class="tag">作意</span>香山與澳門只一灣之隔（十字門水道），地理上極近；但在詞的文體版圖上，一灣就是千里——距離是文體的，不是地理的。「題襟」用唐人「題襟集」典，指文人酬唱題詠；舊題襟上的字，寫了許多人、許多事，卻「終不寫濠瀛」。「終」字不是一時疏忽，而是體制性的、持續的、最終的不寫。</div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>註釋 · 詞語</h2>
+      <div class="note"><span class="term">香山</span><span class="gloss">清代香山縣，轄今中山、珠海及澳門。清中葉以降爲嶺南詞學重鎮，黃培芳（香石）、陳澧（蘭甫）、楊玉銜（鐵夫）等皆香山籍或久居其地。</span></div>
+      <div class="note"><span class="term">舊譜</span><span class="gloss">雙關：一指詞譜、詞牌之譜系；二指歷史文獻與地方檔案。香山文人編纂詞集、方志之傳統深厚，「舊譜」兼指此二者。</span></div>
+      <div class="note"><span class="term">濠鏡 · 濠瀛</span><span class="gloss">澳門古稱。濠鏡（蠔鏡）以其地多產蠔、海水如鏡而得名；濠瀛則以「瀛」字（海中仙山、海外之地）暗示澳門之跨海屬性——既是地理的海外，也是文體的「域外」。</span></div>
+      <div class="note"><span class="term">帆影</span><span class="gloss">澳門內港、十字門水道自古帆檣雲集。帆影入詞「輕」，既寫視覺上的遠淡，也寫詞人處理口岸題材時的文體輕重判斷。</span></div>
+      <div class="note"><span class="term">雅音</span><span class="gloss">詞體自南宋以後以「雅正」爲宗，張炎《詞源》力倡「騷雅」。雅音代表詞的文體正統與審美門檻——不是貶義，但確實構成了一個排斥性的邊界。</span></div>
+      <div class="note"><span class="term">蠻風</span><span class="gloss">此處非貶義，而是指來自口岸的、混合了中西貿易、通事譯語、番舶洋貨的異質文化氣息。「蠻」字借自古典詞彙（如姜夔「蠻煙瘴雨」），但在這首詞裏指向的是詞體對口岸混雜性的文體不適。</span></div>
+      <div class="note"><span class="term">潮語</span><span class="gloss">雙關：字面是潮水之聲；深層指向口岸地帶的混雜語聲——通事的翻譯、蜑家的漁歌、番舶上的外語。這些聲音存在，但在詞裏「無名」——沒有被命名、沒有被寫入。</span></div>
+      <div class="note"><span class="term">一灣</span><span class="gloss">香山與澳門之間的十字門水道，明清番舶出入之要津。地理上不過數里，文體上卻隔千里——此即全詞核心張力。</span></div>
+      <div class="note"><span class="term">題襟</span><span class="gloss">典出唐段成式、溫庭筠等《漢上題襟集》，後泛指文人之間的詩詞酬唱與題詠。「舊題襟上字」即舊日文人交往中留下的那些題詠文字。</span></div>
+      <div class="note"><span class="term">臨江仙</span><span class="gloss">原唐教坊曲，後用作詞牌。晏幾道「夢後樓臺高鎖」最爲知名。雙調五十四至五十八字，平韻。此調聲情清麗中帶微茫，適合寫臨流懷遠、今昔對照。</span></div>
+    </section>
+
+    <section class="postscript">
+      <h2>跋</h2>
+      <p>這首詞起於一個研究中的發現：翻檢清代香山詞集，涉及澳門的篇什極少。澳門自明嘉靖年間即爲葡人據居，至清中葉已成中西貿易之樞紐——洋舶、通事、番貨、教堂，無一不是文學的好材料。但香山詞人偏偏不寫。不是寫不了，是「不寫」本身即是一種文體選擇：雅正的詞體傳統，在面對口岸的混雜性時，選擇了沉默。</p>
+      <p>這種沉默不是缺陷，而是證據。它告訴我們詞體在清代晚期如何面對（或不面對）一個急劇變化的海岸世界。這首《臨江仙》不是要替古人補寫澳門——古人自有古人的理由——而是要讓「不寫」本身成爲可見的：那些停筆的時刻、擱置的帆影、無名的潮語，都是歷史的一部分。</p>
+      <p>詞中用「雅音未許蠻風入」不是批判。雅音是詞體的根，蠻風是口岸的現實——二者之間不是善惡對立，而是文體與世界之間真實的、尚未解決的張力。這首詞所做的，只是讓這種張力浮出水面。</p>
+    </section>
+  </main>
+  <footer>
+    原創《臨江仙》一闋　|　擬晏幾道體，香山詞裏問濠鏡　|　Open-access web edition
+  </footer>
+</body>
+</html>
