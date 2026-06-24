@@ -288,10 +288,24 @@ a:hover {
   box-shadow: 0 2px 12px rgba(44, 36, 22, 0.08);
 }
 
+.hero-avatar-literary {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .hero h1 {
   font-size: 2.8rem;
   margin-bottom: 0.3rem;
   color: var(--color-primary);
+}
+
+.literary-title {
+  font-family: var(--font-label);
+  font-size: 0.92rem;
+  color: var(--color-secondary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
 }
 
 .hero .subtitle {
@@ -496,6 +510,41 @@ a.card:hover .card-arrow {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.page-desc {
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  margin-top: 0.35rem;
+}
+
+.zh-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.zh-profile-card h2 {
+  margin-bottom: 0.4rem;
+}
+
+.zh-profile-photo {
+  width: 118px;
+  height: 156px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  box-shadow: 0 2px 10px rgba(44, 36, 22, 0.08);
+  flex-shrink: 0;
+}
+
+.zh-courtesy {
+  font-family: var(--font-label);
+  color: var(--color-secondary);
+  margin-bottom: 0;
 }
 
 /* --- Research Project --- */
@@ -758,6 +807,10 @@ a.card:hover .card-arrow {
     max-width: 200px;
   }
 
+  .zh-profile-card {
+    align-items: flex-start;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }
@@ -778,6 +831,10 @@ a.card:hover .card-arrow {
   .hero .subtitle { font-size: 1rem; }
 
   .container { padding: 0 1rem; }
+
+  .zh-profile-card {
+    flex-direction: column;
+  }
 }
 
 /* --- Print styles --- */
