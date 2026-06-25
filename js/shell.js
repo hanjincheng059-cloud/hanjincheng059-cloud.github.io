@@ -5,11 +5,11 @@
  * this shell holds a single <audio> element that is NEVER destroyed when the
  * visitor navigates between pages, so the music plays uninterrupted.
  *
- * Responsibilities:
- *   - Attempt autoplay; if the browser blocks it, show a one-click unlock.
- *   - Keep the floating mini-player in sync (play/pause, time, progress, seek).
- *   - Highlight the active nav link as the iframe changes pages.
- *   - Run the mobile nav toggle for the shell-level nav.
+ * Autoplay strategy (browser-safe):
+ *   Browsers block autoplay WITH sound until the user interacts with the page,
+ *   but they ALLOW muted autoplay. So we start the audio MUTED right away, and
+ *   unmute on the very first user gesture anywhere (click/touch/keydown). This
+ *   makes the music "start by itself" on entry.
  */
 
 (function () {
@@ -31,6 +31,8 @@
   var PLAY_ICON  = playBtn.dataset.playIcon  || '▶';
   var PAUSE_ICON = playBtn.dataset.pauseIcon || '❚❚';
 
+  var unmuted = false; // has the user's first gesture unmuted us yet?
+
   /* ---------- helpers ---------- */
   function fmt(t) {
     if (!isFinite(t) || t < 0) t = 0;
@@ -47,21 +49,38 @@
     dock.classList.toggle('playing', isPlaying);
   }
 
+  function setMutedUI(muted) {
+    dock.classList.toggle('is-muted', muted);
+  }
+
   /* ---------- playback ---------- */
+  // Start playback. We keep it muted until a gesture unmutes it, so the
+  // browser's autoplay policy never blocks us.
   function startPlayback() {
+    audio.muted = !unmuted; // muted if not yet unlocked by a gesture
     var p = audio.play();
     if (p && typeof p.then === 'function') {
       p.then(function () {
         setPlayingUI(true);
-        hideUnlock();
       }).catch(function () {
-        // Still blocked — keep the unlock prompt visible.
+        // Even muted autoplay can fail on a few strict browsers; show the
+        // unlock button as a fallback.
         showUnlock();
       });
     } else {
       setPlayingUI(true);
-      hideUnlock();
     }
+  }
+
+  // Unmute as soon as the browser allows (after a gesture).
+  function unmute() {
+    if (unmuted) return;
+    unmuted = true;
+    audio.muted = false;
+    setMutedUI(false);
+    hideUnlock();
+    // Make sure it is actually playing.
+    if (audio.paused) startPlayback();
   }
 
   playBtn.addEventListener('click', function () {
@@ -77,7 +96,7 @@
     fill.style.right = (100 - pct) + '%';
     timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
   });
-  audio.addEventListener('play',  function () { setPlayingUI(true);  hideUnlock(); });
+  audio.addEventListener('play',  function () { setPlayingUI(true); });
   audio.addEventListener('pause', function () { setPlayingUI(false); });
 
   // Seek by clicking the progress bar.
@@ -87,34 +106,36 @@
     if (isFinite(audio.duration)) audio.currentTime = ratio * audio.duration;
   });
 
-  /* ---------- autoplay unlock ---------- */
+  /* ---------- unmute prompt + first-gesture unlock ---------- */
   function showUnlock() { unlockBtn.classList.remove('hidden'); }
   function hideUnlock() { unlockBtn.classList.add('hidden'); }
 
+  // Clicking the prompt itself counts as a gesture -> unmute + play.
   unlockBtn.addEventListener('click', function (e) {
     e.stopPropagation();
-    startPlayback();
+    unmute();
   });
 
-  // Any first interaction with the document also unlocks autoplay.
-  function unlockOnInteract() {
-    if (audio.paused) startPlayback();
-    document.removeEventListener('click', unlockOnInteract);
-    document.removeEventListener('keydown', unlockOnInteract);
-    document.removeEventListener('touchstart', unlockOnInteract);
+  // The very first interaction ANYWHERE on the shell (or inside the iframe)
+  // unmutes the music. This is the key to "music starts on its own".
+  function onFirstGesture() {
+    unmute();
+    document.removeEventListener('click', onFirstGesture, true);
+    document.removeEventListener('touchstart', onFirstGesture, true);
+    document.removeEventListener('keydown', onFirstGesture, true);
   }
+  // Capture phase + window-level so clicks inside the iframe bubble up via
+  // the iframe element's own events on this document.
+  ['click', 'touchstart', 'keydown'].forEach(function (evt) {
+    document.addEventListener(evt, onFirstGesture, true);
+  });
 
-  // Try autoplay right away. Browsers generally block unmuted autoplay before
-  // a gesture, so we also listen for the first interaction as a fallback.
+  /* ---------- start: muted autoplay immediately ---------- */
+  audio.muted = true;
+  setMutedUI(true);
   startPlayback();
-  setTimeout(function () {
-    if (audio.paused) {
-      showUnlock();
-      document.addEventListener('click', unlockOnInteract, { once: true });
-      document.addEventListener('keydown', unlockOnInteract, { once: true });
-      document.addEventListener('touchstart', unlockOnInteract, { once: true });
-    }
-  }, 600);
+  // If muted autoplay somehow failed, surface the one-click prompt.
+  setTimeout(function () { if (audio.paused) showUnlock(); }, 700);
 
   /* ---------- collapse / expand the dock ---------- */
   toggleBtn.addEventListener('click', function () {

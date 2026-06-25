@@ -1078,6 +1078,31 @@ html.shell-frame body {
 }
 .audio-dock-toggle:hover { background: var(--color-border-light); }
 
+/* Muted state: while the browser waits for the first gesture to allow sound,
+   the dock dims and the disc does not spin — a subtle cue that one click
+   anywhere will bring the music to life. */
+.audio-dock.is-muted {
+  opacity: 0.78;
+}
+.audio-dock.is-muted .ad-disc {
+  border-color: var(--color-border);
+  background: radial-gradient(circle at 50% 50%, var(--color-card) 0 4px,
+              var(--color-text-muted) 5px 100%);
+}
+.audio-dock.is-muted .audio-play {
+  position: relative;
+}
+.audio-dock.is-muted .audio-play::after {
+  content: '🔇';
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  font-size: 0.7rem;
+  background: var(--color-bg);
+  border-radius: 50%;
+  padding: 1px;
+}
+
 /* Autoplay hint shown until the first user interaction unlocks audio */
 .audio-unlock {
   position: fixed;
