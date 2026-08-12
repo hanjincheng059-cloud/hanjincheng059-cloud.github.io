@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>海天長風 · The Wide Sea and Sky — 長恨歌</title>
+<meta name="description" content="效白居易《長恨歌》七言古體，凡一百二十句，八百四十言。自少居明水、遇梅氏女，至澳門求學、治廣州貿易史、病中歸鄉，終客珠海而將赴美訪學——半生行旅，一恨貫之。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23262e; --soft:#5b6270; --accent:#4a6b5a; --gold:#b08d57;
+    --paper:#f7f4ec; --panel:#fffdf8; --line:#e2dccd;
+    --kai:"Kaiti TC","STKaiti","KaiTi","BiauKai","Noto Serif TC",serif;
+    --serif:"Noto Serif TC","Songti TC","STSong",serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.9;}
+  a{color:var(--accent);}
+  .site-return{position:fixed;top:18px;left:18px;z-index:10;color:#f2eedf;border:1px solid rgba(242,238,223,.42);
+    border-radius:999px;padding:5px 13px;text-decoration:none;background:rgba(13,19,48,.32);backdrop-filter:blur(5px);
+    font-size:.86rem;letter-spacing:.04em;}
+  .site-return:hover{background:rgba(13,19,48,.5);}
+  /* header — spring water & ink wash */
+  .hero{position:relative;overflow:hidden;
+    background:linear-gradient(165deg,#0a1a14 0%,#132e24 35%,#1a3d2e 65%,#1e4534 100%);
+    color:#f2eedf;padding:64px 24px 52px;text-align:center;}
+  .water-ripple{position:absolute;bottom:0;left:0;right:0;height:80px;
+    background:linear-gradient(0deg,var(--paper) 0%,transparent 100%);}
+  .hero h1{margin:.1em 0 .12em;font-family:var(--kai);font-weight:700;letter-spacing:.34em;
+           font-size:clamp(2.3rem,8vw,3.5rem);text-indent:.34em;}
+  .hero .sub{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#b8d4c4;letter-spacing:.12em;margin:.2em 0;}
+  .hero .sub2{font-family:var(--kai);font-size:clamp(.95rem,3.4vw,1.12rem);color:#8cb89e;letter-spacing:.1em;margin:.15em 0 0;}
+  /* layout */
+  main{max-width:760px;margin:0 auto;padding:18px 22px 70px;}
+  .ornament{text-align:center;color:var(--gold);letter-spacing:.5em;margin:34px 0 8px;font-size:1.05rem;}
+  section{margin:30px 0;}
+  h2{font-family:var(--kai);color:var(--accent);font-weight:700;font-size:1.32rem;letter-spacing:.14em;
+     margin:0 0 16px;padding-bottom:9px;border-bottom:2px solid var(--accent);}
+  .preface p{font-family:var(--kai);font-size:1.06rem;text-align:justify;text-indent:2em;color:#33363f;margin:0 0 10px;}
+  /* poem */
+  .poem{margin:8px 0 6px;}
+  .chapter{margin:38px 0;text-align:center;}
+  .chapter-num{font-family:var(--kai);font-size:.88rem;color:var(--accent);letter-spacing:.2em;
+               margin-bottom:4px;text-transform:uppercase;}
+  .chapter-title{font-family:var(--kai);font-size:1.15rem;color:var(--gold);letter-spacing:.15em;
+                 margin-bottom:14px;}
+  .poem .line{font-family:var(--kai);font-size:clamp(1.18rem,4.8vw,1.52rem);letter-spacing:.07em;
+              color:var(--ink);margin:.28em 0;line-height:1.85;}
+  .section-divider{text-align:center;color:var(--line);letter-spacing:.6em;margin:8px 0;font-size:.9rem;
+                    user-select:none;}
+  .colophon{text-align:right;font-family:var(--kai);color:var(--soft);margin-top:20px;
+            border-top:1px solid var(--line);padding-top:14px;}
+  /* 小注 */
+  .note{margin:12px 0;font-size:1rem;}
+  .note .term{font-family:var(--kai);font-weight:700;color:var(--accent);margin-right:.7em;}
+  .note .gloss{color:#3a3f49;}
+  /* announcement card */
+  .announce{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+        border-radius:8px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(40,50,70,.05);}
+  .announce p{font-family:var(--kai);color:var(--ink);font-size:1.04rem;margin:.3em 0;}
+  .announce .tag{display:inline-block;font-family:var(--serif);font-size:.72rem;letter-spacing:.1em;color:#fff;
+       background:var(--accent);border-radius:4px;padding:1px 7px;margin-right:9px;vertical-align:2px;}
+  footer{text-align:center;color:var(--soft);font-size:.86rem;padding:26px 16px 40px;border-top:1px solid var(--line);
+         max-width:760px;margin:0 auto;}
+  @media (max-width:520px){
+    .hero{padding:58px 18px 40px;}
+    .site-return{position:absolute;top:14px;left:14px;font-size:.78rem;}
+    main{padding:12px 16px 54px;}
+    .poem .line{font-size:1.12rem;}
+  }
+</style>
+</head>
+<body>
+  <a class="site-return" href="index.html">返回主頁</a>
+  <header class="hero">
+    <h1>長恨歌</h1>
+    <div class="sub">效唐 · 白居易《長恨歌》七言古體</div>
+    <div class="sub2">甲辰秋，追惟昔遊，感白傅〈長恨〉之歌，因為此篇。凡百二十韻，八百四十言。</div>
+    <div class="water-ripple" aria-hidden="true"></div>
+  </header>
+  <main>
+    <div class="ornament">❀ 泉 ❀</div>
+
+    <section class="preface">
+      <h2>小序</h2>
+      <p>余少居章丘明水，百脈泉湧，清照祠在焉。弱冠之年，遇梅氏女於繡江之畔，情好甚篤。無何，余將赴澳門求學，遂與訣別。其後輾轉嶺南、海外，治廣州口岸貿易史。博三得疾，休學半載。今夏力疾歸里，為口腹計，又即離去，客珠海，教人度己。秋當赴美訪學。追惟昔遊，恍如隔世。感白傅〈長恨〉之歌，因為此篇，凡八百四十言，命曰〈長恨〉。</p>
+    </section>
+
+    <section class="poem">
+
+      <!-- 一 -->
+      <div class="chapter">
+        <div class="chapter-num">一</div>
+        <div class="chapter-title">泉水 · 起興</div>
+        <p class="line">百脈泉湧出繡江，清波十里繞城牆。</p>
+        <p class="line">明水古城春來早，楊柳依依拂畫梁。</p>
+        <p class="line">清照祠堂詞魄在，我生此地十六霜。</p>
+        <p class="line">泉邊少年不知恨，只道人間日月長。</p>
+        <p class="line">春水年年送花去，不知花落到何方。</p>
+        <p class="line">當時只愛泉聲好，未識人間有別腸。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 二 -->
+      <div class="chapter">
+        <div class="chapter-num">二</div>
+        <div class="chapter-title">相遇 · 小梅</div>
+        <p class="line">繡江春漲綠如醅，那日尋詩過水隈。</p>
+        <p class="line">祠畔寒梅初破雪，有人花下立皚皚。</p>
+        <p class="line">羅衣不染塵間色，鬢影渾非時世裁。</p>
+        <p class="line">欲問芳名先自怯，梅花影裡獨遲徊。</p>
+        <p class="line">清照詞中曾讀汝，賭書消得潑茶回。</p>
+        <p class="line">從此泉聲兼笑語，朝朝踏露過橋來。</p>
+        <p class="line">春日同看泉眼沸，夏來聯句藕花隈。</p>
+        <p class="line">秋窗共讀〈聊齋〉志，狐比人真兩不猜。</p>
+        <p class="line">冬雪圍爐烹越茗，折梅簪鬢映顏開。</p>
+        <p class="line">四時風物皆成句，不信人間有別裁。</p>
+        <p class="line">清照祠堂重到處，賭書賭得萬緣諧。</p>
+        <p class="line">小梅知我非池物，卻背銀釭珠淚垂。</p>
+        <p class="line">那日書從海上至，澳門學府遠相催。</p>
+        <p class="line">欲行不行心百轉，欲語不語夜千回。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 三 -->
+      <div class="chapter">
+        <div class="chapter-num">三</div>
+        <div class="chapter-title">離別 · 繡江</div>
+        <p class="line">繡江渡口秋風發，水寒煙冷柳初折。</p>
+        <p class="line">她立渡頭未肯去，我在船中不敢瞥。</p>
+        <p class="line">船已離岸不回眼，她在渡頭猶未輟。</p>
+        <p class="line">梅枝一折沉寒淥，從此繡江無復月。</p>
+        <p class="line">初到濠鏡萬事新，十字門開水氣渾。</p>
+        <p class="line">粵語葡言兩不辨，嶺南炎瘴未曾聞。</p>
+        <p class="line">音書初到燈前讀，字字猶如繡江春。</p>
+        <p class="line">漸行漸遠漸無信，不是無情是路深。</p>
+        <p class="line">有時擱筆望西北，繡江應在暮雲沉。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 四 -->
+      <div class="chapter">
+        <div class="chapter-num">四</div>
+        <div class="chapter-title">嶺南 · 治學</div>
+        <p class="line">晝入檔館翻舊牘，東洋公司瑞典名。</p>
+        <p class="line">通事譯語多訛誤，行商賬目字斜橫。</p>
+        <p class="line">夷館舊牆苔已蝕，洋舶遠影入空城。</p>
+        <p class="line">廣州口岸十三行，殘檔塵封墨尚明。</p>
+        <p class="line">我以舊牘掩心緒，卻從紙隙見前緣。</p>
+        <p class="line">行商半是羈旅客，通事從來兩不邊。</p>
+        <p class="line">譯山譯海譯生死，最難譯得是心言。</p>
+        <p class="line">有時擱筆忽自笑，我亦人間譯語人。</p>
+        <p class="line">晝譯夷文夜譯夢，譯來譯去剩書塵。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 五 -->
+      <div class="chapter">
+        <div class="chapter-num">五</div>
+        <div class="chapter-title">病中 · 沉痾</div>
+        <p class="line">博三積瘁病來侵，案頭舊牘如山積，</p>
+        <p class="line">胸中氣血不成霖。</p>
+        <p class="line">服藥經旬不見起，醫言須暫廢書琴。</p>
+        <p class="line">休學文書一紙下，從此光陰屬藥砧。</p>
+        <p class="line">半載沉沉如隔世，一身猶在死生潯。</p>
+        <p class="line">同窗各自爭前去，我獨空齋數漏音。</p>
+        <p class="line">病中最是清明夜，夢回明水聽泉吟。</p>
+        <p class="line">夢裡小梅猶煮茗，青瓷素手注泉深。</p>
+        <p class="line">欲喚無聲喉已哽，醒來唯有月西沉。</p>
+        <p class="line">茶煙散盡人何處，繡江一去幾千岑。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 六 -->
+      <div class="chapter">
+        <div class="chapter-num">六</div>
+        <div class="chapter-title">歸鄉 · 不歸</div>
+        <p class="line">今夏力疾歸故里，百脈泉聲尚如昨。</p>
+        <p class="line">清照祠堂燕已非，繡江橋畔梅盡落。</p>
+        <p class="line">家人相看各蒼然，欲問飄零淚先落。</p>
+        <p class="line">本擬歸來住幾時，明朝又告行期確。</p>
+        <p class="line">生計驅人如轉蓬，珠海蝸居暫棲泊。</p>
+        <p class="line">為人指點登龍術，卻笑自家無岸泊。</p>
+        <p class="line">門前送盡登舟客，唯有珠江潮夜作。</p>
+        <p class="line">教人度己兩無成，獨對炎方燈火爍。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 七 -->
+      <div class="chapter">
+        <div class="chapter-num">七</div>
+        <div class="chapter-title">訪學 · 更西</div>
+        <p class="line">秋來病骨稍輕安，更向西溟萬里摶。</p>
+        <p class="line">洛杉磯城初見日，棕櫚夾道不知寒。</p>
+        <p class="line">劫後看山山更遠，客中訪學客中看。</p>
+        <p class="line">夜深獨過Westwood，一燈如月在闌干。</p>
+        <p class="line">此城終歲無多雨，每雨便思當日傘。</p>
+        <p class="line">那時她在繡江畔，青傘斜遮雨未斷。</p>
+        <p class="line">十年身已海西頭，唯有泉聲在夢畔。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 八 -->
+      <div class="chapter">
+        <div class="chapter-num">八</div>
+        <div class="chapter-title">尋覓 · 玉京</div>
+        <p class="line">十載治學如治心，所學愈深恨愈深。</p>
+        <p class="line">上窮檔館下滄海，字隙紙痕細細斟。</p>
+        <p class="line">有時恍覺梅影近，殘頁翻過無一字，</p>
+        <p class="line">方知名字不藏今。</p>
+        <p class="line">學能窮盡天海事，不能窮盡一人音。</p>
+        <p class="line">清人筆記明人牘，翻到燈昏漏欲沉。</p>
+        <p class="line">每見梅花題詠處，總疑她在字間吟。</p>
+        <p class="line">此身已作通事老，譯山譯海譯空林。</p>
+        <p class="line">最難譯得是當日，她在花前我在琴。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 九 -->
+      <div class="chapter">
+        <div class="chapter-num">九</div>
+        <div class="chapter-title">夢回 · 仙山</div>
+        <p class="line">昨夜分明夢明水，百脈泉湧如當年。</p>
+        <p class="line">清照祠前梅又發，有人花下立依然。</p>
+        <p class="line">夢中猶是舊顏色，我已塵霜滿鬢邊。</p>
+        <p class="line">她問君行幾萬里，我言海盡更無前。</p>
+        <p class="line">欲把梅枝還贈我，羅袖方舉忽成煙。</p>
+        <p class="line">伸手欲接夢已破，唯有洛城月在天。</p>
+        <p class="line">空拳握得心魂在，始信重逢惟夢田。</p>
+      </div>
+
+      <div class="section-divider">◇</div>
+
+      <!-- 十 -->
+      <div class="chapter">
+        <div class="chapter-num">十</div>
+        <div class="chapter-title">恨結 · 尾聲</div>
+        <p class="line">繡江一去不復返，十字門空海自流。</p>
+        <p class="line">此生已失還鄉路，更向天西盡處遊。</p>
+        <p class="line">泉聲漸遠濤聲近，梅影全消化字囚。</p>
+        <p class="line">若使當時舟不發，未必人間到白頭。</p>
+        <p class="line">當時若解長恨意，不向澳門向明水，</p>
+        <p class="line">小梅還在花還稠。</p>
+        <p class="line">天長地久有時盡，此恨綿綿無絕休。</p>
+      </div>
+
+      <p class="colophon">甲辰秋，效白傅〈長恨歌〉體，凡一百二十句，八百四十言。</p>
+    </section>
+
+    <section class="notes">
+      <h2>小注</h2>
+      <div class="note"><span class="term">體裁</span><span class="gloss">本篇效白居易〈長恨歌〉七言古體，凡一百二十句，八百四十言。用韻以中華通韻為基準，隨段轉韻。第一章 ang/iang/uang（第十三部）。第二章韻腳密集，合口 ei/ui（第八部）與開口 ai（第四部）交替為韻，末轉入 ie/e（第二部）轉 ui（第八部），取聲情之宛轉。第三章 e/ie/ue（第二部）轉入 en/in/un（第十二部）。第四章 eng/ing/ueng（第十四部）轉入 an/ian（第十一部）再轉入 en/in/un（第十二部），層層遞進。</span></div>
+      <div class="note"><span class="term">Westwood</span><span class="gloss">UCLA 所在街區，以異語入詩，效古人以梵語入歌行之例。</span></div>
+      <div class="note"><span class="term">明水 · 繡江 · 百脈泉</span><span class="gloss">作者故里山東章丘明水鎮，百脈泉為濟南七十二名泉之一，李清照故居在焉。繡江源出百脈泉，北流入小清河。</span></div>
+      <div class="note"><span class="term">清照祠</span><span class="gloss">李清照（1084–約1155），號易安居士，宋代女詞人，章丘明水人。祠在百脈泉畔。「賭書消得潑茶回」用李清照〈金石錄後序〉典故。</span></div>
+      <div class="note"><span class="term">十字門</span><span class="gloss">澳門別稱，因澳門半島、氹仔、路環與大小橫琴島四面環列，水道縱橫如十字，故稱。</span></div>
+      <div class="note"><span class="term">十三行</span><span class="gloss">清代廣州對外貿易之公行制度，為作者博士論文研究對象。</span></div>
+      <div class="note"><span class="term">通事</span><span class="gloss">清代廣州口岸之翻譯人員，負責中外商人間之語言溝通與文書往來。詩中以「譯語人」自況——既譯夷文，亦譯心事。</span></div>
+      <div class="note"><span class="term">擬詞</span><span class="gloss">平仄未盡依律，讀者鑒之。</span></div>
+    </section>
+
+    <section class="announce">
+      <p><span class="tag">題解</span>「長恨」者，非獨兒女之情也。自繡江一別，澳門、嶺南、珠海、洛城——半生行旅，每去愈遠。學可以通古今中外，而不能通一人之心；檔可以窮天壤四海，而不能窮一別之恨。「天長地久有時盡，此恨綿綿無絕休」——白傅原句，一字不易，而此恨已非彼恨矣。</p>
+    </section>
+
+  </main>
+  <footer>
+    效唐 · 白居易〈長恨歌〉七言古體　|　甲辰秋作　|　凡一百二十句，八百四十言
+  </footer>
+  <script>/* enter music shell if opened as a top-level page */if(window.top===window.self){var p=location.pathname.split('/').pop()||'index.html';if(p!=='site-shell.html'){location.replace('site-shell.html#'+p+location.hash);}}</script>
+</body>
+</html>
